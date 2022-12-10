@@ -1,18 +1,18 @@
 # STAT 2 - Introduction to Statistics
 
-- Description: This course is designed primarily as a basic introductory course for statistical thinking. It is not very mathematical. Neither linear algebra nor calculus is required, although some concepts seem more natural if you've taken these courses. You do need to be comfortable with math at the level of high-school algebra (e.g., the equation of a straight line, plotting points, taking powers and roots, percentages). The middle of the course involves a fair amount of combinatorics—counting.
+- __Description__: This course is designed primarily as a basic introductory course for statistical thinking. It is not very mathematical. Neither linear algebra nor calculus is required, although some concepts seem more natural if you've taken these courses. You do need to be comfortable with math at the level of high-school algebra (e.g., the equation of a straight line, plotting points, taking powers and roots, percentages). The middle of the course involves a fair amount of combinatorics—counting.
 
-The emphasis of the course is critical thinking about quantitative evidence. Topics include reasoning and fallacies, descriptive statistics, association, correlation, regression, elements of probability, set theory, chance variability, random variables, expectation, standard error, sampling, hypothesis tests, confidence intervals, experiments and observational studies, as well as common techniques of presenting data in misleading ways.
+- The emphasis of the course is critical thinking about quantitative evidence. Topics include reasoning and fallacies, descriptive statistics, association, correlation, regression, elements of probability, set theory, chance variability, random variables, expectation, standard error, sampling, hypothesis tests, confidence intervals, experiments and observational studies, as well as common techniques of presenting data in misleading ways.
 
-- Instructor: Gaston Sanchez
+- __Instructor__: Gaston Sanchez
 
-- Lecture: 2 days p/week; 1.5 hours each day
+- __Lecture__: 2 days p/week; 1.5 hours each day
 
-- Assignments: weekly HW assignments
+- __Assignments__: weekly HW assignments
 
-- Exams: one midterm exam, and final test
+- __Exams__: one midterm exam, and final test
 
-- Textbook:
+- __Textbook__:
     + Statistics, 4th edition by Freedman, Pisani, and Purves (FPP)
 
 
