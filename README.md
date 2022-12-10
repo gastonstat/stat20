@@ -1,4 +1,4 @@
-# STAT 2 - Introduction to Statistics
+# STAT 20 - Introduction to Probability and Statistics
 
 - __Description__: This course is designed primarily as a basic introductory course for statistical thinking. It is not very mathematical. Neither linear algebra nor calculus is required, although some concepts seem more natural if you've taken these courses. You do need to be comfortable with math at the level of high-school algebra (e.g., the equation of a straight line, plotting points, taking powers and roots, percentages). The middle of the course involves a fair amount of combinatorics—counting.
 
@@ -8,12 +8,16 @@
 
 - __Lecture__: 2 days p/week; 1.5 hours each day
 
+- __Lab__: twice a week 1-hour sessions
+
 - __Assignments__: weekly HW assignments
 
 - __Exams__: one midterm exam, and final test
 
 - __Textbook__:
     + Statistics, 4th edition by Freedman, Pisani, and Purves (FPP)
+
+- __Note__: Stat 20 has been revamped, and you can find its updated version at: <https://www.stat20.org>
 
 
 -----
@@ -343,7 +347,7 @@ In probability theory and statistics, the binomial distribution with parameters 
 
 :pencil2: __TOPICS__:
 
-+ __Probability Rules 1__
++ __Binomal Probability__
     - Binomial coefficients
     - Binomial Formula
     - Calculate the chance that an even t will occur exactly _k_ times out of _n_
