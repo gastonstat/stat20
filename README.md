@@ -14,8 +14,7 @@
 
 - __Exams__: one midterm exam, and final test
 
-- __Textbook__:
-    + Statistics, 4th edition by Freedman, Pisani, and Purves (FPP)
+- __Textbook__: Statistics, 4th edition by Freedman, Pisani, and Purves (FPP)
 
 - __Note__: Stat 20 has been revamped, and you can find its updated version at: <https://www.stat20.org>
 
