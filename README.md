@@ -1,14 +1,12 @@
 # STAT 20 - Introduction to Probability and Statistics
 
-- __Description__: This course is designed primarily as a basic introductory course for statistical thinking. It is not very mathematical. Neither linear algebra nor calculus is required, although some concepts seem more natural if you've taken these courses. You do need to be comfortable with math at the level of high-school algebra (e.g., the equation of a straight line, plotting points, taking powers and roots, percentages). The middle of the course involves a fair amount of combinatorics—counting.
-
-- The emphasis of the course is critical thinking about quantitative evidence. Topics include reasoning and fallacies, descriptive statistics, association, correlation, regression, elements of probability, set theory, chance variability, random variables, expectation, standard error, sampling, hypothesis tests, confidence intervals, experiments and observational studies, as well as common techniques of presenting data in misleading ways.
+- __Description__: This course is an introductory course and does not assume prior knowledge of any probability or statistics. Topics include reasoning and fallacies, descriptive statistics, association, correlation, regression, elements of probability, set theory, chance variability, random variables, expectation, standard error, sampling, hypothesis tests, confidence intervals, experiments and observational studies, as well as common techniques of presenting data in misleading ways.
 
 - __Instructor__: Gaston Sanchez
 
-- __Lecture__: 2 days p/week; 1.5 hours each day
+- __Lecture__: 3 hours of lecture per week
 
-- __Lab__: twice a week 1-hour sessions
+- __Lab__: 2 hours of laboratory per week
 
 - __Assignments__: weekly HW assignments
 
