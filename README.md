@@ -2,7 +2,7 @@
 
 - __Description__: This course is an introductory course and does not assume prior knowledge of any probability or statistics. Topics include reasoning and fallacies, descriptive statistics, association, correlation, regression, elements of probability, set theory, chance variability, random variables, expectation, standard error, sampling, hypothesis tests, confidence intervals, experiments and observational studies, as well as common techniques of presenting data in misleading ways.
 
-- __Instructor__: Gaston Sanchez
+- __Instructor__: [Gaston Sanchez](https://www.gastonsanchez.com)
 
 - __Lecture__: 3 hours of lecture per week
 
@@ -13,6 +13,8 @@
 - __Exams__: one midterm exam, and final test
 
 - __Textbook__: Statistics, 4th edition by Freedman, Pisani, and Purves (FPP)
+
+- __LMS__: the specific learning resources of a given semester are shared in the Learning Management Sysment (LMS) approved by Campus authorities (e.g. bCourses, Canvas)
 
 - __Note__: Stat 20 has been revamped, and you can find its updated version at: <https://www.stat20.org>
 
