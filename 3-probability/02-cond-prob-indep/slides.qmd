@@ -1,0 +1,420 @@
+---
+title: "Computing Probabilities"
+format:
+  stat20slides-revealjs:
+    chalkboard: true
+---
+
+# Review
+
+## Conditional Probability
+
+For two events $A$ and $B$ we denote the:
+
+-   conditional probability of $A$ given $B$ as: $\quad P(A \vert B)$
+
+-   conditional probability of $B$ given $A$ as: $\quad P(B \vert A)$
+
+. . .
+
+\
+
+If $A$ and $B$ are independent, then:
+
+-   $\quad P(A \vert B) = P(A)$
+
+-   $\quad P(B \vert A) = P(B)$
+
+## Multiplication rule
+
+For two events $A$ and $B$ $\quad \Rightarrow \quad$ $P(A \text{ and } B) = P(A \vert B) P(B)$
+
+## Complement Rule
+
+$P(A^C) = 1 - P(A)$
+
+# Concept Question 1
+
+## Concept Question 1a
+
+Flip 3 coins, one at a time. Define the following events:
+
+$A$ is the event that the first coin flipped shows a head
+
+$B$ is the event that the first two coins flipped both show heads
+
+$C$ is the event that the last two coins flipped both show tails
+
+::: poll
+What is the outcome space $\Omega$?
+:::
+
+## 
+
+::: poll
+What is the outcome space $\Omega$?
+:::
+
+## 
+
+$A$ is the event that the first coin flipped shows a head
+
+::: poll
+Find $P(A)$
+:::
+
+. . .
+
+\
+
+$\Omega$
+
+```         
+  H  H  H
+  H  H  T
+  H  T  H
+  H  T  T
+  T  H  H
+  T  H  T
+  T  T  H
+  T  T  T
+```
+
+## 
+
+$B$ is the event that the first two coins flipped both show heads
+
+::: poll
+Find $P(B)$
+:::
+
+. . .
+
+\
+
+$\Omega$
+
+```         
+  H  H  H
+  H  H  T
+  H  T  H
+  H  T  T
+  T  H  H
+  T  H  T
+  T  T  H
+  T  T  T
+```
+
+## 
+
+$C$ is the event that the last two coins flipped both show tails
+
+::: poll
+Find $P(C)$
+:::
+
+. . .
+
+\
+
+$\Omega$
+
+```         
+  H  H  H
+  H  H  T
+  H  T  H
+  H  T  T
+  T  H  H
+  T  H  T
+  T  T  H
+  T  T  T
+```
+
+## Concept Question 1b
+
+Flip 3 coins, one at a time. Define the following events:
+
+$A$ is the event that the first coin flipped shows a head
+
+$B$ is the event that the first two coins flipped both show heads
+
+$C$ is the event that the last two coins flipped both show tails
+
+::: poll
+Events $A$ and $B$ are:
+
+a)  Independent
+b)  Mutually exclusive
+c)  None of the above
+:::
+
+::: notes
+After they do this and next, write out the outcome space for the results of flipping 3 coins. And go through what are A, B, and C. A and B are neither independent nor mutually exclusive.
+:::
+
+## Concept Question 1c
+
+Flip 3 coins, one at a time. Define the following events:
+
+$A$ is the event that the first coin flipped shows a head
+
+$B$ is the event that the first two coins flipped both show heads
+
+$C$ is the event that the last two coins flipped both show tails
+
+::: poll
+Events $A$ and $C$ are:
+
+a)  Independent
+b)  Mutually exclusive
+c)  None of the above
+:::
+
+::: notes
+After they do this and next, write out the outcome space for the results of flipping 3 coins. And go through what are A, B, and C. A and C are independent. Show that P(A & C ) = 1/8 = P(A)P(C) = 1/4 \* 1/2
+:::
+
+# Concept Question 2
+
+## Concept Question 2 {.scrollable}
+
+Suppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.
+
+-   Let $A$ be the event that at least one of the tickets drawn is labeled with an even number.
+
+-   Let $B$ be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).
+
+## 
+
+Suppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.
+
+::: poll
+What is the outcome space $\Omega$?
+:::
+
+## 
+
+Let $A_1$ be the event that the 1st ticket is an even \#
+
+. . .
+
+::: poll
+Find $P(A_1)$
+:::
+
+![](images/two-tickets-grid.png)
+
+## 
+
+Let $A_2$ be the event that the 2nd ticket is an even \#
+
+. . .
+
+::: poll
+Find $P(A_2)$
+:::
+
+![](images/two-tickets-grid.png)
+
+## 
+
+Let $A$ be the event that <u>at least one</u> of the tickets is an even \#
+
+::: poll
+Find $P(A)$
+:::
+
+![](images/two-tickets-grid.png)
+
+## 
+
+Let $A$ be the event that <u>at least one</u> of the tickets is an even \#
+
+::: poll
+Find $P(A) = 1 - P(A^c)$
+:::
+
+![](images/two-tickets-grid.png)
+
+## 
+
+Let $B$ be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).
+
+::: poll
+Find $P(B)$
+:::
+
+\
+
+. . .
+
+```         
+  Prime numbers:  2, 3, 5, 7
+  Non-prime #'s:  1, 4, 6, 8, 9
+```
+
+## 
+
+Let $B$ be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).
+
+::: poll
+Find $P(B) = 1 - P(B^c)$
+:::
+
+\
+
+```         
+  Prime numbers:  2, 3, 5, 7
+  Non-prime #'s:  1, 4, 6, 8, 9
+```
+
+## Concept Question 2b {.scrollable}
+
+Suppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.
+
+Let A be the event that at least one of the tickets drawn is labeled with an even number.
+
+Let B be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).
+
+Suppose the numbers on the tickets drawn are **3** and **9**.
+
+::: poll
+Which of the following events occur?
+
+(i) $A$
+
+(ii) $B$
+
+(iii) $A$ and $B$ ($A \cap B$)
+
+(iv) $A$ and $B^C$
+
+(v) $A^C$ and $B$
+:::
+
+::: notes
+ii and v, I told them they can immediately see that A\^C is true since no even number, so definitely (v) and then we do have a prime number and both are odd so (ii) is true.
+:::
+
+```{r}
+countdown::countdown(3, bottom = 0)
+```
+
+# Concept Question 3
+
+## Concept Question 3a {.scrollable}
+
+```{r}
+countdown::countdown(2, bottom = 0)
+```
+
+::: poll
+The 2024 World Series was the championship series was a best-of-seven playoff between the Los Angeles Dodgers and the New York Yankees. The winners in the World Series have to win a majority of 7 games, so the first team to win 4 games wins the series.
+
+Suppose we assumed that the probability that the Dodgers would have beaten the Yankees in any single game was estimated at 56%, independently of all the other games.
+
+**What was the probability that the Dodgers would have won in a clean sweep?**
+:::
+
+::: notes
+Straightforward application of multiplication rule for independent events. probability is 0.6\^4 = 0.1296. Follow up comment/question: if the teams were more evenly matched, say probability of either team winning is 50%, the probability of going to 7 games and probability of winning in 6 games is equal given 5 games are played.
+:::
+
+## Concept Question 3b {.scrollable}
+
+```{r}
+countdown::countdown(2, bottom = 0)
+```
+
+::: poll
+Suppose we assume, instead, that the probability that the Dodgers would have beaten the Yankees in any single game was 50%, independently of all the other games.
+
+In this case, was the probability that the series would have gone to 6 games higher than the probability that the series would have gone to 7 games, given that 5 games were played?
+:::
+
+::: notes
+if 5 games are played it means one of the teams is leading 3-2. Therefore there are two scenarios: the team that is ahead wins game 6 and the series, or the team that is behind wins game 6 and they go to 7 games. Both are equally likely.
+:::
+
+````{=html}
+<!---
+## 
+
+```{r}
+countdown::countdown(1, bottom = 0)
+```
+
+Let's play a game where I first roll a fair six-sided die, and then toss a coin as many times as the number of spots I rolled. I win the game if I get all heads.
+
+:::{.poll}
+Given I roll a k what is the probability that I flip all heads? 
+:::
+
+## 
+
+```{r}
+countdown::countdown(3, bottom = 0)
+```
+
+Let's play a game where I first roll a fair six-sided die, and then toss a coin as many times as the number of spots I rolled. I win the game if I get all heads.
+
+:::{.poll}
+What is the probability I win the game?
+:::
+
+:::{.notes}
+
+P(win) = P(roll 1 and all H) + P(roll 2 and all H) + ... = P(all H | roll = 1)*P(roll =1) + ... =  (1/2)*(1/6) + (1/4)*(1/6) + ...+ (1/64)*(1/6). The point is to illustrate the 3 steps used to solve this problem 1) partition the win event into 6 mutually exclusive sets 2) apply the addition rule for ME events then 3) the multiplication rule for dependent events.
+:::
+
+
+
+## 
+
+```{r}
+countdown::countdown(3, bottom = 0)
+```
+
+
+A rare condition affects **0.2%** of the population. A test for this condition is 99% accurate: this means that the probability that a person *with* the condition tests positive is 99% and the probability that a person *without* the condition tests negative is 99%. What is the probability that a person who tests positive has the condition? 
+
+
+:::{.notes}
+First, don't do Bayes' theorem (next slide is Bayes) but show them how to think about the chances, and where the positive tests come from. We can think about the number of cases in 100,000, then the numbers are nice and whole.
+
+Since prevalence is 0.2%, then  0.2% of 100,000 is 0.002*100000 = 200 people will have the condition, and 99% or 198 of them are expected to test positive. Out of the remaining (100000-200 = 99800) people who do not have the condition, 1% will test positive, which is 998 people, so the total number of positive tests is 998+198 = 1198. The proportion of true positives is 198/1198 = about 16.55% cases or about between 16% and 17% of the positives are true positives (if we use Bayes' rule formally, it works out to be 16.55%).
+:::
+
+## Bayes' theorem
+
+Let $A$ and $B$ be events with positive probability. Then:
+
+(i) $B$ can be written as $B = (B\cap A) \cup (B \cap A^C)$
+
+(ii)$$ \begin{align} 
+    P(A|B) &= \displaystyle \frac{P(A \cap B)}{P(B)}  \\
+          &=  \frac{P(A \cap B)}{P(B\cap A) + P(B \cap A^C)} \\
+          &= \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|A^C)P(A^C)}
+    \end{align}$$
+
+
+
+:::{.notes}
+Draw a picture here to show how we can write B like this. Now can go over problem on previous slide using Bayes
+:::
+-->
+````
+
+# tinyurl.com/yujrzpm9
+
+Practice Problems
+
+```{r}
+countdown::countdown(20)
+```
+
+# Worksheet
+
+```{r}
+countdown::countdown(40)
+```

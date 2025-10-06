@@ -1,0 +1,559 @@
+---
+title: "Understanding the World with Data"
+format: stat20slides-revealjs
+chalkboard: true
+---
+
+## Agenda
+
+-   Introductions
+-   The Data Science Lifecycle
+-   Types of Claims with Practice
+-   Course Structure and Syllabus
+-   Intro to R and RStudio
+-   Looking forward
+
+# Introductions
+
+-   Let us first introduce ourselves!
+
+# {{< fa pen-to-square >}} Introductions {background-color="#00403d"}
+
+-   In groups of 3, take turns introducing yourselves to one another by providing the info listed on the handout (your name, hometown, etc).
+
+-   Each person should finish with a handout filled-in with info on their groupmates. *Make sure you save this for next week!*
+
+```{r}
+countdown::countdown(5, top = 0)
+```
+
+# The Data Science Lifecycle
+
+## Two Years Ago ...
+
+![](images/sideswiped.jpg)
+
+##  {data-menu-title="What's going on here?"}
+
+::: {.bigadage .v-center-container style="text-align: center"}
+What's going on with crashes in California?
+:::
+
+##  {data-menu-title="SafeTrec" background-image="images/safetrec-website.png" background-size="contain"}
+
+##  {data-menu-title="Crashes per Year" background-image="images/crashes-per-year.png" background-size="contain"}
+
+```{r}
+countdown::countdown(1)
+```
+
+##  {data-menu-title="Crashes per Month" background-image="images/crashes-per-month.png" background-size="contain"}
+
+```{r}
+countdown::countdown(1)
+```
+
+##  {data-menu-title="Crashes per Year and Month" background-image="images/crashes-per-year-and-month.png" background-size="contain"}
+
+##  {data-menu-title="Crashes per Day of Week" background-image="images/crashes-per-day-of-week.png" background-size="contain"}
+
+##  {data-menu-title="Crashes per Hour of Day" background-image="images/crashes-per-hour-of-day.png" background-size="contain"}
+
+```{r}
+countdown::countdown(1)
+```
+
+##  {data-menu-title="Asking a Question" background-image="images/stat20-sketch-17.jpg" background-size="contain" transition="none"}
+
+:::: {.bigadage .absolute top="285" left="185"}
+::: {style="font-size: .73em"}
+Understand\
+the World
+:::
+::::
+
+::: {.bigadage .absolute top="300" left="1210"}
+Data
+:::
+
+##  {data-menu-title="Making a Claim" background-image="images/stat20-sketch-18.jpg" background-size="contain" transition="none"}
+
+:::: {.bigadage .absolute top="285" left="185"}
+::: {style="font-size: .73em"}
+Understand\
+the World
+:::
+::::
+
+::: {.bigadage .absolute top="300" left="1210"}
+Data
+:::
+
+## Takeaways from this exercise
+
+We can call the process of:
+
+-   having a question,
+
+. . .
+
+-   finding data to investigate that question,
+
+. . .
+
+-   reaching a conclusion,
+
+. . .
+
+-   and then thinking of a next step which starts everything over again
+
+. . .
+
+-   the *data science lifecycle*.
+
+This lifecycle involves **constructing and critiquing claims made using data**: which is the main goal of our course!
+
+# Types of Claims
+
+## Course Goal {data-menu-title="Claims 1" transition="none"}
+
+. . .
+
+::: {.bigadage style="text-align: center"}
+To learn to critique and construct\
+claims made using data.
+:::
+
+##  {data-menu-title="Claims 2" transition="none"}
+
+::: {.bigadage style="text-align: center"}
+To learn to [critique]{style="color: red"} and [construct]{style="color: red"}\
+claims made using data.
+:::
+
+##  {data-menu-title="Claims 3" background-image="images/stat20-sketch-01.jpg" background-size="contain" transition="none"}
+
+::: {.bigadage style="text-align: center"}
+To learn to [critique]{style="color: red"} and [construct]{style="color: red"}\
+claims made using data.
+:::
+
+##  {data-menu-title="Claims 4" background-image="images/stat20-sketch-02.jpg" background-size="contain" transition="none"}
+
+::: {.bigadage style="text-align: center"}
+To learn to [critique]{style="color: red"} and [construct]{style="color: red"}\
+claims made using data.
+:::
+
+##  {data-menu-title="Claims 5" background-image="images/stat20-sketch-03.jpg" background-size="contain" transition="none"}
+
+::: {.bigadage style="text-align: center"}
+To learn to [critique]{style="color: red"} and [construct]{style="color: red"}\
+claims made using data.
+:::
+
+##  {data-menu-title="Claims 6" background-image="images/stat20-sketch-04.jpg" background-size="contain" transition="none"}
+
+::: {.bigadage style="text-align: center"}
+To learn to [critique]{style="color: red"} and [construct]{style="color: red"}\
+claims made using data.
+:::
+
+##  {data-menu-title="Claims 7" background-image="images/stat20-sketch-05.jpg" background-size="contain" transition="none"}
+
+::: {.bigadage style="text-align: center"}
+To learn to [critique]{style="color: red"} and [construct]{style="color: red"}\
+claims made using data.
+:::
+
+## 
+
+::::: columns
+::: {.column width="35%"}
+![](images/summary.png)
+:::
+
+::: {.column width="65%"}
+\
+
+> A numerical, graphical, or verbal description of an aspect of data that is on hand.
+:::
+:::::
+
+. . .
+
+\
+\
+
+*Example*\
+Using data collected from students in Stat 20 (Fall 2025), the proportion of students---in this class---born in California is 75%.
+
+## 
+
+::::: columns
+::: {.column width="35%"}
+![](images/generalization.png)
+:::
+
+::: {.column width="65%"}
+\
+
+> A numerical, graphical, or verbal description of a broader set of units than those on which data was been recorded.
+:::
+:::::
+
+. . .
+
+\
+\
+
+<!-- Also: the use of a particular data set to draw a conclusion about the nature of the mechanism that generated the data. -->
+
+*Example*\
+Using data collected from students in Stat 20 (Fall 2025), the proportion of UC Berkeley students born in California is 75%.
+
+## 
+
+::::: columns
+::: {.column width="35%"}
+![](images/causal.png)
+:::
+
+::: {.column width="65%"}
+\
+
+> A claim that changing the value of one variable will influence the value of another variable.
+:::
+:::::
+
+. . .
+
+\
+\
+
+*Example*\
+Data from a Randomized Controlled Experiment shows that lab scores of STAT 20 students who attend Group Tutoring sessions are 20% higher than those who don't.
+
+## 
+
+::::: columns
+::: {.column width="35%"}
+![](images/prediction.png)
+:::
+
+::: {.column width="65%"}
+\
+
+> A guess about the value of an unknown variable, based on other known variables.
+:::
+:::::
+
+. . .
+
+\
+\
+
+*Example*\
+Based on STAT 20 data from the past three semesters, I predict that the median score on quiz 1 will be 80%.
+
+# Practice Concept Questions
+
+## Practice Concept Questions
+
+We will now re-examine a few pathways in the *data science lifecycle*:
+
+-   Forming a question -\> collecting data
+
+. . .
+
+-   Collecting data -\> making a claim
+
+## The AeroFlex Shoe
+
+"Peak Performance" is a fictional company which sells athletic gear, and is launching a brand new shoe, the **AeroFlex**, designed for track-and-field runners, claiming to improve performance.
+
+:::: columns
+::: {.column width="45%"}
+![](images/aeroflex.png){fig-alt="AeroFlex shoe prototype." fig-align="center"}
+:::
+::::
+
+## The AeroFlex Shoe (cont'd)
+
+The company's marketing team has access to data from various sources:
+
+-   <u>Market Research</u>: Data from a survey of 500 local runners before the shoe's official launch.
+
+-   <u>Experiment data</u>: Results from a controlled experiment with a test group of 40 university track-and-field athletes.
+
+-   <u>Sales data</u>: Figures from the first year of sales, categorized by region.
+
+-   <u>Customer feedback</u>: Online reviews and ratings submitted by purchasers.
+
+## Claims
+
+Based on the survey results of 500 local runners, the company states:
+
+> "We are confident that if all local runners were to try the AeroFlex prototype, their average satisfaction rating would be between 4.0 and 4.4 stars."
+
+::: poll
+What kind of claim is this: a summary, a prediction, a generalization, or a causal claim?
+:::
+
+```{r}
+countdown::countdown(1, top = 0)
+```
+
+## Claims
+
+Based on the sales data and customer feedback, the company states:
+
+> For every 0.1-star increase in the average online rating for the AeroFlex shoe, monthly sales will increase by 500 units.
+
+::: poll
+What kind of claim is this: a summary, a prediction, a generalization, or a causal claim?
+:::
+
+```{r}
+countdown::countdown(1, top = 0)
+```
+
+## Claims
+
+Based on the survey results of 500 local runners, the company states:
+
+> The average satisfaction score for the AeroFlex prototype was 4.2 out of 5 stars.
+
+::: poll
+What kind of claim is this: a summary, a prediction, a generalization, or a causal claim?
+:::
+
+```{r}
+countdown::countdown(1, top = 0)
+```
+
+# Break
+
+```{r}
+countdown::countdown(5, top = 0)
+```
+
+# Course Structure
+
+##  {data-menu-title="Flipped Classroom 1" background-image="images/stat20-sketch-19.jpg" background-size="contain" transition="none"}
+
+##  {data-menu-title="Flipped Classroom 2" background-image="images/stat20-sketch-20.jpg" background-size="contain" transition="none"}
+
+##  {data-menu-title="Flipped Classroom 3" background-image="images/stat20-sketch-21.jpg" background-size="contain" transition="none"}
+
+##  {data-menu-title="Flipped Classroom 4" background-image="images/stat20-sketch-22.jpg" background-size="contain" transition="none"}
+
+##  {data-menu-title="Flipped Classroom 5" background-image="images/stat20-sketch-23.jpg" background-size="contain" transition="none"}
+
+##  {data-menu-title="Flipped Classroom 6" background-image="images/stat20-sketch-24.jpg" background-size="contain" transition="none"}
+
+\
+\
+
+:::::::: columns
+::: {.column width="8%"}
+:::
+
+::: {.column .fragment width="37%"}
+-   Read lecture notes
+-   Work through reading questions
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column .fragment width="37%"}
+-   Work through concept questions solo / in groups / as a class
+-   Make progress on assignments
+:::
+
+::: {.column width="8%"}
+:::
+::::::::
+
+##  {data-menu-title="Course Website"}
+
+::: {style="text-align: center"}
+All of the materials and links for the course can be found at:
+
+[<https://stat20.berkeley.edu/fall-2025/>]{style="font-size: 1.5em"}
+:::
+
+![](images/website-screenshot.png){fig-align="center"}
+
+# {{< fa pen-to-square >}} Syllabus {background-color="#00403d"}
+
+Take 4 minutes to read through the syllabus and jot down at least one question that you have.
+
+::: {style="font-size: 1.5em; text-align: center"}
+[https://stat20.berkeley.edu/fall-2025/syllabus.html](syllabus.qmd)
+:::
+
+![](images/syllabus-screenshot.png){fig-align="center" width="1000"}
+
+```{r}
+#| echo: false
+countdown::countdown(4, top = 0)
+```
+
+## Ed Discussion Forum
+
+:::::: columns
+::: {.column width="50%"}
+![](images/ed.png)
+:::
+
+:::: {.column .fragment width="50%"}
+-   Forum to ask questions, answer questions, and course announcements
+-   Please answer each other's questions!
+
+::: {.poll .fragment}
+Practice by asking/answering a question on the "Syllabus Discussion" thread on Ed via the link at the top right of <https://stat20.berkeley.edu/fall-2025/>.
+:::
+::::
+::::::
+
+# Intro to R and RStudio
+
+-   Go to the course website: <https://stat20.berkeley.edu/fall-2025/>
+
+-   Click on the **Assignments** tab
+
+-   Click on **Lab 1: Part II**.
+
+## Intro to R and RStudio (cont'd)
+
+We will now
+
+-   Demo the four parts of RStudio
+-   Show you how to work with a Quarto Document
+-   Walk through the first few questions of Lab 1
+
+## Components of RStudio
+
+1.  Console
+
+2.  Environment
+
+3.  Editor
+
+4.  File Directory
+
+> Now we are going to switch over to RStudio to understand these 4 components a bit better.
+
+## Components of RStudio
+
+1.  **Console**: Where the live R session lives. Type commands into the prompt `>` and press enter/return to run them. The Console is in the lower-left pane.
+
+2.  **Environment**: The space that keeps track of all of the data and objects that you have created or loaded and have access to. Found in the upper right pane.
+
+3.  **Editor**: Used to compose and edit text (.qmd files) and R code (.r files). Found in the upper left pane.
+
+4.  **File Directory**: Used to navigate between your files/folders on your Rstudio account. Can move, copy, rename, delete, etc. Found in the lower right pane.
+
+## R as a calculator
+
+R allows all of the standard arithmetic operations.
+
+::::: columns
+::: {.column width="50%"}
+**Addition**
+
+```{r}
+#| echo: true
+1 + 2
+```
+
+**Subtraction**
+
+```{r}
+#| echo: true
+1 - 2
+```
+:::
+
+::: {.column width="50%"}
+**Multiplication**
+
+```{r}
+#| echo: true
+1 * 2 
+```
+
+**Division**
+
+```{r}
+#| echo: true
+1 / 2
+```
+:::
+:::::
+
+## R as a calculator, cont.
+
+R allows all of the standard arithmetic operations.
+
+::::: columns
+::: {.column width="50%"}
+**Exponents**
+
+```{r}
+#| echo: true
+2 ^ 3
+```
+:::
+
+::: {.column width="50%"}
+**Parentheses for Order of Ops.**
+
+```{r}
+#| echo: true
+2 ^ 3 + 1
+```
+
+```{r}
+#| echo: true
+2 ^ (3 + 1)
+```
+:::
+:::::
+
+## Your turn
+
+::: poll
+What is three times one point two raised to the quantity thirteen divided six?
+:::
+
+```{r}
+countdown::countdown(minutes = 1, top = 0)
+```
+
+## Looking forward
+
+:::::: columns
+::: {.column .incremental width="60%"}
+-   This Friday 8/29 I'll be holding OH in class to help you with Lab-1.
+-   Read the lecture notes for *Taxonomy of Data*.
+-   If you have any questions, you may leave a comment/question on the *Taxonomy of Data* thread on Ed.
+-   **Reading Questions** for *Taxonomy of Data* are due on Gradescope by 11:59 pm on Tuesday.
+-   **Lab-1 and WSP-1** will also be due on Gradescope **next Tuesday** at 8am!
+:::
+
+::: {.column width="20%"}
+:::
+
+::: {.column .fragment width="20%"}
+:::
+::::::
+
+::: notes
+-   Readings will be posted Weds night
+-   
+:::
+
+# End of Lecture

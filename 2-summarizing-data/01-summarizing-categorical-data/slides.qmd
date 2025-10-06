@@ -1,0 +1,93 @@
+---
+title: "Summarizing Categorical Data"
+format: stat20slides-revealjs
+chalkboard: true
+---
+
+## Agenda
+
+-   Announcements
+-   Concept Questions: Handout
+-   Worksheet: *Summarizing Categorical Data*
+-   Introducing Lab 2.1
+-   Work time for Lab 2.1: Understanding Context
+
+## Announcements: Quiz
+
+::: poll
+**Quiz-1 next Monday, Sep 8th in class.**
+
+-   Topics:
+    -   Understanding the World with Data
+    -   Taxonomy of Data
+    -   Summarizing Categorical Data (today)
+-   Where:
+    -   Section 1, 8am in Barker 101
+    -   Section 8, 10am in SOCS 60
+:::
+
+## Announcements: Quiz
+
+About quizzes:
+
+-   Individual component (25 mins)
+
+-   Group component (15 mins; groups of 3)
+
+-   <u>Handwritten</u> cheat sheet (A4 one-sided)
+
+-   See related posts in Ed
+
+    -   Quiz protocol
+    -   Cheat Sheet and Quiz tips
+
+## Announcements (cont'd)
+
+-   WSP-2 due **Tuesday, at 8am** on Gradescope
+    -   Taxonomy of Data
+    -   Summarizing Categorical Data
+    -   *Please scan your paper WS as PDF's*
+
+. . .
+
+-   RQ: Summarizing Numerical Data due **Tuesday at 11:59pm** on Gradescope.
+
+# Practice Concept Questions
+
+Additional handout prepared for Prof. Sanchez's sections (1 & 8)
+
+Answer problems: b, d, f, h, j, l, n, *and* o
+
+This is NOT a worksheet (no need to submit to Gradescope)
+
+```{r}
+countdown::countdown(15, top = 0)
+```
+
+# Worksheet: *Summarizing Categorical Data*
+
+```{r}
+countdown::countdown(25, top = 0)
+```
+
+# Break
+
+```{r}
+countdown::countdown(5, top = 0)
+```
+
+# Introducing Lab 2.1
+
+-   <https://stat20.berkeley.edu/fall-2025/assignments.html>
+
+-   Survey: [tinyurl.com/3hruxwkk](https://tinyurl.com/3hruxwkk)
+
+-   Data glimpse: [tinyurl.com/mzzy7rmc](https://tinyurl.com/mzzy7rmc)
+
+# Lab 1: Understanding the Context of The Data
+
+```{r}
+countdown::countdown(25, top = 0)
+```
+
+# End of Lecture

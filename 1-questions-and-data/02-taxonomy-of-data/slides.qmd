@@ -1,0 +1,165 @@
+---
+title: "Taxonomy of Data"
+format: stat20slides-revealjs
+chalkboard: true
+---
+
+## Agenda
+
+-   Announcements
+-   Group Activity: Conceptual
+-   Worksheet 1: *Taxonomy of Data*
+-   *Break*
+-   Concept Questions: Coding
+-   More Practice
+
+## Assignments
+
+You should have submitted Lab-1 **UN Votes** and Worksheet Packet WSP-1
+
+These were originally due yesterday (Tue) on Gradescope by 8:00am, but got extended till 11:59pm.
+
+. . .
+
+\
+
+You should have answered Reading Questions of **Taxonomy of Data**
+
+These were due yesterday (Tue) on Gradescope by 11:59pm
+
+# Notes Recap
+
+## Concept of Data
+
+One or more **characteristics** observed or measured on a set of **objects**.
+
+## Concept of Data
+
+One or more ~~characteristics~~ observed or measured on a set of objects.
+
+. . .
+
+-   Variables: characteristics, features, attributes.
+
+-   Objects: individuals, subjects, items.
+
+\
+
+. . .
+
+Data typically organized into a data table (or *data frame*), ideally one row per individual, and one column per variable.
+
+## Types of Variables
+
+Variables can be classified in different ways.
+
+. . .
+
+The classification (*aka* taxonomy) adopted in STAT 20 involves 2 major classes, each one with two subcategories:
+
+. . .
+
+:::: {.columns}
+:::{.incremental}
+::: {.column width="50%"}
+-   Numerical
+
+    -   Continuous
+    -   Discrete
+:::
+
+::: {.column width="50%"}
+-   Categorical
+
+    -   Ordinal
+    -   Nominal
+:::
+:::
+::::
+
+
+# Group Activity
+
+##  {data-menu-title="Variables"}
+
+1.  As a group, choose a set of individuals, and list at least:
+
+    -   3 continuous numerical variables
+    -   3 discrete numerical variables
+    -   3 ordinal categorical variables
+    -   3 nominal categorical variables. Don't choose:
+
+2.  ❌ Do Not choose:
+
+    -   students
+    -   electronic devices
+
+```{r}
+countdown::countdown(15, top = 0)
+```
+
+
+# Worksheet 1: *Taxonomy of Data*
+
+<https://stat20.berkeley.edu/fall-2025/assignments.html>
+
+```{r}
+countdown::countdown(20, bottom = 0)
+```
+
+# *Break*
+
+```{r}
+countdown::countdown(5, top = 0)
+```
+
+
+# Practice Problems
+
+Additional handout prepared for Prof. Sanchez's sections (1 & 8)
+
+These are NOT worksheets (no need to submit to Gradescope)
+
+```{r}
+countdown::countdown(25, top = 0)
+```
+
+# Your Turn
+
+::: poll
+1.  Create a vector named `vec` with the even integers between 1 and 10 as well as the number 99 (six elements total).
+
+2.  Find the sum of that vector.
+
+3.  Find the max of that vector.
+
+4.  Take the mean of that vector and round it to the nearest integer.
+:::
+
+These should all be solved with R code. If you don't know the name of a function to use, you could hazard a guess by looking for a help file (e.g. ?sum) or google it.
+
+```{r}
+countdown::countdown(5, top = 0)
+```
+
+# Your Turn
+
+::: poll
+1.  Create a new .qmd file, name it, and save it.
+
+2.  Insert a new code cell.
+
+3.  Create three vectors, `name`, `hometown`, and `sibs_and_pets` that contain observations on those variables from 6 people in this class.
+
+Combine them into a data frame called `my_classmates.`
+:::
+
+```{r}
+countdown::countdown(6, top = 0)
+```
+
+# Reminder
+
+Answer Reading Questions of **Summarizing Categorical Data**
+
+Due on Gradescope by 11:59pm Thursday

@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  favicon: assets/stat20-hex-small.png
+  title: "stat20"
+  sidebar:
+    title: "STAT 20 with\n Gaston Sanchez"
+    logo: assets/stat20-hex-small.png
+    style: floating
+    contents:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    fontsize: 1.1em
+    css: styles.css
+    toc: true
+    link-external-newwindow: true # opens links in new tab
+

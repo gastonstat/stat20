@@ -1,0 +1,31 @@
+<!-- The bit before that is commented out adds publish date to document metadata and button links at the top of the doc. This workflow can be revisited but currently doesn't work because listings aren't updated with these dates, only the renderd docs. -->
+
+```{r}
+#| echo: false
+#| message: false
+#| eval: false
+library(dplyr)
+
+# find the path of this file
+file_path <- knitr::current_input(dir = TRUE)
+
+# turn the schedule yml into a data frame of all scheduled files
+schedule_df <- yaml::read_yaml("../../../_schedule.yml") %>%
+  purrr::list_flatten() %>%
+  do.call(rbind.data.frame, .)
+
+# find the date associated with the current file
+which_dir <- sapply(schedule_df$filedir, grepl, x = file_path)
+publish_date <- schedule_df$date[which_dir]
+```
+
+```{r}
+#| echo: false
+#| output: asis
+
+# print out the date into a yaml cell
+# cat(paste0("---\ndate: ", publish_date, "\npublished-title: \"release date\"\n---\n"))
+cat(paste0("---\npublished-title: \"release date\"\n---\n"))
+```
+
+[[Slides]{.btn .btn-primary}](slides.qmd)

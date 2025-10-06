@@ -1,0 +1,253 @@
+---
+title: "Summarizing Numerical Data"
+format: stat20slides-revealjs
+chalkboard: true
+---
+
+## Agenda
+
+-   Announcements
+-   Notes Recap
+-   Practice Concept Questions
+-   Coding Activity: Graphing Numerical Data
+-   *Break*
+-   Worksheet "Summarizing Numerical Data" (part of WSP-3)
+-   Lab 2.2 (*time permitting*)
+
+## Announcements
+
+-   RQ: Grammar of Graphics due **Thursday at 11:59pm**
+
+. . .
+
+-   Lab 2: Class Survey (both parts) due **Tuesday at 8am**
+
+    -   Lab 2.1: Group submission
+    -   Lab 2.2: Individual submission
+
+
+# Notes Recap
+
+Summarizing Distributions of Data using:
+
+-   Graphics
+-   Numerical Summaries
+
+## Graphics
+
+You can construct a **statistical graphic** to show the [shape]{.hilit}, which you can describe in terms of [modality]{.bold-hilit} and [skew]{.bold-hilit}
+
+-   Dot plot
+-   Histogram
+-   Density plot
+-   Violin plot
+-   Box plot
+
+
+## Measures of Center
+
+You can calculate a [measure of center]{.bold-hilit} to convey a sense of a typical (representative) observation
+
+-   Mean
+-   Median
+-   Mode
+
+
+## Measures of Spread
+
+And you can calculate a [measure of spread]{.bold-hilit} (i.e. scatter, dispersion, variation) to capture how much variability there is in the data
+
+-   Range
+-   Inter Quartile Range (IQR)
+-   Mean Absolute Deviation (MAD)
+-   Sample Variance (Var)
+-   Sample Standard Deviation (SD)
+
+
+## 
+
+Typical value?
+
+$$ 6 \quad 7 \quad 7 \quad  7 \quad 8 \quad  8 \quad 9 \quad 9 \quad 10 \quad 11  \quad 11$$
+
+. . .
+
+-   sample size ( $n$ ): 11
+-   mean ( $\bar{x}$ ): 8.45
+-   median: 8
+-   mode: 7
+
+
+## 
+
+How can we express the variability in this data set using a single number?
+
+$$ 6 \quad 7 \quad 7 \quad  7 \quad 8 \quad  8 \quad 9 \quad 9 \quad 10 \quad 11  \quad 11$$
+
+## 
+
+$$ {\Large 6} \quad 7 \quad 7 \quad  7 \quad 8 \quad  8 \quad 9 \quad 9 \quad 10 \quad 11  \quad {\Large 11}$$
+
+. . .
+
+### The Range
+
+$$\textrm{range:} \quad max - min$$
+
+$$ 11 - 6 = 5$$
+
+**Characteristics**
+
+-   Very sensitive to extreme values!
+
+
+## 
+
+$$ 6 \quad 7 \quad {\Large 7 \quad  7} \quad 8 \quad  {\large 8} \quad 9 \quad {\Large 9 \quad 10} \quad 11  \quad 11$$
+
+. . .
+
+### The Inner Quartile Range (IQR)
+
+The difference between the 3rd quartile, $Q_3$, and the 1st quartile, $Q_1$ (i.e. the middle 50% of the data)
+
+$$\textrm{IQR:} \quad Q_3 - Q_1$$
+
+$$ 9.5 - 7 = 2.5 $$
+
+**Characteristics**
+
+-   Robust to outliers
+-   Used to set the width of the box in a boxplot
+
+## 
+
+$$ 6 \quad 7 \quad 7 \quad  7 \quad 8 \quad  8 \quad 9 \quad 9 \quad 10 \quad 11  \quad 11$$
+
+. . .
+
+### Mean Absolute Deviation
+
+Take the differences from each observation, $x_i$, to the sample mean, $\bar{x}$, take their absolute values, add them up, and divide by $n$. Simply put, this is the average distance from the mean.
+
+$$MAD: \quad \frac{1}{n}\sum_{i = 1}^n |x_i - \bar{x}| $$
+
+```{r eval = FALSE}
+x <- c(6, 7, 7, 7, 8, 8, 9, 9, 10, 11, 11)
+sum(abs(x - mean(x)))/11
+```
+
+$$ MAD = 1.4 $$
+
+**Characteristics**
+
+-   Incorporates information from all observations
+-   Robust to extreme values
+
+## 
+
+$$ 6 \quad 7 \quad 7 \quad  7 \quad 8 \quad  8 \quad 9 \quad 9 \quad 10 \quad 11  \quad 11$$
+
+. . .
+
+### Sample Variance
+
+Take the differences from each observation, $x_i$, to the sample mean, $\bar{x}$, square them, add them up, and divide by $n - 1$ .
+
+$$s^2: \quad \frac{1}{n - 1}\sum_{i = 1}^n (x_i - \bar{x})^2 $$
+
+```{r eval = FALSE}
+x <- c(6, 7, 7, 7, 8, 8, 9, 9, 10, 11, 11)
+sum((x - mean(x))^2)/(11-1)
+var(x)
+```
+
+$$ s^2 = 2.87 $$
+
+:::::: columns
+**Characteristics**
+
+::: {.column width="33%"}
+-   Incorporates information from all observations
+:::
+
+::: {.column width="33%"}
+-   Moderately sensitive to extreme values
+:::
+
+::: {.column width="33%"}
+-   Measured in squared units!
+:::
+::::::
+
+## 
+
+$$ 6 \quad 7 \quad 7 \quad  7 \quad 8 \quad  8 \quad 9 \quad 9 \quad 10 \quad 11  \quad 11$$
+
+. . .
+
+### Sample Standard Deviation
+
+Take the differences from each observation, $x_i$, to the sample mean, $\bar{x}$, square them, add them up, divide by $n - 1$, then take the square root.
+
+$$
+S:  \sqrt{\frac{1}{n - 1}\sum_{i = 1}^n (x_i - \bar{x})^2}
+$$
+
+```{r eval = FALSE}
+x <- c(6, 7, 7, 7, 8, 8, 9, 9, 10, 11, 11)
+sqrt(sum((x - mean(x))^2)/(11-1))
+sd(x)
+```
+
+$$ s = 1.70 $$
+
+:::::: columns
+**Characteristics**
+
+::: {.column width="33%"}
+-   Incorporates info from all observations
+:::
+
+::: {.column width="33%"}
+-   Moderately sensitive to extreme values
+:::
+
+::: {.column width="33%"}
+-   Measured in units of the original data
+:::
+::::::
+
+# Practice Concept Questions
+
+```{r}
+countdown::countdown(15, top = 0)
+```
+
+# Introducing `ggplot2`
+
+Demo
+
+# tinyurl.com/ybhwtrr9
+
+Coding Activity: Graphing Numerical Data
+
+```{r}
+countdown::countdown(minutes = 25, top = 0)
+```
+
+# Break
+
+```{r}
+countdown::countdown(minutes = 5, top = 0)
+```
+
+# Worksheet: Summarizing Numerical Data
+
+```{r}
+countdown::countdown(minutes = 30, top = 1)
+```
+
+# Lab 2.2 Time Permitting
+
+# End of Lecture

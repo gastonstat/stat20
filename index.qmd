@@ -1,0 +1,57 @@
+---
+title: "STAT 20 - Introduction to Probability and Statistics"
+---
+
+Welcome to Gaston Sanchez's companion website for STAT 20.
+
+
+### Understanding the World with Data
+
+- [Understanding the world (slides)](1-questions-and-data/01-understanding-the-world/slides.html){target="_blank"}
+
+- [Taxonomy of Data (slides)](1-questions-and-data/02-taxonomy-of-data/slides.html){target="_blank"}
+
+
+### Summarizing Data
+
+- [Summarizing Categorical Data (slides)](2-summarizing-data/01-summarizing-categorical-data/slides.html)
+
+- [Summarizing Numerical Data (slides)](2-summarizing-data/02-summarizing-numerical-data/slides.html)
+
+
+### Probability
+
+- [Intro to Probability](3-probability/01-chance-intro/slides.html)
+
+- [Computing Probabilities](3-probability/02-cond-prob-indep/slides.html)
+
+- [Probability Distributions](3-probability/03-probability-dsns/slides.html)
+
+- [Random Variables](3-probability/04-random-variables/slides.html)
+
+
+### Generalization
+
+- Coming soon
+
+- Coming soon
+
+
+### Causation
+
+- Coming soon
+
+- Coming soon
+
+
+### Prediction
+
+- Coming soon
+
+- Coming soon
+
+
+### Quiz
+
+- [Quiz (slides)](quiz-slides/quiz-slides.html)
+
