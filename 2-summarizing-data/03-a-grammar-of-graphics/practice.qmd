@@ -1,0 +1,496 @@
+---
+title: "Practice: Grammar of Graphics"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
+library(tidyverse)
+```
+
+
+## Instructions and Data
+
+We recommend that you use a new Quarto document to write the commands associated
+with this set of practice problems.
+
+```r
+# required package
+library(tidyverse)
+```
+
+__ggplot2 cheat sheet__. Likewise, while working on the practice problems have 
+at hand the cheat sheet for ggplot2 
+
+<https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf>
+
+
+## Iris data set
+
+We are going to use the famous `iris` data set which is a built-in data frame
+in R. This data set contains petal and sepal measurements of iris flowers
+from three different species (see image below).
+
+![](images/iris-flowers.png){width=80% fig-align="center"}
+
+```{r}
+# iris data set: first 5 rows
+head(iris, n = 5)
+```
+
+```{r}
+# frequency of Species
+count(iris, Species)
+```
+
+
+## 1) Mappings and Geometries (Fill in the blanks)
+
+In your quarto document, create code chunks and complete the commands to 
+obtain the following graphics (use one chunk per graphic!)
+
+
+a) Histogram of `Sepal.Length`
+
+```{r eval = FALSE, echo = TRUE}
+# a) histogram of Sepal.Length
+ggplot(data = ______,
+       mapping = aes(x = ______________)) +
+  geom____________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length)) +
+  geom_histogram()
+```
+
+
+b) Density plot of `Sepal.Length`
+
+```{r eval = FALSE, echo = TRUE}
+# b) density plot of Sepal.Length
+ggplot(data = ______,
+       mapping = aes(x = ______________)) +
+  geom____________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length)) +
+  geom_density()
+```
+
+
+c) Violin plots of `Sepal.Length` (x) by `Species` (y)
+
+```{r eval = FALSE, echo = TRUE}
+# c) violin plot of Sepal.Length
+ggplot(data = ______,
+       mapping = aes(x = ____________, y = ___________)) +
+  geom____________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length, y = Species)) +
+  geom_violin()
+```
+
+
+d) Scatter plot of `Sepal.Length` (x) and `Sepal.Width` (y)
+
+```{r eval = FALSE, echo = TRUE}
+# d) scatterplot of Sepal.Length (x) and Sepal.Width (y)
+ggplot(data = ______,
+       mapping = aes(x = ______________, y = ______________)) +
+  geom____________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point()
+```
+
+
+e) Scatter plot of `Sepal.Length` (x) and `Sepal.Width` (y) coloring (color) points by `Species`.
+
+```{r eval = FALSE, echo = TRUE}
+# e) scatter plot of Sepal.Length (x) and Sepal.Width (y)
+# coloring (color) points by Species
+ggplot(data = ______,
+       mapping = aes(___ = _____________, 
+                     ___ = _____________,
+                     _____ = _____________)) +
+  geom____________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length, 
+                     y = Sepal.Width,
+                     color = Species)) +
+  geom_point()
+```
+
+
+f) Boxplots of `Sepal.Length` (x) by `Species` (y)
+
+```{r eval = FALSE, echo = TRUE}
+# f) boxplots of Sepal.Length (x) by Species (y)
+ggplot(data = ______,
+       mapping = aes(x = ______________, y = ______________)) +
+  geom_____________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length, y = Species)) +
+  geom_boxplot()
+```
+
+
+g) Boxplots of `Sepal.Length` (y) by `Species` (x)
+
+```{r eval = FALSE, echo = TRUE}
+# g) boxplots of Sepal.Length (y) by Species (x)
+ggplot(data = ______,
+       mapping = aes(x = ______________, y = ______________)) +
+  geom_____________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+```
+
+
+h) Density plots of `Sepal.Length`, color-filled (fill) by `Species`
+
+```{r eval = FALSE, echo = TRUE}
+# h) density plots of Sepal.Length, color-filled (fill) by Species
+ggplot(data = ______,
+       mapping = aes(x = ______________,
+                     fill = ____________)) +
+  geom___________()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length, fill = Species)) +
+  geom_density()
+```
+
+
+## 3) Settings -vs- Mappings
+
+In the Grammar of Graphics, it is important to understand the difference between
+a _mapping_ and a _setting_. Recall that a __setting__ is when you set or fix 
+the value of a visual attribute to a constant or a value that does NOT come
+from the data frame.
+
+
+a) Histogram of `Sepal.Length`, filling the bars in `"orange"` (fill) and changing the color of the bar borders to `"white"` (color)
+
+```{r eval = FALSE, echo = TRUE}
+# a) histogram of Sepal.Length, filling the bars in "orange" (fill)
+# and changing the color of the bar borders to "white" (color)
+ggplot(data = ______,
+       mapping = aes(x = ______________)) +
+  geom____________(fill = _______, color = _________)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length)) +
+  geom_histogram(fill = "orange", color = "white")
+```
+
+
+b) Scatter plot of `Sepal.Length` (x) and `Sepal.Width` (y) coloring points in `"red"` (color) 
+change size of points to 3 (size)
+
+```{r eval = FALSE, echo = TRUE}
+# b) scatter plot of Sepal.Length (x) and Sepal.Width (y)
+# coloring points in "red" (color) 
+# change size of points to 3 (size)
+ggplot(data = ______,
+       mapping = aes(___ = _____________, 
+                     ___ = _____________)) +
+  geom__________(color = ________, size = ___)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+gggplot(data = iris,
+       mapping = aes(x = Sepal.Length, 
+                     y = Sepal.Width)) +
+  geom_point(color = "red", size = 3)
+```
+
+
+c) Bar plot of `Species` from a random sample of 40 flowers filling color of bars to `"turquoise"`.
+
+```{r eval = FALSE, echo = TRUE}
+# c) bar plot of Species from a random sample of 40 flowers
+# filling color of bars to "turquoise"
+set.seed(246)
+iris_sample = slice_sample(iris, n = 40, replace = TRUE)
+
+ggplot(data = ____________,
+       mapping = aes(x = _________)) +
+  geom__________(fill = ________)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# random sample of 40 flowers
+set.seed(246)
+iris_sample = slice_sample(iris, n = 40, replace = TRUE)
+
+ggplot(data = iris_sample,
+       mapping = aes(x = Species)) +
+  geom_bar(fill = "turquoise")
+```
+
+
+
+## 3) Labels, Annotations and Themes
+
+a) Choose two numerical variables from `iris` and graph a scatter plot, __set the color of points__ to `"blue"`, and add the following:
+
+- title
+- x-axis label
+- y-axis label
+
+```{r eval = FALSE, echo = TRUE}
+# a) scatterplot, set color of points to "blue"
+# adding title and axis labels
+ggplot(data = ______,
+       mapping = aes(___ = _____________, 
+                     ___ = _____________)) +
+  geom____________(color = _____) +
+  labs(title = __________,
+       x = __________,
+       y = __________)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Sepal.Length, 
+                     y = Sepal.Width,
+                     color = Species)) +
+  geom_point() +
+  labs(title = "Relationship between Sepal Length and Sepal Width",
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+
+b) Choose a different pair of numerical variables from `iris` and graph another
+scatter plot, color coding points by `Species`, and add a text annotation
+to highlight something interesting or unusual in the plot.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Petal.Length, 
+                     y = Sepal.Width,
+                     color = Species)) +
+  geom_point() +
+  annotate(geom = "text",
+           x = 1.5,
+           y = 2.2,
+           label = "a tiny setosa")
+```
+
+```{r eval = FALSE, echo = TRUE}
+# b) scatterplot, coloring (color) points by Species,
+# adding an annotation
+ggplot(data = ______,
+       mapping = aes(___ = _____________, 
+                     ___ = _____________,
+                     _____ = _____________)) +
+  geom____________() +
+  annotate(geom = "text",
+           x = __________,
+           y = __________,
+           label = ___________)
+```
+
+
+c) Choose one of your previous two scatter plots and re-graph it but this time
+using a ggplot __theme__ that it's different from the default one. Also, add
+labels and the annotation.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(data = iris,
+       mapping = aes(x = Petal.Length, 
+                     y = Sepal.Width,
+                     color = Species)) +
+  geom_point() +
+  labs(title = "Relationship between Petal Length and Sepal Width",
+       x = "Sepal Length",
+       y = "Sepal Width") +
+  annotate(geom = "text",
+           x = 1.5,
+           y = 2.2,
+           label = "a tiny setosa") +
+  theme_minimal()
+```
+
+```{r eval = FALSE, echo = TRUE}
+# c) yet another scatterplot
+ggplot(data = ______,
+       mapping = aes(________)) +
+  geom________() +
+  labs(_____) +
+  annotate(_____) +
+  theme________()
+```
+
+
+## 4) More Questions
+
+a) Are the following lines of code equivalent (i.e. give you the same plot)?
+
+```r
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) + 
+  geom_point()
+
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) + 
+  geom_point(aes(color = Species))
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Answer: True
+```
+
+
+
+b) Are the following lines of code equivalent (i.e. give you the same plot)?
+
+```r
+ggplot(iris, aes(Petal.Length, Petal.Width)) + 
+  geom_point(color = "blue")
+
+ggplot(iris, aes(Petal.Length, Petal.Width, color = "blue")) + 
+  geom_point()
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Answer: False
+```
+
+
+c) Are the following lines of code equivalent?
+
+```r
+ggplot(iris, aes(Petal.Length, Petal.Width)) + 
+  geom_point()
+
+ggplot(iris) + 
+  geom_point(aes(Petal.Length, Petal.Width))
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Answer: True
+```
+
+
+d) What is the problem with the following code? How can it be fixed?
+
+```r
+# scatter plot of Petal.Width, and Petal.Length
+ggplot(iris) +
+  geom_point(x = Petal.Width, y = Petal.Length)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Answer: the x and y mappings need to be specified inside aes()
+```
+
+
+e) What is the problem with the following code? How can it be fixed?
+
+```r
+# scatter plot of Petal.Width, and Petal.Length
+ggplot(iris, aes(Petal.Length, Petal.Width))
+  geom_point(aes(color = Species))
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Answer: the plus sign '+' is missing
+```
+
+
+f) What is the problem with the following code? How can it be fixed?
+
+```r
+# scatter plot of Petal.Width, and Petal.Length
+ggplot(iris, aes(x = Petal.Length  y = Petal.Width)) +
+  goem_point(aes(color = Species))
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Answer: missing comma between arguments 'x' and 'y' inside ggplot()
+# misspelled 'goem_point()`
+```

@@ -1,0 +1,148 @@
+---
+title: "Practice: Summarizing Categorical Data"
+---
+
+
+## 1) Affiliation Party and Human-Droid Status
+
+Consider the following contingency table with the counts for the affiliation 
+party and human-droid status of some individuals.
+
+|       | Empire | Rebellion | Unaffiliated |
+|-------|:------:|:---------:|:------------:|
+| Human | 100    |  350      |   50         |
+| Droid | 300    |  150      |   50         |
+
+\
+
+a) What proportion of individuals are affiliated with the Empire? 
+What kind of proportion is this?
+
+b) What proportion of individuals are affiliated with the Rebellion?
+What kind of proportion is this?
+
+c) What proportion of individuals are droids affiliated with the empire?
+What kind of proportion is this?
+
+d) What proportion of individuals are Human?
+What kind of proportion is this?
+
+e) Of the Unaffiliated individuals, what proportion are humans?
+What kind of proportion is this?
+
+f) What proportion of individuals are not Human?
+What kind of proportion is this?
+
+g) What proportion of the droid individuals are part of the Rebellion?
+What kind of proportion is this?
+
+h) What proportion of humans are not in the Rebellion?
+
+i) Of the Rebellion individuals, what proportion are humans?
+
+j) What are the dimensions of the raw data from which this table was constructed?
+
+k) True or False. You can derive a marginal proportion---from the contingency table---that has a numerator of 500.
+
+l) True or False. You can derive a joint proportion---from the contingency table---that has a numerator of 500.
+
+m) True or False. You can derive a conditional proportion---from the contingency table---that has a denominator of 500.
+
+n) Sketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.
+
+::: {.callout-note collapse="true"}
+## Show answer
+
+```{r}
+#| label: fig-collapsible
+#| fig-cap: Stacked bar chart"
+#| echo: false
+library(ggplot2)
+
+party = rep(c("Empire", "Rebellion", "Unaffiliated"), times = c(400, 500, 100))
+
+emp = rep(c("Human", "Droid"), times = c(100, 300))
+reb = rep(c("Human", "Droid"), times = c(350, 150))
+unf = rep(c("Human", "Droid"), times = c(50, 50))
+
+dat = data.frame(
+  status = c(emp, reb, unf),
+  party = party
+)
+
+ggplot(dat, aes(x = party, fill = status)) +
+  geom_bar()
+```
+:::
+
+o) True or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answers (except part n)"
+# a) 400 / 1000 (marginal prop)
+# b) 500 / 1000 (marginal prop)
+# c) 300 / 1000 (joint prop)
+# d) 500 / 1000 (marginal prop)
+# e) 50 / 100 (conditional prop)
+# f) 500 / 1000 (marginal prop)
+# g) 150 / 500 (conditional prop)
+# h) 150 / 500
+# i) 350 / 500
+# j) rows: 1000 (one per individual)
+#    variables: 2
+#    - human-droid status
+#    - affiliation party
+#
+# k) True
+# l) False
+# m) True
+# o) False. There is clearly a large proportion of droids in the empire, 
+#    as well as a large proportion of humans in the rebellion.
+```
+
+
+::: {.callout-note collapse="true"}
+## Show answer
+
+a) 400 / 1000 (marginal prop)
+b) 500 / 1000 (marginal prop)
+c) 300 / 1000 (joint prop)
+d) 500 / 1000 (marginal prop)
+e) 50 / 100 (conditional prop)
+f) 500 / 1000 (marginal prop)
+g) 150 / 500 (conditional prop)
+h) 150 / 500
+i) 350 / 500
+j) rows: 1000 (one per individual); variables: 2
+    - human-droid status
+    - affiliation party
+k) True
+l) False
+m) True
+n) Graphic
+
+```{r}
+#| label: fig-collapsible2
+#| fig-cap: Stacked bar chart"
+#| echo: false
+library(ggplot2)
+
+party = rep(c("Empire", "Rebellion", "Unaffiliated"), times = c(400, 500, 100))
+
+emp = rep(c("Human", "Droid"), times = c(100, 300))
+reb = rep(c("Human", "Droid"), times = c(350, 150))
+unf = rep(c("Human", "Droid"), times = c(50, 50))
+
+dat = data.frame(
+  status = c(emp, reb, unf),
+  party = party
+)
+
+ggplot(dat, aes(x = party, fill = status)) +
+  geom_bar()
+```
+
+o) False. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.
+:::
+

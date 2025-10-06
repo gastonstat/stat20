@@ -210,7 +210,7 @@ Adapted by Gaston Sanchez
 <p>This is NOT a worksheet (no need to submit to Gradescope)</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_45e1d32a" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown" id="timer_1cf1d337" data-update-every="1" tabindex="0" style="top:0;right:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -222,7 +222,7 @@ Adapted by Gaston Sanchez
 <h1>Worksheet: <em>Summarizing Categorical Data</em></h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_c1c7c722" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown" id="timer_f18fe5f8" data-update-every="1" tabindex="0" style="top:0;right:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -234,7 +234,7 @@ Adapted by Gaston Sanchez
 <h1>Break</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_8aaa137f" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown" id="timer_0b8bf9e6" data-update-every="1" tabindex="0" style="top:0;right:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -255,7 +255,7 @@ Adapted by Gaston Sanchez
 <h1>Lab 1: Understanding the Context of The Data</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a53fd43f" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown" id="timer_794ff994" data-update-every="1" tabindex="0" style="top:0;right:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -593,7 +593,7 @@ Adapted by Gaston Sanchez
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/gastonstat\.github\.io\/stat20\/");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

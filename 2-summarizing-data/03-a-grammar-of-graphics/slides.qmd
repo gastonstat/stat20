@@ -1,0 +1,342 @@
+---
+title: "A Grammar of Graphics"
+format:
+  stat20slides-revealjs:
+    chalkboard: true
+---
+
+## Agenda
+
+```{r}
+#| echo: false
+#| message: false
+library(stat20data)
+library(tidyverse)
+```
+
+- Announcements
+- Concept Question
+- Concept Activity
+- Quiz Review
+- *Break*
+- Lab 2.2: Computing on the Data
+
+
+## Announcements {.scrollable}
+
+- Quiz 1 is **not** this upcoming Monday, but *next* Monday in-class. This Monday will be a workshop to complete Lab 2 and WS 4.
+
+. . . 
+
+-   Lab 2 (both parts) due Tuesday Feb 13 at 9am.
+
+. . . 
+
+-   WS-4 due Tuesday Feb 13 at 9am. 
+
+. . . 
+
+-   Two problem sets without numbers relating to the *Understanding the World with Data* and *A Grammar of Graphics* will be posted to the resources tab on the home page of the course website. These are *not* for a grade and are for studying purposes. 
+
+. . . 
+
+-   Quiz 1 on Monday, in class. 
+    -   Individual portion [25 minutes]
+    -   Group (max. 3) portion [15 minutes]
+    -   Please consult the Quiz Megathread and Syllabus for content and logistical questions.
+    
+    
+# Concept Question
+    
+## What code was used to make the following plot?
+
+```{r}
+penguins |>
+  filter(species == "Gentoo") |>
+  mutate(is_male = (sex == "male")) |>
+  ggplot(mapping = 
+           aes(x = body_mass_g,
+               y = is_male)) +
+  geom_boxplot() +
+  labs(x = "Body Mass (in grams)",
+      y =  "Male Penguin?",
+      title = "Male Gentoo penguins have larger body masses")
+  
+```
+
+
+# Concept Activity
+
+<!--
+
+##
+
+:::{.poll}
+What are the aesthetics and geometry of this plot?
+
+Answer at `pollev.com`
+:::
+
+```{r}
+#| fig-align: center
+#| fig-width: 11
+library(tidyverse)
+library(palmerpenguins)
+
+ggplot(penguins, aes(x = bill_length_mm,
+                     fill = species)) +
+    geom_density() +
+    theme_gray(base_size = 20)
+```
+
+```{r}
+countdown::countdown(1, top = 0)
+```
+
+
+##
+
+:::{.poll}
+What has changed when moving from the left to the right?
+:::
+
+```{r}
+#| fig-align: center
+#| fig-width: 11
+library(patchwork)
+p1 <- ggplot(penguins, aes(x = bill_length_mm,
+                           y = bill_depth_mm,
+                           color = species)) +
+    geom_point(size=2) +
+    theme_gray(base_size = 20) +
+    theme(legend.position = "none")
+p2 <- ggplot(penguins, aes(x = bill_length_mm,
+                           y = bill_depth_mm,
+                           shape = species)) +
+    geom_point(size=2) +
+    theme_gray(base_size = 20) +
+    theme(legend.position = "none")
+p1 + p2
+```
+
+```{r}
+countdown::countdown(1, top = 0)
+```
+
+-->
+
+## Concept Activity
+
+You will be watching a 2.5 minute video of a presentation by a scientist, Hans Rosling, who studied global public health. He presents data visualizations depicting the change in life expectancy and family size over several decades in the 20th century.
+
+:::{.poll}
+On a piece of note paper:
+
+- Sketch out the data frame used to create the graphic and add the names of the variables.
+- List the aesthetic attributes used to encode the data in the graphic.
+- Identify the geometry used in the plot.
+:::
+
+## {data-menu-title="Hans Rosling's Gapminder"}
+
+<center>
+<iframe width="1000" height="750" src="https://www.youtube.com/embed/hVimVzgtD6w?si=244vrIp4cq5ytxkX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+##
+
+Please turn to your neighbors and...
+
+:::{.poll}
+Discuss what you came up with in terms of . . .
+
+- the variables present in the data frame
+- the aesthetic attributes used to encode that data in the plot
+- the geometry
+:::
+
+```{r}
+countdown::countdown(4, top = 0)
+```
+
+
+## What were the variables and aesthetic attributes?
+
+. . .
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+#### Visual Cues / Aesthetics
+
+- Location along the x-axis
+- Location along the y-axis
+- Size of point
+- Color of point
+- Animation
+:::
+
+::: {.column width="50%"}
+#### Variables
+
+- Fertility rate
+- Life expectancy
+- Population
+- Region
+- Year
+:::
+
+::::
+
+
+## What did the data frame look like?
+
+
+What was the unit of observation? What were the variables? What were their type?
+
+. . . 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+#### Unit of observation
+
+- A country in a given year
+:::
+
+::: {.column width="50%"}
+#### Variables
+
+- Fertility rate (continuous)
+- Life expectancy (continuous)
+- Population (continuous)
+- Region (nominal)
+- Year (discrete)
+:::
+
+::::
+
+```{r echo = FALSE, eval = FALSE}
+## don't use the gapminder package data. Remake to have the original vars: life expectancy and fertility rate
+library(gapminder)
+gapminder %>%
+  slice(1, 10) %>%
+  kable() %>%
+  kable_styling(latex_options = "striped")
+```
+
+
+## What geometry is used to represent the observations?
+
+. . .
+
+- Points
+
+# Quiz Review
+
+-   Head to `pollev.com` for a series of former quiz questions and quiz-level questions! *Make sure you take notes*. 
+
+## What type of claim was made?
+
+```{r}
+knitr::include_graphics("images/poll.png")
+```
+
+. . . 
+
+```{r}
+countdown::countdown(minutes = 1, top = 0)
+```
+
+## What type of variable is listeners?
+
+```{r}
+knitr::include_graphics("images/spotify.png")
+```
+
+. . . 
+
+```{r}
+countdown::countdown(minutes = 1, top = 0)
+```
+
+
+## What type of proportion is used?
+
+```{r}
+knitr::include_graphics("images/q1.png")
+```
+
+. . . 
+
+> Roughly 68 percent of those passengers who were in the first class survived the wreckage of the Titanic. 
+
+. . . 
+
+```{r}
+countdown::countdown(minutes = 1, top = 0)
+```
+
+
+## What are the aesthetics and geometry of this plot?
+
+```{r}
+#| fig-align: center
+#| fig-width: 11
+library(tidyverse)
+library(palmerpenguins)
+
+ggplot(penguins, aes(x = bill_length_mm,
+                     fill = species)) +
+    geom_density() +
+    theme_gray(base_size = 20)
+```
+
+. . . 
+
+```{r}
+countdown::countdown(1, top = 1)
+```
+
+## What has not changed when moving from left to right?
+
+```{r}
+#| fig-align: center
+#| fig-width: 11
+library(patchwork)
+p1 <- ggplot(penguins, aes(x = bill_length_mm,
+                           y = bill_depth_mm,
+                           color = species)) +
+    geom_point(size=2) +
+    theme_gray(base_size = 20) +
+    theme(legend.position = "none") 
+p2 <- ggplot(penguins, aes(x = bill_length_mm,
+                           y = bill_depth_mm,
+                           shape = species)) +
+    geom_point(size=5, alpha = .5) +
+    theme_bw(base_size = 20) +
+    lims(y = c(10,24)) +
+    theme(legend.position = "none") +
+    xlab("Bill Length (in millimeters)") +
+    annotate(geom = "text", x = 45, y = 11,
+             label = "Gentoo", size = 5) +
+    annotate(geom = "segment", x = 45, y = 11.2,
+             xend = 45, yend = 13, 
+             size = 1)
+p1 + p2
+```
+
+# Break
+
+```{r}
+countdown::countdown(minutes = 5, top = 0)
+```
+
+# Lab 2.2: Flights
+
+```{r}
+countdown::countdown(minutes = 40, top = 0)
+```
+
+# End of Lecture

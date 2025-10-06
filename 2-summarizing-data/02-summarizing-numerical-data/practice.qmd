@@ -1,0 +1,153 @@
+---
+title: "Practice: Summarizing Numerical Data"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+library(tidyverse)
+```
+
+
+__1)__ Which of the following is most affected by an outlier in a dataset?
+
+a) Mean
+b) Median
+c) Mode
+
+\
+
+__2)__ The median is the best measure of center for which type of data?
+
+a) Symmetrical and normally distributed
+b) Skewed and containing outliers
+c) Categorical and nominal
+d) Discrete and uniform
+
+\
+
+__3)__ In a dataset, if every value is increased by 10, what happens to the mean and median?
+
+a) Both remain the same.
+b) Both increase by 10.
+c) The mean increases by 10, but the median remains the same.
+d) The mean remains the same, but the median increases by 10.
+
+\
+
+__4)__ Which measure of center is best to describe the typical hair color of students in a class?
+
+a) Mean
+b) Median
+c) Mode
+d) All of the above
+
+\
+
+__5)__ Which of the following statements about the mode is true?
+
+a) The mode is highly affected by outliers.
+b) The mode is the only measure of center that can be used for nominal data.
+c) Every dataset has exactly one mode.
+d) The mode is always a unique number in the dataset.
+
+\
+
+__6)__ Mean vs Median
+
+A college statistics class conducted a survey of how students spend their money. They asked 25 students to estimate how much money they typically spend each week on fast food. They determined that the mean amount spent on fast food each week is $31.52 and the median is $32. Later they realized that a value entered as $2 should have been $20. They recalculate the mean and the median.
+
+Which of the following is true?
+
+a) The mean and median will increase.
+b) The mean will increase, but the median will remain the same.
+c) The mean will stay the same, but the median will increase.
+d) Both the mean and median will remain the same.
+
+\
+
+__7)__ Preferring the Median 
+
+For which one of the following distributions will the median be a better measure of center than the mean?
+
+a) Salary data for players in the National Basketball Association (NBA) where most of the players earn the league minimum and a few superstars earn very high salaries in comparison.
+
+b) Repeated weight measurements of the same 1.6-ounce bag of Peanut M&Ms by students in a large chemistry class using a non-digital balance scale.
+
+c) Height data from a large random sample of men.
+
+d) Exam scores with a central peak around an average test score and a few students scoring lower than the average and a few scoring higher.
+
+\
+
+__8)__ If the standard deviation of a dataset is small, what does this tell you about the data points?
+
+a) They are widely dispersed.
+b) They are clustered closely around the mean.
+c) The data is skewed.
+d) The data is symmetrical.
+
+\
+
+__9)__ The Interquartile Range (IQR) is the difference between:
+
+a) The maximum and minimum values.
+b) The mean and the median.
+c) The first quartile ($Q_1$) and the third quartile ($Q_3$).
+d) The mode and the mean.
+
+\
+
+__10)__ What is the standard deviation of the dataset {10, 10, 10, 10}?
+
+a) 10
+b) 1
+c) 0
+d) Undefined
+
+\
+
+__11)__ The variance of a dataset is always:
+
+a) Greater than the standard deviation.
+b) Less than the standard deviation.
+c) Negative.
+d) Non-negative.
+
+\
+
+__12)__ What does a large Interquartile Range (IQR) indicate?
+
+a) The dataset is symmetrical.
+b) The middle 50% of the data is widely spread out.
+c) The dataset has no outliers.
+d) The mean and median are the same.
+
+\
+
+__13)__ Which of the following is not a measure of spread?
+
+a) Range
+b) Interquartile Range (IQR)
+c) Standard deviation
+d) Mean
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+1) Part a) 
+2) Part b) 
+3) Part b) 
+4) Part c) 
+5) Part b) 
+6) Part b) 
+7) Part a)
+8) Part b)
+9) Part c)
+10) Part c)
+11) Part d)
+12) Part b)
+13) Part d)
+
+:::
+

@@ -9,9 +9,16 @@ website:
     title: "STAT 20 with\n Gaston Sanchez"
     logo: assets/stat20-hex-small.png
     style: floating
+    collapse-level: 1
     contents:
       - href: index.qmd
         text: Home
+      - section: "Practice Problems"
+        contents:
+          - 1-questions-and-data/02-taxonomy-of-data/practice.qmd
+          - 2-summarizing-data/01-summarizing-categorical-data/practice.qmd
+          - 2-summarizing-data/02-summarizing-numerical-data/practice.qmd
+          - 2-summarizing-data/03-a-grammar-of-graphics/practice.qmd
       - about.qmd
 
 format:

@@ -116,6 +116,41 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Practice Problems</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-questions-and-data/02-taxonomy-of-data/practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Taxonomy of Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-summarizing-data/01-summarizing-categorical-data/practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Summarizing Categorical Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-summarizing-data/02-summarizing-numerical-data/practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Summarizing Numerical Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-summarizing-data/03-a-grammar-of-graphics/practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Grammar of Graphics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./about.html" class="sidebar-item-text sidebar-link">
@@ -177,15 +212,17 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="2-summarizing-data/01-summarizing-categorical-data/slides.html">Summarizing Categorical Data (slides)</a></p></li>
 <li><p><a href="2-summarizing-data/02-summarizing-numerical-data/slides.html">Summarizing Numerical Data (slides)</a></p></li>
+<li><p><a href="2-summarizing-data/03-a-grammar-of-graphics/slides.html">A Grammar of Graphics (slides)</a></p></li>
+<li><p><a href="2-summarizing-data/07-multiple-linear-regression/slides.html">Multiple Linear Regression (slides)</a></p></li>
 </ul>
 </section>
 <section id="probability" class="level3">
 <h3 class="anchored" data-anchor-id="probability">Probability</h3>
 <ul>
-<li><p><a href="3-probability/01-chance-intro/slides.html">Intro to Probability</a></p></li>
-<li><p><a href="3-probability/02-cond-prob-indep/slides.html">Computing Probabilities</a></p></li>
-<li><p><a href="3-probability/03-probability-dsns/slides.html">Probability Distributions</a></p></li>
-<li><p><a href="3-probability/04-random-variables/slides.html">Random Variables</a></p></li>
+<li><p><a href="3-probability/01-chance-intro/slides.html">Intro to Probability (slides)</a></p></li>
+<li><p><a href="3-probability/02-cond-prob-indep/slides.html">Computing Probabilities (slides)</a></p></li>
+<li><p><a href="3-probability/03-probability-dsns/slides.html">Probability Distributions (slides)</a></p></li>
+<li><p><a href="3-probability/04-random-variables/slides.html">Random Variables (slides)</a></p></li>
 </ul>
 </section>
 <section id="generalization" class="level3">
@@ -291,7 +328,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/gastonstat\.github\.io\/stat20\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

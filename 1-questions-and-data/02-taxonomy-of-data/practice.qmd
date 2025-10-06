@@ -1,0 +1,226 @@
+---
+title: "Practice: Taxonomy of Data"
+---
+
+## 1) Types of Variables
+
+For each of the following parts indicate the type of variable according to the taxonomy of data.
+
+a) The number of classes a student is taking
+
+b) A student's year in college (Freshman, Sophomore, etc.)
+
+c) Student's favorite color
+
+d) The area code of a student’s phone number
+
+e) The amount of time it takes to finish a STAT 20 quiz
+
+f) The temperature of a room in Fahrenheit degrees
+
+g) The type of car you drive
+
+h) The speed of a vehicle in miles per hour
+
+i) A car's model year
+
+j) The number of text messages you send per day
+
+k) The brand of coffee you drink
+
+l) Your student ID number
+
+m) The number of siblings a person has
+
+n) A person's home zip code
+
+o) The rating of a movie (1 to 5 stars)
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) discrete numerical
+b) ordinal categorical
+c) nominal categorical
+d) nominal categorical
+e) continuous numerical
+f) continuous numerical
+g) nominal categorical
+h) continuous numerical
+i) ordinal categorical
+j) discrete numerical
+k) nominal categorical
+l) nominal categorical
+m) discrete numerical
+n) nominal categorical
+o) usually discrete numerical, but one can also argue that it can be ordinal categorical (depending on the context, and application)
+:::
+
+
+## 2) Terrestrial Planets
+
+Consider the following table containing data from so-called **Terrestrial**
+planets.
+
+| name    | gravity | temp  | moons_num | moons_fac | haswater |
+|:-------:|:-------:|:-----:|:---------:|:---------:|:--------:|
+| Mercury |  3.7    | 167   |   0       | none      |  no   |
+| Venus   |  8.9    | 464   |   0       | none      |  no   |
+| Earth   |  9.8    |  15   |   1       |  one      |  yes  |
+| Mars    |  3.7    | -65   |   2       |  two      |  no   |
+
+- `name`: name of planet
+- `gravity`: gravity ($m/s^2$)
+- `temp`: mean temperature in Celsius
+- `moons_num`: number of moons (numeric)
+- `moons_fac`: number of moons (factor)
+- `haswater`: whether it has known bodies of liquid water on its surface
+
+
+### 2.1) Creating Vectors and Factors
+
+Go to `stat20.datahub` and open a new Quarto document (`.qmd` file).
+
+Refer to the data table of terrestrial planets. Insert new code chunks to 
+create the following vectors.
+
+a) Create a vector `name` and display it (i.e. type its name)
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+name <- c("Mercury", "Venus", "Earth", "Mars")
+name
+```
+
+b) Create a vector `gravity`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+gravity <- c(3.7, 8.9, 9.8, 3.7)
+gravity
+```
+
+
+c) Create a vector `temp`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+temp <- c(167, 464, 15, -65)
+temp
+```
+
+
+d) Create a vector `moons_num`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+moons_num <- c(0, 0, 1, 2)
+moons_num
+```
+
+
+e) Create a factor `moons_fac`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+moons_fac <- factor(c("none", "none", "one", "two"))
+moons_fac
+```
+
+
+f) Create a factor `haswater`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+haswater <- factor(c("no", "no", "yes", "no"))
+haswater
+```
+
+
+### 2.2) Some basic computations
+
+Answer each of the following parts in their own code chunks.
+
+a) Use the `length()` function to find the number of elements in vector `name`.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+length(name)
+```
+
+
+b) Use the `sqrt()` function to calculate the square root of gravity values.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+sqrt(gravity)
+```
+
+
+c) Use the `mean()` function to compute the mean number of moons.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+mean(moons_num)
+```
+
+
+d) Use the comparison operator `>` to see which temperature values in `temp` 
+are greater than 100
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+temp > 100
+```
+
+
+e) Use the following formula to compute `x`
+
+$$
+\texttt{x} = \frac{\texttt{temp}^2 + \log(\texttt{gravity})}{\texttt{moons\_num} + 10}
+$$
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+x = (temp^2 + log(gravity)) / (moons_num + 10)
+x
+```
+
+\
+
+### 2.3) Data Frame `planets`
+
+In a new code chunk, use the `data.frame()` function to create a `planets` 
+data frame containing all the vectors and factors created in part 2.1.
+And then type (print) `planets` in order to see its contents. 
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+planets = data.frame(name, gravity, temp, moons_num, moons_fac, haswater)
+planets
+```
+
