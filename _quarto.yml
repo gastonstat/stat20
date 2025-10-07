@@ -19,12 +19,13 @@ website:
           - 2-summarizing-data/01-summarizing-categorical-data/practice.qmd
           - 2-summarizing-data/02-summarizing-numerical-data/practice.qmd
           - 2-summarizing-data/03-a-grammar-of-graphics/practice.qmd
+          - 2-summarizing-data/06-summarizing-associations/practice.qmd
       - about.qmd
 
 format:
   html:
     theme: cosmo
-    fontsize: 1.1em
+    fontsize: 1.0em
     css: styles.css
     toc: true
     link-external-newwindow: true # opens links in new tab

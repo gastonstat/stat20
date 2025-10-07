@@ -119,6 +119,97 @@
     "text": "Announcements (cont’d)\n\nWSP-2 due Tuesday, at 8am on Gradescope\n\nTaxonomy of Data\nSummarizing Categorical Data\nPlease scan your paper WS as PDF’s\n\n\n\n\nRQ: Summarizing Numerical Data due Tuesday at 11:59pm on Gradescope."
   },
   {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#agenda",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#agenda",
+    "title": "Summarizing Numerical Associations",
+    "section": "Agenda",
+    "text": "Agenda\n\nAnnouncements\nConcept Questions\nWorksheet\nBreak\nLab 2.2 (extended): Computing on The Data"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#announcements",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#announcements",
+    "title": "Summarizing Numerical Associations",
+    "section": "Announcements",
+    "text": "Announcements\n\nReading Questions\n\n\n\nLab 2.2\n\n\n\n\nWorksheet"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#estimate-the-correlation",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#estimate-the-correlation",
+    "title": "Summarizing Numerical Associations",
+    "section": "Estimate the correlation",
+    "text": "Estimate the correlation\n\ncountdown::countdown(1, top = 0)\n\n\n−+\n01:00\n\n\n\n\nWhat is the (Pearson) correlation coefficient between these two variables?\n\n\nn_samples &lt;- 100\nset.seed(1)\nx &lt;- runif(n = n_samples, min = -1, max = 1) \ny &lt;- -x + rnorm(n = n_samples, mean = 0, sd = .1)\n\ndata.frame(x = x, \n           y = y) |&gt; \n  ggplot(aes(x = x, y = y)) +  \n  geom_point() +\n  theme_bw()\n\n\n\nThis plot has a strong negative linear association, so the correlation coefficient will be around -.8 or -.9.\nThe goal of this exercise is threefold: - Start calibrating the ability to associate the correlation with the structure in a scatter plot. - Make it clear that this is still just an informal eye-balling procedure (therefore multiple answers can be reasonable, but some are un-reasonable). - Set some of them up for a challenge on the next one; some will conflate correlation with association."
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#section",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#section",
+    "title": "Summarizing Numerical Associations",
+    "section": "",
+    "text": "# simulate data -----------------------------------------------------\nset.seed(9274)\n\nx1 &lt;- seq(0, 6, by = 0.05)\n\ny_u &lt;- (x1-3)^2 - 4 + rnorm(length(x1), mean = 0, sd = 1)\ny_lin_pos_strong &lt;- 3*x1 + 10 + rnorm(length(x1), mean = 0, sd = 2)\ny_lin_pos_weak &lt;- 3*x1 + 10 + rnorm(length(x1), mean = 0, sd = 20)\n\nx2 &lt;- seq(-8, -2, by = 0.05)\n\ny_n &lt;- -1 * (x2 + 5)^2 + 1 + rnorm(length(x2), mean = 0, sd = 2)\ny_lin_neg_strong &lt;- -5 * x2 + 3 + rnorm(length(x2), mean = 0, sd = 2)\ny_none &lt;- rnorm(length(x2), mean = 0, sd = 1)\n\ndf &lt;- data.frame(x = c(rep(x1, 3), rep(x2, 3)),\n                 y = c(y_u, y_lin_pos_strong, y_lin_pos_weak,\n                       y_n, y_lin_neg_strong, y_none),\n                 plot_num = rep(LETTERS[1:6], each = length(x1)))\n\nlibrary(tidyverse)\npa &lt;- df |&gt;\n    filter(plot_num == \"A\") |&gt;\n    ggplot(aes(x = x, \n               y = y)) +\n    geom_point() +\n    facet_wrap(vars(plot_num), scales = \"free\") +\n    theme_bw(base_size = 14) +\n    theme(axis.text.x=element_blank(),\n          axis.ticks.x=element_blank(),\n          axis.text.y=element_blank(),\n          axis.ticks.y=element_blank()) +\n    labs(x = \"\",\n         y = \"\")\n\npb &lt;- df |&gt;\n    filter(plot_num == \"B\") |&gt;\n    ggplot(aes(x = x, \n               y = y)) +\n    geom_point() +\n    facet_wrap(vars(plot_num), scales = \"free\") +\n    theme_bw(base_size = 14) +\n    theme(axis.text.x=element_blank(),\n          axis.ticks.x=element_blank(),\n          axis.text.y=element_blank(),\n          axis.ticks.y=element_blank()) +\n    labs(x = \"\",\n         y = \"\")\n\npc &lt;- df |&gt;\n    filter(plot_num == \"C\") |&gt;\n    ggplot(aes(x = x, \n               y = y)) +\n    geom_point() +\n    facet_wrap(vars(plot_num), scales = \"free\") +\n    theme_bw(base_size = 14) +\n    theme(axis.text.x=element_blank(),\n          axis.ticks.x=element_blank(),\n          axis.text.y=element_blank(),\n          axis.ticks.y=element_blank()) +\n    labs(x = \"\",\n         y = \"\")\n\npd &lt;- df |&gt;\n    filter(plot_num == \"D\") |&gt;\n    ggplot(aes(x = x, \n               y = y)) +\n    geom_point() +\n    facet_wrap(vars(plot_num), scales = \"free\") +\n    theme_bw(base_size = 14) +\n    theme(axis.text.x=element_blank(),\n          axis.ticks.x=element_blank(),\n          axis.text.y=element_blank(),\n          axis.ticks.y=element_blank()) +\n    labs(x = \"\",\n         y = \"\")\n\npe &lt;- df |&gt;\n    filter(plot_num == \"E\") |&gt;\n    ggplot(aes(x = x, \n               y = y)) +\n    geom_point() +\n    facet_wrap(vars(plot_num), scales = \"free\") +\n    theme_bw(base_size = 14) +\n    theme(axis.text.x=element_blank(),\n          axis.ticks.x=element_blank(),\n          axis.text.y=element_blank(),\n          axis.ticks.y=element_blank()) +\n    labs(x = \"\",\n         y = \"\")\n\npf &lt;- df |&gt;\n    filter(plot_num == \"F\") |&gt;\n    ggplot(aes(x = x, \n               y = y)) +\n    geom_point() +\n    facet_wrap(vars(plot_num), scales = \"free\") +\n    theme_bw(base_size = 14) +\n    ylim(-9, 9) +\n    theme(axis.text.x=element_blank(),\n          axis.ticks.x=element_blank(),\n          axis.text.y=element_blank(),\n          axis.ticks.y=element_blank()) +\n    labs(x = \"\",\n         y = \"\")\n\nlibrary(patchwork)\n(pa + pb + pc) / (pd + pe + pf)\n\n\n\nWhich four plots exhibit the strongest association?\n\n\ncountdown::countdown(1, top = 0)\n\n\n−+\n01:00\n\n\n\n\nStudent will likely identify A, B, E, and F. F only appears to be highly associated because of the scaling of the y-axis. This is a good opportunity to review definition of association. The following slides demonstrate the effects of that scaling."
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#correlation-and-scale",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#correlation-and-scale",
+    "title": "Summarizing Numerical Associations",
+    "section": "Correlation and Scale",
+    "text": "Correlation and Scale\n\n\n\ndf_f"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale",
+    "title": "Summarizing Numerical Associations",
+    "section": "Pearson Correlation and Scale",
+    "text": "Pearson Correlation and Scale\n\n\n\ndf_f\n\n        x            y\n1   -8.00 -1.307007369\n2   -7.95 -0.466886973\n3   -7.90 -1.317638373\n4   -7.85  1.008059015\n5   -7.80  1.153714017\n6   -7.75  0.136000314\n7   -7.70  1.081268517\n8   -7.65  0.027234440\n9   -7.60 -0.755489564\n10  -7.55  0.643581028\n11  -7.50 -2.221816425\n12  -7.45 -0.352711462\n13  -7.40  0.788325702\n14  -7.35  0.348209977\n15  -7.30  0.888132692\n16  -7.25  1.494640228\n17  -7.20  0.539665177\n18  -7.15  1.534245783\n19  -7.10 -0.636288267\n20  -7.05  1.400750746\n21  -7.00  0.857266821\n22  -6.95  0.689240640\n23  -6.90 -0.578689332\n24  -6.85 -0.247484190\n25  -6.80 -1.616711187\n26  -6.75 -0.211921880\n27  -6.70 -1.389650022\n28  -6.65 -0.667030427\n29  -6.60  0.265923179\n30  -6.55  0.368512913\n31  -6.50  0.159370185\n32  -6.45 -0.803029578\n33  -6.40 -1.181853575\n34  -6.35  0.799141786\n35  -6.30 -0.119741600\n36  -6.25  1.055099362\n37  -6.20  0.260610303\n38  -6.15  1.215058556\n39  -6.10 -2.093776227\n40  -6.05 -0.340475843\n41  -6.00  1.098181964\n42  -5.95 -1.022920292\n43  -5.90  0.997308309\n44  -5.85  0.442282185\n45  -5.80  2.024841893\n46  -5.75 -0.206236931\n47  -5.70 -0.366921396\n48  -5.65 -0.540982671\n49  -5.60  0.326545855\n50  -5.55  1.185875818\n51  -5.50  0.163270582\n52  -5.45 -0.252746010\n53  -5.40 -0.538783647\n54  -5.35  0.239830058\n55  -5.30  0.227238979\n56  -5.25  0.146973095\n57  -5.20  1.206565164\n58  -5.15  0.274237725\n59  -5.10  0.291223416\n60  -5.05 -0.048435420\n61  -5.00 -0.160503335\n62  -4.95  0.982662625\n63  -4.90 -0.009812706\n64  -4.85 -1.236449694\n65  -4.80 -0.220086594\n66  -4.75  0.916450245\n67  -4.70  0.312158589\n68  -4.65 -0.271222289\n69  -4.60 -0.362834150\n70  -4.55  0.690127669\n71  -4.50  0.954579372\n72  -4.45 -1.002334741\n73  -4.40 -0.827510811\n74  -4.35 -0.481050964\n75  -4.30  0.213284850\n76  -4.25  0.694018655\n77  -4.20  0.318705891\n78  -4.15  1.359291786\n79  -4.10  0.299499214\n80  -4.05 -0.136853535\n81  -4.00 -0.907524278\n82  -3.95  0.580039124\n83  -3.90 -0.451761432\n84  -3.85 -0.637651429\n85  -3.80 -0.377287558\n86  -3.75 -0.108975033\n87  -3.70  0.266174878\n88  -3.65  1.950537958\n89  -3.60  2.481797153\n90  -3.55  0.024020307\n91  -3.50 -0.271974465\n92  -3.45 -0.324420253\n93  -3.40  0.914990966\n94  -3.35 -0.177070403\n95  -3.30  1.668125591\n96  -3.25 -0.196626395\n97  -3.20  0.909735944\n98  -3.15  0.379802619\n99  -3.10 -0.717674077\n100 -3.05 -0.137978296\n101 -3.00 -0.032596143\n102 -2.95 -1.151078285\n103 -2.90 -0.035147120\n104 -2.85  1.289653594\n105 -2.80  1.301664628\n106 -2.75 -1.314453018\n107 -2.70  0.279983464\n108 -2.65 -0.134496134\n109 -2.60 -0.993968666\n110 -2.55 -1.125493956\n111 -2.50 -0.585075814\n112 -2.45 -0.360440229\n113 -2.40 -0.128946258\n114 -2.35 -1.763949074\n115 -2.30  0.249921212\n116 -2.25  1.356315758\n117 -2.20 -0.221241869\n118 -2.15 -0.255945298\n119 -2.10  0.764032808\n120 -2.05 -0.429023148\n121 -2.00 -0.506416626"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-1",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-1",
+    "title": "Summarizing Numerical Associations",
+    "section": "Pearson Correlation and Scale",
+    "text": "Pearson Correlation and Scale\n\n\n\ndf_f |&gt;\n    ggplot(aes(x = x,\n               y = y)) +\n    geom_point() +\n    ylim(-9, 9) +\n    theme_bw()"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-2",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-2",
+    "title": "Summarizing Numerical Associations",
+    "section": "Pearson Correlation and Scale",
+    "text": "Pearson Correlation and Scale\n\n\n\ndf_f |&gt;\n    ggplot(aes(x = x,\n               y = y)) +\n    geom_point() +\n    ylim(-9, 9) +\n    theme_bw()"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-3",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-3",
+    "title": "Summarizing Numerical Associations",
+    "section": "Pearson Correlation and Scale",
+    "text": "Pearson Correlation and Scale\n\n\n\ndf_f |&gt;\n    ggplot(aes(x = x,\n               y = y)) +\n    geom_point() +\n    theme_bw()"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-4",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-4",
+    "title": "Summarizing Numerical Associations",
+    "section": "Pearson Correlation and Scale",
+    "text": "Pearson Correlation and Scale\n\n\n\ndf_f |&gt;\n    ggplot(aes(x = x,\n               y = y)) +\n    geom_point() +\n    theme_bw()"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-5",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-5",
+    "title": "Summarizing Numerical Associations",
+    "section": "Pearson Correlation and Scale",
+    "text": "Pearson Correlation and Scale\n\ndf_f |&gt;\n    summarize(pearson = cor(x, y))"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-6",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#pearson-correlation-and-scale-6",
+    "title": "Summarizing Numerical Associations",
+    "section": "Pearson Correlation and Scale",
+    "text": "Pearson Correlation and Scale\n\ndf_f |&gt;\n    summarize(pearson = cor(x, y))\n\n      pearson\n1 -0.03106456"
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/slides.html#describing-associations",
+    "href": "2-summarizing-data/06-summarizing-associations/slides.html#describing-associations",
+    "title": "Summarizing Numerical Associations",
+    "section": "Describing Associations",
+    "text": "Describing Associations\nWhen considering the structure in a scatter plot, pay attention to:\n\nThe strength of the association\n\nHow much does the conditional distribution of y change when you move along the x?\n\n\n\n\nThe shape of the association\n\nLinear? Quadratic? Cubic or beyond?\n\n\n\n\n\nThe direction of the (linear) association\n\nPositive or negative?"
+  },
+  {
     "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#agenda",
     "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#agenda",
     "title": "Summarizing Numerical Data",
@@ -235,7 +326,7 @@
     "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
     "title": "Multiple Linear Regression",
     "section": "Penguins Data",
-    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Gentoo    Biscoe           50.4          15.3        5550 male  \n2 Adelie    Dream            36            17.9        3450 female\n3 Adelie    Biscoe           42.2          19.5        4275 male  \n4 Adelie    Dream            38.8          20          3950 male  \n5 Chinstrap Dream            42.5          16.7        3350 female"
+    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species island    bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Adelie  Biscoe              37.9          18.6        2925 female\n2 Adelie  Torgersen           38.9          17.8        3625 female\n3 Adelie  Dream               36.2          17.3        3300 female\n4 Adelie  Biscoe              34.5          18.1        2900 female\n5 Adelie  Biscoe              35.5          16.2        3350 female"
   },
   {
     "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
@@ -420,6 +511,41 @@
     "text": "Random variables\nWhat about if \\(X\\) is the number of heads in 3 tosses of a biased coin, where the chance of heads is \\(\\frac{2}{3}\\)? Now what is \\(f(x) = P(X = x)\\)?"
   },
   {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-dbinom",
+    "title": "Random Variables",
+    "section": "Demo: dbinom()",
+    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# probability distribution (pmf)\npmf = dbinom(x = 0:n, size = n, prob = p)\npmf\n\n\n\n[1] 0.03703704 0.22222222 0.44444444 0.29629630"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-pbinom",
+    "title": "Random Variables",
+    "section": "Demo: pbinom()",
+    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# cumulative distribution function\ncdf = pbinom(q = 0:3, size = n, prob = p)\ncdf\n\n\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000\n\n\n\n\n\n\n# equivalent\ncumsum(pmf)\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-rbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
+    "title": "Random Variables",
+    "section": "Demo rbinom()",
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 2 1 2 1 3 3 2 2 3 1 2 2 3 1 3 2 2 2 3 3 3 2 1 3 2 2 2 2 3 0 2 1 2 2 1 3\n [38] 3 2 1 1 3 3 1 3 3 2 1 3 3 2 1 2 1 1 3 1 2 2 3 2 2 1 1 2 2 1 1 1 2 2 2 2 3\n [75] 3 1 1 1 2 1 2 2 1 2 1 2 2 2 3 1 3 2 3 2 3 3 3 3 3 3"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
+    "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
+    "title": "Random Variables",
+    "section": "Demo: Empirical Probability Distribution",
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  1\n2      1 27\n3      2 41\n4      3 31\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  1 0.01\n2      1 27 0.27\n3      2 41 0.41\n4      3 31 0.31"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
+    "href": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
+    "title": "Random Variables",
+    "section": "Demo: Empirical histogram",
+    "text": "Demo: Empirical histogram\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col()"
+  },
+  {
     "objectID": "3-probability/04-random-variables/slides.html#random-variables-2",
     "href": "3-probability/04-random-variables/slides.html#random-variables-2",
     "title": "Random Variables",
@@ -434,39 +560,11 @@
     "text": "Random variables\nFinally, let’s consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number \\(X\\). What is the pmf of \\(X\\)?"
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#demo",
-    "href": "3-probability/04-random-variables/slides.html#demo",
-    "title": "Random Variables",
-    "section": "Demo",
-    "text": "Demo\nDemo dbinom() and pbinom() and connection to pmf and cdf. Show how we can use rbinom to get an empirical histogram for three flips of fair or biased coin.\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# probability distribution\ndbinom(x = 0:n, size = n, prob = p)\n\n\n\n[1] 0.03703704 0.22222222 0.44444444 0.29629630"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-1",
-    "href": "3-probability/04-random-variables/slides.html#demo-1",
-    "title": "Random Variables",
-    "section": "Demo",
-    "text": "Demo\nShow how we can use rbinom to get an empirical histogram for three flips of fair or biased coin.\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = 1, prob = p)\ntosses\n\n\n\n  [1] 1 0 1 1 1 0 1 0 0 0 1 0 1 0 1 1 1 1 1 1 1 0 0 1 1 0 1 1 1 0 0 1 0 1 1 0 1\n [38] 1 1 1 1 1 1 1 0 1 0 1 1 0 0 1 0 0 0 1 1 1 0 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1\n [75] 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 0 1 0 0 1 1 1 1"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-2",
-    "href": "3-probability/04-random-variables/slides.html#demo-2",
-    "title": "Random Variables",
-    "section": "Demo",
-    "text": "Demo\nEmpirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0 31\n2      1 69\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0 31 0.31\n2      1 69 0.69"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-3",
-    "href": "3-probability/04-random-variables/slides.html#demo-3",
-    "title": "Random Variables",
-    "section": "Demo",
-    "text": "Demo\nShow how we can use rbinom to get an empirical histogram for three flips of fair or biased coin.\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col()"
-  },
-  {
     "objectID": "3-probability/04-random-variables/slides.html#fx-and-fx",
     "href": "3-probability/04-random-variables/slides.html#fx-and-fx",
     "title": "Random Variables",
     "section": "\\(f(x)\\) and \\(F(x)\\)",
-    "text": "\\(f(x)\\) and \\(F(x)\\)\n\n\\(f(x)\\) is the probability mass function of \\(X\\). What does that mean? What is the connection to the distribution table? The probability histogram?\n\\(F(x)\\) is the cumulative distribution function.\nWhat is the connection between \\(f\\) and \\(F\\)?"
+    "text": "\\(f(x)\\) and \\(F(x)\\)\n\n\\(f(x)\\) is the probability mass function of \\(X\\).\n\nWhat does that mean?\nWhat is the connection to the distribution table?\nWhat is the connection to the probability histogram?\n\n\n\n\n\n\\(F(x)\\) is the cumulative distribution function.\n\n\n\n\nWhat is the connection between \\(f\\) and \\(F\\)?"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#example",
@@ -994,9 +1092,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "STAT 20 - Introduction to Probability and Statistics",
+    "title": "Gaston Sanchez’s instructional materials for STAT 20",
     "section": "",
-    "text": "Welcome to Gaston Sanchez’s companion website for STAT 20.\n\nUnderstanding the World with Data\n\nUnderstanding the world (slides)\nTaxonomy of Data (slides)\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data (slides)\nSummarizing Numerical Data (slides)\nA Grammar of Graphics (slides)\nMultiple Linear Regression (slides)\n\n\n\nProbability\n\nIntro to Probability (slides)\nComputing Probabilities (slides)\nProbability Distributions (slides)\nRandom Variables (slides)\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz\n\nQuiz (slides)",
+    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz\n\nQuiz",
     "crumbs": [
       "Home"
     ]
@@ -1202,6 +1300,50 @@
     "crumbs": [
       "Practice Problems",
       "Practice: Summarizing Numerical Data"
+    ]
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/practice.html",
+    "href": "2-summarizing-data/06-summarizing-associations/practice.html",
+    "title": "Practice: Linear Regression",
+    "section": "",
+    "text": "In a Quarto document file, run the following commands:\n# packages\nlibrary(tidyverse)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Linear Regression"
+    ]
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/practice.html#instructions-starting-code",
+    "href": "2-summarizing-data/06-summarizing-associations/practice.html#instructions-starting-code",
+    "title": "Practice: Linear Regression",
+    "section": "",
+    "text": "In a Quarto document file, run the following commands:\n# packages\nlibrary(tidyverse)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Linear Regression"
+    ]
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/practice.html#relationship-between-income-and-illiteracy",
+    "href": "2-summarizing-data/06-summarizing-associations/practice.html#relationship-between-income-and-illiteracy",
+    "title": "Practice: Linear Regression",
+    "section": "Relationship between income and illiteracy",
+    "text": "Relationship between income and illiteracy\nWe want to study the relationship between percent of illiteracy using per-capita income\n\nScatter plot\nUse ggplot commands to make a scatter plot to visualize the relationship between income (x-axis) and illiteracy (y-axis), displaying the name of each state.\n\nggplot(_______, aes(x = _________, y = ___________)) + \n  geom_point() +\n  geom_text(aes(label = _______), size = 3, alpha = 0.5)\n\n\n\nShow answer\nggplot(states, aes(x = income, y = illiteracy)) + \n  geom_point() +\n  geom_text(aes(label = name), size = 3, alpha = 0.5)\n\n\n\n\nCorrelation Coefficient\nComplete the following pipeline to obtain the correlation, cor(), between income and illiteracy\n\n# correlation coefficient\nstates |&gt; summarize(___________________)\n\n\n\nShow answer\n# correlation coefficient\nstates |&gt;\n  summarize(correl = cor(income, illiteracy))\n\n\nTrue or False: based on the states data and the preceding scatter plot …\n\nHaving a larger proportion of literate people in a state creates an increment of per-capita income.\nStates with larger per-capita incomes tend to have lower percentages of illiterate population.\nHigh levels of per-capita income produce more educated people.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. The verb “creates” implies causation.\nTrue\nFalse. The verb “produce” implies causation.\n\n\n\n\n\n\nLinear Regression Model\nUse the lm() function to fit a linear model between income (x) and illiteracy (y)\n\nmod1 &lt;- lm(____________________, data = ______)\nmod1\n\n\n\nShow answer\nmod1 = lm(formula = illiteracy ~ income, data = states)\nmod1\n\n\nBased on the output of your model mod1, provide a verbal interpretation of the obtained coefficients.\n\n\nShow answer\n# Answer: For every additional unit in per-capita income, the percent of\n# illiterate population tends to decrease by 0.0004\n\n\n\n\nScatter Plot with Regression Line\n\nRe-graph the scatter plot of income (x) and illiteracy (y), adding the line of the linear model with.\n\n\n# visualize regression line\nggplot(______, aes(x = ______, y = _______)) + \n  geom_point() +\n  geom_text(aes(label = ______), size = 3, alpha = 0.5) +\n  geom_abline(slope = ______, intercept = ______)\n\n\n\nShow answer\n# visualize regression line\nggplot(states, aes(x = income, y = illiteracy)) + \n  geom_point() +\n  geom_text(aes(label = name), size = 3, alpha = 0.5) +\n  geom_abline(slope = -0.00043, \n              intercept = 3.0932)\n\n\n\nInstead of using geom_abline() use geom_smooth(method = \"lm\", se = FALSE, formula = y ~ x) and compare it with your previous graphic.\n\n\n\nShow answer\n# visualize regression line\nggplot(states, aes(x = income, y = illiteracy)) + \n  geom_point() +\n  geom_text(aes(label = name), size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE, formula = y ~ x)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Linear Regression"
+    ]
+  },
+  {
+    "objectID": "2-summarizing-data/06-summarizing-associations/practice.html#predicting-life_exp-in-terms-of-murder-and-hs_plus55",
+    "href": "2-summarizing-data/06-summarizing-associations/practice.html#predicting-life_exp-in-terms-of-murder-and-hs_plus55",
+    "title": "Practice: Linear Regression",
+    "section": "Predicting life_exp in terms of murder and hs_plus55",
+    "text": "Predicting life_exp in terms of murder and hs_plus55\nNow let’s predict life expectancy (life_exp) in terms of murder rate (murder) and an indicator variable derived from high-school graduates, specifically percent of HS graduates greater than or equal to 55 (hs_plus55).\nThis analysis requires mutating the states data to add the categorical variable hs_plus55 that indicates whether a state had a highschool graduation rate larger than or equal to 55 percent. This mutation requires a logical condition hs_grad &gt;= 55\n\n\nShow answer\n# mutate: add variable \"hs_plus55\"\nstates &lt;- states |&gt; \n  mutate(hs_plus55 = hs_grad &gt;= 55)\n\n\n\nScatter plot\nMake a scatter plot of \"murder\" (x-axis) and \"life_exp\" (y-axis), color coding the points by \"hs_plus55\"\n\n# scatter plot, color coding by hs_plus55\n\n\n\nShow answer\n# scatter plot, color coding by hs_plus55\nggplot(states, aes(x = murder, y = life_exp, color = hs_plus55)) +\n  geom_point()\n\n\n\n\nMultiple Regression Model\nFit a linear model predicting \"life_exp\" in terms of \"murder\" and \"hs_plus55\".\n\n\nShow answer\n# linear model predicting \"life_exp\" in terms of \"murder\" and \"hs_plus55\"\nm2 = lm(life_exp ~ murder + hs_plus55, data = states)\nm2\n\n\nProvide a verbal interpretation for the coefficients in the above model.\n\n\nShow answer\n# Verbal interpretation of \"murder\" coefficient:\n# For 2 states both having the same \"hs_plus55\" level, a unit increase in \n# \"murder\" is associated with a decrease of 0.2555 years in \"life_exp\"\n\n# Verbal interpretation of \"hs_plus55\" coefficient\n# For those states with the same \"murder\" rate, having a HS-graduation percentage \n# greater than or equal to 55%, tends to be associated with an increase of\n# 0.5588 years in \"life_exp\"  \n\n\n\n\nPlotting Challenge\nObtain a scatter plot to visualize the parallel lines associated to the regression model fitted above. Hint: Use two layers of geom_abline()—one layer per regression line.\n\n\nShow answer\n# challenge: scatter plot with fitted lines\nggplot(states, aes(x = murder, y = life_exp, \n                   color = hs_plus55, group = hs_plus55)) +\n  geom_point() +\n  geom_abline(slope = m2$coefficients[2], \n              intercept = m2$coefficients[1] + m2$coefficients[3],\n              color = \"turquoise\") +\n  geom_abline(slope = m2$coefficients[2], \n              intercept = m2$coefficients[1],\n              color = \"tomato\")",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Linear Regression"
     ]
   },
   {

@@ -1,38 +1,52 @@
 ---
-title: "STAT 20 - Introduction to Probability and Statistics"
+title: "Gaston Sanchez's instructional materials for STAT 20"
 ---
 
-Welcome to Gaston Sanchez's companion website for STAT 20.
+A friendly reminder to myself when teaching [STAT 20](https://stat20.berkeley.edu/), and the reason why I use my own set of custom slides:
+
+>
+| The world provides a million ways, for a human heart to grow.
+| There is no single compass, no mandatory flow.
+|
+<!-- | So find your own bright river, and just keep swimming on,
+| and let your spirit guide you, into the light of dawn.
+|-->
+| Follow your own drumbeat, until the day is gone,
+| whatever makes you happy, whatever turns you on.
+|
+| _Gas & Gem_
 
 
 
 ### Understanding the World with Data
 
-- [Understanding the world (slides)](1-questions-and-data/01-understanding-the-world/slides.html){target="_blank"}
+- [Understanding the world](1-questions-and-data/01-understanding-the-world/slides.html){target="_blank"}
 
-- [Taxonomy of Data (slides)](1-questions-and-data/02-taxonomy-of-data/slides.html){target="_blank"}
+- [Taxonomy of Data](1-questions-and-data/02-taxonomy-of-data/slides.html){target="_blank"}
 
 
 ### Summarizing Data
 
-- [Summarizing Categorical Data (slides)](2-summarizing-data/01-summarizing-categorical-data/slides.html)
+- [Summarizing Categorical Data](2-summarizing-data/01-summarizing-categorical-data/slides.html){target="_blank"}
 
-- [Summarizing Numerical Data (slides)](2-summarizing-data/02-summarizing-numerical-data/slides.html)
+- [Summarizing Numerical Data](2-summarizing-data/02-summarizing-numerical-data/slides.html){target="_blank"}
 
-- [A Grammar of Graphics (slides)](2-summarizing-data/03-a-grammar-of-graphics/slides.html)
+- [A Grammar of Graphics](2-summarizing-data/03-a-grammar-of-graphics/slides.html){target="_blank"}
 
-- [Multiple Linear Regression (slides)](2-summarizing-data/07-multiple-linear-regression/slides.html)
+- [Summarizing Associations](2-summarizing-data/06-summarizing-associations/slides.html){target="_blank"}
+
+- [Multiple Linear Regression](2-summarizing-data/07-multiple-linear-regression/slides.html){target="_blank"}
 
 
 ### Probability
 
-- [Intro to Probability (slides)](3-probability/01-chance-intro/slides.html)
+- [Intro to Probability](3-probability/01-chance-intro/slides.html){target="_blank"}
 
-- [Computing Probabilities (slides)](3-probability/02-cond-prob-indep/slides.html)
+- [Computing Probabilities](3-probability/02-cond-prob-indep/slides.html){target="_blank"}
 
-- [Probability Distributions (slides)](3-probability/03-probability-dsns/slides.html)
+- [Probability Distributions](3-probability/03-probability-dsns/slides.html){target="_blank"}
 
-- [Random Variables (slides)](3-probability/04-random-variables/slides.html)
+- [Random Variables](3-probability/04-random-variables/slides.html){target="_blank"}
 
 
 ### Generalization
@@ -58,5 +72,5 @@ Welcome to Gaston Sanchez's companion website for STAT 20.
 
 ### Quiz
 
-- [Quiz (slides)](quiz-slides/quiz-slides.html)
+- [Quiz](quiz-slides/quiz-slides.html)
 

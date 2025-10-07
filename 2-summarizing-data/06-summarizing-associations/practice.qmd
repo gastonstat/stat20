@@ -1,0 +1,280 @@
+---
+title: "Practice: Linear Regression"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
+library(tidyverse)
+```
+
+
+## Instructions: starting code
+
+In a Quarto document file, run the following commands:
+
+```r
+# packages
+library(tidyverse)
+```
+
+
+# Data Frame `states`
+
+We are going to use the following data frame `states` with some statistics 
+about U.S. states (from the 1970's)
+
+```{r}
+# data set with some statistics of U.S. states
+states1 = data.frame(name = rownames(state.x77))
+states2 = as.data.frame(state.x77[ ,2:7])
+states = cbind(states1, states2)
+colnames(states) = c("name", "income", "illiteracy", 
+                  "life_exp", "murder", "hs_grad", "frost")
+rownames(states) = 1:nrow(states)
+
+slice(states, 1:10)
+```
+
+\
+
+__Variables in Data__:
+
+- `income`: per capita income (1974)
+
+- `illiteracy`: illiteracy (1970, percent of population)
+
+- `life_exp`: life expectancy in years (1969–71)
+
+- `murder`: murder and non-negligent manslaughter rate per 100,000 population (1976)
+
+- `hs_grad`: percent high-school graduates (1970)
+
+- `frost`: mean number of days with minimum temperature below freezing (1931–1960) in capital or large city
+
+
+## Relationship between `income` and `illiteracy`
+
+We want to study the relationship between percent of `illiteracy` using per-capita `income`
+
+
+### Scatter plot
+
+Use ggplot commands to make a scatter plot to visualize the relationship 
+between `income` (x-axis) and `illiteracy` (y-axis), displaying the `name` 
+of each state.
+
+```{r eval = FALSE}
+ggplot(_______, aes(x = _________, y = ___________)) + 
+  geom_point() +
+  geom_text(aes(label = _______), size = 3, alpha = 0.5)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+ggplot(states, aes(x = income, y = illiteracy)) + 
+  geom_point() +
+  geom_text(aes(label = name), size = 3, alpha = 0.5)
+```
+
+
+### Correlation Coefficient
+
+Complete the following pipeline to obtain the correlation, `cor()`, between `income` and `illiteracy`
+
+```{r eval = FALSE}
+# correlation coefficient
+states |> summarize(___________________)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# correlation coefficient
+states |>
+  summarize(correl = cor(income, illiteracy))
+```
+
+True or False: based on the states data and the preceding scatter plot ...
+
+a) Having a larger proportion of literate people in a state creates an increment of per-capita income. 
+
+b) States with larger per-capita incomes tend to have lower percentages of illiterate population.
+
+c) High levels of per-capita income produce more educated people.
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) False. The verb "creates" implies causation.
+b) True
+c) False. The verb "produce" implies causation.
+:::
+
+
+### Linear Regression Model
+
+Use the `lm()` function to fit a linear model between `income` (x) and `illiteracy` (y)
+
+```{r eval = FALSE}
+mod1 <- lm(____________________, data = ______)
+mod1
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+mod1 = lm(formula = illiteracy ~ income, data = states)
+mod1
+```
+
+Based on the output of your model `mod1`, provide a verbal interpretation of the obtained coefficients.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Answer: For every additional unit in per-capita income, the percent of
+# illiterate population tends to decrease by 0.0004
+```
+
+
+### Scatter Plot with Regression Line
+
+a) Re-graph the scatter plot of `income` (x) and `illiteracy` (y), adding the line 
+of the linear model with. 
+
+```{r eval = FALSE}
+# visualize regression line
+ggplot(______, aes(x = ______, y = _______)) + 
+  geom_point() +
+  geom_text(aes(label = ______), size = 3, alpha = 0.5) +
+  geom_abline(slope = ______, intercept = ______)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# visualize regression line
+ggplot(states, aes(x = income, y = illiteracy)) + 
+  geom_point() +
+  geom_text(aes(label = name), size = 3, alpha = 0.5) +
+  geom_abline(slope = -0.00043, 
+              intercept = 3.0932)
+```
+
+
+b) Instead of using `geom_abline()` use `geom_smooth(method = "lm", se = FALSE, formula = y ~ x)` and compare it with your previous graphic.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# visualize regression line
+ggplot(states, aes(x = income, y = illiteracy)) + 
+  geom_point() +
+  geom_text(aes(label = name), size = 3, alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE, formula = y ~ x)
+```
+
+
+-----
+
+
+## Predicting `life_exp` in terms of `murder` and `hs_plus55`
+
+Now let's predict life expectancy (`life_exp`) in terms of murder rate (`murder`)
+and an indicator variable derived from high-school graduates, specifically 
+percent of HS graduates greater than or equal to 55 (`hs_plus55`).
+
+This analysis requires mutating the `states` data to add the categorical 
+variable `hs_plus55` that indicates whether a state had a highschool graduation 
+rate larger than or equal to 55 percent. This mutation requires a logical 
+condition `hs_grad >= 55`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# mutate: add variable "hs_plus55"
+states <- states |> 
+  mutate(hs_plus55 = hs_grad >= 55)
+```
+
+
+### Scatter plot
+
+Make a scatter plot of `"murder"` (x-axis) and `"life_exp"` (y-axis),
+color coding the points by `"hs_plus55"`
+
+```{r eval = FALSE}
+# scatter plot, color coding by hs_plus55
+
+```
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# scatter plot, color coding by hs_plus55
+ggplot(states, aes(x = murder, y = life_exp, color = hs_plus55)) +
+  geom_point()
+```
+
+
+### Multiple Regression Model
+
+Fit a linear model predicting `"life_exp"` in terms of `"murder"` and `"hs_plus55"`. 
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# linear model predicting "life_exp" in terms of "murder" and "hs_plus55"
+m2 = lm(life_exp ~ murder + hs_plus55, data = states)
+m2
+```
+
+
+Provide a verbal interpretation for the coefficients in the above model.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# Verbal interpretation of "murder" coefficient:
+# For 2 states both having the same "hs_plus55" level, a unit increase in 
+# "murder" is associated with a decrease of 0.2555 years in "life_exp"
+
+# Verbal interpretation of "hs_plus55" coefficient
+# For those states with the same "murder" rate, having a HS-graduation percentage 
+# greater than or equal to 55%, tends to be associated with an increase of
+# 0.5588 years in "life_exp"  
+```
+
+
+### Plotting Challenge
+
+Obtain a scatter plot to visualize the parallel lines associated
+to the regression model fitted above. _Hint_: Use two layers of `geom_abline()`---one
+layer per regression line.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+# challenge: scatter plot with fitted lines
+ggplot(states, aes(x = murder, y = life_exp, 
+                   color = hs_plus55, group = hs_plus55)) +
+  geom_point() +
+  geom_abline(slope = m2$coefficients[2], 
+              intercept = m2$coefficients[1] + m2$coefficients[3],
+              color = "turquoise") +
+  geom_abline(slope = m2$coefficients[2], 
+              intercept = m2$coefficients[1],
+              color = "tomato")
+```
+
