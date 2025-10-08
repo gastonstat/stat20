@@ -39,7 +39,7 @@ library(patchwork)
     -   Random Variables
     -   Expected Value and Variance
 
-## Announcements: WSP 5
+## Announcements: WSP 5, Oct-14th
 
 -   WS Computing probs
 -   WS Prob distributions
@@ -49,11 +49,11 @@ library(patchwork)
 
 # Lecture
 
-## Random variables
+## Random Variables 1
 
 Let $X$ be the number of heads in three tosses of a fair coin. What is the distribution of $X$? That is, what is $f(x) = P(X = x)$? What values will $x$ take?
 
-## Random variables
+## Random Variables 2
 
 What about if $X$ is the number of heads in 3 tosses of a **biased** coin, where the chance of heads is $\frac{2}{3}$? Now what is $f(x) = P(X = x)$?
 
@@ -146,14 +146,18 @@ data.frame(tosses) |>
   count(tosses) |> 
   mutate(prop = n / sum(n)) |> 
   ggplot(aes(x = tosses, y = prop)) +
-  geom_col()
+  geom_col() +
+  labs(title = "Probability Histogram", 
+       subtitle = "Number of heads in 3 tosses of biased coin", 
+       x = "heads") +
+  theme_bw()
 ```
 
-## Random variables
+## Random Variables 3
 
 Now suppose we toss a fair coin until the first time it lands heads, and let $X$ be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of $X$? Is it binomial?
 
-## Random variables
+## Random Variables 4
 
 Finally, let's consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number $X$. What is the pmf of $X$?
 
@@ -331,7 +335,7 @@ $F(2) = 2/3, f(2) = 0$
 countdown::countdown(2, bottom = 0)
 ```
 
-You have $10$ people with a cold and you have a remedy with a $20\%$ chance of success. What is the chance that your remedy will cure at least *one* sufferer? (Let $X$ be the number of people cured among the 10. We are looking for the probability that $X \ge 1$)
+You have $10$ people with a cold and you have a remedy with a $20\%$ chance of success. What is the chance that your remedy will cure at least *one* sufferer?
 
 ::: poll
 What is the chance that at least one person is cured?
@@ -404,14 +408,14 @@ x4 <- rpois(500, 4)
 explain the smaller the rate, the lower the probability of higher values. A-4, B-1, C-3, D-2
 :::
 
-# Break
+# Practice Problems
 
 ```{r}
-countdown::countdown(5, top = 0)
+countdown::countdown(20, top = 0)
 ```
 
 # WS: Random Variables
 
 ```{r}
-countdown::countdown(40, top = 0)
+countdown::countdown(45, top = 0)
 ```

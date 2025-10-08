@@ -507,8 +507,8 @@
     "objectID": "3-probability/04-random-variables/slides.html#random-variables-1",
     "href": "3-probability/04-random-variables/slides.html#random-variables-1",
     "title": "Random Variables",
-    "section": "Random variables",
-    "text": "Random variables\nWhat about if \\(X\\) is the number of heads in 3 tosses of a biased coin, where the chance of heads is \\(\\frac{2}{3}\\)? Now what is \\(f(x) = P(X = x)\\)?"
+    "section": "Random Variables 1",
+    "text": "Random Variables 1\nLet \\(X\\) be the number of heads in three tosses of a fair coin. What is the distribution of \\(X\\)? That is, what is \\(f(x) = P(X = x)\\)? What values will \\(x\\) take?"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom",
@@ -529,35 +529,35 @@
     "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
     "title": "Random Variables",
     "section": "Demo rbinom()",
-    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 2 1 2 1 3 3 2 2 3 1 2 2 3 1 3 2 2 2 3 3 3 2 1 3 2 2 2 2 3 0 2 1 2 2 1 3\n [38] 3 2 1 1 3 3 1 3 3 2 1 3 3 2 1 2 1 1 3 1 2 2 3 2 2 1 1 2 2 1 1 1 2 2 2 2 3\n [75] 3 1 1 1 2 1 2 2 1 2 1 2 2 2 3 1 3 2 3 2 3 3 3 3 3 3"
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 2 1 0 1 1 3 2 1 1 1 3 2 3 1 3 0 1 1 2 3 1 0 2 3 2 2 3 2 1 3 2 3 2 0 0 1\n [38] 2 2 2 2 3 0 2 2 3 1 2 2 1 2 3 3 3 2 2 3 3 1 2 2 2 1 1 0 2 0 1 3 2 2 1 1 2\n [75] 3 1 2 2 3 1 3 1 2 3 2 1 1 3 1 2 1 3 3 1 3 2 3 3 2 2"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "title": "Random Variables",
     "section": "Demo: Empirical Probability Distribution",
-    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  1\n2      1 27\n3      2 41\n4      3 31\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  1 0.01\n2      1 27 0.27\n3      2 41 0.41\n4      3 31 0.31"
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  8\n2      1 28\n3      2 37\n4      3 27\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  8 0.08\n2      1 28 0.28\n3      2 37 0.37\n4      3 27 0.27"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
     "href": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
     "title": "Random Variables",
     "section": "Demo: Empirical histogram",
-    "text": "Demo: Empirical histogram\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col()"
+    "text": "Demo: Empirical histogram\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col() +\n  labs(title = \"Probability Histogram\", \n       subtitle = \"Number of heads in 3 tosses of biased coin\", \n       x = \"heads\") +\n  theme_bw()"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#random-variables-2",
     "href": "3-probability/04-random-variables/slides.html#random-variables-2",
     "title": "Random Variables",
-    "section": "Random variables",
-    "text": "Random variables\nNow suppose we toss a fair coin until the first time it lands heads, and let \\(X\\) be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of \\(X\\)? Is it binomial?"
+    "section": "Random Variables 2",
+    "text": "Random Variables 2\nWhat about if \\(X\\) is the number of heads in 3 tosses of a biased coin, where the chance of heads is \\(\\frac{2}{3}\\)? Now what is \\(f(x) = P(X = x)\\)?"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#random-variables-3",
     "href": "3-probability/04-random-variables/slides.html#random-variables-3",
     "title": "Random Variables",
-    "section": "Random variables",
-    "text": "Random variables\nFinally, let’s consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number \\(X\\). What is the pmf of \\(X\\)?"
+    "section": "Random Variables 3",
+    "text": "Random Variables 3\nNow suppose we toss a fair coin until the first time it lands heads, and let \\(X\\) be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of \\(X\\)? Is it binomial?"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#fx-and-fx",
@@ -627,7 +627,7 @@
     "href": "3-probability/04-random-variables/slides.html#section-4",
     "title": "Random Variables",
     "section": "",
-    "text": "−+\n02:00\n\n\n\nYou have \\(10\\) people with a cold and you have a remedy with a \\(20\\%\\) chance of success. What is the chance that your remedy will cure at least one sufferer? (Let \\(X\\) be the number of people cured among the 10. We are looking for the probability that \\(X \\ge 1\\))\n\nWhat is the chance that at least one person is cured?\n\n\n\\(P(X \\ge 1) = 1 - P(X &lt; 1) = 1 - P(X = 0) = 1 - (1-p)^{10}\\), where \\(p = 0.2\\), because \\(X \\sim Bin(10, p)\\). \\(1-p = 0.8 \\: \\& \\: 1-0.8^{10} = 0.8926\\)"
+    "text": "−+\n02:00\n\n\n\nYou have \\(10\\) people with a cold and you have a remedy with a \\(20\\%\\) chance of success. What is the chance that your remedy will cure at least one sufferer?\n\nWhat is the chance that at least one person is cured?\n\n\n\\(P(X \\ge 1) = 1 - P(X &lt; 1) = 1 - P(X = 0) = 1 - (1-p)^{10}\\), where \\(p = 0.2\\), because \\(X \\sim Bin(10, p)\\). \\(1-p = 0.8 \\: \\& \\: 1-0.8^{10} = 0.8926\\)"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#section-5",
@@ -1444,5 +1444,26 @@
       "Practice Problems",
       "Practice: Grammar of Graphics"
     ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5-due-oct-14th",
+    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5-due-oct-14th",
+    "title": "Random Variables",
+    "section": "Announcements: WSP 5, due Oct-14th",
+    "text": "Announcements: WSP 5, due Oct-14th\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
+    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
+    "title": "Random Variables",
+    "section": "Announcements: WSP 5, Oct-14th",
+    "text": "Announcements: WSP 5, Oct-14th\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-4",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-4",
+    "title": "Random Variables",
+    "section": "Random Variables 4",
+    "text": "Random Variables 4\nFinally, let’s consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number \\(X\\). What is the pmf of \\(X\\)?"
   }
 ]
