@@ -48,6 +48,8 @@ A friendly reminder to myself when teaching [STAT 20](https://stat20.berkeley.ed
 
 - [Random Variables](3-probability/04-random-variables/slides.html){target="_blank"}
 
+- [Expected Value and Variance](3-probability/05-ev-sd/slides.html){target="_blank"}
+
 
 ### Generalization
 

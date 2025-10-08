@@ -261,17 +261,26 @@ Adapted by Gaston Sanchez
 <h2>Random Variables 2</h2>
 <p>What about if <span class="math inline">\(X\)</span> is the number of heads in 3 tosses of a <strong>biased</strong> coin, where the chance of heads is <span class="math inline">\(\frac{2}{3}\)</span>? Now what is <span class="math inline">\(f(x) = P(X = x)\)</span>?</p>
 </section>
-<section id="demo-dbinom" class="slide level2">
-<h2>Demo: <code>dbinom()</code></h2>
+<section id="demo-dbinom" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Demo: <code>dbinom()</code></h2>
 <p><code>dbinom()</code> gives you the <em>pmf</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Binomial: parameters</span></span>
-<span id="cb1-2"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
-<span id="cb1-3"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># probability distribution (pmf)</span></span>
-<span id="cb1-6"><a></a>pmf <span class="ot">=</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span>n, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
-<span id="cb1-7"><a></a>pmf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a></a><span class="co"># Binomial: parameters</span></span>
+<span id="cb1-2" class="hljs-ln-code"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
+<span id="cb1-3" class="hljs-ln-code"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="demo-dbinom-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Demo: <code>dbinom()</code></h2>
+<p><code>dbinom()</code> gives you the <em>pmf</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a></a><span class="co"># Binomial: parameters</span></span>
+<span id="cb2-2" class="hljs-ln-code"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
+<span id="cb2-3" class="hljs-ln-code"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span>
+<span id="cb2-4" class="hljs-ln-code"><a></a></span>
+<span id="cb2-5" class="hljs-ln-code"><a></a><span class="co"># probability distribution (pmf)</span></span>
+<span id="cb2-6" class="hljs-ln-code"><a></a>pmf <span class="ot">=</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span>n, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
+<span id="cb2-7" class="hljs-ln-code"><a></a>pmf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -283,13 +292,22 @@ Adapted by Gaston Sanchez
 <h2>Demo: <code>pbinom()</code></h2>
 <p><code>pbinom()</code> gives you the <em>CDF</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Binomial: parameters</span></span>
-<span id="cb3-2"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
-<span id="cb3-3"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span>
-<span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a><span class="co"># cumulative distribution function</span></span>
-<span id="cb3-6"><a></a>cdf <span class="ot">=</span> <span class="fu">pbinom</span>(<span class="at">q =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
-<span id="cb3-7"><a></a>cdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Binomial: parameters</span></span>
+<span id="cb4-2"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
+<span id="cb4-3"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="demo-pbinom-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Demo: <code>pbinom()</code></h2>
+<p><code>pbinom()</code> gives you the <em>CDF</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Binomial: parameters</span></span>
+<span id="cb5-2"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
+<span id="cb5-3"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="co"># cumulative distribution function</span></span>
+<span id="cb5-6"><a></a>cdf <span class="ot">=</span> <span class="fu">pbinom</span>(<span class="at">q =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
+<span id="cb5-7"><a></a>cdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -300,8 +318,8 @@ Adapted by Gaston Sanchez
 <p><br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># equivalent</span></span>
-<span id="cb5-2"><a></a><span class="fu">cumsum</span>(pmf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># equivalent</span></span>
+<span id="cb7-2"><a></a><span class="fu">cumsum</span>(pmf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.03703704 0.25925926 0.70370370 1.00000000</code></pre>
 </div>
@@ -312,52 +330,52 @@ Adapted by Gaston Sanchez
 <h2>Demo <code>rbinom()</code></h2>
 <p><code>rbinom()</code> simulates drawing from a binomial distribution; we can use it to get an empirical histogram</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Binomial: parameters</span></span>
-<span id="cb7-2"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
-<span id="cb7-3"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span>
-<span id="cb7-4"><a></a></span>
-<span id="cb7-5"><a></a><span class="co"># simulation (100 tosses of biased coin)</span></span>
-<span id="cb7-6"><a></a>tosses <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
-<span id="cb7-7"><a></a>tosses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Binomial: parameters</span></span>
+<span id="cb9-2"><a></a>n <span class="ot">=</span> <span class="dv">3</span>   <span class="co"># number of tosses</span></span>
+<span id="cb9-3"><a></a>p <span class="ot">=</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="co"># chance of heads</span></span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a><span class="co"># simulation (100 tosses of biased coin)</span></span>
+<span id="cb9-6"><a></a>tosses <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
+<span id="cb9-7"><a></a>tosses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 2 2 1 0 1 1 3 2 1 1 1 3 2 3 1 3 0 1 1 2 3 1 0 2 3 2 2 3 2 1 3 2 3 2 0 0 1
- [38] 2 2 2 2 3 0 2 2 3 1 2 2 1 2 3 3 3 2 2 3 3 1 2 2 2 1 1 0 2 0 1 3 2 2 1 1 2
- [75] 3 1 2 2 3 1 3 1 2 3 2 1 1 3 1 2 1 3 3 1 3 2 3 3 2 2</code></pre>
+<pre><code>  [1] 2 1 1 2 2 3 2 3 1 1 2 2 2 3 2 2 3 2 0 3 3 3 3 1 3 3 2 2 2 2 2 3 2 1 3 1 3
+ [38] 2 3 2 2 3 3 3 3 2 2 3 1 2 3 2 2 2 1 3 3 3 1 3 3 3 3 1 1 3 3 3 3 3 1 2 2 3
+ [75] 0 2 1 2 3 2 1 3 2 3 1 3 1 1 2 2 1 3 1 2 1 2 2 1 2 2</code></pre>
 </div>
 </div>
 </section>
 <section id="demo-empirical-probability-distribution" class="slide level2">
 <h2>Demo: Empirical Probability Distribution</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">data.frame</span>(tosses) <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">count</span>(tosses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">data.frame</span>(tosses) <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">count</span>(tosses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>  tosses  n
-1      0  8
-2      1 28
-3      2 37
-4      3 27</code></pre>
+1      0  2
+2      1 22
+3      2 38
+4      3 38</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p><br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">data.frame</span>(tosses) <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">count</span>(tosses) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">data.frame</span>(tosses) <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">count</span>(tosses) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>  tosses  n prop
-1      0  8 0.08
-2      1 28 0.28
-3      2 37 0.37
-4      3 27 0.27</code></pre>
+1      0  2 0.02
+2      1 22 0.22
+3      2 38 0.38
+4      3 38 0.38</code></pre>
 </div>
 </div>
 </div>
@@ -367,19 +385,19 @@ Adapted by Gaston Sanchez
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">data.frame</span>(tosses) <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a></a>  <span class="fu">count</span>(tosses) <span class="sc">|&gt;</span> </span>
-<span id="cb13-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
-<span id="cb13-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tosses, <span class="at">y =</span> prop)) <span class="sc">+</span></span>
-<span id="cb13-5"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb13-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Probability Histogram"</span>, </span>
-<span id="cb13-7"><a></a>       <span class="at">subtitle =</span> <span class="st">"Number of heads in 3 tosses of biased coin"</span>, </span>
-<span id="cb13-8"><a></a>       <span class="at">x =</span> <span class="st">"heads"</span>) <span class="sc">+</span></span>
-<span id="cb13-9"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">data.frame</span>(tosses) <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">count</span>(tosses) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tosses, <span class="at">y =</span> prop)) <span class="sc">+</span></span>
+<span id="cb15-5"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Probability Histogram"</span>, </span>
+<span id="cb15-7"><a></a>       <span class="at">subtitle =</span> <span class="st">"Number of heads in 3 tosses of biased coin"</span>, </span>
+<span id="cb15-8"><a></a>       <span class="at">x =</span> <span class="st">"heads"</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
 <section id="random-variables-3" class="slide level2">
 <h2>Random Variables 3</h2>
 <p>Now suppose we toss a fair coin until the first time it lands heads, and let <span class="math inline">\(X\)</span> be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of <span class="math inline">\(X\)</span>? Is it binomial?</p>
@@ -523,7 +541,7 @@ F(X) = \begin{cases}
 <h2></h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_59ece785" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_2a60bbbc" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -556,7 +574,7 @@ F(X) = \begin{cases}
 <h2></h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_92324ecb" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_1779c186" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
 </div>
@@ -582,7 +600,7 @@ F(X) = \begin{cases}
 <h2></h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_5dd16205" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_1376245a" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -610,7 +628,7 @@ F(X) = \begin{cases}
 <h2></h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_db4958ae" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_75630526" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
 </div>
@@ -621,7 +639,7 @@ F(X) = \begin{cases}
 (1)\: \lambda = 0.5 \hspace{2cm} (2)\: \lambda = 1 \hspace{2cm} (3) \: \lambda = 2 \hspace{2cm} (4) \: \lambda = 4\hspace{2cm}
 \]</span></p>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
 <p>explain the smaller the rate, the lower the probability of higher values. A-4, B-1, C-3, D-2</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -639,7 +657,7 @@ F(X) = \begin{cases}
 <h1>Practice Problems</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_5d5d634e" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown" id="timer_02f7ac07" data-update-every="1" tabindex="0" style="top:0;right:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -651,7 +669,7 @@ F(X) = \begin{cases}
 <h1>WS: Random Variables</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_dde0a780" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown" id="timer_c23d31d7" data-update-every="1" tabindex="0" style="top:0;right:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">45</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>

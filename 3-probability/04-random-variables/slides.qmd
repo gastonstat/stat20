@@ -57,7 +57,19 @@ Let $X$ be the number of heads in three tosses of a fair coin. What is the distr
 
 What about if $X$ is the number of heads in 3 tosses of a **biased** coin, where the chance of heads is $\frac{2}{3}$? Now what is $f(x) = P(X = x)$?
 
-## Demo: `dbinom()`
+## Demo: `dbinom()` {auto-animate=true}
+
+`dbinom()` gives you the _pmf_
+
+```{r}
+#| echo: true
+# Binomial: parameters
+n = 3   # number of tosses
+p = 2/3 # chance of heads
+```
+
+
+## Demo: `dbinom()` {auto-animate=true}
 
 `dbinom()` gives you the _pmf_
 
@@ -73,7 +85,20 @@ pmf = dbinom(x = 0:n, size = n, prob = p)
 pmf
 ```
 
+
 ## Demo: `pbinom()`
+
+`pbinom()` gives you the _CDF_
+
+```{r}
+#| echo: true
+# Binomial: parameters
+n = 3   # number of tosses
+p = 2/3 # chance of heads
+```
+
+
+## Demo: `pbinom()` {auto-animate=true}
 
 `pbinom()` gives you the _CDF_
 

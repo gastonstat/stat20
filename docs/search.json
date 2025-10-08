@@ -326,7 +326,7 @@
     "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
     "title": "Multiple Linear Regression",
     "section": "Penguins Data",
-    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species island    bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Adelie  Biscoe              37.9          18.6        2925 female\n2 Adelie  Torgersen           38.9          17.8        3625 female\n3 Adelie  Dream               36.2          17.3        3300 female\n4 Adelie  Biscoe              34.5          18.1        2900 female\n5 Adelie  Biscoe              35.5          16.2        3350 female"
+    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island    bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Adelie    Biscoe              35.3          18.9        3800 female\n2 Adelie    Biscoe              38.2          20          3900 male  \n3 Adelie    Dream               41.1          18.1        4300 male  \n4 Adelie    Torgersen           45.8          18.9        4150 male  \n5 Chinstrap Dream               50.3          20          3300 male"
   },
   {
     "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
@@ -476,312 +476,267 @@
     "text": "Before the exam begins\n\n🧹 Clear your desk of everything except a pen/pencil, your cheat sheet, and your ID.\n🧢 Remove hats, hoods, and sunglasses.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period. All items should be on the floor not on nearby seats.\nSpread out as much as possible. We may reseat you to space people out.\nWhen you get an exam, do not begin.\n\n\nDuring the exam\n\n✅ All answers must be marked on the answer sheet.\n👀 If a proctor sees your eyes wandering to other students’ work, you will be reseated. If it happens again, it is considered academic misconduct.\nIf you need to use the bathroom, bring phone and exam materials to the front of the class.\n⌛ When you are done with this exam, please bring your exam, answer sheet, and cheat sheet to a proctor at the front of the class.\n\n\nGood luck! 🍀\n\n\n\n−+\n90:00\n\n\n\n\n\n\n−+\n90:00"
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#agenda",
-    "href": "3-probability/04-random-variables/slides.html#agenda",
-    "title": "Random Variables",
+    "objectID": "3-probability/05-ev-sd/slides.html#section",
+    "href": "3-probability/05-ev-sd/slides.html#section",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "Concept review\nConcept questions\nWorksheet"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#section-1",
+    "href": "3-probability/05-ev-sd/slides.html#section-1",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "Summary\n\nData\nVariables\n\nCategorical\nNumerical\n\nHistogram\nMean\nStandard Deviation\nVariance = \\(SD^2\\)\n\n\nProbability\n\nChance processes\nRandom Variables\n\nDiscrete\nContinuous\n\nProbability Histogram\nExpected Value\nStandard Deviation\nVariance"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#expected-value-of-a-discrete-rv",
+    "href": "3-probability/05-ev-sd/slides.html#expected-value-of-a-discrete-rv",
+    "title": "Expected Value and Variance",
+    "section": "Expected Value of a Discrete RV",
+    "text": "Expected Value of a Discrete RV\n\\[\nE(X) = \\sum_x x \\times P(X=x) = \\mu\n\\]\nEV is the long-term average: the value that you would expected to get if you were to repeat the chance process a very large number of times."
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#variance-of-a-discrete-rv",
+    "href": "3-probability/05-ev-sd/slides.html#variance-of-a-discrete-rv",
+    "title": "Expected Value and Variance",
+    "section": "Variance of a Discrete RV",
+    "text": "Variance of a Discrete RV\n\\[\n\\text{Var}(X) = \\sum_x (x - \\mu)^2 \\times P(X=x)\n\\]\nVar is the average squared deviation from the mean (measures the typical spread around EV)"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#example-expected-value",
+    "href": "3-probability/05-ev-sd/slides.html#example-expected-value",
+    "title": "Expected Value and Variance",
+    "section": "Example: Expected Value",
+    "text": "Example: Expected Value\nLet \\(X\\) be the spots when we roll a fair six-sided die.\n\n\\[\n\\Omega = \\left \\{ 1, 2, 3, 4, 5, 6 \\right \\}\n\\]\n\n\n\\[\nP(X = x) = 1/6, \\quad \\text{for all } x\n\\]\n\n\n\\[\n\\begin{align*}\nEV(X) &= \\sum_x x \\times P(X=x) \\\\\n&= 1(1/6) + 2(1/6) + 3(1/6) + 4(1/6) + 5(1/6) + 6(1/6) \\\\\n&= \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} \\\\\n&= 3.5\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#example-variance",
+    "href": "3-probability/05-ev-sd/slides.html#example-variance",
+    "title": "Expected Value and Variance",
+    "section": "Example: Variance",
+    "text": "Example: Variance\nLet \\(X\\) be the spots when we roll a fair six-sided die.\n\\[\n\\Omega = \\left \\{ 1, 2, 3, 4, 5, 6 \\right \\}\n\\]\n\n\\[\n\\begin{align*}\n\\text{Var}(X) &= \\sum_x (x - \\mu)^2 \\times P(X=x) \\\\\n&= (1 - 3.5)^2 (1/6) + (2 - 3.5)^2 (1/6) + \\dots + (6 - 3.5)^2 (1/6) \\\\\n&= \\frac{(1 - 3.5)^2 + (2 - 3.5)^2 + (6 - 3.5)^2}{6} \\\\\n& \\approx 2.916\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#properties-of-ev",
+    "href": "3-probability/05-ev-sd/slides.html#properties-of-ev",
+    "title": "Expected Value and Variance",
+    "section": "Properties of EV",
+    "text": "Properties of EV\n\\(E(c) = c\\)\n\n\\(E(cX) = c \\cdot E(X)\\)\n\n\n\\(E(X + Y) = E(X) + E(Y)\\)\n\n\n\\(E(aX + bY) = a \\cdot E(X) + b \\cdot E(Y)\\)\n\n\n\\(Y = g(X) \\ \\rightarrow \\ E(Y) = E(g(X)) = \\sum_x g(x) \\times P(X=x)\\)"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#properties-of-variance",
+    "href": "3-probability/05-ev-sd/slides.html#properties-of-variance",
+    "title": "Expected Value and Variance",
+    "section": "Properties of Variance",
+    "text": "Properties of Variance\n\\(\\textit{Var}(c) = 0\\)\n\n\\(\\textit{Var}(cX) = c^2 \\cdot \\textit{Var}(X)\\)\n\n\n\\(\\textit{Var}(X + c) = \\textit{Var}(X)\\)\n\n\n\\(\\textit{Var}(X + Y) = \\textit{Var}(X) + \\textit{Var}(Y) \\quad \\text{ for } X, Y \\text{ indep}\\)\n\n\n\\(\\textit{Var}(X - Y) = \\textit{Var}(X) + \\textit{Var}(Y) \\quad \\text{ for } X, Y \\text{ indep}\\)"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#section-2",
+    "href": "3-probability/05-ev-sd/slides.html#section-2",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "Let \\(X\\) be a random variable such that \\[\nX = \\begin{cases}\n            -1, & \\text{ with probability } 1/3\\\\\n            0, &  \\text{ with probability } 1/6\\\\\n            1, &  \\text{ with probability } 4/15 \\\\\n            2, & \\text{ with probability } 7/30 \\\\\n         \\end{cases}\n\\]\n\nDraw the graph of the cdf of \\(X\\)\n\n\nwrite down pmf with denominator 30, and draw cdf on the board. P(X = -1)= 5/30, P(X = 0)= 10/30, P(X = 1)= 8/30, P(X = 2)= 7/30"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#section-3",
+    "href": "3-probability/05-ev-sd/slides.html#section-3",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "Let \\(X\\) be a random variable such that \\[\nX = \\begin{cases}\n            -1, & \\text{ with probability } 1/3\\\\\n            0, &  \\text{ with probability } 1/6\\\\\n            1, &  \\text{ with probability } 4/15 \\\\\n            2, & \\text{ with probability } 7/30 \\\\\n         \\end{cases}\n\\]\n\nCompute the expected value and variance of \\(X\\)\n\n\nwrite down pmf with denominator 30, and draw cdf on the board. P(X = -1)= 5/30, P(X = 0)= 10/30, P(X = 1)= 8/30, P(X = 2)= 7/30 E(X) = (-1)(5/30) + 0(10/30) + 1(8/30) + 2(7/30) (-10 + 0 + 8 + 14)/30 = 12/30 = 2/5 Var(X) = E(X^2) - 4/25 = (10 + 0 + 8 +28)/30 -4/25 = 23/15- 4/25 ~~ 1.37333 Graph the pmf and mark the expectation The numbers are not pretty but the point is to show them the computation and graph The rest of the ideas can be recapped as you go over the concept questions You may want to review linearity of expectation here, or save it for when going over the PS"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#section-4",
+    "href": "3-probability/05-ev-sd/slides.html#section-4",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "\\(X\\) is a random variable with the distribution shown below: \\[\nX = \\begin{cases}\n3, \\; \\text{ with prob } 1/3\\\\\n4, \\; \\text{ with prob } 1/4\\\\\n5, \\; \\text{ with prob } 5/12\n\\end{cases}\n\\]\n\n\nConsider the box with tickets: \\(\\fbox{3}\\, \\fbox{3}\\, \\fbox{3} \\,\\fbox{4}  \\,\\fbox{4} \\,\\fbox{4} \\,\\fbox{4} \\,\\fbox{5} \\,\\fbox{5}\\, \\fbox{5} \\,\\fbox{5} \\,\\fbox{5}\\)\nSuppose we draw once from this box and let \\(Y\\) be the value of the ticket drawn.\n\nWhich random variable has a higher expectation?\n\n\nThis is a reading question. Note that the pmf implied by the box is not the same as the given pmf. In the box, 4 has a higher probability, so the average is higher. They do not need to actually do the computation. At this point, ask them what box would they use so that if \\(X\\) is the value of a randomly selected ticket, the distribution of \\(X\\) is exactly the distribution shown here."
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#section-5",
+    "href": "3-probability/05-ev-sd/slides.html#section-5",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "Prof. Stoyanov’s Zoom office hours are not too crowded this spring. She observes that number of Stat 20 students coming to her Thursday office hours have a Poisson(2) distribution. There is one Data 88 student from a previous semester who is always there (they want a letter of recommendation).\n\nWhat is the expected value (EV) and variance (V) of the number of students in her Zoom office hours?\n\n\nThis is also a reading question, with &lt; 50% getting it right. Let \\(X\\) be the number of Stat 20 students who go to the office hours. Then \\(E(X) = 2 = Var(X)\\). But the number of students in the office is \\(X+1\\) since that one student is always there. \\(E(X+1) = 2+1 = 3\\) and \\(Var(X+1) = Var(X) = 2\\)"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#section-6",
+    "href": "3-probability/05-ev-sd/slides.html#section-6",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "Let \\(X\\) be a discrete uniform random variable on the set \\(\\{-1, 0, 1\\}\\).\n\nIf \\(Y=X^2\\), what is \\(E(Y)\\)?"
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/slides.html#section-7",
+    "href": "3-probability/05-ev-sd/slides.html#section-7",
+    "title": "Expected Value and Variance",
+    "section": "",
+    "text": "Let \\(X\\) be a discrete uniform random variable on the set \\(\\{-1, 0, 1\\}\\).\n\nIf \\(W = \\min(X, 0.5)\\), what is \\(E(W)\\)?\n\n\nbegin by asking them what is What is \\(E(X)\\)? And pointing out that if we have a symmetric distribution then EX is in the middle. Emphasize the idea of it being a “typical” value and an average or a mean. This is so they practice computing the EV of a function of a rv. Have them make a table (or perhaps you draw a table) of \\(X\\), \\(Y\\), \\(W\\) and \\(f(x)\\)"
+  },
+  {
+    "objectID": "3-probability/03-probability-dsns/slides.html#agenda",
+    "href": "3-probability/03-probability-dsns/slides.html#agenda",
+    "title": "Probability Distributions",
     "section": "Agenda",
-    "text": "Agenda\n\nQuiz-3 reminder\nWSP-5 reminder\nBrief lecture on random variables\nWS: Random Variables"
+    "text": "Agenda\n\nAnnouncements\nProbability refresher (last week)\nBreak\nConcept questions: Probability Distributions\nPS 8: Probability Distributions"
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
-    "href": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
-    "title": "Random Variables",
-    "section": "Announcements: Quiz 3",
-    "text": "Announcements: Quiz 3\n\nQuiz-3 next Monday, Oct 13th in class.\n\nSection 1, 8am in Barker 101\nSection 8, 10am in SOCS 60\n\n\n\nTopics:\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance"
+    "objectID": "3-probability/03-probability-dsns/slides.html#announcements",
+    "href": "3-probability/03-probability-dsns/slides.html#announcements",
+    "title": "Probability Distributions",
+    "section": "Announcements",
+    "text": "Announcements\n\nNo lab today\n\n\n\nProblem Set 8 (paper max. 3) due next Tuesday at 9am\n\n\n\n\nRQ: Random Variables due Wednesday 11:59pm\n\n\nYou may need to review the concepts as I said in slack, depending on how they do in the pe refresher"
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5",
-    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5",
-    "title": "Random Variables",
-    "section": "Announcements: WSP 5",
-    "text": "Announcements: WSP 5\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables",
-    "href": "3-probability/04-random-variables/slides.html#random-variables",
-    "title": "Random Variables",
-    "section": "Random variables",
-    "text": "Random variables\nLet \\(X\\) be the number of heads in three tosses of a fair coin. What is the distribution of \\(X\\)? That is, what is \\(f(x) = P(X = x)\\)? What values will \\(x\\) take?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-1",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-1",
-    "title": "Random Variables",
-    "section": "Random Variables 1",
-    "text": "Random Variables 1\nLet \\(X\\) be the number of heads in three tosses of a fair coin. What is the distribution of \\(X\\)? That is, what is \\(f(x) = P(X = x)\\)? What values will \\(x\\) take?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom",
-    "href": "3-probability/04-random-variables/slides.html#demo-dbinom",
-    "title": "Random Variables",
-    "section": "Demo: dbinom()",
-    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# probability distribution (pmf)\npmf = dbinom(x = 0:n, size = n, prob = p)\npmf\n\n\n\n[1] 0.03703704 0.22222222 0.44444444 0.29629630"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom",
-    "href": "3-probability/04-random-variables/slides.html#demo-pbinom",
-    "title": "Random Variables",
-    "section": "Demo: pbinom()",
-    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# cumulative distribution function\ncdf = pbinom(q = 0:3, size = n, prob = p)\ncdf\n\n\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000\n\n\n\n\n\n\n# equivalent\ncumsum(pmf)\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-rbinom",
-    "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
-    "title": "Random Variables",
-    "section": "Demo rbinom()",
-    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 2 1 0 1 1 3 2 1 1 1 3 2 3 1 3 0 1 1 2 3 1 0 2 3 2 2 3 2 1 3 2 3 2 0 0 1\n [38] 2 2 2 2 3 0 2 2 3 1 2 2 1 2 3 3 3 2 2 3 3 1 2 2 2 1 1 0 2 0 1 3 2 2 1 1 2\n [75] 3 1 2 2 3 1 3 1 2 3 2 1 1 3 1 2 1 3 3 1 3 2 3 3 2 2"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
-    "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
-    "title": "Random Variables",
-    "section": "Demo: Empirical Probability Distribution",
-    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  8\n2      1 28\n3      2 37\n4      3 27\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  8 0.08\n2      1 28 0.28\n3      2 37 0.37\n4      3 27 0.27"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
-    "href": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
-    "title": "Random Variables",
-    "section": "Demo: Empirical histogram",
-    "text": "Demo: Empirical histogram\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col() +\n  labs(title = \"Probability Histogram\", \n       subtitle = \"Number of heads in 3 tosses of biased coin\", \n       x = \"heads\") +\n  theme_bw()"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-2",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-2",
-    "title": "Random Variables",
-    "section": "Random Variables 2",
-    "text": "Random Variables 2\nWhat about if \\(X\\) is the number of heads in 3 tosses of a biased coin, where the chance of heads is \\(\\frac{2}{3}\\)? Now what is \\(f(x) = P(X = x)\\)?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-3",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-3",
-    "title": "Random Variables",
-    "section": "Random Variables 3",
-    "text": "Random Variables 3\nNow suppose we toss a fair coin until the first time it lands heads, and let \\(X\\) be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of \\(X\\)? Is it binomial?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#fx-and-fx",
-    "href": "3-probability/04-random-variables/slides.html#fx-and-fx",
-    "title": "Random Variables",
-    "section": "\\(f(x)\\) and \\(F(x)\\)",
-    "text": "\\(f(x)\\) and \\(F(x)\\)\n\n\\(f(x)\\) is the probability mass function of \\(X\\).\n\nWhat does that mean?\nWhat is the connection to the distribution table?\nWhat is the connection to the probability histogram?\n\n\n\n\n\n\\(F(x)\\) is the cumulative distribution function.\n\n\n\n\nWhat is the connection between \\(f\\) and \\(F\\)?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#example",
-    "href": "3-probability/04-random-variables/slides.html#example",
-    "title": "Random Variables",
-    "section": "Example",
-    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#example-1",
-    "href": "3-probability/04-random-variables/slides.html#example-1",
-    "title": "Random Variables",
-    "section": "Example",
-    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\n\npmf: \\(\\quad f(X) = P(X=x)\\)\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\ncdf: \\(\\quad F(x) = P(X \\leq x)\\)\n\n\\(P(X \\leq x) = 0 \\quad \\quad \\text{for} \\ x &lt; 0\\)\n\\(P(X \\leq x) = 3/8 \\quad \\text{for} \\ 0 \\leq x &lt; 1\\)\n\\(P(X \\leq x) = 5/8 \\quad \\text{for} \\ 1 \\leq x &lt; 2\\)\n\\(P(X \\leq x) = 1 \\quad \\quad \\text{for} \\ x \\geq 2\\)"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#example-2",
-    "href": "3-probability/04-random-variables/slides.html#example-2",
-    "title": "Random Variables",
-    "section": "Example",
-    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\\[\nf(X) \\rightarrow P(X=x)\n\\]\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\n\\[\nF(X) \\rightarrow P(X \\leq x)\n\\]\n\\[\nF(X) = \\begin{cases}\n0, \\quad  \\quad x &lt; 0 \\\\\n3/8, \\quad 0 \\leq x &lt; 1 \\\\\n5/8, \\quad 1 \\leq x &lt; 2 \\\\\n8/8, \\quad 2 \\leq x  \n\\end{cases}\n\\]\n\n\nDraw an example on the board. Maybe box of tickets { 0, 0, 0 , 1, 1, 2, 2, 2} draw one ticket, and let \\(X\\) be the value of the ticket. Write out both \\(f(x)\\) and \\(F(x)\\) in function notation, then draw the cdf and show how we can get from the cdf to the pmf."
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#sketching-fx",
-    "href": "3-probability/04-random-variables/slides.html#sketching-fx",
-    "title": "Random Variables",
-    "section": "Sketching \\(F(X)\\)",
-    "text": "Sketching \\(F(X)\\)\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#section",
-    "href": "3-probability/04-random-variables/slides.html#section",
-    "title": "Random Variables",
+    "objectID": "3-probability/03-probability-dsns/slides.html#section",
+    "href": "3-probability/03-probability-dsns/slides.html#section",
+    "title": "Probability Distributions",
     "section": "",
-    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
+    "text": "−+\n02:00\n\n\n\nConsider the box of tickets shown below.\n\n\n\n\n\nThe plots below show:\n\nThe probability histogram for the value of a ticket drawn at random from the box\nAn empirical histogram for which the data were generated by drawing 10 tickets from the box with replacement\nAn empirical histogram for which the data were generated by drawing 100 tickets from the box with replacement\nAn empirical histogram generated by 20 draws from a different box.\n\n\n\n\n\n\n\n\n\n\n\nIdentify which is which by matching the letters to the numbers.\n\n\nSince you have to scroll, maybe draw the box on the board. Scroll to see graphs\n\nB-1 the prob dsn of tickets\nD-2 emp dsn of 10 draws\nC-3 emp dsn of 100 draws\nA-4 emp dsn from different box"
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-1",
-    "href": "3-probability/04-random-variables/slides.html#section-1",
-    "title": "Random Variables",
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-1",
+    "href": "3-probability/03-probability-dsns/slides.html#section-1",
+    "title": "Probability Distributions",
     "section": "",
-    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
+    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nRoll a fair ten-sided die 20 times. We count the number of times we roll a multiple of 3.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial(20, 3/10). The pollev will have 4 choices, and then figuring out the parameters can be a classroom discussion. The fourth choice is “Need more info”"
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-2",
-    "href": "3-probability/04-random-variables/slides.html#section-2",
-    "title": "Random Variables",
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-2",
+    "href": "3-probability/03-probability-dsns/slides.html#section-2",
+    "title": "Probability Distributions",
     "section": "",
-    "text": "−+\n01:00\n\n\n\nRoll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise.\n\nWhat is the cdf \\(F(x)\\)?\n\n\nThe chance that \\(X = 1\\) can be broken up into six mutually exclusive situations, that the dice both show one spot, or both show two spots, etc. Each of these has probability \\(1/36\\) so the total probability by the addition rule is \\(6/36 = 1/6\\)"
+    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nYouGov surveyed 1,500 adult US citizens last December and counted the number of respondents who had read at least one book in 2023. The population of the US is about 335 million.\n\nBinomial, hypergeometric, or neither?\n\n\nHypergeometric(\\(N = 335\\) mill, \\(n = 1500\\), G), where G is not known, being the number of people who have read at least one book . Can remark that we could use the binomial to model this rather than HG, and that we will discuss sample surveys in this unit. Disturbingly, only 54% of respondents had read at least one book. Here is the link: https://today.yougov.com/entertainment/articles/48239-54-percent-of-americans-read-a-book-this-year"
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-3",
-    "href": "3-probability/04-random-variables/slides.html#section-3",
-    "title": "Random Variables",
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-3",
+    "href": "3-probability/03-probability-dsns/slides.html#section-3",
+    "title": "Probability Distributions",
     "section": "",
-    "text": "−+\n01:30\n\n\n\nThe graph of the cdf of a random variable \\(X\\) is shown below. What is \\(F(2)\\)? What about \\(f(2)\\)?\n\n\n\\(F(2) = 2/3, f(2) = 0\\)"
+    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\n\nA six-sided die is tossed twice, and we check if the sum of the spots is 8 or not.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial, with \\(n = 1, p = 5/36\\) or Bernoulli with \\(p = 5/36\\)."
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-4",
-    "href": "3-probability/04-random-variables/slides.html#section-4",
-    "title": "Random Variables",
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-4",
+    "href": "3-probability/03-probability-dsns/slides.html#section-4",
+    "title": "Probability Distributions",
     "section": "",
-    "text": "−+\n02:00\n\n\n\nYou have \\(10\\) people with a cold and you have a remedy with a \\(20\\%\\) chance of success. What is the chance that your remedy will cure at least one sufferer?\n\nWhat is the chance that at least one person is cured?\n\n\n\\(P(X \\ge 1) = 1 - P(X &lt; 1) = 1 - P(X = 0) = 1 - (1-p)^{10}\\), where \\(p = 0.2\\), because \\(X \\sim Bin(10, p)\\). \\(1-p = 0.8 \\: \\& \\: 1-0.8^{10} = 0.8926\\)"
+    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\nA bag that has 6 pieces of fruit: 2 mangoes, 3 apples, and 1 orange. I reach into the bag and draw out one fruit at a time, selecting each fruit at random (so they are equally likely on each draw). I count the number of draws until and including the first time I draw a apple.\n\nBinomial, hypergeometric, or neither?\n\n\nNeither. It would be useful at this point to write out what is going on, and point out that they are using the multiplication rule and a conditional probability."
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-5",
-    "href": "3-probability/04-random-variables/slides.html#section-5",
-    "title": "Random Variables",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "−+\n01:30\n\n\n\nThere are 4 histograms of different Poisson distributions below. Match each distribution to its parameter \\(\\lambda\\). Recall that \\(\\lambda\\) is how many occurrences we think will happen in a given period of time.\n\\[\n(1)\\: \\lambda = 0.5 \\hspace{2cm} (2)\\: \\lambda = 1 \\hspace{2cm} (3) \\: \\lambda = 2 \\hspace{2cm} (4) \\: \\lambda = 4\\hspace{2cm}\n\\]\n\n\nexplain the smaller the rate, the lower the probability of higher values. A-4, B-1, C-3, D-2"
+    "text": "This is Prof. Gaston Sanchez’s companion website to STAT 20 Introduction to Probability and Statistics at UC Berkeley.\nThe main purpose of this satellite website is to simply host the slides that I use while teaching this class, and to make them available to the students in my section(s). Students from other sections, as well as teaching staff (e.g., fellow instructors, tutors, readers), are welcome to use/read them too.\nPlease note that I’ve customized the original slides—of the official website—in a way that better suits my teaching style.",
+    "crumbs": [
+      "About"
+    ]
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#conditional-probability",
-    "href": "3-probability/02-cond-prob-indep/slides.html#conditional-probability",
-    "title": "Computing Probabilities",
-    "section": "Conditional Probability",
-    "text": "Conditional Probability\nFor two events \\(A\\) and \\(B\\) we denote the:\n\nconditional probability of \\(A\\) given \\(B\\) as: \\(\\quad P(A \\vert B)\\)\nconditional probability of \\(B\\) given \\(A\\) as: \\(\\quad P(B \\vert A)\\)\n\n\n\n\nIf \\(A\\) and \\(B\\) are independent, then:\n\n\\(\\quad P(A \\vert B) = P(A)\\)\n\\(\\quad P(B \\vert A) = P(B)\\)"
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#agenda",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#agenda",
+    "title": "Taxonomy of Data",
+    "section": "Agenda",
+    "text": "Agenda\n\nAnnouncements\nGroup Activity: Conceptual\nWorksheet 1: Taxonomy of Data\nBreak\nConcept Questions: Coding\nMore Practice"
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#multiplication-rule",
-    "href": "3-probability/02-cond-prob-indep/slides.html#multiplication-rule",
-    "title": "Computing Probabilities",
-    "section": "Multiplication rule",
-    "text": "Multiplication rule\nFor two events \\(A\\) and \\(B\\) \\(\\quad \\Rightarrow \\quad\\) \\(P(A \\text{ and } B) = P(A \\vert B) P(B)\\)"
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#assignments",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#assignments",
+    "title": "Taxonomy of Data",
+    "section": "Assignments",
+    "text": "Assignments\nYou should have submitted Lab-1 UN Votes and Worksheet Packet WSP-1\nThese were originally due yesterday (Tue) on Gradescope by 8:00am, but got extended till 11:59pm.\n\n\n\nYou should have answered Reading Questions of Taxonomy of Data\nThese were due yesterday (Tue) on Gradescope by 11:59pm"
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#complement-rule",
-    "href": "3-probability/02-cond-prob-indep/slides.html#complement-rule",
-    "title": "Computing Probabilities",
-    "section": "Complement Rule",
-    "text": "Complement Rule\n\\(P(A^C) = 1 - P(A)\\)"
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data",
+    "title": "Taxonomy of Data",
+    "section": "Concept of Data",
+    "text": "Concept of Data\nOne or more characteristics observed or measured on a set of objects."
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-1a",
-    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-1a",
-    "title": "Computing Probabilities",
-    "section": "Concept Question 1a",
-    "text": "Concept Question 1a\nFlip 3 coins, one at a time. Define the following events:\n\\(A\\) is the event that the first coin flipped shows a head\n\\(B\\) is the event that the first two coins flipped both show heads\n\\(C\\) is the event that the last two coins flipped both show tails\n\nWhat is the outcome space \\(\\Omega\\)?"
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data-1",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data-1",
+    "title": "Taxonomy of Data",
+    "section": "Concept of Data",
+    "text": "Concept of Data\nOne or more characteristics observed or measured on a set of objects.\n\n\nVariables: characteristics, features, attributes.\nObjects: individuals, subjects, items.\n\n\n\n\n\nData typically organized into a data table (or data frame), ideally one row per individual, and one column per variable."
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section",
-    "title": "Computing Probabilities",
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#types-of-variables",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#types-of-variables",
+    "title": "Taxonomy of Data",
+    "section": "Types of Variables",
+    "text": "Types of Variables\nVariables can be classified in different ways.\n\nThe classification (aka taxonomy) adopted in STAT 20 involves 2 major classes, each one with two subcategories:\n\n\n\n\n\nNumerical\n\nContinuous\nDiscrete\n\n\n\n\nCategorical\n\nOrdinal\nNominal"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#section",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#section",
+    "title": "Taxonomy of Data",
     "section": "",
-    "text": "What is the outcome space \\(\\Omega\\)?"
+    "text": "As a group, choose a set of individuals, and list at least:\n\n3 continuous numerical variables\n3 discrete numerical variables\n3 ordinal categorical variables\n3 nominal categorical variables. Don’t choose:\n\n❌ Do Not choose:\n\nstudents\nelectronic devices\n\n\n\n\n\n−+\n15:00"
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-1",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-1",
-    "title": "Computing Probabilities",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Gaston Sanchez’s instructional materials for STAT 20",
     "section": "",
-    "text": "\\(A\\) is the event that the first coin flipped shows a head\n\nFind \\(P(A)\\)\n\n\n\n\n\\(\\Omega\\)\n  H  H  H\n  H  H  T\n  H  T  H\n  H  T  T\n  T  H  H\n  T  H  T\n  T  T  H\n  T  T  T"
+    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz\n\nQuiz",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-2",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-2",
-    "title": "Computing Probabilities",
+    "objectID": "quiz-slides/quiz-slides.html#before-the-quiz",
+    "href": "quiz-slides/quiz-slides.html#before-the-quiz",
+    "title": "Quiz",
+    "section": "Before the Quiz",
+    "text": "Before the Quiz\n\nTake a photo of your cheat sheet if you want it.\n🧹 Clear your desk of everything except a pen/pencil and your cheat sheet.\n🧢 Remove hats, hoods, and sunglasses.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nSpread out as much as possible."
+  },
+  {
+    "objectID": "quiz-slides/quiz-slides.html#individual-quiz",
+    "href": "quiz-slides/quiz-slides.html#individual-quiz",
+    "title": "Quiz",
+    "section": "Individual Quiz",
+    "text": "Individual Quiz\n\n\n\n−+\n25:00\n\n\n\n\n\n\nWhen you get a quiz, cover it with your cheat sheet and do not begin.\nWrite your name on both pages.\n⌛If you finish early, cover it with your cheat sheet.\nIf you need to use the bathroom, bring phone and quiz to the front of the class.\n\n\n\n⌛If you finish early, please hold on to your quiz and wait.\nKeep your eyes on your own quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀"
+  },
+  {
+    "objectID": "quiz-slides/quiz-slides.html#group-quiz",
+    "href": "quiz-slides/quiz-slides.html#group-quiz",
+    "title": "Quiz",
+    "section": "Group Quiz",
+    "text": "Group Quiz\n\n\n\n−+\n15:00\n\n\n\n\n\n\nForm groups of 3 people, then ONE person raise your hand (to get your quiz).\nBe sure to write ALL group members names on the quiz on both pages.\nIf you find yourself without a group, come to the front of class and we’ll help you form one.\n\n\n\nYour can start when you get your quiz.\nWhen done, bring your quiz and everyone’s cheat sheets to a tutor or me. Then please leave the room quietly.\n\nGood luck! 🍀"
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/practice.html",
+    "href": "1-questions-and-data/02-taxonomy-of-data/practice.html",
+    "title": "Practice: Taxonomy of Data",
     "section": "",
-    "text": "\\(B\\) is the event that the first two coins flipped both show heads\n\nFind \\(P(B)\\)\n\n\n\n\n\\(\\Omega\\)\n  H  H  H\n  H  H  T\n  H  T  H\n  H  T  T\n  T  H  H\n  T  H  T\n  T  T  H\n  T  T  T"
+    "text": "For each of the following parts indicate the type of variable according to the taxonomy of data.\n\nThe number of classes a student is taking\nA student’s year in college (Freshman, Sophomore, etc.)\nStudent’s favorite color\nThe area code of a student’s phone number\nThe amount of time it takes to finish a STAT 20 quiz\nThe temperature of a room in Fahrenheit degrees\nThe type of car you drive\nThe speed of a vehicle in miles per hour\nA car’s model year\nThe number of text messages you send per day\nThe brand of coffee you drink\nYour student ID number\nThe number of siblings a person has\nA person’s home zip code\nThe rating of a movie (1 to 5 stars)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndiscrete numerical\nordinal categorical\nnominal categorical\nnominal categorical\ncontinuous numerical\ncontinuous numerical\nnominal categorical\ncontinuous numerical\nordinal categorical\ndiscrete numerical\nnominal categorical\nnominal categorical\ndiscrete numerical\nnominal categorical\nusually discrete numerical, but one can also argue that it can be ordinal categorical (depending on the context, and application)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Taxonomy of Data"
+    ]
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-3",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-3",
-    "title": "Computing Probabilities",
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/practice.html#types-of-variables",
+    "href": "1-questions-and-data/02-taxonomy-of-data/practice.html#types-of-variables",
+    "title": "Practice: Taxonomy of Data",
     "section": "",
-    "text": "\\(C\\) is the event that the last two coins flipped both show tails\n\nFind \\(P(C)\\)\n\n\n\n\n\\(\\Omega\\)\n  H  H  H\n  H  H  T\n  H  T  H\n  H  T  T\n  T  H  H\n  T  H  T\n  T  T  H\n  T  T  T"
+    "text": "For each of the following parts indicate the type of variable according to the taxonomy of data.\n\nThe number of classes a student is taking\nA student’s year in college (Freshman, Sophomore, etc.)\nStudent’s favorite color\nThe area code of a student’s phone number\nThe amount of time it takes to finish a STAT 20 quiz\nThe temperature of a room in Fahrenheit degrees\nThe type of car you drive\nThe speed of a vehicle in miles per hour\nA car’s model year\nThe number of text messages you send per day\nThe brand of coffee you drink\nYour student ID number\nThe number of siblings a person has\nA person’s home zip code\nThe rating of a movie (1 to 5 stars)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndiscrete numerical\nordinal categorical\nnominal categorical\nnominal categorical\ncontinuous numerical\ncontinuous numerical\nnominal categorical\ncontinuous numerical\nordinal categorical\ndiscrete numerical\nnominal categorical\nnominal categorical\ndiscrete numerical\nnominal categorical\nusually discrete numerical, but one can also argue that it can be ordinal categorical (depending on the context, and application)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Taxonomy of Data"
+    ]
   },
   {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-1b",
-    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-1b",
-    "title": "Computing Probabilities",
-    "section": "Concept Question 1b",
-    "text": "Concept Question 1b\nFlip 3 coins, one at a time. Define the following events:\n\\(A\\) is the event that the first coin flipped shows a head\n\\(B\\) is the event that the first two coins flipped both show heads\n\\(C\\) is the event that the last two coins flipped both show tails\n\nEvents \\(A\\) and \\(B\\) are:\n\nIndependent\nMutually exclusive\nNone of the above\n\n\n\nAfter they do this and next, write out the outcome space for the results of flipping 3 coins. And go through what are A, B, and C. A and B are neither independent nor mutually exclusive."
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-1c",
-    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-1c",
-    "title": "Computing Probabilities",
-    "section": "Concept Question 1c",
-    "text": "Concept Question 1c\nFlip 3 coins, one at a time. Define the following events:\n\\(A\\) is the event that the first coin flipped shows a head\n\\(B\\) is the event that the first two coins flipped both show heads\n\\(C\\) is the event that the last two coins flipped both show tails\n\nEvents \\(A\\) and \\(C\\) are:\n\nIndependent\nMutually exclusive\nNone of the above\n\n\n\nAfter they do this and next, write out the outcome space for the results of flipping 3 coins. And go through what are A, B, and C. A and C are independent. Show that P(A & C ) = 1/8 = P(A)P(C) = 1/4 * 1/2"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-2-1",
-    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-2-1",
-    "title": "Computing Probabilities",
-    "section": "Concept Question 2",
-    "text": "Concept Question 2\nSuppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.\n\nLet \\(A\\) be the event that at least one of the tickets drawn is labeled with an even number.\nLet \\(B\\) be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number)."
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-4",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-4",
-    "title": "Computing Probabilities",
-    "section": "",
-    "text": "Suppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.\n\nWhat is the outcome space \\(\\Omega\\)?"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-5",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-5",
-    "title": "Computing Probabilities",
-    "section": "",
-    "text": "Let \\(A_1\\) be the event that the 1st ticket is an even #\n\n\nFind \\(P(A_1)\\)"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-6",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-6",
-    "title": "Computing Probabilities",
-    "section": "",
-    "text": "Let \\(A_2\\) be the event that the 2nd ticket is an even #\n\n\nFind \\(P(A_2)\\)"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-7",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-7",
-    "title": "Computing Probabilities",
-    "section": "",
-    "text": "Let \\(A\\) be the event that at least one of the tickets is an even #\n\nFind \\(P(A)\\)"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-8",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-8",
-    "title": "Computing Probabilities",
-    "section": "",
-    "text": "Let \\(A\\) be the event that at least one of the tickets is an even #\n\nFind \\(P(A) = 1 - P(A^c)\\)"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-9",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-9",
-    "title": "Computing Probabilities",
-    "section": "",
-    "text": "Let \\(B\\) be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).\n\nFind \\(P(B)\\)\n\n\n\n\n  Prime numbers:  2, 3, 5, 7\n  Non-prime #'s:  1, 4, 6, 8, 9"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-10",
-    "href": "3-probability/02-cond-prob-indep/slides.html#section-10",
-    "title": "Computing Probabilities",
-    "section": "",
-    "text": "Let \\(B\\) be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).\n\nFind \\(P(B) = 1 - P(B^c)\\)\n\n\n\n  Prime numbers:  2, 3, 5, 7\n  Non-prime #'s:  1, 4, 6, 8, 9"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-2b",
-    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-2b",
-    "title": "Computing Probabilities",
-    "section": "Concept Question 2b",
-    "text": "Concept Question 2b\nSuppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.\nLet A be the event that at least one of the tickets drawn is labeled with an even number.\nLet B be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).\nSuppose the numbers on the tickets drawn are 3 and 9.\n\nWhich of the following events occur?\n\n\\(A\\)\n\\(B\\)\n\\(A\\) and \\(B\\) (\\(A \\cap B\\))\n\\(A\\) and \\(B^C\\)\n\\(A^C\\) and \\(B\\)\n\n\n\nii and v, I told them they can immediately see that A^C is true since no even number, so definitely (v) and then we do have a prime number and both are odd so (ii) is true.\n\n\n\n\n−+\n03:00"
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-3a",
-    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-3a",
-    "title": "Computing Probabilities",
-    "section": "Concept Question 3a",
-    "text": "Concept Question 3a\n\n\n\n−+\n02:00\n\n\n\n\nThe 2024 World Series was the championship series was a best-of-seven playoff between the Los Angeles Dodgers and the New York Yankees. The winners in the World Series have to win a majority of 7 games, so the first team to win 4 games wins the series.\nSuppose we assumed that the probability that the Dodgers would have beaten the Yankees in any single game was estimated at 56%, independently of all the other games.\nWhat was the probability that the Dodgers would have won in a clean sweep?\n\n\nStraightforward application of multiplication rule for independent events. probability is 0.6^4 = 0.1296. Follow up comment/question: if the teams were more evenly matched, say probability of either team winning is 50%, the probability of going to 7 games and probability of winning in 6 games is equal given 5 games are played."
-  },
-  {
-    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-3b",
-    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-3b",
-    "title": "Computing Probabilities",
-    "section": "Concept Question 3b",
-    "text": "Concept Question 3b\n\n\n\n−+\n02:00\n\n\n\n\nSuppose we assume, instead, that the probability that the Dodgers would have beaten the Yankees in any single game was 50%, independently of all the other games.\nIn this case, was the probability that the series would have gone to 6 games higher than the probability that the series would have gone to 7 games, given that 5 games were played?\n\n\nif 5 games are played it means one of the teams is leading 3-2. Therefore there are two scenarios: the team that is ahead wins game 6 and the series, or the team that is behind wins game 6 and they go to 7 games. Both are equally likely."
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/practice.html#terrestrial-planets",
+    "href": "1-questions-and-data/02-taxonomy-of-data/practice.html#terrestrial-planets",
+    "title": "Practice: Taxonomy of Data",
+    "section": "2) Terrestrial Planets",
+    "text": "2) Terrestrial Planets\nConsider the following table containing data from so-called Terrestrial planets.\n\n\n\nname\ngravity\ntemp\nmoons_num\nmoons_fac\nhaswater\n\n\n\n\nMercury\n3.7\n167\n0\nnone\nno\n\n\nVenus\n8.9\n464\n0\nnone\nno\n\n\nEarth\n9.8\n15\n1\none\nyes\n\n\nMars\n3.7\n-65\n2\ntwo\nno\n\n\n\n\nname: name of planet\ngravity: gravity (\\(m/s^2\\))\ntemp: mean temperature in Celsius\nmoons_num: number of moons (numeric)\nmoons_fac: number of moons (factor)\nhaswater: whether it has known bodies of liquid water on its surface\n\n\n2.1) Creating Vectors and Factors\nGo to stat20.datahub and open a new Quarto document (.qmd file).\nRefer to the data table of terrestrial planets. Insert new code chunks to create the following vectors.\n\nCreate a vector name and display it (i.e. type its name)\n\n\n\nShow answer\nname &lt;- c(\"Mercury\", \"Venus\", \"Earth\", \"Mars\")\nname\n\n\n\nCreate a vector gravity\n\n\n\nShow answer\ngravity &lt;- c(3.7, 8.9, 9.8, 3.7)\ngravity\n\n\n\nCreate a vector temp\n\n\n\nShow answer\ntemp &lt;- c(167, 464, 15, -65)\ntemp\n\n\n\nCreate a vector moons_num\n\n\n\nShow answer\nmoons_num &lt;- c(0, 0, 1, 2)\nmoons_num\n\n\n\nCreate a factor moons_fac\n\n\n\nShow answer\nmoons_fac &lt;- factor(c(\"none\", \"none\", \"one\", \"two\"))\nmoons_fac\n\n\n\nCreate a factor haswater\n\n\n\nShow answer\nhaswater &lt;- factor(c(\"no\", \"no\", \"yes\", \"no\"))\nhaswater\n\n\n\n\n2.2) Some basic computations\nAnswer each of the following parts in their own code chunks.\n\nUse the length() function to find the number of elements in vector name.\n\n\n\nShow answer\nlength(name)\n\n\n\nUse the sqrt() function to calculate the square root of gravity values.\n\n\n\nShow answer\nsqrt(gravity)\n\n\n\nUse the mean() function to compute the mean number of moons.\n\n\n\nShow answer\nmean(moons_num)\n\n\n\nUse the comparison operator &gt; to see which temperature values in temp are greater than 100\n\n\n\nShow answer\ntemp &gt; 100\n\n\n\nUse the following formula to compute x\n\n\\[\n\\texttt{x} = \\frac{\\texttt{temp}^2 + \\log(\\texttt{gravity})}{\\texttt{moons\\_num} + 10}\n\\]\n\n\nShow answer\nx = (temp^2 + log(gravity)) / (moons_num + 10)\nx\n\n\n\n\n\n\n2.3) Data Frame planets\nIn a new code chunk, use the data.frame() function to create a planets data frame containing all the vectors and factors created in part 2.1. And then type (print) planets in order to see its contents.\n\n\nShow answer\nplanets = data.frame(name, gravity, temp, moons_num, moons_fac, haswater)\nplanets",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Taxonomy of Data"
+    ]
   },
   {
     "objectID": "1-questions-and-data/01-understanding-the-world/slides.html#agenda",
@@ -1036,169 +991,326 @@
     "text": "Looking forward\n\n\n\nThis Friday 8/29 I’ll be holding OH in class to help you with Lab-1.\nRead the lecture notes for Taxonomy of Data.\nIf you have any questions, you may leave a comment/question on the Taxonomy of Data thread on Ed.\nReading Questions for Taxonomy of Data are due on Gradescope by 11:59 pm on Tuesday.\nLab-1 and WSP-1 will also be due on Gradescope next Tuesday at 8am!\n\n\n\n\n\n\n\n\nReadings will be posted Weds night"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/practice.html",
-    "href": "1-questions-and-data/02-taxonomy-of-data/practice.html",
-    "title": "Practice: Taxonomy of Data",
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#conditional-probability",
+    "href": "3-probability/02-cond-prob-indep/slides.html#conditional-probability",
+    "title": "Computing Probabilities",
+    "section": "Conditional Probability",
+    "text": "Conditional Probability\nFor two events \\(A\\) and \\(B\\) we denote the:\n\nconditional probability of \\(A\\) given \\(B\\) as: \\(\\quad P(A \\vert B)\\)\nconditional probability of \\(B\\) given \\(A\\) as: \\(\\quad P(B \\vert A)\\)\n\n\n\n\nIf \\(A\\) and \\(B\\) are independent, then:\n\n\\(\\quad P(A \\vert B) = P(A)\\)\n\\(\\quad P(B \\vert A) = P(B)\\)"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#multiplication-rule",
+    "href": "3-probability/02-cond-prob-indep/slides.html#multiplication-rule",
+    "title": "Computing Probabilities",
+    "section": "Multiplication rule",
+    "text": "Multiplication rule\nFor two events \\(A\\) and \\(B\\) \\(\\quad \\Rightarrow \\quad\\) \\(P(A \\text{ and } B) = P(A \\vert B) P(B)\\)"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#complement-rule",
+    "href": "3-probability/02-cond-prob-indep/slides.html#complement-rule",
+    "title": "Computing Probabilities",
+    "section": "Complement Rule",
+    "text": "Complement Rule\n\\(P(A^C) = 1 - P(A)\\)"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-1a",
+    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-1a",
+    "title": "Computing Probabilities",
+    "section": "Concept Question 1a",
+    "text": "Concept Question 1a\nFlip 3 coins, one at a time. Define the following events:\n\\(A\\) is the event that the first coin flipped shows a head\n\\(B\\) is the event that the first two coins flipped both show heads\n\\(C\\) is the event that the last two coins flipped both show tails\n\nWhat is the outcome space \\(\\Omega\\)?"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section",
+    "title": "Computing Probabilities",
     "section": "",
-    "text": "For each of the following parts indicate the type of variable according to the taxonomy of data.\n\nThe number of classes a student is taking\nA student’s year in college (Freshman, Sophomore, etc.)\nStudent’s favorite color\nThe area code of a student’s phone number\nThe amount of time it takes to finish a STAT 20 quiz\nThe temperature of a room in Fahrenheit degrees\nThe type of car you drive\nThe speed of a vehicle in miles per hour\nA car’s model year\nThe number of text messages you send per day\nThe brand of coffee you drink\nYour student ID number\nThe number of siblings a person has\nA person’s home zip code\nThe rating of a movie (1 to 5 stars)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndiscrete numerical\nordinal categorical\nnominal categorical\nnominal categorical\ncontinuous numerical\ncontinuous numerical\nnominal categorical\ncontinuous numerical\nordinal categorical\ndiscrete numerical\nnominal categorical\nnominal categorical\ndiscrete numerical\nnominal categorical\nusually discrete numerical, but one can also argue that it can be ordinal categorical (depending on the context, and application)",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Taxonomy of Data"
-    ]
+    "text": "What is the outcome space \\(\\Omega\\)?"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/practice.html#types-of-variables",
-    "href": "1-questions-and-data/02-taxonomy-of-data/practice.html#types-of-variables",
-    "title": "Practice: Taxonomy of Data",
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-1",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-1",
+    "title": "Computing Probabilities",
     "section": "",
-    "text": "For each of the following parts indicate the type of variable according to the taxonomy of data.\n\nThe number of classes a student is taking\nA student’s year in college (Freshman, Sophomore, etc.)\nStudent’s favorite color\nThe area code of a student’s phone number\nThe amount of time it takes to finish a STAT 20 quiz\nThe temperature of a room in Fahrenheit degrees\nThe type of car you drive\nThe speed of a vehicle in miles per hour\nA car’s model year\nThe number of text messages you send per day\nThe brand of coffee you drink\nYour student ID number\nThe number of siblings a person has\nA person’s home zip code\nThe rating of a movie (1 to 5 stars)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndiscrete numerical\nordinal categorical\nnominal categorical\nnominal categorical\ncontinuous numerical\ncontinuous numerical\nnominal categorical\ncontinuous numerical\nordinal categorical\ndiscrete numerical\nnominal categorical\nnominal categorical\ndiscrete numerical\nnominal categorical\nusually discrete numerical, but one can also argue that it can be ordinal categorical (depending on the context, and application)",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Taxonomy of Data"
-    ]
+    "text": "\\(A\\) is the event that the first coin flipped shows a head\n\nFind \\(P(A)\\)\n\n\n\n\n\\(\\Omega\\)\n  H  H  H\n  H  H  T\n  H  T  H\n  H  T  T\n  T  H  H\n  T  H  T\n  T  T  H\n  T  T  T"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/practice.html#terrestrial-planets",
-    "href": "1-questions-and-data/02-taxonomy-of-data/practice.html#terrestrial-planets",
-    "title": "Practice: Taxonomy of Data",
-    "section": "2) Terrestrial Planets",
-    "text": "2) Terrestrial Planets\nConsider the following table containing data from so-called Terrestrial planets.\n\n\n\nname\ngravity\ntemp\nmoons_num\nmoons_fac\nhaswater\n\n\n\n\nMercury\n3.7\n167\n0\nnone\nno\n\n\nVenus\n8.9\n464\n0\nnone\nno\n\n\nEarth\n9.8\n15\n1\none\nyes\n\n\nMars\n3.7\n-65\n2\ntwo\nno\n\n\n\n\nname: name of planet\ngravity: gravity (\\(m/s^2\\))\ntemp: mean temperature in Celsius\nmoons_num: number of moons (numeric)\nmoons_fac: number of moons (factor)\nhaswater: whether it has known bodies of liquid water on its surface\n\n\n2.1) Creating Vectors and Factors\nGo to stat20.datahub and open a new Quarto document (.qmd file).\nRefer to the data table of terrestrial planets. Insert new code chunks to create the following vectors.\n\nCreate a vector name and display it (i.e. type its name)\n\n\n\nShow answer\nname &lt;- c(\"Mercury\", \"Venus\", \"Earth\", \"Mars\")\nname\n\n\n\nCreate a vector gravity\n\n\n\nShow answer\ngravity &lt;- c(3.7, 8.9, 9.8, 3.7)\ngravity\n\n\n\nCreate a vector temp\n\n\n\nShow answer\ntemp &lt;- c(167, 464, 15, -65)\ntemp\n\n\n\nCreate a vector moons_num\n\n\n\nShow answer\nmoons_num &lt;- c(0, 0, 1, 2)\nmoons_num\n\n\n\nCreate a factor moons_fac\n\n\n\nShow answer\nmoons_fac &lt;- factor(c(\"none\", \"none\", \"one\", \"two\"))\nmoons_fac\n\n\n\nCreate a factor haswater\n\n\n\nShow answer\nhaswater &lt;- factor(c(\"no\", \"no\", \"yes\", \"no\"))\nhaswater\n\n\n\n\n2.2) Some basic computations\nAnswer each of the following parts in their own code chunks.\n\nUse the length() function to find the number of elements in vector name.\n\n\n\nShow answer\nlength(name)\n\n\n\nUse the sqrt() function to calculate the square root of gravity values.\n\n\n\nShow answer\nsqrt(gravity)\n\n\n\nUse the mean() function to compute the mean number of moons.\n\n\n\nShow answer\nmean(moons_num)\n\n\n\nUse the comparison operator &gt; to see which temperature values in temp are greater than 100\n\n\n\nShow answer\ntemp &gt; 100\n\n\n\nUse the following formula to compute x\n\n\\[\n\\texttt{x} = \\frac{\\texttt{temp}^2 + \\log(\\texttt{gravity})}{\\texttt{moons\\_num} + 10}\n\\]\n\n\nShow answer\nx = (temp^2 + log(gravity)) / (moons_num + 10)\nx\n\n\n\n\n\n\n2.3) Data Frame planets\nIn a new code chunk, use the data.frame() function to create a planets data frame containing all the vectors and factors created in part 2.1. And then type (print) planets in order to see its contents.\n\n\nShow answer\nplanets = data.frame(name, gravity, temp, moons_num, moons_fac, haswater)\nplanets",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Taxonomy of Data"
-    ]
-  },
-  {
-    "objectID": "quiz-slides/quiz-slides.html#before-the-quiz",
-    "href": "quiz-slides/quiz-slides.html#before-the-quiz",
-    "title": "Quiz",
-    "section": "Before the Quiz",
-    "text": "Before the Quiz\n\nTake a photo of your cheat sheet if you want it.\n🧹 Clear your desk of everything except a pen/pencil and your cheat sheet.\n🧢 Remove hats, hoods, and sunglasses.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nSpread out as much as possible."
-  },
-  {
-    "objectID": "quiz-slides/quiz-slides.html#individual-quiz",
-    "href": "quiz-slides/quiz-slides.html#individual-quiz",
-    "title": "Quiz",
-    "section": "Individual Quiz",
-    "text": "Individual Quiz\n\n\n\n−+\n25:00\n\n\n\n\n\n\nWhen you get a quiz, cover it with your cheat sheet and do not begin.\nWrite your name on both pages.\n⌛If you finish early, cover it with your cheat sheet.\nIf you need to use the bathroom, bring phone and quiz to the front of the class.\n\n\n\n⌛If you finish early, please hold on to your quiz and wait.\nKeep your eyes on your own quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀"
-  },
-  {
-    "objectID": "quiz-slides/quiz-slides.html#group-quiz",
-    "href": "quiz-slides/quiz-slides.html#group-quiz",
-    "title": "Quiz",
-    "section": "Group Quiz",
-    "text": "Group Quiz\n\n\n\n−+\n15:00\n\n\n\n\n\n\nForm groups of 3 people, then ONE person raise your hand (to get your quiz).\nBe sure to write ALL group members names on the quiz on both pages.\nIf you find yourself without a group, come to the front of class and we’ll help you form one.\n\n\n\nYour can start when you get your quiz.\nWhen done, bring your quiz and everyone’s cheat sheets to a tutor or me. Then please leave the room quietly.\n\nGood luck! 🍀"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Gaston Sanchez’s instructional materials for STAT 20",
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-2",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-2",
+    "title": "Computing Probabilities",
     "section": "",
-    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz\n\nQuiz",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "\\(B\\) is the event that the first two coins flipped both show heads\n\nFind \\(P(B)\\)\n\n\n\n\n\\(\\Omega\\)\n  H  H  H\n  H  H  T\n  H  T  H\n  H  T  T\n  T  H  H\n  T  H  T\n  T  T  H\n  T  T  T"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#agenda",
-    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#agenda",
-    "title": "Taxonomy of Data",
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-3",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-3",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "\\(C\\) is the event that the last two coins flipped both show tails\n\nFind \\(P(C)\\)\n\n\n\n\n\\(\\Omega\\)\n  H  H  H\n  H  H  T\n  H  T  H\n  H  T  T\n  T  H  H\n  T  H  T\n  T  T  H\n  T  T  T"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-1b",
+    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-1b",
+    "title": "Computing Probabilities",
+    "section": "Concept Question 1b",
+    "text": "Concept Question 1b\nFlip 3 coins, one at a time. Define the following events:\n\\(A\\) is the event that the first coin flipped shows a head\n\\(B\\) is the event that the first two coins flipped both show heads\n\\(C\\) is the event that the last two coins flipped both show tails\n\nEvents \\(A\\) and \\(B\\) are:\n\nIndependent\nMutually exclusive\nNone of the above\n\n\n\nAfter they do this and next, write out the outcome space for the results of flipping 3 coins. And go through what are A, B, and C. A and B are neither independent nor mutually exclusive."
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-1c",
+    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-1c",
+    "title": "Computing Probabilities",
+    "section": "Concept Question 1c",
+    "text": "Concept Question 1c\nFlip 3 coins, one at a time. Define the following events:\n\\(A\\) is the event that the first coin flipped shows a head\n\\(B\\) is the event that the first two coins flipped both show heads\n\\(C\\) is the event that the last two coins flipped both show tails\n\nEvents \\(A\\) and \\(C\\) are:\n\nIndependent\nMutually exclusive\nNone of the above\n\n\n\nAfter they do this and next, write out the outcome space for the results of flipping 3 coins. And go through what are A, B, and C. A and C are independent. Show that P(A & C ) = 1/8 = P(A)P(C) = 1/4 * 1/2"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-2-1",
+    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-2-1",
+    "title": "Computing Probabilities",
+    "section": "Concept Question 2",
+    "text": "Concept Question 2\nSuppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.\n\nLet \\(A\\) be the event that at least one of the tickets drawn is labeled with an even number.\nLet \\(B\\) be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number)."
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-4",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-4",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "Suppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.\n\nWhat is the outcome space \\(\\Omega\\)?"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-5",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-5",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "Let \\(A_1\\) be the event that the 1st ticket is an even #\n\n\nFind \\(P(A_1)\\)"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-6",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-6",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "Let \\(A_2\\) be the event that the 2nd ticket is an even #\n\n\nFind \\(P(A_2)\\)"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-7",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-7",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "Let \\(A\\) be the event that at least one of the tickets is an even #\n\nFind \\(P(A)\\)"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-8",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-8",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "Let \\(A\\) be the event that at least one of the tickets is an even #\n\nFind \\(P(A) = 1 - P(A^c)\\)"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-9",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-9",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "Let \\(B\\) be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).\n\nFind \\(P(B)\\)\n\n\n\n\n  Prime numbers:  2, 3, 5, 7\n  Non-prime #'s:  1, 4, 6, 8, 9"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#section-10",
+    "href": "3-probability/02-cond-prob-indep/slides.html#section-10",
+    "title": "Computing Probabilities",
+    "section": "",
+    "text": "Let \\(B\\) be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).\n\nFind \\(P(B) = 1 - P(B^c)\\)\n\n\n\n  Prime numbers:  2, 3, 5, 7\n  Non-prime #'s:  1, 4, 6, 8, 9"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-2b",
+    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-2b",
+    "title": "Computing Probabilities",
+    "section": "Concept Question 2b",
+    "text": "Concept Question 2b\nSuppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}.\nLet A be the event that at least one of the tickets drawn is labeled with an even number.\nLet B be the event that at least one of the tickets drawn is labeled with a prime number (recall that the number 1 is not regarded as a prime number).\nSuppose the numbers on the tickets drawn are 3 and 9.\n\nWhich of the following events occur?\n\n\\(A\\)\n\\(B\\)\n\\(A\\) and \\(B\\) (\\(A \\cap B\\))\n\\(A\\) and \\(B^C\\)\n\\(A^C\\) and \\(B\\)\n\n\n\nii and v, I told them they can immediately see that A^C is true since no even number, so definitely (v) and then we do have a prime number and both are odd so (ii) is true.\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-3a",
+    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-3a",
+    "title": "Computing Probabilities",
+    "section": "Concept Question 3a",
+    "text": "Concept Question 3a\n\n\n\n−+\n02:00\n\n\n\n\nThe 2024 World Series was the championship series was a best-of-seven playoff between the Los Angeles Dodgers and the New York Yankees. The winners in the World Series have to win a majority of 7 games, so the first team to win 4 games wins the series.\nSuppose we assumed that the probability that the Dodgers would have beaten the Yankees in any single game was estimated at 56%, independently of all the other games.\nWhat was the probability that the Dodgers would have won in a clean sweep?\n\n\nStraightforward application of multiplication rule for independent events. probability is 0.6^4 = 0.1296. Follow up comment/question: if the teams were more evenly matched, say probability of either team winning is 50%, the probability of going to 7 games and probability of winning in 6 games is equal given 5 games are played."
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/slides.html#concept-question-3b",
+    "href": "3-probability/02-cond-prob-indep/slides.html#concept-question-3b",
+    "title": "Computing Probabilities",
+    "section": "Concept Question 3b",
+    "text": "Concept Question 3b\n\n\n\n−+\n02:00\n\n\n\n\nSuppose we assume, instead, that the probability that the Dodgers would have beaten the Yankees in any single game was 50%, independently of all the other games.\nIn this case, was the probability that the series would have gone to 6 games higher than the probability that the series would have gone to 7 games, given that 5 games were played?\n\n\nif 5 games are played it means one of the teams is leading 3-2. Therefore there are two scenarios: the team that is ahead wins game 6 and the series, or the team that is behind wins game 6 and they go to 7 games. Both are equally likely."
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#agenda",
+    "href": "3-probability/04-random-variables/slides.html#agenda",
+    "title": "Random Variables",
     "section": "Agenda",
-    "text": "Agenda\n\nAnnouncements\nGroup Activity: Conceptual\nWorksheet 1: Taxonomy of Data\nBreak\nConcept Questions: Coding\nMore Practice"
+    "text": "Agenda\n\nQuiz-3 reminder\nWSP-5 reminder\nBrief lecture on random variables\nWS: Random Variables"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#assignments",
-    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#assignments",
-    "title": "Taxonomy of Data",
-    "section": "Assignments",
-    "text": "Assignments\nYou should have submitted Lab-1 UN Votes and Worksheet Packet WSP-1\nThese were originally due yesterday (Tue) on Gradescope by 8:00am, but got extended till 11:59pm.\n\n\n\nYou should have answered Reading Questions of Taxonomy of Data\nThese were due yesterday (Tue) on Gradescope by 11:59pm"
+    "objectID": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
+    "href": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
+    "title": "Random Variables",
+    "section": "Announcements: Quiz 3",
+    "text": "Announcements: Quiz 3\n\nQuiz-3 next Monday, Oct 13th in class.\n\nSection 1, 8am in Barker 101\nSection 8, 10am in SOCS 60\n\n\n\nTopics:\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data",
-    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data",
-    "title": "Taxonomy of Data",
-    "section": "Concept of Data",
-    "text": "Concept of Data\nOne or more characteristics observed or measured on a set of objects."
+    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
+    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
+    "title": "Random Variables",
+    "section": "Announcements: WSP 5, Oct-14th",
+    "text": "Announcements: WSP 5, Oct-14th\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data-1",
-    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data-1",
-    "title": "Taxonomy of Data",
-    "section": "Concept of Data",
-    "text": "Concept of Data\nOne or more characteristics observed or measured on a set of objects.\n\n\nVariables: characteristics, features, attributes.\nObjects: individuals, subjects, items.\n\n\n\n\n\nData typically organized into a data table (or data frame), ideally one row per individual, and one column per variable."
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-1",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-1",
+    "title": "Random Variables",
+    "section": "Random Variables 1",
+    "text": "Random Variables 1\nLet \\(X\\) be the number of heads in three tosses of a fair coin. What is the distribution of \\(X\\)? That is, what is \\(f(x) = P(X = x)\\)? What values will \\(x\\) take?"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#types-of-variables",
-    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#types-of-variables",
-    "title": "Taxonomy of Data",
-    "section": "Types of Variables",
-    "text": "Types of Variables\nVariables can be classified in different ways.\n\nThe classification (aka taxonomy) adopted in STAT 20 involves 2 major classes, each one with two subcategories:\n\n\n\n\n\nNumerical\n\nContinuous\nDiscrete\n\n\n\n\nCategorical\n\nOrdinal\nNominal"
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-2",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-2",
+    "title": "Random Variables",
+    "section": "Random Variables 2",
+    "text": "Random Variables 2\nWhat about if \\(X\\) is the number of heads in 3 tosses of a biased coin, where the chance of heads is \\(\\frac{2}{3}\\)? Now what is \\(f(x) = P(X = x)\\)?"
   },
   {
-    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#section",
-    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#section",
-    "title": "Taxonomy of Data",
+    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-dbinom",
+    "title": "Random Variables",
+    "section": "Demo: dbinom()",
+    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom-1",
+    "href": "3-probability/04-random-variables/slides.html#demo-dbinom-1",
+    "title": "Random Variables",
+    "section": "Demo: dbinom()",
+    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# probability distribution (pmf)\npmf = dbinom(x = 0:n, size = n, prob = p)\npmf\n\n\n\n[1] 0.03703704 0.22222222 0.44444444 0.29629630"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-pbinom",
+    "title": "Random Variables",
+    "section": "Demo: pbinom()",
+    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom-1",
+    "href": "3-probability/04-random-variables/slides.html#demo-pbinom-1",
+    "title": "Random Variables",
+    "section": "Demo: pbinom()",
+    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# cumulative distribution function\ncdf = pbinom(q = 0:3, size = n, prob = p)\ncdf\n\n\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000\n\n\n\n\n\n\n# equivalent\ncumsum(pmf)\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-rbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
+    "title": "Random Variables",
+    "section": "Demo rbinom()",
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 1 1 2 2 3 2 3 1 1 2 2 2 3 2 2 3 2 0 3 3 3 3 1 3 3 2 2 2 2 2 3 2 1 3 1 3\n [38] 2 3 2 2 3 3 3 3 2 2 3 1 2 3 2 2 2 1 3 3 3 1 3 3 3 3 1 1 3 3 3 3 3 1 2 2 3\n [75] 0 2 1 2 3 2 1 3 2 3 1 3 1 1 2 2 1 3 1 2 1 2 2 1 2 2"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
+    "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
+    "title": "Random Variables",
+    "section": "Demo: Empirical Probability Distribution",
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  2\n2      1 22\n3      2 38\n4      3 38\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  2 0.02\n2      1 22 0.22\n3      2 38 0.38\n4      3 38 0.38"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
+    "href": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
+    "title": "Random Variables",
+    "section": "Demo: Empirical histogram",
+    "text": "Demo: Empirical histogram\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col() +\n  labs(title = \"Probability Histogram\", \n       subtitle = \"Number of heads in 3 tosses of biased coin\", \n       x = \"heads\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-3",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-3",
+    "title": "Random Variables",
+    "section": "Random Variables 3",
+    "text": "Random Variables 3\nNow suppose we toss a fair coin until the first time it lands heads, and let \\(X\\) be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of \\(X\\)? Is it binomial?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-4",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-4",
+    "title": "Random Variables",
+    "section": "Random Variables 4",
+    "text": "Random Variables 4\nFinally, let’s consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number \\(X\\). What is the pmf of \\(X\\)?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#fx-and-fx",
+    "href": "3-probability/04-random-variables/slides.html#fx-and-fx",
+    "title": "Random Variables",
+    "section": "\\(f(x)\\) and \\(F(x)\\)",
+    "text": "\\(f(x)\\) and \\(F(x)\\)\n\n\\(f(x)\\) is the probability mass function of \\(X\\).\n\nWhat does that mean?\nWhat is the connection to the distribution table?\nWhat is the connection to the probability histogram?\n\n\n\n\n\n\\(F(x)\\) is the cumulative distribution function.\n\n\n\n\nWhat is the connection between \\(f\\) and \\(F\\)?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#example",
+    "href": "3-probability/04-random-variables/slides.html#example",
+    "title": "Random Variables",
+    "section": "Example",
+    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#example-1",
+    "href": "3-probability/04-random-variables/slides.html#example-1",
+    "title": "Random Variables",
+    "section": "Example",
+    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\n\npmf: \\(\\quad f(X) = P(X=x)\\)\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\ncdf: \\(\\quad F(x) = P(X \\leq x)\\)\n\n\\(P(X \\leq x) = 0 \\quad \\quad \\text{for} \\ x &lt; 0\\)\n\\(P(X \\leq x) = 3/8 \\quad \\text{for} \\ 0 \\leq x &lt; 1\\)\n\\(P(X \\leq x) = 5/8 \\quad \\text{for} \\ 1 \\leq x &lt; 2\\)\n\\(P(X \\leq x) = 1 \\quad \\quad \\text{for} \\ x \\geq 2\\)"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#example-2",
+    "href": "3-probability/04-random-variables/slides.html#example-2",
+    "title": "Random Variables",
+    "section": "Example",
+    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\\[\nf(X) \\rightarrow P(X=x)\n\\]\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\n\\[\nF(X) \\rightarrow P(X \\leq x)\n\\]\n\\[\nF(X) = \\begin{cases}\n0, \\quad  \\quad x &lt; 0 \\\\\n3/8, \\quad 0 \\leq x &lt; 1 \\\\\n5/8, \\quad 1 \\leq x &lt; 2 \\\\\n8/8, \\quad 2 \\leq x  \n\\end{cases}\n\\]\n\n\nDraw an example on the board. Maybe box of tickets { 0, 0, 0 , 1, 1, 2, 2, 2} draw one ticket, and let \\(X\\) be the value of the ticket. Write out both \\(f(x)\\) and \\(F(x)\\) in function notation, then draw the cdf and show how we can get from the cdf to the pmf."
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#sketching-fx",
+    "href": "3-probability/04-random-variables/slides.html#sketching-fx",
+    "title": "Random Variables",
+    "section": "Sketching \\(F(X)\\)",
+    "text": "Sketching \\(F(X)\\)\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#section",
+    "href": "3-probability/04-random-variables/slides.html#section",
+    "title": "Random Variables",
     "section": "",
-    "text": "As a group, choose a set of individuals, and list at least:\n\n3 continuous numerical variables\n3 discrete numerical variables\n3 ordinal categorical variables\n3 nominal categorical variables. Don’t choose:\n\n❌ Do Not choose:\n\nstudents\nelectronic devices\n\n\n\n\n\n−+\n15:00"
+    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "3-probability/04-random-variables/slides.html#section-1",
+    "href": "3-probability/04-random-variables/slides.html#section-1",
+    "title": "Random Variables",
     "section": "",
-    "text": "This is Prof. Gaston Sanchez’s companion website to STAT 20 Introduction to Probability and Statistics at UC Berkeley.\nThe main purpose of this satellite website is to simply host the slides that I use while teaching this class, and to make them available to the students in my section(s). Students from other sections, as well as teaching staff (e.g., fellow instructors, tutors, readers), are welcome to use/read them too.\nPlease note that I’ve customized the original slides—of the official website—in a way that better suits my teaching style.",
-    "crumbs": [
-      "About"
-    ]
+    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#agenda",
-    "href": "3-probability/03-probability-dsns/slides.html#agenda",
-    "title": "Probability Distributions",
-    "section": "Agenda",
-    "text": "Agenda\n\nAnnouncements\nProbability refresher (last week)\nBreak\nConcept questions: Probability Distributions\nPS 8: Probability Distributions"
-  },
-  {
-    "objectID": "3-probability/03-probability-dsns/slides.html#announcements",
-    "href": "3-probability/03-probability-dsns/slides.html#announcements",
-    "title": "Probability Distributions",
-    "section": "Announcements",
-    "text": "Announcements\n\nNo lab today\n\n\n\nProblem Set 8 (paper max. 3) due next Tuesday at 9am\n\n\n\n\nRQ: Random Variables due Wednesday 11:59pm\n\n\nYou may need to review the concepts as I said in slack, depending on how they do in the pe refresher"
-  },
-  {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section",
-    "href": "3-probability/03-probability-dsns/slides.html#section",
-    "title": "Probability Distributions",
+    "objectID": "3-probability/04-random-variables/slides.html#section-2",
+    "href": "3-probability/04-random-variables/slides.html#section-2",
+    "title": "Random Variables",
     "section": "",
-    "text": "−+\n02:00\n\n\n\nConsider the box of tickets shown below.\n\n\n\n\n\nThe plots below show:\n\nThe probability histogram for the value of a ticket drawn at random from the box\nAn empirical histogram for which the data were generated by drawing 10 tickets from the box with replacement\nAn empirical histogram for which the data were generated by drawing 100 tickets from the box with replacement\nAn empirical histogram generated by 20 draws from a different box.\n\n\n\n\n\n\n\n\n\n\n\nIdentify which is which by matching the letters to the numbers.\n\n\nSince you have to scroll, maybe draw the box on the board. Scroll to see graphs\n\nB-1 the prob dsn of tickets\nD-2 emp dsn of 10 draws\nC-3 emp dsn of 100 draws\nA-4 emp dsn from different box"
+    "text": "−+\n01:00\n\n\n\nRoll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise.\n\nWhat is the cdf \\(F(x)\\)?\n\n\nThe chance that \\(X = 1\\) can be broken up into six mutually exclusive situations, that the dice both show one spot, or both show two spots, etc. Each of these has probability \\(1/36\\) so the total probability by the addition rule is \\(6/36 = 1/6\\)"
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-1",
-    "href": "3-probability/03-probability-dsns/slides.html#section-1",
-    "title": "Probability Distributions",
+    "objectID": "3-probability/04-random-variables/slides.html#section-3",
+    "href": "3-probability/04-random-variables/slides.html#section-3",
+    "title": "Random Variables",
     "section": "",
-    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nRoll a fair ten-sided die 20 times. We count the number of times we roll a multiple of 3.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial(20, 3/10). The pollev will have 4 choices, and then figuring out the parameters can be a classroom discussion. The fourth choice is “Need more info”"
+    "text": "−+\n01:30\n\n\n\nThe graph of the cdf of a random variable \\(X\\) is shown below. What is \\(F(2)\\)? What about \\(f(2)\\)?\n\n\n\\(F(2) = 2/3, f(2) = 0\\)"
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-2",
-    "href": "3-probability/03-probability-dsns/slides.html#section-2",
-    "title": "Probability Distributions",
+    "objectID": "3-probability/04-random-variables/slides.html#section-4",
+    "href": "3-probability/04-random-variables/slides.html#section-4",
+    "title": "Random Variables",
     "section": "",
-    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nYouGov surveyed 1,500 adult US citizens last December and counted the number of respondents who had read at least one book in 2023. The population of the US is about 335 million.\n\nBinomial, hypergeometric, or neither?\n\n\nHypergeometric(\\(N = 335\\) mill, \\(n = 1500\\), G), where G is not known, being the number of people who have read at least one book . Can remark that we could use the binomial to model this rather than HG, and that we will discuss sample surveys in this unit. Disturbingly, only 54% of respondents had read at least one book. Here is the link: https://today.yougov.com/entertainment/articles/48239-54-percent-of-americans-read-a-book-this-year"
+    "text": "−+\n02:00\n\n\n\nYou have \\(10\\) people with a cold and you have a remedy with a \\(20\\%\\) chance of success. What is the chance that your remedy will cure at least one sufferer?\n\nWhat is the chance that at least one person is cured?\n\n\n\\(P(X \\ge 1) = 1 - P(X &lt; 1) = 1 - P(X = 0) = 1 - (1-p)^{10}\\), where \\(p = 0.2\\), because \\(X \\sim Bin(10, p)\\). \\(1-p = 0.8 \\: \\& \\: 1-0.8^{10} = 0.8926\\)"
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-3",
-    "href": "3-probability/03-probability-dsns/slides.html#section-3",
-    "title": "Probability Distributions",
+    "objectID": "3-probability/04-random-variables/slides.html#section-5",
+    "href": "3-probability/04-random-variables/slides.html#section-5",
+    "title": "Random Variables",
     "section": "",
-    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\n\nA six-sided die is tossed twice, and we check if the sum of the spots is 8 or not.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial, with \\(n = 1, p = 5/36\\) or Bernoulli with \\(p = 5/36\\)."
-  },
-  {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-4",
-    "href": "3-probability/03-probability-dsns/slides.html#section-4",
-    "title": "Probability Distributions",
-    "section": "",
-    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\nA bag that has 6 pieces of fruit: 2 mangoes, 3 apples, and 1 orange. I reach into the bag and draw out one fruit at a time, selecting each fruit at random (so they are equally likely on each draw). I count the number of draws until and including the first time I draw a apple.\n\nBinomial, hypergeometric, or neither?\n\n\nNeither. It would be useful at this point to write out what is going on, and point out that they are using the multiplication rule and a conditional probability."
+    "text": "−+\n01:30\n\n\n\nThere are 4 histograms of different Poisson distributions below. Match each distribution to its parameter \\(\\lambda\\). Recall that \\(\\lambda\\) is how many occurrences we think will happen in a given period of time.\n\\[\n(1)\\: \\lambda = 0.5 \\hspace{2cm} (2)\\: \\lambda = 1 \\hspace{2cm} (3) \\: \\lambda = 2 \\hspace{2cm} (4) \\: \\lambda = 4\\hspace{2cm}\n\\]\n\n\nexplain the smaller the rate, the lower the probability of higher values. A-4, B-1, C-3, D-2"
   },
   {
     "objectID": "3-probability/01-chance-intro/slides.html#probability-of-two-events",
@@ -1444,26 +1556,5 @@
       "Practice Problems",
       "Practice: Grammar of Graphics"
     ]
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5-due-oct-14th",
-    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5-due-oct-14th",
-    "title": "Random Variables",
-    "section": "Announcements: WSP 5, due Oct-14th",
-    "text": "Announcements: WSP 5, due Oct-14th\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
-    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
-    "title": "Random Variables",
-    "section": "Announcements: WSP 5, Oct-14th",
-    "text": "Announcements: WSP 5, Oct-14th\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-4",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-4",
-    "title": "Random Variables",
-    "section": "Random Variables 4",
-    "text": "Random Variables 4\nFinally, let’s consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number \\(X\\). What is the pmf of \\(X\\)?"
   }
 ]
