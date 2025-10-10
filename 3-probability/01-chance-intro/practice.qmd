@@ -1,0 +1,169 @@
+---
+title: "Practice: Intro Probability"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+library(tidyverse)
+```
+
+
+## 1) Deck of Cards
+
+Consider a standard deck of 52 cards, as displayed in the following figure.
+
+![](images/deck-of-cards.png){fig-align="center" width=80%}
+
+
+Consider the following events when a card is randomly selected.
+
+- $A$: card selected is a heart.
+
+- $B$: card selected is color black.
+
+- $C$: card selected is a face card (i.e. J, Q, K)
+
+- $D$: card selected is a King.
+
+
+### Find the following probabilities.
+
+\vspace{3mm}
+
+a. $P(A)$
+
+b. $P(B)$
+
+c. $P(C)$
+
+d. $P(D)$
+
+e. $P(A^c)$
+
+f. $P(B^c)$
+
+g. $P(C^c)$
+
+h. $P(D^c)$
+
+i. $P(A \cap B)$
+
+j. $P(A \cup B)$
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) 13/52 = 1/4
+b) 26/52 = 1/2
+c) 12/52
+d) 4/52 = 1/13
+e) 1 - (13/52) = 3/4
+f) 1 - (26/52) = 1/2
+g) 1 - (12/52) = 40/52
+h) 1 - (4/52) = 48/52
+i) 0 because A and B are mutually exclusive
+j) P(A) + P(B) = 13/52 + 26/52 = 39/52
+
+:::
+
+
+## R code refresher
+
+`sample()`: takes an input vector `x`, and draws a random sample of a 
+certain `size` with or without replacement (`replace`)
+
+```r
+vec = 1:10
+
+# sample without replacement
+sample(vec, size = 3) 
+
+# sample with replacement
+sample(vec, size = 3, replace = TRUE)
+```
+
+\
+
+`set.seed()`: a number (integer) used by the random number generator(s) in R. 
+It allows us to reproduce the output of `sample()` and other functions that 
+generate random numbers in R.
+
+```r
+set.seed(4321)
+
+# reproducible sample
+sample(letters, size = 5)
+```
+
+
+## 2) Flipping a coing
+
+a) Create a character vector `coin` that simulates the 2 sides of a coin `"heads"`
+and `"tails"`
+
+b) Use `sample()` to simulate tossing a coin 6 times
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+coin <- c("heads", "tails")
+
+sample(coin, size = 6, replace = TRUE)
+```
+
+
+## 3) Rolling a die
+
+a) Create a numeric vector `die` that simulates the sides of a die (1, 2, 3, 4, 5, 6)
+
+b) Use `sample()` to simulate tossing a die 10 times
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+die <- 1:6
+
+sample(die, size = 10, replace = TRUE)
+```
+
+
+## 4) Rolling a pair of dice
+
+a) With your `die` vector---from the preceding question---write code to 
+simulate rolling a pair of dice, and getting the sum of the spots.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+die <- 1:6
+
+sum(sample(die, size = 2, replace = TRUE))
+```
+
+
+## 5) GO BEARS
+
+a) Create a character vector `box` containing the letters in the phrase 
+_GO BEARS_.
+
+b) Write R code to sample all the letters from `box` __without replacement__.
+Repeat this process no more than 100 times.
+
+c) If you get a sample `"G" "O" "B" "E" "A" "R" "S"` (in this order) you 
+win.
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show answer"
+#| eval: false
+box <- c("G", "O", "B", "E", "A", "R", "S")
+
+# run the following command 100 times
+sample(box, size = 7)
+```
+

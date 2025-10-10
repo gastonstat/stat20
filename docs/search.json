@@ -522,21 +522,21 @@
     "href": "3-probability/05-ev-sd/slides.html#properties-of-ev",
     "title": "Expected Value and Variance",
     "section": "Properties of EV",
-    "text": "Properties of EV\n\\(E(c) = c\\)\n\n\\(E(cX) = c \\cdot E(X)\\)\n\n\n\\(E(X + Y) = E(X) + E(Y)\\)\n\n\n\\(E(aX + bY) = a \\cdot E(X) + b \\cdot E(Y)\\)\n\n\n\\(Y = g(X) \\ \\rightarrow \\ E(Y) = E(g(X)) = \\sum_x g(x) \\times P(X=x)\\)"
+    "text": "Properties of EV\n\\(E(c) = c\\)\n\n\n\n\\(E(cX) = c \\cdot E(X)\\)\n\n\n\n\n\\(E(X + Y) = E(X) + E(Y)\\)\n\n\n\n\n\\(E(aX + bY) = a \\cdot E(X) + b \\cdot E(Y)\\)\n\n\n\n\n\\(Y = g(X) \\ \\rightarrow \\ E(Y) = E(g(X)) = \\sum_x g(x) \\times P(X=x)\\)"
   },
   {
     "objectID": "3-probability/05-ev-sd/slides.html#properties-of-variance",
     "href": "3-probability/05-ev-sd/slides.html#properties-of-variance",
     "title": "Expected Value and Variance",
     "section": "Properties of Variance",
-    "text": "Properties of Variance\n\\(\\textit{Var}(c) = 0\\)\n\n\\(\\textit{Var}(cX) = c^2 \\cdot \\textit{Var}(X)\\)\n\n\n\\(\\textit{Var}(X + c) = \\textit{Var}(X)\\)\n\n\n\\(\\textit{Var}(X + Y) = \\textit{Var}(X) + \\textit{Var}(Y) \\quad \\text{ for } X, Y \\text{ indep}\\)\n\n\n\\(\\textit{Var}(X - Y) = \\textit{Var}(X) + \\textit{Var}(Y) \\quad \\text{ for } X, Y \\text{ indep}\\)"
+    "text": "Properties of Variance\n\\(\\textit{Var}(c) = 0\\)\n\n\n\n\\(\\textit{Var}(cX) = c^2 \\cdot \\textit{Var}(X)\\)\n\n\n\n\n\\(\\textit{Var}(X + c) = \\textit{Var}(X)\\)\n\n\n\n\n\\(\\textit{Var}(X + Y) = \\textit{Var}(X) + \\textit{Var}(Y) \\quad \\text{ for } X, Y \\text{ indep}\\)\n\n\n\n\n\\(\\textit{Var}(X - Y) = \\textit{Var}(X) + \\textit{Var}(Y) \\quad \\text{ for } X, Y \\text{ indep}\\)"
   },
   {
     "objectID": "3-probability/05-ev-sd/slides.html#section-2",
     "href": "3-probability/05-ev-sd/slides.html#section-2",
     "title": "Expected Value and Variance",
     "section": "",
-    "text": "Let \\(X\\) be a random variable such that \\[\nX = \\begin{cases}\n            -1, & \\text{ with probability } 1/3\\\\\n            0, &  \\text{ with probability } 1/6\\\\\n            1, &  \\text{ with probability } 4/15 \\\\\n            2, & \\text{ with probability } 7/30 \\\\\n         \\end{cases}\n\\]\n\nDraw the graph of the cdf of \\(X\\)\n\n\nwrite down pmf with denominator 30, and draw cdf on the board. P(X = -1)= 5/30, P(X = 0)= 10/30, P(X = 1)= 8/30, P(X = 2)= 7/30"
+    "text": "Let \\(X\\) be a random variable such that \\[\nX = \\begin{cases}\n            -1, & \\text{ with probability } 1/3\\\\\n            0, &  \\text{ with probability } 1/6\\\\\n            1, &  \\text{ with probability } 4/15 \\\\\n            2, & \\text{ with probability } 7/30 \\\\\n         \\end{cases}\n\\]\n\nDraw the graph of the CDF of \\(X\\)\n\n\nwrite down pmf with denominator 30, and draw cdf on the board. P(X = -1)= 5/30, P(X = 0)= 10/30, P(X = 1)= 8/30, P(X = 2)= 7/30"
   },
   {
     "objectID": "3-probability/05-ev-sd/slides.html#section-3",
@@ -1555,6 +1555,94 @@
     "crumbs": [
       "Practice Problems",
       "Practice: Grammar of Graphics"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html",
+    "href": "3-probability/01-chance-intro/practice.html",
+    "title": "Practice: Intro Probability",
+    "section": "",
+    "text": "Consider a standard deck of 52 cards, as displayed in the following figure.\n\n\n\n\n\nConsider the following events when a card is randomly selected.\n\n\\(A\\): card selected is a heart.\n\\(B\\): card selected is color black.\n\\(C\\): card selected is a face card (i.e. J, Q, K)\n\\(D\\): card selected is a King.\n\n\n\n\n\\(P(A)\\)\n\\(P(B)\\)\n\\(P(C)\\)\n\\(P(D)\\)\n\\(P(A^c)\\)\n\\(P(B^c)\\)\n\\(P(C^c)\\)\n\\(P(D^c)\\)\n\\(P(A \\cap B)\\)\n\\(P(A \\cup B)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n13/52 = 1/4\n26/52 = 1/2\n12/52\n4/52 = 1/13\n1 - (13/52) = 3/4\n1 - (26/52) = 1/2\n1 - (12/52) = 40/52\n1 - (4/52) = 48/52\n0 because A and B are mutually exclusive\nP(A) + P(B) = 13/52 + 26/52 = 39/52",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html#find-the-following-probabilities.",
+    "href": "3-probability/01-chance-intro/practice.html#find-the-following-probabilities.",
+    "title": "Practice: Intro Probability",
+    "section": "Find the following probabilities.",
+    "text": "Find the following probabilities.\n\n\\(P(A)\\)\n\\(P(B)\\)\n\\(P(C)\\)\n\\(P(D)\\)\n\\(P(A^c)\\)\n\\(P(B^c)\\)\n\\(P(C^c)\\)\n\\(P(D^c)\\)\n\\(P(A \\cap B)\\)\n\\(P(A \\cup B)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n13/52 = 1/4\n26/52 = 1/2\n12/52\n4/52 = 1/13\n1 - (13/52) = 3/4\n1 - (26/52) = 1/2\n1 - (12/52) = 40/52\n1 - (4/52) = 48/52\n0 because A and B are mutually exclusive\nP(A) + P(B) = 13/52 + 26/52 = 39/52",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html#r-code-refresher",
+    "href": "3-probability/01-chance-intro/practice.html#r-code-refresher",
+    "title": "Practice: Intro Probability",
+    "section": "R code refresher",
+    "text": "R code refresher\nsample(): takes an input vector x, and draws a random sample of a certain size with or without replacement (replace)\nvec = 1:10\n\n# sample without replacement\nsample(vec, size = 3) \n\n# sample with replacement\nsample(vec, size = 3, replace = TRUE)\n\n\nset.seed(): a number (integer) used by the random number generator(s) in R. It allows us to reproduce the output of sample() and other functions that generate random numbers in R.\nset.seed(4321)\n\n# reproducible sample\nsample(letters, size = 5)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html#flipping-a-coing",
+    "href": "3-probability/01-chance-intro/practice.html#flipping-a-coing",
+    "title": "Practice: Intro Probability",
+    "section": "2) Flipping a coing",
+    "text": "2) Flipping a coing\n\nCreate a character vector coin that simulates the 2 sides of a coin \"heads\" and \"tails\"\nUse sample() to simulate tossing a coin 6 times\n\n\n\nShow answer\ncoin &lt;- c(\"heads\", \"tails\")\n\nsample(coin, size = 6, replace = TRUE)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html#rolling-a-die",
+    "href": "3-probability/01-chance-intro/practice.html#rolling-a-die",
+    "title": "Practice: Intro Probability",
+    "section": "3) Rolling a die",
+    "text": "3) Rolling a die\n\nCreate a numeric vector die that simulates the sides of a die (1, 2, 3, 4, 5, 6)\nUse sample() to simulate tossing a die 10 times\n\n\n\nShow answer\ndie &lt;- 1:6\n\nsample(die, size = 10, replace = TRUE)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html#go-bears",
+    "href": "3-probability/01-chance-intro/practice.html#go-bears",
+    "title": "Practice: Intro Probability",
+    "section": "5) GO BEARS",
+    "text": "5) GO BEARS\n\nCreate a character vector box containing the letters in the phrase GO BEARS.\nWrite R code to sample all the letters from box without replacement. Repeat this process no more than 100 times.\nIf you get a sample \"G\" \"O\" \"B\" \"E\" \"A\" \"R\" \"S\" (in this order) you win.\n\n\n\nShow answer\nbox &lt;- c(\"G\", \"O\", \"B\", \"E\", \"A\", \"R\", \"S\")\n\n# run the following command 100 times\nsample(box, size = 7)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html#deck-of-cards",
+    "href": "3-probability/01-chance-intro/practice.html#deck-of-cards",
+    "title": "Practice: Intro Probability",
+    "section": "",
+    "text": "Consider a standard deck of 52 cards, as displayed in the following figure.\n\n\n\n\n\nConsider the following events when a card is randomly selected.\n\n\\(A\\): card selected is a heart.\n\\(B\\): card selected is color black.\n\\(C\\): card selected is a face card (i.e. J, Q, K)\n\\(D\\): card selected is a King.\n\n\n\n\n\\(P(A)\\)\n\\(P(B)\\)\n\\(P(C)\\)\n\\(P(D)\\)\n\\(P(A^c)\\)\n\\(P(B^c)\\)\n\\(P(C^c)\\)\n\\(P(D^c)\\)\n\\(P(A \\cap B)\\)\n\\(P(A \\cup B)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n13/52 = 1/4\n26/52 = 1/2\n12/52\n4/52 = 1/13\n1 - (13/52) = 3/4\n1 - (26/52) = 1/2\n1 - (12/52) = 40/52\n1 - (4/52) = 48/52\n0 because A and B are mutually exclusive\nP(A) + P(B) = 13/52 + 26/52 = 39/52",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/01-chance-intro/practice.html#rolling-a-pair-of-dice",
+    "href": "3-probability/01-chance-intro/practice.html#rolling-a-pair-of-dice",
+    "title": "Practice: Intro Probability",
+    "section": "4) Rolling a pair of dice",
+    "text": "4) Rolling a pair of dice\n\nWith your die vector—from the preceding question—write code to simulate rolling a pair of dice, and getting the sum of the spots.\n\n\n\nShow answer\ndie &lt;- 1:6\n\nsum(sample(die, size = 2, replace = TRUE))",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Intro Probability"
     ]
   }
 ]

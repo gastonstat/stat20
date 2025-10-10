@@ -20,6 +20,7 @@ website:
           - 2-summarizing-data/02-summarizing-numerical-data/practice.qmd
           - 2-summarizing-data/03-a-grammar-of-graphics/practice.qmd
           - 2-summarizing-data/06-summarizing-associations/practice.qmd
+          - 3-probability/01-chance-intro/practice.qmd
       - about.qmd
 
 format:

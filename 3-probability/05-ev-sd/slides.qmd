@@ -118,17 +118,25 @@ $$
 
 $E(c) = c$
 
+\
+
 . . .
 
 $E(cX) = c \cdot E(X)$
+
+\
 
 . . .
 
 $E(X + Y) = E(X) + E(Y)$
 
+\
+
 . . .
 
 $E(aX + bY) = a \cdot E(X) + b \cdot E(Y)$
+
+\
 
 . . .
 
@@ -139,17 +147,25 @@ $Y = g(X) \ \rightarrow \ E(Y) = E(g(X)) = \sum_x g(x) \times P(X=x)$
 
 $\textit{Var}(c) = 0$
 
+\
+
 . . .
 
 $\textit{Var}(cX) = c^2 \cdot \textit{Var}(X)$
+
+\
 
 . . .
 
 $\textit{Var}(X + c) = \textit{Var}(X)$
 
+\
+
 . . .
 
 $\textit{Var}(X + Y) = \textit{Var}(X) + \textit{Var}(Y) \quad \text{ for } X, Y \text{ indep}$
+
+\
 
 . . .
 
@@ -170,8 +186,7 @@ X = \begin{cases}
 		 \end{cases}
 $$
 
-(a) Draw the graph of the cdf of $X$ 
-
+(a) Draw the graph of the CDF of $X$ 
 
 :::{.notes}
 write down pmf with denominator 30, and draw cdf on the board. 
