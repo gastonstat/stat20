@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practice: Summarizing Categorical Data – stat20</title>
+<title>Practice: Computing Probabilities – stat20</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html">Practice: Summarizing Categorical Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../3-probability/02-cond-prob-indep/practice.html">Practice: Computing Probabilities</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practice: Summarizing Categorical Data</span></a>
   </div>
 </li>
@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../3-probability/02-cond-prob-indep/practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../../3-probability/02-cond-prob-indep/practice.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Practice: Computing Probabilities</span></a>
   </div>
 </li>
@@ -220,16 +220,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#affiliation-party-and-human-droid-status" id="toc-affiliation-party-and-human-droid-status" class="nav-link active" data-scroll-target="#affiliation-party-and-human-droid-status">1) Affiliation Party and Human-Droid Status</a></li>
+  <li><a href="#box-with-balls" id="toc-box-with-balls" class="nav-link active" data-scroll-target="#box-with-balls">1) Box with balls</a></li>
+  <li><a href="#box-with-balls-and-r-code" id="toc-box-with-balls-and-r-code" class="nav-link" data-scroll-target="#box-with-balls-and-r-code">2) Box with balls and R code</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your Turn</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html">Practice: Summarizing Categorical Data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../3-probability/02-cond-prob-indep/practice.html">Practice: Computing Probabilities</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Practice: Summarizing Categorical Data</h1>
+<h1 class="title">Practice: Computing Probabilities</h1>
 </div>
 
 
@@ -246,50 +251,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="affiliation-party-and-human-droid-status" class="level2">
-<h2 class="anchored" data-anchor-id="affiliation-party-and-human-droid-status">1) Affiliation Party and Human-Droid Status</h2>
-<p>Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">Empire</th>
-<th style="text-align: center;">Rebellion</th>
-<th style="text-align: center;">Unaffiliated</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Human</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">350</td>
-<td style="text-align: center;">50</td>
-</tr>
-<tr class="even">
-<td>Droid</td>
-<td style="text-align: center;">300</td>
-<td style="text-align: center;">150</td>
-<td style="text-align: center;">50</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
+<section id="box-with-balls" class="level2">
+<h2 class="anchored" data-anchor-id="box-with-balls">1) Box with balls</h2>
+<p>Consider a box containing 10 balls: 4 blue and 6 red, as displayed in the following figure. Assume you pick a 1st ball, then a 2nd ball (no replacement).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/draw-2balls-no-replace.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>Find the probability that:</p>
 <ol type="a">
-<li><p>What proportion of individuals are affiliated with the Empire? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are droids affiliated with the empire? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are Human? What kind of proportion is this?</p></li>
-<li><p>Of the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are not Human? What kind of proportion is this?</p></li>
-<li><p>What proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?</p></li>
-<li><p>What proportion of humans are not in the Rebellion?</p></li>
-<li><p>Of the Rebellion individuals, what proportion are humans?</p></li>
-<li><p>What are the dimensions of the raw data from which this table was constructed?</p></li>
-<li><p>True or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.</p></li>
-<li><p>True or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.</p></li>
-<li><p>True or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.</p></li>
-<li><p>Sketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.</p></li>
+<li><p>both balls are blue.</p></li>
+<li><p>both balls are red.</p></li>
+<li><p>1st is blue, 2nd is red.</p></li>
+<li><p>1st is red, 2nd is blue.</p></li>
+<li><p>2nd is blue, given 1st is red.</p></li>
+<li><p>2nd is blue, given 1st is blue.</p></li>
+<li><p>1st is blue, given 2nd is red.</p></li>
+<li><p>at least one of them is blue.</p></li>
+<li><p>both are of the same color.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -297,110 +277,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Show answer
+Show answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<ol type="a">
+<li>(4/10)(3/9) = 12/90</li>
+<li>(6/10)(5/9) = 30/90</li>
+<li>(4/10)(6/9) = 24/90</li>
+<li>(6/10)(4/9) = 24/90</li>
+<li>4/9</li>
+<li>3/9</li>
+<li>4/9</li>
+<li>1 - P(no blues) = 1 - (6/10)(5/9) = 60/90</li>
+<li>P(2 blues) + P(2 reds) = (12/90) + (30/90) = 42/90</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="box-with-balls-and-r-code" class="level2">
+<h2 class="anchored" data-anchor-id="box-with-balls-and-r-code">2) Box with balls and R code</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Refer to the box of the preceding problem. The following code allows you to simulate drawing 2 balls from the box 100 times—via <code>replicate()</code>. In order to use <em>tidyverse</em> functions, we need to reshape the <code>simulations</code> output into a data.frame.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div id="fig-collapsible" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-collapsible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="practice_files/figure-html/fig-collapsible-1.png" class="img-fluid figure-img" width="672">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>box <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"red"</span>, <span class="dv">6</span>), <span class="fu">rep</span>(<span class="st">"blue"</span>, <span class="dv">4</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate drawing 2 balls, 100 times</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>simulations <span class="ot">=</span> <span class="fu">replicate</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">100</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">expr =</span> <span class="fu">sample</span>(box, <span class="at">size =</span> <span class="dv">2</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># table output (as a data frame)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(simulations) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>balls_df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">t</span>(simulations))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(balls_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-collapsible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Stacked bar chart”
-</figcaption>
-</figure>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<p>Say we want to approximate probability of getting a first blue ball.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion: 1st ball is blue</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_1blue =</span> <span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>What if we we want to approximate probability of getting the first ball blue, and the second ball red?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion: 1st is blue, 2nd is red</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_1blue_2red =</span> <span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<ol start="15" type="a">
-<li>True or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.</li>
+</section>
+<section id="your-turn" class="level3">
+<h3 class="anchored" data-anchor-id="your-turn">Your Turn</h3>
+<p>Change the value of <code>set.seed()</code> and increase the number of simulations to <code>1000</code>. Write R pipelines to approximate the following probabilities. How do these approximations compare to the probabilities you calculated?</p>
+<ol type="a">
+<li>Approximate the probability that both balls are blue.</li>
 </ol>
 <div class="cell">
 <details class="code-fold">
-<summary>Show answers (except part n)</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) 400 / 1000 (marginal prop)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># b) 500 / 1000 (marginal prop)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># c) 300 / 1000 (joint prop)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># d) 500 / 1000 (marginal prop)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># e) 50 / 100 (conditional prop)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># f) 500 / 1000 (marginal prop)</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># g) 150 / 500 (conditional prop)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># h) 150 / 500</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># i) 350 / 500</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># j) rows: 1000 (one per individual)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    variables: 2</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    - human-droid status</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#    - affiliation party</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># k) True</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># l) False</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># m) True</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># o) False. There is clearly a large proportion of droids in the empire, </span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    as well as a large proportion of humans in the rebellion.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Show answer</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Show answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="a">
-<li>400 / 1000 (marginal prop)</li>
-<li>500 / 1000 (marginal prop)</li>
-<li>300 / 1000 (joint prop)</li>
-<li>500 / 1000 (marginal prop)</li>
-<li>50 / 100 (conditional prop)</li>
-<li>500 / 1000 (marginal prop)</li>
-<li>150 / 500 (conditional prop)</li>
-<li>150 / 500</li>
-<li>350 / 500</li>
-<li>rows: 1000 (one per individual); variables: 2
-<ul>
-<li>human-droid status</li>
-<li>affiliation party</li>
-</ul></li>
-<li>True</li>
-<li>False</li>
-<li>True</li>
-<li>Graphic</li>
+<ol start="2" type="a">
+<li>Approximate the probability that 1st ball is red, 2nd ball is blue.</li>
 </ol>
 <div class="cell">
-<div class="cell-output-display">
-<div id="fig-collapsible2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-collapsible2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="practice_files/figure-html/fig-collapsible2-1.png" class="img-fluid figure-img" width="672">
+<details class="code-fold">
+<summary>Show answer</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) 1st is red, 2nd is blue</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"red"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-collapsible2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Stacked bar chart
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<ol start="15" type="a">
-<li>False. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.</li>
+<ol start="3" type="a">
+<li>Approximate the probability that both balls are red.</li>
 </ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show answer</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) both are red</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"red"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
+<ol start="4" type="a">
+<li>Approximate the probability 1st ball is blue or 2nd ball is blue.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show answer</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d) 1st is blue OR 2nd is blue</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span> <span class="sc">|</span> second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
+<ol start="5" type="a">
+<li>Approximate the probability 2nd ball is blue, given 1st ball is red.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show answer</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e) 2nd is blue, given that 1st is red</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(first <span class="sc">==</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="6" type="a">
+<li>Approximate the probability 2nd ball is blue, given 1st ball is blue.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show answer</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f) 2nd is blue, given that 1st is blue</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(first <span class="sc">==</span> <span class="st">"blue"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="7" type="a">
+<li>Approximate the probability 1st ball is blue, given 2nd ball is red.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show answer</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># g) 1st is blue, given that 2nd is red</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(second <span class="sc">==</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

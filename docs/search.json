@@ -1463,7 +1463,7 @@
     "href": "2-summarizing-data/01-summarizing-categorical-data/practice.html",
     "title": "Practice: Summarizing Categorical Data",
     "section": "",
-    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart”\n\n\n\n\n\n\n\n\n\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\nShow answers (except part n)\n# a) 400 / 1000 (marginal prop)\n# b) 500 / 1000 (marginal prop)\n# c) 300 / 1000 (joint prop)\n# d) 500 / 1000 (marginal prop)\n# e) 50 / 100 (conditional prop)\n# f) 500 / 1000 (marginal prop)\n# g) 150 / 500 (conditional prop)\n# h) 150 / 500\n# i) 350 / 500\n# j) rows: 1000 (one per individual)\n#    variables: 2\n#    - human-droid status\n#    - affiliation party\n#\n# k) True\n# l) False\n# m) True\n# o) False. There is clearly a large proportion of droids in the empire, \n#    as well as a large proportion of humans in the rebellion.\n\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 2: Stacked bar chart”\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
+    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart”\n\n\n\n\n\n\n\n\n\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\nShow answers (except part n)\n# a) 400 / 1000 (marginal prop)\n# b) 500 / 1000 (marginal prop)\n# c) 300 / 1000 (joint prop)\n# d) 500 / 1000 (marginal prop)\n# e) 50 / 100 (conditional prop)\n# f) 500 / 1000 (marginal prop)\n# g) 150 / 500 (conditional prop)\n# h) 150 / 500\n# i) 350 / 500\n# j) rows: 1000 (one per individual)\n#    variables: 2\n#    - human-droid status\n#    - affiliation party\n#\n# k) True\n# l) False\n# m) True\n# o) False. There is clearly a large proportion of droids in the empire, \n#    as well as a large proportion of humans in the rebellion.\n\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 2: Stacked bar chart\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
     "crumbs": [
       "Practice Problems",
       "Practice: Summarizing Categorical Data"
@@ -1474,7 +1474,7 @@
     "href": "2-summarizing-data/01-summarizing-categorical-data/practice.html#affiliation-party-and-human-droid-status",
     "title": "Practice: Summarizing Categorical Data",
     "section": "",
-    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart”\n\n\n\n\n\n\n\n\n\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\nShow answers (except part n)\n# a) 400 / 1000 (marginal prop)\n# b) 500 / 1000 (marginal prop)\n# c) 300 / 1000 (joint prop)\n# d) 500 / 1000 (marginal prop)\n# e) 50 / 100 (conditional prop)\n# f) 500 / 1000 (marginal prop)\n# g) 150 / 500 (conditional prop)\n# h) 150 / 500\n# i) 350 / 500\n# j) rows: 1000 (one per individual)\n#    variables: 2\n#    - human-droid status\n#    - affiliation party\n#\n# k) True\n# l) False\n# m) True\n# o) False. There is clearly a large proportion of droids in the empire, \n#    as well as a large proportion of humans in the rebellion.\n\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 2: Stacked bar chart”\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
+    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart”\n\n\n\n\n\n\n\n\n\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\nShow answers (except part n)\n# a) 400 / 1000 (marginal prop)\n# b) 500 / 1000 (marginal prop)\n# c) 300 / 1000 (joint prop)\n# d) 500 / 1000 (marginal prop)\n# e) 50 / 100 (conditional prop)\n# f) 500 / 1000 (marginal prop)\n# g) 150 / 500 (conditional prop)\n# h) 150 / 500\n# i) 350 / 500\n# j) rows: 1000 (one per individual)\n#    variables: 2\n#    - human-droid status\n#    - affiliation party\n#\n# k) True\n# l) False\n# m) True\n# o) False. There is clearly a large proportion of droids in the empire, \n#    as well as a large proportion of humans in the rebellion.\n\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 2: Stacked bar chart\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
     "crumbs": [
       "Practice Problems",
       "Practice: Summarizing Categorical Data"
@@ -1643,6 +1643,127 @@
     "crumbs": [
       "Practice Problems",
       "Practice: Intro Probability"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html",
+    "href": "3-probability/02-cond-prob-indep/practice.html",
+    "title": "Practice: Computing Probabilities",
+    "section": "",
+    "text": "Consider a box containing 10 balls: 4 blue and 6 red, as displayed in the following figure. Assume you pick a 1st ball, then a 2nd ball (no replacement).\n\n\n\n\n\nFind the probability that:\n\nboth balls are blue.\nboth balls are red.\n1st is blue, 2nd is red.\n1st is red, 2nd is blue.\n2nd is blue, given 1st is red.\n2nd is blue, given 1st is blue.\n1st is blue, given 2nd is red.\nat least one of them is blue.\nboth are of the same color.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n(4/10)(3/9) = 12/90\n(6/10)(5/9) = 30/90\n(4/10)(6/9) = 24/90\n(6/10)(4/9) = 24/90\n4/9\n3/9\n4/9\n1 - P(no blues) = 1 - (6/10)(5/9) = 60/90\nP(2 blues) + P(2 reds) = (12/90) + (30/90) = 42/90",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#box-with-balls",
+    "href": "3-probability/02-cond-prob-indep/practice.html#box-with-balls",
+    "title": "Practice: Computing Probabilities",
+    "section": "",
+    "text": "Consider a box containing 10 balls: 4 blue and 6 red, as displayed in the following figure. Assume you pick a 1st ball, then a 2nd ball (no replacement).\n\n\n\n\n\nFind the probability that:\n\nboth balls are blue.\nboth balls are red.\n1st is blue, 2nd is red.\n1st is red, 2nd is blue.\n2nd is blue, given 1st is red.\n2nd is blue, given 1st is blue.\n1st is blue, given 2nd is red.\nat least one of them is blue.\nboth are of the same color.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n(4/10)(3/9) = 12/90\n(6/10)(5/9) = 30/90\n(4/10)(6/9) = 24/90\n(6/10)(4/9) = 24/90\n4/9\n3/9\n4/9\n1 - P(no blues) = 1 - (6/10)(5/9) = 60/90\nP(2 blues) + P(2 reds) = (12/90) + (30/90) = 42/90",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#box-with-balls-and-r-code",
+    "href": "3-probability/02-cond-prob-indep/practice.html#box-with-balls-and-r-code",
+    "title": "Practice: Computing Probabilities",
+    "section": "2) Box with balls and R code",
+    "text": "2) Box with balls and R code\nlibrary(tidyverse)\nRefer to the box of the preceding problem. The following code allows you to simulate drawing 2 balls from the box 100 times—via replicate(). In order to use tidyverse functions, we need to reshape the simulations output into a data.frame.\n\nset.seed(2024)\n\nbox = c(rep(\"red\", 6), rep(\"blue\", 4))\n\n# simulate drawing 2 balls, 100 times\nsimulations = replicate(\n  n = 100,\n  expr = sample(box, size = 2))\n\n# table output (as a data frame)\nrownames(simulations) = c(\"first\", \"second\")\nballs_df = data.frame(t(simulations))\n\nhead(balls_df)\n\n\nExamples\nSay we want to approximate probability of getting a first blue ball.\n\n# proportion: 1st ball is blue\nballs_df |&gt;\n  summarize(prop_1blue = mean(first == \"blue\"))\n\nWhat if we we want to approximate probability of getting the first ball blue, and the second ball red?\n\n# proportion: 1st is blue, 2nd is red\nballs_df |&gt;\n  summarize(prop_1blue_2red = mean(first == \"blue\" & second == \"red\"))\n\n\n\nYour Turn\nChange the value of set.seed() and increase the number of simulations to 1000. Write R pipelines to approximate the following probabilities. How do these approximations compare to the probabilities you calculated?\n\nApproximate the probability that both balls are blue.\n\n\n\nShow answer\nballs_df |&gt;\n  summarize(mean(first == \"blue\" & second == \"blue\"))\n\n\n\nApproximate the probability that 1st ball is red, 2nd ball is blue.\n\n\n\nShow answer\n# b) 1st is red, 2nd is blue\nballs_df |&gt;\n  summarize(mean(first == \"red\" & second == \"blue\"))\n\n\n\nApproximate the probability that both balls are red.\n\n\n\nShow answer\n# c) both are red\nballs_df |&gt;\n  summarize(mean(first == \"red\" & second == \"red\"))\n\n\n\nApproximate the probability 1st ball is blue or 2nd ball is blue.\n\n\n\nShow answer\n# d) 1st is blue OR 2nd is blue\nballs_df |&gt;\n  summarize(mean(first == \"blue\" | second == \"blue\"))\n\n\n\nApproximate the probability 2nd ball is blue, given 1st ball is red.\n\n\n\nShow answer\n# e) 2nd is blue, given that 1st is red\nballs_df |&gt;\n  filter(first == \"red\") |&gt;\n  summarize(mean(second == \"blue\"))\n\n\n\nApproximate the probability 2nd ball is blue, given 1st ball is blue.\n\n\n\nShow answer\n# f) 2nd is blue, given that 1st is blue\nballs_df |&gt;\n  filter(first == \"blue\") |&gt;\n  summarize(mean(second == \"blue\"))\n\n\n\nApproximate the probability 1st ball is blue, given 2nd ball is red.\n\n\n\nShow answer\n# g) 1st is blue, given that 2nd is red\nballs_df |&gt;\n  filter(second == \"red\") |&gt;\n  summarize(mean(first == \"blue\"))",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html",
+    "href": "3-probability/04-random-variables/practice.html",
+    "title": "Practice: Random Variables",
+    "section": "",
+    "text": "Let \\(X\\) be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of \\(X\\), that is: \\(P(X = k)\\)\n\nWhat values will \\(k\\) take?\nUse dbinom() to find the probability distribution of \\(X\\). In other words, obtain the values of \\(P(X = k)\\) for all values of \\(k\\).\nSketch a graph of the probability histogram of \\(X\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(x)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(k = 0, 1, 2, 3, 4, 5\\)\ndbinom(x = 0:5, size = 5, prob = 0.5)\nGraph of the probability histogram.\n\n\n\n\n\n\nProbability Histogram\n\n\n\n\n\nSketch a graph of the CDF.\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#binomial",
+    "href": "3-probability/04-random-variables/practice.html#binomial",
+    "title": "Practice: Random Variables",
+    "section": "",
+    "text": "Let \\(X\\) be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of \\(X\\), that is: \\(P(X = k)\\)\n\nWhat values will \\(k\\) take?\nUse dbinom() to find the probability distribution of \\(X\\). In other words, obtain the values of \\(P(X = k)\\) for all values of \\(k\\).\nSketch a graph of the probability histogram of X.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(k = 0, 1, 2, 3, 4, 5\\)\ndbinom(x = 0:5, size = 5, prob = 0.5)\nGraph of the probability histogram\n\n\n\n\n\n\nProbability Histogram\n\n\n\n\n\nSketch a graph of the cumulative distribution function (cdf) F(x).\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#tossing-a-fair-coin",
+    "href": "3-probability/04-random-variables/practice.html#tossing-a-fair-coin",
+    "title": "Practice: Random Variables",
+    "section": "",
+    "text": "Let \\(X\\) be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of \\(X\\), that is: \\(P(X = k)\\)\n\nWhat values will \\(k\\) take?\nUse dbinom() to find the probability distribution of \\(X\\). In other words, obtain the values of \\(P(X = k)\\) for all values of \\(k\\).\nSketch a graph of the probability histogram of \\(X\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(x)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(k = 0, 1, 2, 3, 4, 5\\)\ndbinom(x = 0:5, size = 5, prob = 0.5)\nGraph of the probability histogram.\n\n\n\n\n\n\nProbability Histogram\n\n\n\n\n\nSketch a graph of the CDF.\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#tossing-a-biased-coin",
+    "href": "3-probability/04-random-variables/practice.html#tossing-a-biased-coin",
+    "title": "Practice: Random Variables",
+    "section": "2) Tossing a biased Coin",
+    "text": "2) Tossing a biased Coin\nLet \\(Y\\) be the number of heads in four tosses of a biased coin where the chance of heads is 3/5.\n\nUse dbinom() to find the probability distribution of \\(Y\\). In other words, write down the values of \\(P(Y = k)\\) for all values of \\(k\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(y)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndbinom(x = 0:4, size = 4, prob = 3/5)\nCDF\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#deck-of-cards",
+    "href": "3-probability/04-random-variables/practice.html#deck-of-cards",
+    "title": "Practice: Random Variables",
+    "section": "3) Deck of cards",
+    "text": "3) Deck of cards\nConsider a deck of 52 cards. Suppose we are interested in the number of hearts dealt in a hand of five. Call this number \\(Z\\).\n\nWhich of the following is the correct distribution of \\(Z\\)?\n\nBernoulli\n\nBinomial\n\nHypergeometric\nPoisson\n\nBased on your answer for part a), find the probability distribution of \\(P(Z=k)\\). Do this with the corresponding R function for the chosen distribution.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\noption iii) Hypergeometric\ndhyper(x = 0:5, m = 13, n = 39, k = 5)\nCDF\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#rolling-apair-of-dice",
+    "href": "3-probability/04-random-variables/practice.html#rolling-apair-of-dice",
+    "title": "Practice: Random Variables",
+    "section": "4) Rolling apair of dice",
+    "text": "4) Rolling apair of dice\nConsider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let \\(W\\) be a random variable that takes the following values:\n\n\\(W = -1\\) if the number in the blue die is less than the number in the red die.\n\\(W = 0\\) if the number in the blue die is equal to the number in the red die.\n\\(W = 1\\) if the number in the blue die is greater than the number in the red die.\n\nFor example, if the blue die lands 3 and the red lands 5, then \\(W\\) = -1. If both dice land 2, then \\(W\\) = 0. If the blue die lands 4 and the red lands 1, then \\(W\\) = 1.\nBelow is a sketch of the cumulative distribution function (cdf) \\(F(w)\\).\n\n\n\n\n\nBased on \\(F(w)\\), find the probabilities:\n\n\\(P(W = -1)\\)\n\\(P(W = 0)\\)\n\\(P(W = 0.5)\\)\n\\(P(W = 1)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(W = -1) = 15/36\\)\n\\(P(W = 0) = 21/36 - 15/36 = 6/36\\)\n\\(P(W = 0.5) = 0\\)\n\\(P(W = 1) = 1 - 21/36 = 15/36\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice",
+    "href": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice",
+    "title": "Practice: Random Variables",
+    "section": "4) Rolling a pair of dice",
+    "text": "4) Rolling a pair of dice\nConsider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let \\(W\\) be a random variable that takes the following values:\n\n\\(W = -1\\) if the number in the blue die is less than the number in the red die.\n\\(W = 0\\) if the number in the blue die is equal to the number in the red die.\n\\(W = 1\\) if the number in the blue die is greater than the number in the red die.\n\nFor example, if the blue die lands 3 and the red lands 5, then \\(W\\) = -1. If both dice land 2, then \\(W\\) = 0. If the blue die lands 4 and the red lands 1, then \\(W\\) = 1.\nBelow is a sketch of the cumulative distribution function (cdf) \\(F(w)\\).\n\n\n\n\n\nBased on \\(F(w)\\), find the probabilities:\n\n\\(P(W = -1)\\)\n\\(P(W = 0)\\)\n\\(P(W = 0.5)\\)\n\\(P(W = 1)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(W = -1) = 15/36\\)\n\\(P(W = 0) = 21/36 - 15/36 = 6/36\\)\n\\(P(W = 0.5) = 0\\)\n\\(P(W = 1) = 1 - 21/36 = 15/36\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice-contd",
+    "href": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice-contd",
+    "title": "Practice: Random Variables",
+    "section": "5) Rolling a pair of dice (cont’d)",
+    "text": "5) Rolling a pair of dice (cont’d)\nRefer to the colored dice of the previous problem. Let \\(V\\) be a random variable that takes the following values:\n\n\\(V = 0\\) if both dice land on even numbers.\n\\(V = 1\\) if both dice land on odd numbers.\n\\(V = 2\\) if one die is even, and the other is odd (regardless of color).\n\n\nFind \\(P(V = 0)\\)\nFind \\(P(V = 1)\\)\nFind \\(P(V = 2)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(V = 0) = 9/36\\)\n\\(P(V = 1) = 9/36\\)\n\\(P(V = 2) = 18/36\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Practice: Random Variables"
     ]
   }
 ]

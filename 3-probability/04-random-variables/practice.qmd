@@ -1,0 +1,298 @@
+---
+title: "Practice: Random Variables"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+## 1) Tossing a fair coin
+
+Let $X$ be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of $X$, that is: $P(X = k)$
+
+a) What values will $k$ take?
+
+b) Use `dbinom()` to find the probability distribution of $X$. In other words, 
+obtain the values of $P(X = k)$ for all values of $k$.
+
+c) Sketch a graph of the probability histogram of $X$.
+
+d) Sketch a graph of the cumulative distribution function (cdf) $F(x)$.
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) $k = 0, 1, 2, 3, 4, 5$
+
+b) `dbinom(x = 0:5, size = 5, prob = 0.5)`
+
+c) Graph of the probability histogram.
+
+```{r}
+#| label: prob-hist1
+#| fig-cap: "Probability Histogram"
+#| echo: false
+data.frame(
+  x = 0:5,
+  prob = dbinom(x = 0:5, size = 5, prob = 0.5)) |> 
+  ggplot(aes(x = x, y = prob)) +
+  geom_col() + 
+  theme_bw() +
+  scale_x_continuous(breaks = 0:5, labels = 0:5) +
+  labs(title = "Probability Distribution of number of heads in 5 tosses")
+```
+
+d) Sketch a graph of the CDF.
+
+```{r}
+#| label: prob-cdf1
+#| fig-cap: "CDF"
+#| echo: false
+dat = data.frame(
+  x = -1:5, 
+  xend = 0:6, 
+  y = c(0, pbinom(0:5, size = 5, prob = 0.5)),
+  yend = c(0, pbinom(0:5, size = 5, prob = 0.5)))
+
+dat1 = dat[1,]
+dat2 = dat[2:6, ]
+dat3 = dat[7,]
+
+ggplot() +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_point(data = dat1,
+             aes(x = xend, y = yend), shape = 21, size = 3.25, color = "blue") + 
+  geom_point(data = dat2,
+             aes(x = x, y = yend), shape = 19, size = 3, color = "blue") + 
+  geom_point(data = dat2,
+             aes(x = xend, y = yend), shape = 21, size = 3.25, color = "blue") + 
+  geom_point(data = dat3,
+             aes(x = x, y = y), shape = 19, size = 3.25, color = "blue") + 
+  geom_segment(data = dat1, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  geom_segment(data = dat2, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  geom_segment(data = dat3, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  scale_x_continuous(breaks = -1:6, labels = -1:6) +
+  theme_bw() +
+  labs(title = "CDF",
+       x = "X", 
+       y = "prob")
+```
+
+:::
+
+
+## 2) Tossing a biased Coin
+
+Let $Y$ be the number of heads in four tosses of a biased coin where the chance of heads is 3/5. 
+
+a) Use `dbinom()` to find the probability distribution of $Y$. In other words,
+write down the values of $P(Y = k)$ for all values of $k$.
+
+b) Sketch a graph of the cumulative distribution function (cdf) $F(y)$.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) `dbinom(x = 0:4, size = 4, prob = 3/5)`
+
+b) CDF
+
+```{r}
+#| label: prob-cdf2
+#| fig-cap: "CDF"
+#| echo: false
+dat = data.frame(
+  x = -1:4, 
+  xend = 0:5, 
+  y = c(0, pbinom(0:4, size = 4, prob = 3/5)),
+  yend = c(0, pbinom(0:4, size = 4, prob = 3/5)))
+
+dat1 = dat[1,]
+dat2 = dat[2:5, ]
+dat3 = dat[6,]
+
+ggplot() +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_point(data = dat1,
+             aes(x = xend, y = yend), shape = 21, size = 3.25, color = "blue") + 
+  geom_point(data = dat2,
+             aes(x = x, y = yend), shape = 19, size = 3, color = "blue") + 
+  geom_point(data = dat2,
+             aes(x = xend, y = yend), shape = 21, size = 3.25, color = "blue") + 
+  geom_point(data = dat3,
+             aes(x = x, y = y), shape = 19, size = 3.25, color = "blue") + 
+  geom_segment(data = dat1, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  geom_segment(data = dat2, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  geom_segment(data = dat3, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  scale_x_continuous(breaks = -1:6, labels = -1:6) +
+  theme_bw() +
+  labs(title = "CDF",
+       x = "X", 
+       y = "prob")
+```
+
+:::
+
+
+## 3) Deck of cards
+
+Consider a deck of 52 cards. Suppose we are interested in the number of hearts dealt in a hand of five. Call this number $Z$.
+
+a) Which of the following is the correct distribution of $Z$?
+
+    i) Bernoulli		
+    ii) Binomial 	
+    iii) Hypergeometric	
+    iv) Poisson	
+
+b) Based on your answer for part a), find the probability distribution of $P(Z=k)$.
+Do this with the corresponding R function for the chosen distribution.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) option iii) Hypergeometric
+
+b) `dhyper(x = 0:5, m = 13, n = 39, k = 5)`
+
+c) CDF
+
+```{r}
+#| label: prob-cdf3
+#| fig-cap: "CDF"
+#| echo: false
+dat = data.frame(
+  x = -1:5, 
+  xend = 0:6, 
+  y = c(0, phyper(q = 0:5, m = 13, n = 39, k = 5)),
+  yend = c(0, phyper(q = 0:5, m = 13, n = 39, k = 5)))
+
+dat1 = dat[1,]
+dat2 = dat[2:6, ]
+dat3 = dat[7,]
+
+ggplot() +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_point(data = dat1,
+             aes(x = xend, y = yend), shape = 21, size = 3.25, color = "blue") + 
+  geom_point(data = dat2,
+             aes(x = x, y = yend), shape = 19, size = 3, color = "blue") + 
+  geom_point(data = dat2,
+             aes(x = xend, y = yend), shape = 21, size = 3.25, color = "blue") + 
+  geom_point(data = dat3,
+             aes(x = x, y = y), shape = 19, size = 3.25, color = "blue") + 
+  geom_segment(data = dat1, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  geom_segment(data = dat2, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  geom_segment(data = dat3, color = "blue",
+               linewidth = 1.3,
+               aes(x = x, xend = xend, 
+                   y = y, yend = yend)) +
+  scale_x_continuous(breaks = -1:6, labels = -1:6) +
+  theme_bw() +
+  labs(title = "CDF",
+       x = "X", 
+       y = "prob")
+```
+
+:::
+
+
+
+## 4) Rolling a pair of dice
+
+Consider two colored 6-sided dice: one of them is a blue die, and the other is 
+a red die. You roll the dice, and look at the numbers on their top faces. 
+Let $W$ be a random variable that takes the following values:
+
+- $W = -1$  if the number in the blue die is less than the number in the red die.
+- $W = 0$   if the number in the blue die is equal to the number in the red die.
+- $W = 1$   if the number in the blue die is greater than the number in the red die.
+
+For example, if the blue die lands 3 and the red lands 5, then $W$ = -1. If both dice land 2, then $W$ = 0. If the blue die lands 4 and the red lands 1, then $W$ = 1.
+
+Below is a sketch of the cumulative distribution function (cdf) $F(w)$.
+
+![](images/sketch-cdf.png){fig-align="center" width=80%}
+
+Based on $F(w)$, find the probabilities:
+
+a) $P(W = -1)$
+
+b) $P(W = 0)$
+
+c) $P(W = 0.5)$
+
+d) $P(W = 1)$
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) $P(W = -1) = 15/36$
+
+b) $P(W = 0) = 21/36 - 15/36 = 6/36$
+
+c) $P(W = 0.5) = 0$
+
+d) $P(W = 1) = 1 - 21/36 = 15/36$
+
+:::
+
+
+## 5) Rolling a pair of dice (cont'd)
+
+Refer to the colored dice of the previous problem. Let $V$ be a random variable that takes the following values:
+
+- $V = 0$ if both dice land on even numbers.
+- $V = 1$ if both dice land on odd numbers.
+- $V = 2$ if one die is even, and the other is odd (regardless of color).
+
+
+a) Find $P(V = 0)$
+
+b) Find $P(V = 1)$
+
+c) Find $P(V = 2)$
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) $P(V = 0) = 9/36$
+
+b) $P(V = 1) = 9/36$
+
+c) $P(V = 2) = 18/36$
+
+:::
+

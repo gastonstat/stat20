@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practice: Summarizing Categorical Data – stat20</title>
+<title>Practice: Random Variables – stat20</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -104,6 +69,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -117,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html">Practice: Summarizing Categorical Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../3-probability/04-random-variables/practice.html">Practice: Random Variables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -168,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practice: Summarizing Categorical Data</span></a>
   </div>
 </li>
@@ -202,6 +196,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Practice: Computing Probabilities</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3-probability/04-random-variables/practice.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Practice: Random Variables</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -220,16 +220,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#affiliation-party-and-human-droid-status" id="toc-affiliation-party-and-human-droid-status" class="nav-link active" data-scroll-target="#affiliation-party-and-human-droid-status">1) Affiliation Party and Human-Droid Status</a></li>
+  <li><a href="#tossing-a-fair-coin" id="toc-tossing-a-fair-coin" class="nav-link active" data-scroll-target="#tossing-a-fair-coin">1) Tossing a fair coin</a></li>
+  <li><a href="#tossing-a-biased-coin" id="toc-tossing-a-biased-coin" class="nav-link" data-scroll-target="#tossing-a-biased-coin">2) Tossing a biased Coin</a></li>
+  <li><a href="#deck-of-cards" id="toc-deck-of-cards" class="nav-link" data-scroll-target="#deck-of-cards">3) Deck of cards</a></li>
+  <li><a href="#rolling-a-pair-of-dice" id="toc-rolling-a-pair-of-dice" class="nav-link" data-scroll-target="#rolling-a-pair-of-dice">4) Rolling a pair of dice</a></li>
+  <li><a href="#rolling-a-pair-of-dice-contd" id="toc-rolling-a-pair-of-dice-contd" class="nav-link" data-scroll-target="#rolling-a-pair-of-dice-contd">5) Rolling a pair of dice (cont’d)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../2-summarizing-data/01-summarizing-categorical-data/practice.html">Practice: Summarizing Categorical Data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../3-probability/04-random-variables/practice.html">Practice: Random Variables</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Practice: Summarizing Categorical Data</h1>
+<h1 class="title">Practice: Random Variables</h1>
 </div>
 
 
@@ -246,50 +250,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="affiliation-party-and-human-droid-status" class="level2">
-<h2 class="anchored" data-anchor-id="affiliation-party-and-human-droid-status">1) Affiliation Party and Human-Droid Status</h2>
-<p>Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">Empire</th>
-<th style="text-align: center;">Rebellion</th>
-<th style="text-align: center;">Unaffiliated</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Human</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">350</td>
-<td style="text-align: center;">50</td>
-</tr>
-<tr class="even">
-<td>Droid</td>
-<td style="text-align: center;">300</td>
-<td style="text-align: center;">150</td>
-<td style="text-align: center;">50</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
+<section id="tossing-a-fair-coin" class="level2">
+<h2 class="anchored" data-anchor-id="tossing-a-fair-coin">1) Tossing a fair coin</h2>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of <span class="math inline">\(X\)</span>, that is: <span class="math inline">\(P(X = k)\)</span></p>
 <ol type="a">
-<li><p>What proportion of individuals are affiliated with the Empire? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are droids affiliated with the empire? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are Human? What kind of proportion is this?</p></li>
-<li><p>Of the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?</p></li>
-<li><p>What proportion of individuals are not Human? What kind of proportion is this?</p></li>
-<li><p>What proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?</p></li>
-<li><p>What proportion of humans are not in the Rebellion?</p></li>
-<li><p>Of the Rebellion individuals, what proportion are humans?</p></li>
-<li><p>What are the dimensions of the raw data from which this table was constructed?</p></li>
-<li><p>True or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.</p></li>
-<li><p>True or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.</p></li>
-<li><p>True or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.</p></li>
-<li><p>Sketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.</p></li>
+<li><p>What values will <span class="math inline">\(k\)</span> take?</p></li>
+<li><p>Use <code>dbinom()</code> to find the probability distribution of <span class="math inline">\(X\)</span>. In other words, obtain the values of <span class="math inline">\(P(X = k)\)</span> for all values of <span class="math inline">\(k\)</span>.</p></li>
+<li><p>Sketch a graph of the probability histogram of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Sketch a graph of the cumulative distribution function (cdf) <span class="math inline">\(F(x)\)</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -297,22 +265,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Show answer
+Show answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<ol type="a">
+<li><p><span class="math inline">\(k = 0, 1, 2, 3, 4, 5\)</span></p></li>
+<li><p><code>dbinom(x = 0:5, size = 5, prob = 0.5)</code></p></li>
+<li><p>Graph of the probability histogram.</p></li>
+</ol>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-collapsible" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-collapsible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="practice_files/figure-html/fig-collapsible-1.png" class="img-fluid figure-img" width="672">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="practice_files/figure-html/prob-hist1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Probability Histogram</figcaption>
+</figure>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-collapsible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Stacked bar chart”
-</figcaption>
+</div>
+</div>
+<ol start="4" type="a">
+<li>Sketch a graph of the CDF.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="practice_files/figure-html/prob-cdf1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>CDF</figcaption>
 </figure>
 </div>
 </div>
@@ -320,81 +302,163 @@ Figure&nbsp;1: Stacked bar chart”
 </div>
 </div>
 </div>
-<ol start="15" type="a">
-<li>True or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.</li>
+</section>
+<section id="tossing-a-biased-coin" class="level2">
+<h2 class="anchored" data-anchor-id="tossing-a-biased-coin">2) Tossing a biased Coin</h2>
+<p>Let <span class="math inline">\(Y\)</span> be the number of heads in four tosses of a biased coin where the chance of heads is 3/5.</p>
+<ol type="a">
+<li><p>Use <code>dbinom()</code> to find the probability distribution of <span class="math inline">\(Y\)</span>. In other words, write down the values of <span class="math inline">\(P(Y = k)\)</span> for all values of <span class="math inline">\(k\)</span>.</p></li>
+<li><p>Sketch a graph of the cumulative distribution function (cdf) <span class="math inline">\(F(y)\)</span>.</p></li>
 </ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answers (except part n)</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) 400 / 1000 (marginal prop)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># b) 500 / 1000 (marginal prop)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># c) 300 / 1000 (joint prop)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># d) 500 / 1000 (marginal prop)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># e) 50 / 100 (conditional prop)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># f) 500 / 1000 (marginal prop)</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># g) 150 / 500 (conditional prop)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># h) 150 / 500</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># i) 350 / 500</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># j) rows: 1000 (one per individual)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    variables: 2</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    - human-droid status</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#    - affiliation party</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># k) True</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># l) False</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># m) True</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># o) False. There is clearly a large proportion of droids in the empire, </span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    as well as a large proportion of humans in the rebellion.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Show answer
+Show answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>400 / 1000 (marginal prop)</li>
-<li>500 / 1000 (marginal prop)</li>
-<li>300 / 1000 (joint prop)</li>
-<li>500 / 1000 (marginal prop)</li>
-<li>50 / 100 (conditional prop)</li>
-<li>500 / 1000 (marginal prop)</li>
-<li>150 / 500 (conditional prop)</li>
-<li>150 / 500</li>
-<li>350 / 500</li>
-<li>rows: 1000 (one per individual); variables: 2
-<ul>
-<li>human-droid status</li>
-<li>affiliation party</li>
-</ul></li>
-<li>True</li>
-<li>False</li>
-<li>True</li>
-<li>Graphic</li>
+<li><p><code>dbinom(x = 0:4, size = 4, prob = 3/5)</code></p></li>
+<li><p>CDF</p></li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-collapsible2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-collapsible2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="practice_files/figure-html/fig-collapsible2-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-collapsible2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Stacked bar chart
-</figcaption>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="practice_files/figure-html/prob-cdf2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>CDF</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<ol start="15" type="a">
-<li>False. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.</li>
+</div>
+</div>
+</div>
+</section>
+<section id="deck-of-cards" class="level2">
+<h2 class="anchored" data-anchor-id="deck-of-cards">3) Deck of cards</h2>
+<p>Consider a deck of 52 cards. Suppose we are interested in the number of hearts dealt in a hand of five. Call this number <span class="math inline">\(Z\)</span>.</p>
+<ol type="a">
+<li><p>Which of the following is the correct distribution of <span class="math inline">\(Z\)</span>?</p>
+<ol type="i">
+<li>Bernoulli<br>
+</li>
+<li>Binomial<br>
+</li>
+<li>Hypergeometric</li>
+<li>Poisson</li>
+</ol></li>
+<li><p>Based on your answer for part a), find the probability distribution of <span class="math inline">\(P(Z=k)\)</span>. Do this with the corresponding R function for the chosen distribution.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>option iii) Hypergeometric</p></li>
+<li><p><code>dhyper(x = 0:5, m = 13, n = 39, k = 5)</code></p></li>
+<li><p>CDF</p></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="practice_files/figure-html/prob-cdf3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>CDF</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rolling-a-pair-of-dice" class="level2">
+<h2 class="anchored" data-anchor-id="rolling-a-pair-of-dice">4) Rolling a pair of dice</h2>
+<p>Consider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let <span class="math inline">\(W\)</span> be a random variable that takes the following values:</p>
+<ul>
+<li><span class="math inline">\(W = -1\)</span> if the number in the blue die is less than the number in the red die.</li>
+<li><span class="math inline">\(W = 0\)</span> if the number in the blue die is equal to the number in the red die.</li>
+<li><span class="math inline">\(W = 1\)</span> if the number in the blue die is greater than the number in the red die.</li>
+</ul>
+<p>For example, if the blue die lands 3 and the red lands 5, then <span class="math inline">\(W\)</span> = -1. If both dice land 2, then <span class="math inline">\(W\)</span> = 0. If the blue die lands 4 and the red lands 1, then <span class="math inline">\(W\)</span> = 1.</p>
+<p>Below is a sketch of the cumulative distribution function (cdf) <span class="math inline">\(F(w)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sketch-cdf.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Based on <span class="math inline">\(F(w)\)</span>, find the probabilities:</p>
+<ol type="a">
+<li><p><span class="math inline">\(P(W = -1)\)</span></p></li>
+<li><p><span class="math inline">\(P(W = 0)\)</span></p></li>
+<li><p><span class="math inline">\(P(W = 0.5)\)</span></p></li>
+<li><p><span class="math inline">\(P(W = 1)\)</span></p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p><span class="math inline">\(P(W = -1) = 15/36\)</span></p></li>
+<li><p><span class="math inline">\(P(W = 0) = 21/36 - 15/36 = 6/36\)</span></p></li>
+<li><p><span class="math inline">\(P(W = 0.5) = 0\)</span></p></li>
+<li><p><span class="math inline">\(P(W = 1) = 1 - 21/36 = 15/36\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="rolling-a-pair-of-dice-contd" class="level2">
+<h2 class="anchored" data-anchor-id="rolling-a-pair-of-dice-contd">5) Rolling a pair of dice (cont’d)</h2>
+<p>Refer to the colored dice of the previous problem. Let <span class="math inline">\(V\)</span> be a random variable that takes the following values:</p>
+<ul>
+<li><span class="math inline">\(V = 0\)</span> if both dice land on even numbers.</li>
+<li><span class="math inline">\(V = 1\)</span> if both dice land on odd numbers.</li>
+<li><span class="math inline">\(V = 2\)</span> if one die is even, and the other is odd (regardless of color).</li>
+</ul>
+<ol type="a">
+<li><p>Find <span class="math inline">\(P(V = 0)\)</span></p></li>
+<li><p>Find <span class="math inline">\(P(V = 1)\)</span></p></li>
+<li><p>Find <span class="math inline">\(P(V = 2)\)</span></p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p><span class="math inline">\(P(V = 0) = 9/36\)</span></p></li>
+<li><p><span class="math inline">\(P(V = 1) = 9/36\)</span></p></li>
+<li><p><span class="math inline">\(P(V = 2) = 18/36\)</span></p></li>
 </ol>
 </div>
 </div>

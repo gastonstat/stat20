@@ -124,7 +124,7 @@ n) Graphic
 
 ```{r}
 #| label: fig-collapsible2
-#| fig-cap: Stacked bar chart"
+#| fig-cap: "Stacked bar chart"
 #| echo: false
 library(ggplot2)
 
