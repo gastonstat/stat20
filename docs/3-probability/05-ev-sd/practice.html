@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practice: Computing Probabilities – stat20</title>
+<title>Practice: Expected Value and Variance – stat20</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/02-cond-prob-indep/practice.html">Practice: Computing Probabilities</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/05-ev-sd/practice.html">Practice: Expected Value and Variance</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -247,7 +247,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../3-probability/02-cond-prob-indep/practice.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../3-probability/02-cond-prob-indep/practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practice: Computing Probabilities</span></a>
   </div>
 </li>
@@ -265,7 +265,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../3-probability/05-ev-sd/practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../../3-probability/05-ev-sd/practice.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Practice: Expected Value and Variance</span></a>
   </div>
 </li>
@@ -289,27 +289,24 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#box-with-balls" id="toc-box-with-balls" class="nav-link active" data-scroll-target="#box-with-balls">1) Box with balls</a></li>
-  <li><a href="#box-with-balls-and-r-code" id="toc-box-with-balls-and-r-code" class="nav-link" data-scroll-target="#box-with-balls-and-r-code">2) Box with balls and R code</a>
-  <ul class="collapse">
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your Turn</a></li>
-  </ul></li>
-  <li><a href="#students-in-stat-101" id="toc-students-in-stat-101" class="nav-link" data-scroll-target="#students-in-stat-101">3) Students in STAT 101</a></li>
-  <li><a href="#tickets-from-a-box" id="toc-tickets-from-a-box" class="nav-link" data-scroll-target="#tickets-from-a-box">5) Tickets from a box</a></li>
-  <li><a href="#matching-probabilities" id="toc-matching-probabilities" class="nav-link" data-scroll-target="#matching-probabilities">6) Matching Probabilities</a></li>
-  <li><a href="#roll-a-pair-of-dice" id="toc-roll-a-pair-of-dice" class="nav-link" data-scroll-target="#roll-a-pair-of-dice">7) Roll a pair of dice</a></li>
-  <li><a href="#students-club" id="toc-students-club" class="nav-link" data-scroll-target="#students-club">8) Students’ Club</a></li>
-  <li><a href="#finding-probabilities" id="toc-finding-probabilities" class="nav-link" data-scroll-target="#finding-probabilities">9) Finding probabilities</a></li>
+  <li><a href="#ev-and-var-1st" id="toc-ev-and-var-1st" class="nav-link active" data-scroll-target="#ev-and-var-1st">1) EV and Var (1st)</a></li>
+  <li><a href="#ev-and-var-2nd" id="toc-ev-and-var-2nd" class="nav-link" data-scroll-target="#ev-and-var-2nd">2) EV and Var (2nd)</a></li>
+  <li><a href="#ev-and-var-3rd" id="toc-ev-and-var-3rd" class="nav-link" data-scroll-target="#ev-and-var-3rd">3) EV and Var (3rd)</a></li>
+  <li><a href="#ev-and-var-4th" id="toc-ev-and-var-4th" class="nav-link" data-scroll-target="#ev-and-var-4th">4) EV and Var (4th)</a></li>
+  <li><a href="#product-of-tickets" id="toc-product-of-tickets" class="nav-link" data-scroll-target="#product-of-tickets">5) Product of tickets</a></li>
+  <li><a href="#sum-of-tickets" id="toc-sum-of-tickets" class="nav-link" data-scroll-target="#sum-of-tickets">6) Sum of tickets</a></li>
+  <li><a href="#great-danes" id="toc-great-danes" class="nav-link" data-scroll-target="#great-danes">7) Great Danes</a></li>
+  <li><a href="#two-colored-dice" id="toc-two-colored-dice" class="nav-link" data-scroll-target="#two-colored-dice">8) Two colored dice</a></li>
+  <li><a href="#games-of-chance" id="toc-games-of-chance" class="nav-link" data-scroll-target="#games-of-chance">9) Games of Chance</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/02-cond-prob-indep/practice.html">Practice: Computing Probabilities</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/05-ev-sd/practice.html">Practice: Expected Value and Variance</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Practice: Computing Probabilities</h1>
+<h1 class="title">Practice: Expected Value and Variance</h1>
 </div>
 
 
@@ -326,25 +323,20 @@ window.Quarto = {
 </header>
 
 
-<section id="box-with-balls" class="level2">
-<h2 class="anchored" data-anchor-id="box-with-balls">1) Box with balls</h2>
-<p>Consider a box containing 10 balls: 4 blue and 6 red, as displayed in the following figure. Assume you pick a 1st ball, then a 2nd ball (no replacement).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/draw-2balls-no-replace.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-<p>Find the probability that:</p>
+<section id="ev-and-var-1st" class="level2">
+<h2 class="anchored" data-anchor-id="ev-and-var-1st">1) EV and Var (1st)</h2>
+<p>Let <span class="math inline">\(X\)</span> be a random variable such that</p>
+<p><span class="math display">\[
+X = \begin{cases}
+-1, &amp; \text{with probability } \ 1/3 \\
+0, &amp; \text{with probability } \ 1/6 \\
+1, &amp; \text{with probability } \ 4/15 \\
+2, &amp; \text{with probability } \ 7/30 \\
+\end{cases}
+\]</span></p>
 <ol type="a">
-<li><p>both balls are blue.</p></li>
-<li><p>both balls are red.</p></li>
-<li><p>1st is blue, 2nd is red.</p></li>
-<li><p>1st is red, 2nd is blue.</p></li>
-<li><p>2nd is blue, given 1st is red.</p></li>
-<li><p>2nd is blue, given 1st is blue.</p></li>
-<li><p>1st is blue, given 2nd is red.</p></li>
-<li><p>at least one of them is blue.</p></li>
-<li><p>both are of the same color.</p></li>
+<li><p>Compute the expected value of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Compute the variance of <span class="math inline">\(X\)</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -359,15 +351,8 @@ Show answers
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>(4/10)(3/9) = 12/90</li>
-<li>(6/10)(5/9) = 30/90</li>
-<li>(4/10)(6/9) = 24/90</li>
-<li>(6/10)(4/9) = 24/90</li>
-<li>4/9</li>
-<li>3/9</li>
-<li>4/9</li>
-<li>1 - P(no blues) = 1 - (6/10)(5/9) = 60/90</li>
-<li>P(2 blues) + P(2 reds) = (12/90) + (30/90) = 42/90</li>
+<li><p><span class="math inline">\(E(X) = (-1)(1/3) + (0)(1/6) + (1)(4/15) + (2)(7/30) = 0.4\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = E(X^2) - E(X)^2 \approx 1.373\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -375,153 +360,12 @@ Show answers
 <p><br>
 </p>
 </section>
-<section id="box-with-balls-and-r-code" class="level2">
-<h2 class="anchored" data-anchor-id="box-with-balls-and-r-code">2) Box with balls and R code</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Refer to the box of the preceding problem. The following code allows you to simulate drawing 2 balls from the box 100 times—via <code>replicate()</code>. In order to use <em>tidyverse</em> functions, we need to reshape the <code>simulations</code> output into a data.frame.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>box <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"red"</span>, <span class="dv">6</span>), <span class="fu">rep</span>(<span class="st">"blue"</span>, <span class="dv">4</span>))</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate drawing 2 balls, 100 times</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>simulations <span class="ot">=</span> <span class="fu">replicate</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">100</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">expr =</span> <span class="fu">sample</span>(box, <span class="at">size =</span> <span class="dv">2</span>))</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># table output (as a data frame)</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(simulations) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"first"</span>, <span class="st">"second"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>balls_df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">t</span>(simulations))</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(balls_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  first second
-1   red    red
-2   red   blue
-3  blue    red
-4   red   blue
-5  blue    red
-6   red    red</code></pre>
-</div>
-</div>
-<section id="examples" class="level3">
-<h3 class="anchored" data-anchor-id="examples">Examples</h3>
-<p>Say we want to approximate probability of getting a first blue ball.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion: 1st ball is blue</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_1blue =</span> <span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  prop_1blue
-1       0.44</code></pre>
-</div>
-</div>
-<p>What if we we want to approximate probability of getting the first ball blue, and the second ball red?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion: 1st is blue, 2nd is red</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_1blue_2red =</span> <span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  prop_1blue_2red
-1             0.3</code></pre>
-</div>
-</div>
-</section>
-<section id="your-turn" class="level3">
-<h3 class="anchored" data-anchor-id="your-turn">Your Turn</h3>
-<p>Change the value of <code>set.seed()</code> and increase the number of simulations to <code>1000</code>. Write R pipelines to approximate the following probabilities. How do these approximations compare to the probabilities you calculated?</p>
+<section id="ev-and-var-2nd" class="level2">
+<h2 class="anchored" data-anchor-id="ev-and-var-2nd">2) EV and Var (2nd)</h2>
+<p>Consider the box with tickets: <code>[3,3,3,4,4,4,4,5,5,5,5,5]</code>. Suppose we draw once from this box and let <span class="math inline">\(Z\)</span> be the value of the ticket drawn.</p>
 <ol type="a">
-<li>Approximate the probability that both balls are blue.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="2" type="a">
-<li>Approximate the probability that 1st ball is red, 2nd ball is blue.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) 1st is red, 2nd is blue</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"red"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="3" type="a">
-<li>Approximate the probability that both balls are red.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) both are red</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"red"</span> <span class="sc">&amp;</span> second <span class="sc">==</span> <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="4" type="a">
-<li>Approximate the probability 1st ball is blue or 2nd ball is blue.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d) 1st is blue OR 2nd is blue</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span> <span class="sc">|</span> second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="5" type="a">
-<li>Approximate the probability 2nd ball is blue, given 1st ball is red.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e) 2nd is blue, given that 1st is red</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(first <span class="sc">==</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="6" type="a">
-<li>Approximate the probability 2nd ball is blue, given 1st ball is blue.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f) 2nd is blue, given that 1st is blue</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(first <span class="sc">==</span> <span class="st">"blue"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(second <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="7" type="a">
-<li>Approximate the probability 1st ball is blue, given 2nd ball is red.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># g) 1st is blue, given that 2nd is red</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>balls_df <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(second <span class="sc">==</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(first <span class="sc">==</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br>
-</p>
-</section>
-</section>
-<section id="students-in-stat-101" class="level2">
-<h2 class="anchored" data-anchor-id="students-in-stat-101">3) Students in STAT 101</h2>
-<p>Suppose that 35% of students in STAT 101 are from Southern California, 40% are from Northern California, and 25% are from outside California. What is the probability that a student selected at random:</p>
-<ol type="a">
-<li><p>Will be from Southern CA?</p></li>
-<li><p>Will not be from Northern CA?</p></li>
-<li><p>Will be from Southern or Northern CA?</p></li>
-<li><p>Will be from Northern California, given that they are not from Southern CA?</p></li>
-<li><p>Will be from Northern California, given that they are not from outside CA?</p></li>
+<li><p>Compute the expected value of <span class="math inline">\(Z\)</span>.</p></li>
+<li><p>Compute the variance of <span class="math inline">\(Z\)</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -536,11 +380,8 @@ Show answers
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>0.35</li>
-<li>0.35 + 0.25 = 0.6</li>
-<li>0.35 + 0.40 = 0.75</li>
-<li>0.4 / 0.65</li>
-<li>0.4 / 0.75</li>
+<li><p><span class="math inline">\(E(Z) = (3)(3/12) + (4)(4/12) + (5)(5/12) \approx 4.1666\)</span></p></li>
+<li><p><span class="math inline">\(Var(Z) \approx 0.6388\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -548,18 +389,21 @@ Show answers
 <p><br>
 </p>
 </section>
-<section id="tickets-from-a-box" class="level2">
-<h2 class="anchored" data-anchor-id="tickets-from-a-box">5) Tickets from a box</h2>
-<p>Suppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}. Find the probability that:</p>
+<section id="ev-and-var-3rd" class="level2">
+<h2 class="anchored" data-anchor-id="ev-and-var-3rd">3) EV and Var (3rd)</h2>
+<p>Consider the following random variables:</p>
+<ul>
+<li><p>Let <span class="math inline">\(X\)</span> be a discrete uniform random variable on the set <span class="math inline">\(\{-1,0,1\}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(Y = X^2\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(W = \max(X, 0.5)\)</span></p></li>
+</ul>
 <ol type="a">
-<li><p>The first ticket drawn is labeled with an even number.</p></li>
-<li><p>The second ticket drawn is labeled with an even number.</p></li>
-<li><p>Both tickets drawn are labeled with an even number.</p></li>
-<li><p>At least one of the tickets drawn is labeled with an even number.</p></li>
-<li><p>The first ticket drawn is labeled with a prime number (recall that 1 is not a prime).</p></li>
-<li><p>The second ticket drawn is labeled with a prime number.</p></li>
-<li><p>Both tickets drawn are labeled with a prime number.</p></li>
-<li><p>At least one of the tickets drawn is labeled with a prime number.</p></li>
+<li><p>Find <span class="math inline">\(E(X)\)</span></p></li>
+<li><p>Find <span class="math inline">\(Var(X)\)</span></p></li>
+<li><p>Find <span class="math inline">\(E(Y)\)</span></p></li>
+<li><p>Find <span class="math inline">\(Var(Y)\)</span></p></li>
+<li><p>Find <span class="math inline">\(E(W)\)</span></p></li>
+<li><p>Find <span class="math inline">\(Var(W)\)</span></p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -574,14 +418,12 @@ Show answers
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>(32/72) = 4/9</li>
-<li>(32/72) = 4/9</li>
-<li>(4/9) (3/8) = 12/72</li>
-<li>P(at least one even) = 1 - P(none are even) = 1 - (5/9)(4/8) = 52/72</li>
-<li>(32/72) = 4/9</li>
-<li>(32/72) = 4/9</li>
-<li>(4/9) (3/8) = 12/72</li>
-<li>P(at least one prime) = 1 - P(none are prime) = 1 - (5/9)(4/8) = 52/72</li>
+<li><p><span class="math inline">\(\mu_X = E(X) = (-1)(1/3) + (0)(1/3) + (1)(1/3) = 0\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = (-1 - 0)^2(1/3) + (0 - 0)^2(1/3) + (1 - 0)^2(1/3) \approx 0.6666\)</span></p></li>
+<li><p><span class="math inline">\(\mu_Y = E(Y) = (-1)^2(1/3) + (0)^2(1/3) + (1)^2(1/3) \approx 0.6666\)</span></p></li>
+<li><p><span class="math inline">\(Var(Y) = (1 - \mu_Y)^2(1/3) + (0 - \mu_Y)^2(1/3) + (1 - \mu_Y)^2(1/3) \approx 0.2222\)</span></p></li>
+<li><p><span class="math inline">\(\mu_W = E(W) = (0.5)(1/3) + (0.5)(1/3) + (1)(1/3) \approx 0.6666\)</span></p></li>
+<li><p><span class="math inline">\(Var(W) = (0.5 - \mu_W)^2(1/3) + (0.5 - \mu_W)^2(1/3) + (1 - \mu_W)^2(1/3) \approx 0.0555\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -589,26 +431,21 @@ Show answers
 <p><br>
 </p>
 </section>
-<section id="matching-probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="matching-probabilities">6) Matching Probabilities</h2>
-<p>Match the terms (a-f) with their definitions (i-vi)</p>
-<p><strong>Terms</strong></p>
+<section id="ev-and-var-4th" class="level2">
+<h2 class="anchored" data-anchor-id="ev-and-var-4th">4) EV and Var (4th)</h2>
+<p>Let <span class="math inline">\(X\)</span> be a discrete random variable with the following probability distribution</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   X  Prob
+1  0   1/8
+2  1   3/8
+3  2   3/8
+4  3   1/8</code></pre>
+</div>
+</div>
 <ol type="a">
-<li>P(A|B) = P(A and B) / P(B)</li>
-<li>P(A or B) = P(A) + P(B) - P(A and B)</li>
-<li>P(A|B) = P(A)</li>
-<li>P(A) = P(B)</li>
-<li>P(A and B) = P(B | A) P(A)</li>
-<li>P(A and B) = 0</li>
-</ol>
-<p><strong>Definitions</strong></p>
-<ol type="i">
-<li>equally likely</li>
-<li>mutually exclusive</li>
-<li>conditional probability</li>
-<li>multiplication rule</li>
-<li>independence</li>
-<li>addition rule</li>
+<li><p>Let <span class="math inline">\(Y = |X - 2|\)</span>. Find the expected value of <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>With the same <span class="math inline">\(Y\)</span> defined above, find its variance: <span class="math inline">\(Var(Y)\)</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -622,48 +459,22 @@ Show answers
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ul>
-<li><ol type="i">
-<li>with (d)</li>
-</ol></li>
-<li><ol start="2" type="i">
-<li>with (f)</li>
-</ol></li>
-<li><ol start="3" type="i">
-<li>with (a)</li>
-</ol></li>
-<li><ol start="4" type="i">
-<li>with (e)</li>
-</ol></li>
-<li><ol start="22" type="a">
-<li>with (c)</li>
-</ol></li>
-<li><ol start="6" type="i">
-<li>with (b)</li>
-</ol></li>
-</ul>
+<ol type="a">
+<li><p><span class="math inline">\(E(Y) = |0-2|(1/8) + |1-2|(3/8) + |2-2|(3/8) + |3-2|(1/8) = 0.75\)</span></p></li>
+<li><p><span class="math inline">\(Var(Y) = (2-0.75)^2(1/8) + (1-0.75)^2(3/8) +\)</span> <span class="math inline">\((0-0.75)^2(3/8) + (1-0.75)^2(1/8) = 0.4375\)</span></p></li>
+</ol>
 </div>
 </div>
 </div>
 <p><br>
 </p>
 </section>
-<section id="roll-a-pair-of-dice" class="level2">
-<h2 class="anchored" data-anchor-id="roll-a-pair-of-dice">7) Roll a pair of dice</h2>
-<p>You roll a red die and a blue die, both fair and independent. Find the probability that:</p>
+<section id="product-of-tickets" class="level2">
+<h2 class="anchored" data-anchor-id="product-of-tickets">5) Product of tickets</h2>
+<p>We have one box of tickets: <code>[0  1  2  3  4  5]</code>. We draw 2 tickets—with replacement—from the box and take their <strong>product</strong>. For example, if you get 2 and 4, their product is 8.</p>
 <ol type="a">
-<li><p>The red die and the blue die both roll 1’s.</p></li>
-<li><p>The red die and the blue die both roll the same number.</p></li>
-<li><p>The number on the red die is bigger than the one on the blue die.</p></li>
-<li><p>The red die rolls a 3.</p></li>
-<li><p>At least one die rolls a 3.</p></li>
-<li><p>Exactly one die rolls a 3.</p></li>
-<li><p>The smallest number on either die is 4.</p></li>
-<li><p>The largest number on either die is 4.</p></li>
-<li><p>At least one of the dice rolls a number greater than 4.</p></li>
-<li><p>Exactly one of the dice rolls a number greater than 4.</p></li>
-<li><p>The numbers on the dice sum to 7.</p></li>
-<li><p>The numbers on the dice sum to 4.</p></li>
+<li><p>Write R code which will allow you to simulate this random experiment.</p></li>
+<li><p>Write R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the <strong>product of the draws</strong>. <em>Hint</em>: the <code>replicate()</code> is your friend.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -678,32 +489,48 @@ Show answers
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>1/36</li>
-<li>1/6</li>
-<li>15/36</li>
-<li>1/6</li>
-<li>11/36</li>
-<li>10/36</li>
-<li>5/36</li>
-<li>7/36</li>
-<li>20/36</li>
-<li>16/36</li>
-<li>6/36</li>
-<li>3/36</li>
+<li>R code:</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>box1 <span class="ot">=</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prod</span>(<span class="fu">sample</span>(box1, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<ol start="2" type="a">
+<li>R code:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>simulations <span class="ot">=</span> <span class="fu">replicate</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">500</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">expr =</span> <span class="fu">prod</span>(<span class="fu">sample</span>(box1, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">prod =</span> simulations) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> prod)) <span class="sc">+</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practice_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <p><br>
 </p>
 </section>
-<section id="students-club" class="level2">
-<h2 class="anchored" data-anchor-id="students-club">8) Students’ Club</h2>
-<p>A students’ club has 90 members. Fifty are Statistics majors and fifty are Applied Math (A.M.) majors. There are some that are double majoring in Stats and A.M. What is the probability that a member selected at random:</p>
+<section id="sum-of-tickets" class="level2">
+<h2 class="anchored" data-anchor-id="sum-of-tickets">6) Sum of tickets</h2>
+<p>We have two boxes of tickets: <code>A = [0  2  4  6]</code> and <code>B = [1  3  5  7]</code>. We draw—with replacement—1 ticket from box A, and 1 ticket from box B. Let <span class="math inline">\(S\)</span> be the sum of the two tickets.</p>
 <ol type="a">
-<li><p>Is a double major?</p></li>
-<li><p>Is a Stats major but not an A.M. major?</p></li>
-<li><p>Is an A.M. major but not a Stats major?</p></li>
+<li><p>Write R code which will allow you get one simulation of this random experiment.</p></li>
+<li><p>Write R code which will allow you to simulate 500 repetitions of this random experiment and graph the empirical distribution of <span class="math inline">\(S\)</span>. <em>Hint</em>: the <code>replicate()</code> is your friend.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -718,26 +545,52 @@ Show answers
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>10/90</li>
-<li>40/90</li>
-<li>40/90</li>
+<li>R code:</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>box1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>box2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sample</span>(box1, <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">sample</span>(box2, <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<ol start="2" type="a">
+<li>R code:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>simulations <span class="ot">=</span> <span class="fu">replicate</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">500</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">expr =</span> {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(<span class="fu">sample</span>(box1, <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">sample</span>(box2, <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">sum =</span> simulations) <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sum)) <span class="sc">+</span> </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="practice_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <p><br>
 </p>
 </section>
-<section id="finding-probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="finding-probabilities">9) Finding probabilities</h2>
-<p>Suppose that A and B are independent events with <span class="math inline">\(P(A)\)</span> = 0.7, and <span class="math inline">\(P(B^c)\)</span> = 0.4. Find the following probabilities:</p>
+<section id="great-danes" class="level2">
+<h2 class="anchored" data-anchor-id="great-danes">7) Great Danes</h2>
+<p>The mean gestation period for Great Danes is 70 days (expected value) with an associated variance of 2 <span class="math inline">\((\text{days})^2\)</span>. Let <span class="math inline">\(Y\)</span> be the length of pregnancy for Great Danes <strong>in terms of weeks</strong>.</p>
 <ol type="a">
-<li><p><span class="math inline">\(P(A^c)\)</span></p></li>
-<li><p><span class="math inline">\(P(B)\)</span></p></li>
-<li><p><span class="math inline">\(P(B \text{ and } A)\)</span></p></li>
-<li><p><span class="math inline">\(P(A \text{ or } B)\)</span></p></li>
-<li><p><span class="math inline">\(P(A^c \text{ and } B)\)</span></p></li>
-<li><p><span class="math inline">\(P(B | A)\)</span></p></li>
+<li><p>What is <span class="math inline">\(E(Y)\)</span> in terms of weeks?</p></li>
+<li><p>What is <span class="math inline">\(Var(Y)\)</span> in terms of weeks?</p></li>
+<li><p>What is <span class="math inline">\(SD(X)\)</span> in terms of weeks?</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -752,13 +605,93 @@ Show answers
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>0.3</li>
-<li>0.6</li>
-<li>0.42</li>
-<li>0.88</li>
-<li>0.18</li>
-<li>0.6</li>
+<li><p>Let <span class="math inline">\(X\)</span> be the length of pregnancy in days, and <span class="math inline">\(Y = X/7\)</span> be the length of pregnancy in weeks. Then <span class="math inline">\(E(Y) = E(X/7) = (1/7) E(X) = 70/7 = 10\)</span> weeks</p></li>
+<li><p><span class="math inline">\(Var(Y) = Var(X/7) = (1/49) Var(X) = 2/49 \approx 0.0408 \ \text{weeks}^2\)</span></p></li>
+<li><p><span class="math inline">\(SD(Y) = \sqrt{Var(Y)} = \sqrt{2/49} \approx 0.2020\)</span> weeks</p></li>
 </ol>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="two-colored-dice" class="level2">
+<h2 class="anchored" data-anchor-id="two-colored-dice">8) Two colored dice</h2>
+<p>Consider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let <span class="math inline">\(V\)</span> be a random variable that takes the following values:</p>
+<p><span class="math display">\[
+V = \begin{cases}
+0 &amp; \text{if both dice land on even numbers} \\
+1 &amp; \text{if both dice land on odd numbers} \\
+2 &amp; \text{if one die is even, and the other is odd}
+\end{cases}
+\]</span></p>
+<ol type="a">
+<li><p>Find <span class="math inline">\(E(V)\)</span></p></li>
+<li><p>Find <span class="math inline">\(Var(V)\)</span></p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>First you need to find the probabilities <span class="math inline">\(P(V=0) = 9/36\)</span>, <span class="math inline">\(P(V=1) = 9/36\)</span> and <span class="math inline">\(P(V=2) = 18/36\)</span>.</p>
+<p>Then find <span class="math inline">\(E(V) = 0(9/36) + 1(9/36) + 2(18/36) = 1.25\)</span></p></li>
+<li><p><span class="math inline">\(Var(V) = E(V^2) - E(V)^2 = 0.6875\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="games-of-chance" class="level2">
+<h2 class="anchored" data-anchor-id="games-of-chance">9) Games of Chance</h2>
+<p>Consider the following games:</p>
+<p><strong>Game A</strong>: Consider the box <code>[1  1  1  0  0  0]</code>; 50 draws will be made at random with replacement from this box. On each draw, you will be paid the amount shown on the ticket, in dollars.</p>
+<p><strong>Game B</strong>: A die will be rolled 50 times. Each time it shows a three or a five, you win $1; on the other numbers, you win nothing.</p>
+<ol type="a">
+<li><p>Find the expected gain in game A</p></li>
+<li><p>Find the expected gain in game B</p></li>
+</ol>
+<p>Which game is better if you are betting on winning more money? Explain briefly.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Game A</strong></p>
+<p>Let <span class="math inline">\(X\)</span> be the number in a single draw. <span class="math inline">\(EV(X) = (0)(3/6) + (1)(3/6) = 1/2\)</span></p>
+<p>Let <span class="math inline">\(S_X\)</span> be the sum of the numbers in 50 draws. Notice that <span class="math inline">\(S = 50X\)</span>. Thus, <span class="math inline">\(EV(S_X) = 50 E(X) = 50 (1/2) = 25\)</span></p>
+<p><br>
+</p>
+<p><strong>Game B</strong></p>
+<p>Let <span class="math inline">\(Y\)</span> be the dollar amount you win in game B</p>
+<p><span class="math display">\[
+P(Y = y) = \begin{cases}
+4/6, &amp; \text{for } y = 0 \\
+2/6, &amp; \text{for } y = 1 \\
+\end{cases}
+\]</span></p>
+<p><span class="math inline">\(E(Y) = (0)(4/6) + (1)(2/6) = 2/6 = 1/3\)</span></p>
+<p>Let <span class="math inline">\(Sy\)</span> be the total gain in 50 draws of game B, thus <span class="math inline">\(EV(S_Y) = 50 E(Y) = 50 (1/3) \approx 16.66\)</span></p>
+<p><br>
+</p>
+<p>In summary, game A is better. In game A there are 50 draws, on each draw you have a probability of 3/6 of winning $1. In contrast, in game B there are 50 rolls, on each roll you have a probability of 2/6 of winning.</p>
 </div>
 </div>
 </div>

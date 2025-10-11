@@ -72,7 +72,7 @@ A friendly reminder to myself when teaching [STAT 20](https://stat20.berkeley.ed
 - Coming soon
 
 
-### Quiz
+### Quiz Slides
 
 - [Quiz](quiz-slides/quiz-slides.html)
 

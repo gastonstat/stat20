@@ -8,7 +8,37 @@ library(tidyverse)
 ```
 
 
-## 1) Tossing a fair coin
+## 1) Type of Random Variable
+
+Choose a STAT 20 student at random. Decide whether each of the following is a discrete or continuous random variable:
+
+a) The number of courses the student takes this semester:
+
+b) The student's weight:  
+
+c) The student's commute time (in minutes) to campus:  
+
+d) The number of pets the student has:  
+
+e) The (exact) time the student sleeps during a week:  
+
+f) The number of caffeinated beverages that the student drinks in a typical week:  
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) Discrete
+b) Continuous
+c) Continuous
+d) Discrete
+e) Continuous
+f) Discrete
+:::
+
+
+\
+
+## 2) Tossing a fair coin
 
 Let $X$ be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of $X$, that is: $P(X = k)$
 
@@ -93,7 +123,9 @@ ggplot() +
 :::
 
 
-## 2) Tossing a biased Coin
+\
+
+## 3) Tossing a biased Coin
 
 Let $Y$ be the number of heads in four tosses of a biased coin where the chance of heads is 3/5. 
 
@@ -157,7 +189,9 @@ ggplot() +
 :::
 
 
-## 3) Deck of cards
+\
+
+## 4) Deck of cards
 
 Consider a deck of 52 cards. Suppose we are interested in the number of hearts dealt in a hand of five. Call this number $Z$.
 
@@ -228,8 +262,9 @@ ggplot() +
 :::
 
 
+\
 
-## 4) Rolling a pair of dice
+## 5) Rolling a pair of dice
 
 Consider two colored 6-sided dice: one of them is a blue die, and the other is 
 a red die. You roll the dice, and look at the numbers on their top faces. 
@@ -270,7 +305,9 @@ d) $P(W = 1) = 1 - 21/36 = 15/36$
 :::
 
 
-## 5) Rolling a pair of dice (cont'd)
+\
+
+## 6) Rolling a pair of dice (cont'd)
 
 Refer to the colored dice of the previous problem. Let $V$ be a random variable that takes the following values:
 

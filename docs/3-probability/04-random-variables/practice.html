@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../3-probability/04-random-variables/practice.html">Practice: Random Variables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/04-random-variables/practice.html">Practice: Random Variables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -154,6 +154,15 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Summary</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html" class="sidebar-item-text sidebar-link">
@@ -184,6 +193,17 @@ window.Quarto = {
  <span class="menu-text">Practice: Linear Regression</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../3-probability/01-chance-intro/practice.html" class="sidebar-item-text sidebar-link">
@@ -198,10 +218,24 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../3-probability/03-probability-dsns/practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Probability Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../3-probability/04-random-variables/practice.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Practice: Random Variables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3-probability/05-ev-sd/practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Expected Value and Variance</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -220,18 +254,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tossing-a-fair-coin" id="toc-tossing-a-fair-coin" class="nav-link active" data-scroll-target="#tossing-a-fair-coin">1) Tossing a fair coin</a></li>
-  <li><a href="#tossing-a-biased-coin" id="toc-tossing-a-biased-coin" class="nav-link" data-scroll-target="#tossing-a-biased-coin">2) Tossing a biased Coin</a></li>
-  <li><a href="#deck-of-cards" id="toc-deck-of-cards" class="nav-link" data-scroll-target="#deck-of-cards">3) Deck of cards</a></li>
-  <li><a href="#rolling-a-pair-of-dice" id="toc-rolling-a-pair-of-dice" class="nav-link" data-scroll-target="#rolling-a-pair-of-dice">4) Rolling a pair of dice</a></li>
-  <li><a href="#rolling-a-pair-of-dice-contd" id="toc-rolling-a-pair-of-dice-contd" class="nav-link" data-scroll-target="#rolling-a-pair-of-dice-contd">5) Rolling a pair of dice (cont’d)</a></li>
+  <li><a href="#type-of-random-variable" id="toc-type-of-random-variable" class="nav-link active" data-scroll-target="#type-of-random-variable">1) Type of Random Variable</a></li>
+  <li><a href="#tossing-a-fair-coin" id="toc-tossing-a-fair-coin" class="nav-link" data-scroll-target="#tossing-a-fair-coin">2) Tossing a fair coin</a></li>
+  <li><a href="#tossing-a-biased-coin" id="toc-tossing-a-biased-coin" class="nav-link" data-scroll-target="#tossing-a-biased-coin">3) Tossing a biased Coin</a></li>
+  <li><a href="#deck-of-cards" id="toc-deck-of-cards" class="nav-link" data-scroll-target="#deck-of-cards">4) Deck of cards</a></li>
+  <li><a href="#rolling-a-pair-of-dice" id="toc-rolling-a-pair-of-dice" class="nav-link" data-scroll-target="#rolling-a-pair-of-dice">5) Rolling a pair of dice</a></li>
+  <li><a href="#rolling-a-pair-of-dice-contd" id="toc-rolling-a-pair-of-dice-contd" class="nav-link" data-scroll-target="#rolling-a-pair-of-dice-contd">6) Rolling a pair of dice (cont’d)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../1-questions-and-data/02-taxonomy-of-data/practice.html">Practice Problems</a></li><li class="breadcrumb-item"><a href="../../3-probability/04-random-variables/practice.html">Practice: Random Variables</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/04-random-variables/practice.html">Practice: Random Variables</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Practice: Random Variables</h1>
 </div>
@@ -250,14 +285,16 @@ window.Quarto = {
 </header>
 
 
-<section id="tossing-a-fair-coin" class="level2">
-<h2 class="anchored" data-anchor-id="tossing-a-fair-coin">1) Tossing a fair coin</h2>
-<p>Let <span class="math inline">\(X\)</span> be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of <span class="math inline">\(X\)</span>, that is: <span class="math inline">\(P(X = k)\)</span></p>
+<section id="type-of-random-variable" class="level2">
+<h2 class="anchored" data-anchor-id="type-of-random-variable">1) Type of Random Variable</h2>
+<p>Choose a STAT 20 student at random. Decide whether each of the following is a discrete or continuous random variable:</p>
 <ol type="a">
-<li><p>What values will <span class="math inline">\(k\)</span> take?</p></li>
-<li><p>Use <code>dbinom()</code> to find the probability distribution of <span class="math inline">\(X\)</span>. In other words, obtain the values of <span class="math inline">\(P(X = k)\)</span> for all values of <span class="math inline">\(k\)</span>.</p></li>
-<li><p>Sketch a graph of the probability histogram of <span class="math inline">\(X\)</span>.</p></li>
-<li><p>Sketch a graph of the cumulative distribution function (cdf) <span class="math inline">\(F(x)\)</span>.</p></li>
+<li><p>The number of courses the student takes this semester:</p></li>
+<li><p>The student’s weight:</p></li>
+<li><p>The student’s commute time (in minutes) to campus:</p></li>
+<li><p>The number of pets the student has:</p></li>
+<li><p>The (exact) time the student sleeps during a week:</p></li>
+<li><p>The number of caffeinated beverages that the student drinks in a typical week:</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -270,6 +307,41 @@ Show answers
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Discrete</li>
+<li>Continuous</li>
+<li>Continuous</li>
+<li>Discrete</li>
+<li>Continuous</li>
+<li>Discrete</li>
+</ol>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="tossing-a-fair-coin" class="level2">
+<h2 class="anchored" data-anchor-id="tossing-a-fair-coin">2) Tossing a fair coin</h2>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of <span class="math inline">\(X\)</span>, that is: <span class="math inline">\(P(X = k)\)</span></p>
+<ol type="a">
+<li><p>What values will <span class="math inline">\(k\)</span> take?</p></li>
+<li><p>Use <code>dbinom()</code> to find the probability distribution of <span class="math inline">\(X\)</span>. In other words, obtain the values of <span class="math inline">\(P(X = k)\)</span> for all values of <span class="math inline">\(k\)</span>.</p></li>
+<li><p>Sketch a graph of the probability histogram of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Sketch a graph of the cumulative distribution function (cdf) <span class="math inline">\(F(x)\)</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p><span class="math inline">\(k = 0, 1, 2, 3, 4, 5\)</span></p></li>
@@ -302,16 +374,18 @@ Show answers
 </div>
 </div>
 </div>
+<p><br>
+</p>
 </section>
 <section id="tossing-a-biased-coin" class="level2">
-<h2 class="anchored" data-anchor-id="tossing-a-biased-coin">2) Tossing a biased Coin</h2>
+<h2 class="anchored" data-anchor-id="tossing-a-biased-coin">3) Tossing a biased Coin</h2>
 <p>Let <span class="math inline">\(Y\)</span> be the number of heads in four tosses of a biased coin where the chance of heads is 3/5.</p>
 <ol type="a">
 <li><p>Use <code>dbinom()</code> to find the probability distribution of <span class="math inline">\(Y\)</span>. In other words, write down the values of <span class="math inline">\(P(Y = k)\)</span> for all values of <span class="math inline">\(k\)</span>.</p></li>
 <li><p>Sketch a graph of the cumulative distribution function (cdf) <span class="math inline">\(F(y)\)</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -320,7 +394,7 @@ Show answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p><code>dbinom(x = 0:4, size = 4, prob = 3/5)</code></p></li>
@@ -339,9 +413,11 @@ Show answers
 </div>
 </div>
 </div>
+<p><br>
+</p>
 </section>
 <section id="deck-of-cards" class="level2">
-<h2 class="anchored" data-anchor-id="deck-of-cards">3) Deck of cards</h2>
+<h2 class="anchored" data-anchor-id="deck-of-cards">4) Deck of cards</h2>
 <p>Consider a deck of 52 cards. Suppose we are interested in the number of hearts dealt in a hand of five. Call this number <span class="math inline">\(Z\)</span>.</p>
 <ol type="a">
 <li><p>Which of the following is the correct distribution of <span class="math inline">\(Z\)</span>?</p>
@@ -356,7 +432,7 @@ Show answers
 <li><p>Based on your answer for part a), find the probability distribution of <span class="math inline">\(P(Z=k)\)</span>. Do this with the corresponding R function for the chosen distribution.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -365,7 +441,7 @@ Show answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>option iii) Hypergeometric</p></li>
@@ -385,9 +461,11 @@ Show answers
 </div>
 </div>
 </div>
+<p><br>
+</p>
 </section>
 <section id="rolling-a-pair-of-dice" class="level2">
-<h2 class="anchored" data-anchor-id="rolling-a-pair-of-dice">4) Rolling a pair of dice</h2>
+<h2 class="anchored" data-anchor-id="rolling-a-pair-of-dice">5) Rolling a pair of dice</h2>
 <p>Consider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let <span class="math inline">\(W\)</span> be a random variable that takes the following values:</p>
 <ul>
 <li><span class="math inline">\(W = -1\)</span> if the number in the blue die is less than the number in the red die.</li>
@@ -409,7 +487,7 @@ Show answers
 <li><p><span class="math inline">\(P(W = 1)\)</span></p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -418,7 +496,7 @@ Show answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p><span class="math inline">\(P(W = -1) = 15/36\)</span></p></li>
@@ -429,9 +507,11 @@ Show answers
 </div>
 </div>
 </div>
+<p><br>
+</p>
 </section>
 <section id="rolling-a-pair-of-dice-contd" class="level2">
-<h2 class="anchored" data-anchor-id="rolling-a-pair-of-dice-contd">5) Rolling a pair of dice (cont’d)</h2>
+<h2 class="anchored" data-anchor-id="rolling-a-pair-of-dice-contd">6) Rolling a pair of dice (cont’d)</h2>
 <p>Refer to the colored dice of the previous problem. Let <span class="math inline">\(V\)</span> be a random variable that takes the following values:</p>
 <ul>
 <li><span class="math inline">\(V = 0\)</span> if both dice land on even numbers.</li>
@@ -444,7 +524,7 @@ Show answers
 <li><p>Find <span class="math inline">\(P(V = 2)\)</span></p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -453,7 +533,7 @@ Show answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p><span class="math inline">\(P(V = 0) = 9/36\)</span></p></li>

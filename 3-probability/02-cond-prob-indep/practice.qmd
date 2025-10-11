@@ -3,7 +3,7 @@ title: "Practice: Computing Probabilities"
 ---
 
 ```{r setup, include=FALSE, message=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
@@ -50,6 +50,8 @@ i) P(2 blues) + P(2 reds) = (12/90) + (30/90) = 42/90
 
 :::
 
+
+\
 
 ## 2) Box with balls and R code
 
@@ -184,4 +186,213 @@ balls_df |>
 ```
 
 
+\
 
+## 3) Students in STAT 101
+
+Suppose that 35% of students in STAT 101 are from Southern California, 40% are from Northern California, and 25% are from outside California. What is the probability that a student selected at random: 
+
+a) Will be from Southern CA?
+
+b) Will not be from Northern CA?
+
+c) Will be from Southern or Northern CA?
+
+d) Will be from Northern California, given that they are not from Southern CA?
+
+e) Will be from Northern California, given that they are not from outside CA?
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) 0.35
+b) 0.35 + 0.25 = 0.6
+c) 0.35 + 0.40 = 0.75
+d) 0.4 / 0.65
+e) 0.4 / 0.75
+:::
+
+
+\
+
+## 5) Tickets from a box
+
+Suppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}. Find the probability that:
+
+a) The first ticket drawn is labeled with an even number.
+
+b) The second ticket drawn is labeled with an even number.
+
+c) Both tickets drawn are labeled with an even number.
+
+d) At least one of the tickets drawn is labeled with an even number.
+
+e) The first ticket drawn is labeled with a prime number (recall that 1 is not a prime).
+
+f) The second ticket drawn is labeled with a prime number.
+
+g) Both tickets drawn are labeled with a prime number.
+
+h) At least one of the tickets drawn is labeled with a prime number.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) (32/72) = 4/9
+b) (32/72) = 4/9
+c) (4/9) (3/8) = 12/72
+d) P(at least one even) = 1 - P(none are even) = 1 - (5/9)(4/8) = 52/72
+e) (32/72) = 4/9
+f) (32/72) = 4/9
+g) (4/9) (3/8) = 12/72
+h) P(at least one prime) = 1 - P(none are prime) = 1 - (5/9)(4/8) = 52/72
+:::
+
+
+\
+
+## 6) Matching Probabilities
+
+Match the terms (a-f) with their definitions (i-vi)
+
+__Terms__
+
+a) P(A|B) = P(A and B) / P(B)
+b) P(A or B) = P(A) + P(B) - P(A and B)
+c) P(A|B) = P(A)
+d) P(A) = P(B)
+e) P(A and B) = P(B | A) P(A)
+f) P(A and B) = 0
+
+__Definitions__
+
+i) equally likely
+ii) mutually exclusive
+iii) conditional probability
+iv) multiplication rule
+v) independence
+vi) addition rule
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+- (i) with (d)
+- (ii) with (f)
+- (iii) with (a)
+- (iv) with (e)
+- (v) with (c)
+- (vi) with (b)
+:::
+
+
+\
+
+## 7) Roll a pair of dice
+
+You roll a red die and a blue die, both fair and independent. Find the probability that:
+
+a.	The red die and the blue die both roll 1's.
+
+b.	The red die and the blue die both roll the same number.
+
+c.	The number on the red die is bigger than the one on the blue die.
+
+d.	The red die rolls a 3.
+
+e.	At least one die rolls a 3.
+
+f.	Exactly one die rolls a 3.
+
+g.	The smallest number on either die is 4.
+
+h.	The largest number on either die is 4.
+
+i.	At least one of the dice rolls a number greater than 4.
+
+j.	Exactly one of the dice rolls a number greater than 4.
+
+k.	The numbers on the dice sum to 7.
+
+l.	The numbers on the dice sum to 4.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) 1/36
+b) 1/6
+c) 15/36
+d) 1/6
+e) 11/36
+f) 10/36
+g) 5/36
+h) 7/36
+i) 20/36
+j) 16/36
+k) 6/36
+l) 3/36
+:::
+
+
+\
+
+## 8) Students' Club
+
+A students’ club has 90 members. Fifty are Statistics majors and fifty are Applied Math (A.M.) majors. There are some that are double majoring in Stats and A.M. What is the probability that a member selected at random: 
+
+a) Is a double major? 
+
+b) Is a Stats major but not an A.M. major? 
+
+c) Is an A.M. major but not a Stats major? 
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) 10/90
+b) 40/90
+c) 40/90
+:::
+
+
+\
+
+## 9) Finding probabilities
+
+```{r echo = FALSE, results='asis'}
+pa <- 0.7
+qb <- 0.4
+qa <- 1 - pa
+pb <- 1 - qb
+AandB <- pa * pb
+AorB <- pa + pb - AandB
+notAandB <- qa * pb
+BgivenA <- pb
+```
+
+Suppose that A and B are independent events with $P(A)$ = `r pa`, and $P(B^c)$ = `r qb`. Find the following probabilities:
+
+a. $P(A^c)$
+
+b. $P(B)$
+
+c. $P(B \text{ and } A)$
+
+d. $P(A \text{ or } B)$
+
+e. $P(A^c \text{ and } B)$
+
+f. $P(B | A)$
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) `r qa`
+b) `r pb`
+c) `r AandB`
+d) `r AorB`
+e) `r notAandB`
+f) `r pb`
+:::

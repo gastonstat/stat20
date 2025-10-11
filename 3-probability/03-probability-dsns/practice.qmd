@@ -1,0 +1,246 @@
+---
+title: "Practice: Probability Distributions"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+## 1) Tossing a coin 4 times
+
+```{r echo = FALSE}
+times <- 5
+prob <- 0.5
+prob_heads <- dbinom(0:times, times, prob)
+exp_heads <- times * prob
+stdev_heads <- sqrt(times * prob * (1 - prob))
+```
+
+A fair coin is tossed independently `r times` times. P(heads) = P(tails) = 0.5. Use the binomial probability to find the:
+
+a) probability of all heads
+
+b) probability of no heads
+
+c) probability of at least one heads
+
+d) probability of more heads than tails
+
+e) probability of less than three heads
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) $P(X = 5) = \binom{5}{5} (0.5)^5 (1 - 0.5)^0$ = `r prob_heads[times+1]`
+
+b) $P(X = 0) = \binom{5}{0} (0.5)^0 (1 - 0.5)^5$ = `r prob_heads[1]`
+
+c) $P(X \geq 1) = 1 - P(X = 0)$ = `r sum(prob_heads[-1])`
+
+d) $P(X \geq 3)$ = `r sum(prob_heads[(ceiling(times / 2) + 1):(times + 1)])`
+
+e) $P(X < 3)$ = `r sum(prob_heads[1:3])`
+:::
+
+
+\
+
+## 2) Batch of smartphones
+
+```{r echo=FALSE, results='asis'}
+prob <- 0.15
+def <- 5
+distrib <- round(dbinom(0:5, size = def, prob = prob), 4)
+```
+
+Suppose that a batch of smartphones contains `r 100*prob`% of defective pieces. Consider a random sample of `r def` smartphones are taken from the batch. Let $X$ be a binomial random variable representing the number of defective pieces. 
+
+a) Find $P(X = 0)$ 
+
+b) Find $P(X = 1)$ 
+
+c) Find $P(X = 5)$
+
+d) If a quality inspection will reject the batch of tablets if two or more defective pieces are found, what is the probability that the batch will be rejected?
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) $P(X = 0) = \binom{5}{0} (0.15)^{0} (1 - 0.15)^{5}$ = `r distrib[1]`
+
+b) $P(X = 1) = \binom{5}{1} (0.15)^{1} (1 - 0.15)^{4}$ = `r distrib[2]`
+
+c) $P(X = 5) = \binom{5}{5} (0.15)^{5} (1 - 0.15)^{0}$ = 0.0001
+
+d) $P(k \geq 2) = 1 - P(x < 2)$ = `r sum(distrib[3:6])`
+:::
+
+
+\
+
+## 3) Guessing the distribution
+
+In a group of 20 college students, four are athletes. You select three of the 20 students at random (first, second, and third) and ask their major. The distribution of the number of athletes you choose is:
+
+a. binomial with _n_ = 20 and _p_ = 0.2.
+
+b. binomial with _n_ = 3 and _p_ = 0.2.
+
+c. Not binomial.
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+Part (c). The selections are not independent; once we choose one student, it changes the probability that the next student is an athlete.
+:::
+
+
+\
+
+## 4) Selecting students in a class of 30
+
+In a class of 30, there are 18 male students and 12 female students. 10 students have $A$'s, 10 have $B$'s, and 10 have $C$'s. A student's grade and sex are independent.
+
+a. If you randomly select one student, what is the chance of selecting a female with grade $B$?
+
+b.  If you randomly select one student, what is the chance of selecting a female student or a grade $B$ student?
+
+c. Choose 10 students at random from the class without replacement. What is the probability that they all have $B$'s?
+
+d. Choose 10 students at random from the class, with replacement. What is the probability that 5 are male and 5 are female?
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) P(Female and B-grade) = $(12/30) \times (10/30) = 4/30 \approx 0.1333$
+
+b) P(Female or B-grade) = $(12/30) + (10/30) - (4/30) = 18/30 = 0.6$
+
+c) $(10/30) \times (9/29) \times \dots \times (1/21)$.
+
+    This can also be solved using hypergeometric distribution with parameters $N = 30$, $G = 10$, $n = 10$. Using R: `dhyper(x = 10, m = 10, n = 20, k = 10)`
+
+d) $\binom{10}{5} (18/30)^5 (12/30)^5 \approx 0.20$
+:::
+
+
+\
+
+## 5) Deck of 100 cards
+
+Consider a deck of 100 cards, consisting of four suits: 25 cards are Gryffindor, 25 are Ravenclaw, 25 are Hufflepuff, and 25 are Slytherin. Suppose we are interested in the number of Ravenclaw cards dealt in a hand of seven. Call this number $Z$.
+
+a) What is the distribution of $Z$?
+
+    i) Bernoulli		
+
+    ii) Binomial 	
+
+    iii) Hypergeometric	
+
+    iv) Poisson	
+
+    v) Other
+
+
+b) Based on your answer for part a), find the probabilities $P(Z=z)$ for all 
+valid values of $z$.
+
+c) Find the values of $F(z) = P(Z \leq z)$.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) Option (iii), with parameters: $N = 100$, $G = 25$, $n = 7$
+
+b) Using R, we can get all the probability values of $f(z)$ with:
+
+    `dhyper(x = 0:7, m = 25, n = 75, k = 7)`
+
+c) Using R, we can get all the cumulative probabilities $F(z)$ with:
+
+    `phyper(q = 0:7, m = 25, n = 75, k = 7)`
+
+```{r echo = FALSE, comment = ""}
+datz = data.frame(
+    Z = 0:7,
+    fz = dhyper(x = 0:7, m = 25, n = 75, k = 7)) |>
+    mutate(Fz = cumsum(fz))
+    
+print(datz, print.gap = 2)
+```
+:::
+
+
+\
+
+## 6) Poisson Distribution
+
+The function `dpois()` gives you probabilities of a Poisson random variable. For example, let $X$ be a Poisson variable with $\lambda = 5$. Recall that $X$ takes non negative values $x = 0, 1, 2, 3, \dots$. 
+
+Here's some code in R to get the probability distribution, and graph its probability histogram
+
+```{r eval = FALSE}
+x = 0:20  # x values, stop at 20, but in theory they go on
+prob = dpois(x, lambda = 5)
+
+# probability histogram
+data.frame(x = factor(x), prob = prob) |> 
+  ggplot(aes(x = x, y = prob)) + 
+  geom_col()
+```
+
+a) What does the parameter $\lambda$ represent? (i.e. how do you make sense of it?)
+
+b) Use R to graph the probability histogram for various parameter values: $\lambda$ = 0.5, $\lambda$ = 2, $\lambda$ = 4.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) From the STAT 20 notes: "$\lambda$ is called the rate of the distribution, and represents how many _successes_ we expect in the given time unit."
+
+b) Example with `lambda = 4`
+
+```{r}
+x = 0:20  # x values, stop at 20, but in theory they go on
+prob = dpois(x, lambda = 4)
+
+# probability histogram
+data.frame(x = factor(x), prob = prob) |> 
+  ggplot(aes(x = x, y = prob)) + geom_col()
+```
+:::
+
+
+\
+
+## 7) Binomial Distributions
+
+The following figure shows four binomial distributions with $n$ = 6 trials. Match the given probability of success with the corresponding graph.
+
+![](images/binom_distribs.png){fig-align="center" width=80%}
+
+
+a) p = 0.30 goes with graph:
+
+b) p = 0.50 goes with graph:
+
+c) p = 0.65 goes with graph:
+
+d) p = 0.90 goes with graph:
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) Graph 2
+b) Graph 1
+c) Graph 3
+d) Graph 4
+:::
+
+

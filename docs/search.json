@@ -326,7 +326,7 @@
     "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
     "title": "Multiple Linear Regression",
     "section": "Penguins Data",
-    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Gentoo    Biscoe           50.4          15.3        5550 male  \n2 Adelie    Dream            40.7          17          3725 male  \n3 Gentoo    Biscoe           50            15.3        5550 male  \n4 Adelie    Dream            43.2          18.5        4100 male  \n5 Chinstrap Dream            47            17.3        3700 female"
+    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Chinstrap Dream            51.7          20.3        3775 male  \n2 Gentoo    Biscoe           42.8          14.2        4700 female\n3 Gentoo    Biscoe           46.5          14.4        4900 female\n4 Adelie    Dream            36            18.5        3100 female\n5 Chinstrap Dream            48.5          17.5        3400 male"
   },
   {
     "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
@@ -483,6 +483,7 @@
     "text": "Consider a standard deck of 52 cards, as displayed in the following figure.\n\n\n\n\n\nConsider the following events when a card is randomly selected.\n\n\\(A\\): card selected is a heart.\n\\(B\\): card selected is color black.\n\\(C\\): card selected is a face card (i.e. J, Q, K)\n\\(D\\): card selected is a King.\n\n\n\n\n\\(P(A)\\)\n\\(P(B)\\)\n\\(P(C)\\)\n\\(P(D)\\)\n\\(P(A^c)\\)\n\\(P(B^c)\\)\n\\(P(C^c)\\)\n\\(P(D^c)\\)\n\\(P(A \\cap B)\\)\n\\(P(A \\cup B)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n13/52 = 1/4\n26/52 = 1/2\n12/52\n4/52 = 1/13\n1 - (13/52) = 3/4\n1 - (26/52) = 1/2\n1 - (12/52) = 40/52\n1 - (4/52) = 48/52\n0 because A and B are mutually exclusive\nP(A) + P(B) = 13/52 + 26/52 = 39/52",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Intro Probability"
     ]
   },
@@ -494,6 +495,7 @@
     "text": "Consider a standard deck of 52 cards, as displayed in the following figure.\n\n\n\n\n\nConsider the following events when a card is randomly selected.\n\n\\(A\\): card selected is a heart.\n\\(B\\): card selected is color black.\n\\(C\\): card selected is a face card (i.e. J, Q, K)\n\\(D\\): card selected is a King.\n\n\n\n\n\\(P(A)\\)\n\\(P(B)\\)\n\\(P(C)\\)\n\\(P(D)\\)\n\\(P(A^c)\\)\n\\(P(B^c)\\)\n\\(P(C^c)\\)\n\\(P(D^c)\\)\n\\(P(A \\cap B)\\)\n\\(P(A \\cup B)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n13/52 = 1/4\n26/52 = 1/2\n12/52\n4/52 = 1/13\n1 - (13/52) = 3/4\n1 - (26/52) = 1/2\n1 - (12/52) = 40/52\n1 - (4/52) = 48/52\n0 because A and B are mutually exclusive\nP(A) + P(B) = 13/52 + 26/52 = 39/52",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Intro Probability"
     ]
   },
@@ -505,6 +507,7 @@
     "text": "R code refresher\nsample(): takes an input vector x, and draws a random sample of a certain size with or without replacement (replace)\nvec = 1:10\n\n# sample without replacement\nsample(vec, size = 3) \n\n# sample with replacement\nsample(vec, size = 3, replace = TRUE)\n\n\nset.seed(): a number (integer) used by the random number generator(s) in R. It allows us to reproduce the output of sample() and other functions that generate random numbers in R.\nset.seed(4321)\n\n# reproducible sample\nsample(letters, size = 5)",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Intro Probability"
     ]
   },
@@ -516,6 +519,7 @@
     "text": "2) Flipping a coing\n\nCreate a character vector coin that simulates the 2 sides of a coin \"heads\" and \"tails\"\nUse sample() to simulate tossing a coin 6 times\n\n\n\nShow answer\ncoin &lt;- c(\"heads\", \"tails\")\n\nsample(coin, size = 6, replace = TRUE)",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Intro Probability"
     ]
   },
@@ -527,6 +531,7 @@
     "text": "3) Rolling a die\n\nCreate a numeric vector die that simulates the sides of a die (1, 2, 3, 4, 5, 6)\nUse sample() to simulate tossing a die 10 times\n\n\n\nShow answer\ndie &lt;- 1:6\n\nsample(die, size = 10, replace = TRUE)",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Intro Probability"
     ]
   },
@@ -538,6 +543,7 @@
     "text": "4) Rolling a pair of dice\n\nWith your die vector—from the preceding question—write code to simulate rolling a pair of dice, and getting the sum of the spots.\n\n\n\nShow answer\ndie &lt;- 1:6\n\nsum(sample(die, size = 2, replace = TRUE))",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Intro Probability"
     ]
   },
@@ -549,232 +555,309 @@
     "text": "5) GO BEARS\n\nCreate a character vector box containing the letters in the phrase GO BEARS.\nWrite R code to sample all the letters from box without replacement. Repeat this process no more than 100 times.\nIf you get a sample \"G\" \"O\" \"B\" \"E\" \"A\" \"R\" \"S\" (in this order) you win.\n\n\n\nShow answer\nbox &lt;- c(\"G\", \"O\", \"B\", \"E\", \"A\", \"R\", \"S\")\n\n# run the following command 100 times\nsample(box, size = 7)",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Intro Probability"
     ]
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#agenda",
-    "href": "3-probability/04-random-variables/slides.html#agenda",
-    "title": "Random Variables",
-    "section": "Agenda",
-    "text": "Agenda\n\nQuiz-3 reminder\nWSP-5 reminder\nBrief lecture on random variables\nWS: Random Variables"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
-    "href": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
-    "title": "Random Variables",
-    "section": "Announcements: Quiz 3",
-    "text": "Announcements: Quiz 3\n\nQuiz-3 next Monday, Oct 13th in class.\n\nSection 1, 8am in Barker 101\nSection 8, 10am in SOCS 60\n\n\n\nTopics:\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
-    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
-    "title": "Random Variables",
-    "section": "Announcements: WSP 5, Oct-14th",
-    "text": "Announcements: WSP 5, Oct-14th\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-1",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-1",
-    "title": "Random Variables",
-    "section": "Random Variables 1",
-    "text": "Random Variables 1\nLet \\(X\\) be the number of heads in three tosses of a fair coin. What is the distribution of \\(X\\)? That is, what is \\(f(x) = P(X = x)\\)? What values will \\(x\\) take?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-2",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-2",
-    "title": "Random Variables",
-    "section": "Random Variables 2",
-    "text": "Random Variables 2\nWhat about if \\(X\\) is the number of heads in 3 tosses of a biased coin, where the chance of heads is \\(\\frac{2}{3}\\)? Now what is \\(f(x) = P(X = x)\\)?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom",
-    "href": "3-probability/04-random-variables/slides.html#demo-dbinom",
-    "title": "Random Variables",
-    "section": "Demo: dbinom()",
-    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom-1",
-    "href": "3-probability/04-random-variables/slides.html#demo-dbinom-1",
-    "title": "Random Variables",
-    "section": "Demo: dbinom()",
-    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# probability distribution (pmf)\npmf = dbinom(x = 0:n, size = n, prob = p)\npmf\n\n\n\n[1] 0.03703704 0.22222222 0.44444444 0.29629630"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom",
-    "href": "3-probability/04-random-variables/slides.html#demo-pbinom",
-    "title": "Random Variables",
-    "section": "Demo: pbinom()",
-    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom-1",
-    "href": "3-probability/04-random-variables/slides.html#demo-pbinom-1",
-    "title": "Random Variables",
-    "section": "Demo: pbinom()",
-    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# cumulative distribution function\ncdf = pbinom(q = 0:3, size = n, prob = p)\ncdf\n\n\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000\n\n\n\n\n\n\n# equivalent\ncumsum(pmf)\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-rbinom",
-    "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
-    "title": "Random Variables",
-    "section": "Demo rbinom()",
-    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 0 1 2 2 1 3 2 1 2 2 2 2 2 3 3 2 2 1 2 2 2 3 2 2 1 2 3 1 2 1 2 2 2 2 2 3 2\n [38] 2 1 3 1 2 2 2 2 2 3 1 1 2 3 2 3 3 1 3 0 1 2 3 2 3 3 2 2 0 2 3 3 2 2 2 1 2\n [75] 2 3 1 2 2 3 2 1 3 3 2 1 1 1 2 1 3 1 2 1 2 1 3 2 2 1"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
-    "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
-    "title": "Random Variables",
-    "section": "Demo: Empirical Probability Distribution",
-    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  3\n2      1 24\n3      2 50\n4      3 23\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  3 0.03\n2      1 24 0.24\n3      2 50 0.50\n4      3 23 0.23"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
-    "href": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
-    "title": "Random Variables",
-    "section": "Demo: Empirical histogram",
-    "text": "Demo: Empirical histogram\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col() +\n  labs(title = \"Probability Histogram\", \n       subtitle = \"Number of heads in 3 tosses of biased coin\", \n       x = \"heads\") +\n  theme_bw()"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-3",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-3",
-    "title": "Random Variables",
-    "section": "Random Variables 3",
-    "text": "Random Variables 3\nNow suppose we toss a fair coin until the first time it lands heads, and let \\(X\\) be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of \\(X\\)? Is it binomial?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#random-variables-4",
-    "href": "3-probability/04-random-variables/slides.html#random-variables-4",
-    "title": "Random Variables",
-    "section": "Random Variables 4",
-    "text": "Random Variables 4\nFinally, let’s consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number \\(X\\). What is the pmf of \\(X\\)?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#fx-and-fx",
-    "href": "3-probability/04-random-variables/slides.html#fx-and-fx",
-    "title": "Random Variables",
-    "section": "\\(f(x)\\) and \\(F(x)\\)",
-    "text": "\\(f(x)\\) and \\(F(x)\\)\n\n\\(f(x)\\) is the probability mass function of \\(X\\).\n\nWhat does that mean?\nWhat is the connection to the distribution table?\nWhat is the connection to the probability histogram?\n\n\n\n\n\n\\(F(x)\\) is the cumulative distribution function.\n\n\n\n\nWhat is the connection between \\(f\\) and \\(F\\)?"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#example",
-    "href": "3-probability/04-random-variables/slides.html#example",
-    "title": "Random Variables",
-    "section": "Example",
-    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#example-1",
-    "href": "3-probability/04-random-variables/slides.html#example-1",
-    "title": "Random Variables",
-    "section": "Example",
-    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\n\npmf: \\(\\quad f(X) = P(X=x)\\)\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\ncdf: \\(\\quad F(x) = P(X \\leq x)\\)\n\n\\(P(X \\leq x) = 0 \\quad \\quad \\text{for} \\ x &lt; 0\\)\n\\(P(X \\leq x) = 3/8 \\quad \\text{for} \\ 0 \\leq x &lt; 1\\)\n\\(P(X \\leq x) = 5/8 \\quad \\text{for} \\ 1 \\leq x &lt; 2\\)\n\\(P(X \\leq x) = 1 \\quad \\quad \\text{for} \\ x \\geq 2\\)"
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#example-2",
-    "href": "3-probability/04-random-variables/slides.html#example-2",
-    "title": "Random Variables",
-    "section": "Example",
-    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\\[\nf(X) \\rightarrow P(X=x)\n\\]\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\n\\[\nF(X) \\rightarrow P(X \\leq x)\n\\]\n\\[\nF(X) = \\begin{cases}\n0, \\quad  \\quad x &lt; 0 \\\\\n3/8, \\quad 0 \\leq x &lt; 1 \\\\\n5/8, \\quad 1 \\leq x &lt; 2 \\\\\n8/8, \\quad 2 \\leq x  \n\\end{cases}\n\\]\n\n\nDraw an example on the board. Maybe box of tickets { 0, 0, 0 , 1, 1, 2, 2, 2} draw one ticket, and let \\(X\\) be the value of the ticket. Write out both \\(f(x)\\) and \\(F(x)\\) in function notation, then draw the cdf and show how we can get from the cdf to the pmf."
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#sketching-fx",
-    "href": "3-probability/04-random-variables/slides.html#sketching-fx",
-    "title": "Random Variables",
-    "section": "Sketching \\(F(X)\\)",
-    "text": "Sketching \\(F(X)\\)\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
-  },
-  {
-    "objectID": "3-probability/04-random-variables/slides.html#section",
-    "href": "3-probability/04-random-variables/slides.html#section",
-    "title": "Random Variables",
+    "objectID": "3-probability/05-ev-sd/practice.html",
+    "href": "3-probability/05-ev-sd/practice.html",
+    "title": "Practice: Expected Value and Variance",
     "section": "",
-    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
+    "text": "Let \\(X\\) be a random variable such that\n\\[\nX = \\begin{cases}\n-1, & \\text{with probability } \\ 1/3 \\\\\n0, & \\text{with probability } \\ 1/6 \\\\\n1, & \\text{with probability } \\ 4/15 \\\\\n2, & \\text{with probability } \\ 7/30 \\\\\n\\end{cases}\n\\]\n\nCompute the expected value of \\(X\\).\nCompute the variance of \\(X\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(E(X) = (-1)(1/3) + (0)(1/6) + (1)(4/15) + (2)(7/30) = 0.4\\)\n\\(Var(X) = E(X^2) - E(X)^2 \\approx 1.373\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-1",
-    "href": "3-probability/04-random-variables/slides.html#section-1",
-    "title": "Random Variables",
+    "objectID": "3-probability/05-ev-sd/practice.html#ev-and-var-1st",
+    "href": "3-probability/05-ev-sd/practice.html#ev-and-var-1st",
+    "title": "Practice: Expected Value and Variance",
     "section": "",
-    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
+    "text": "Let \\(X\\) be a random variable such that\n\\[\nX = \\begin{cases}\n-1, & \\text{with probability } \\ 1/3 \\\\\n0, & \\text{with probability } \\ 1/6 \\\\\n1, & \\text{with probability } \\ 4/15 \\\\\n2, & \\text{with probability } \\ 7/30 \\\\\n\\end{cases}\n\\]\n\nCompute the expected value of \\(X\\).\nCompute the variance of \\(X\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(E(X) = (-1)(1/3) + (0)(1/6) + (1)(4/15) + (2)(7/30) = 0.4\\)\n\\(Var(X) = E(X^2) - E(X)^2 \\approx 1.373\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-2",
-    "href": "3-probability/04-random-variables/slides.html#section-2",
-    "title": "Random Variables",
+    "objectID": "3-probability/05-ev-sd/practice.html#ev-and-var-2nd",
+    "href": "3-probability/05-ev-sd/practice.html#ev-and-var-2nd",
+    "title": "Practice: Expected Value and Variance",
+    "section": "2) EV and Var (2nd)",
+    "text": "2) EV and Var (2nd)\nConsider the box with tickets: [3,3,3,4,4,4,4,5,5,5,5,5]. Suppose we draw once from this box and let \\(Z\\) be the value of the ticket drawn.\n\nCompute the expected value of \\(Z\\).\nCompute the variance of \\(Z\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(E(Z) = (3)(3/12) + (4)(4/12) + (5)(5/12) \\approx 4.1666\\)\n\\(Var(Z) \\approx 0.6388\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/practice.html#ev-and-var-3rd",
+    "href": "3-probability/05-ev-sd/practice.html#ev-and-var-3rd",
+    "title": "Practice: Expected Value and Variance",
+    "section": "3) EV and Var (3rd)",
+    "text": "3) EV and Var (3rd)\nConsider the following random variables:\n\nLet \\(X\\) be a discrete uniform random variable on the set \\(\\{-1,0,1\\}\\).\nLet \\(Y = X^2\\).\nLet \\(W = \\max(X, 0.5)\\)\n\n\nFind \\(E(X)\\)\nFind \\(Var(X)\\)\nFind \\(E(Y)\\)\nFind \\(Var(Y)\\)\nFind \\(E(W)\\)\nFind \\(Var(W)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(\\mu_X = E(X) = (-1)(1/3) + (0)(1/3) + (1)(1/3) = 0\\)\n\\(Var(X) = (-1 - 0)^2(1/3) + (0 - 0)^2(1/3) + (1 - 0)^2(1/3) \\approx 0.6666\\)\n\\(\\mu_Y = E(Y) = (-1)^2(1/3) + (0)^2(1/3) + (1)^2(1/3) \\approx 0.6666\\)\n\\(Var(Y) = (1 - \\mu_Y)^2(1/3) + (0 - \\mu_Y)^2(1/3) + (1 - \\mu_Y)^2(1/3) \\approx 0.2222\\)\n\\(\\mu_W = E(W) = (0.5)(1/3) + (0.5)(1/3) + (1)(1/3) \\approx 0.6666\\)\n\\(Var(W) = (0.5 - \\mu_W)^2(1/3) + (0.5 - \\mu_W)^2(1/3) + (1 - \\mu_W)^2(1/3) \\approx 0.0555\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/practice.html#ev-and-var-4th",
+    "href": "3-probability/05-ev-sd/practice.html#ev-and-var-4th",
+    "title": "Practice: Expected Value and Variance",
+    "section": "4) EV and Var (4th)",
+    "text": "4) EV and Var (4th)\nLet \\(X\\) be a discrete random variable with the following probability distribution\n\n\n   X  Prob\n1  0   1/8\n2  1   3/8\n3  2   3/8\n4  3   1/8\n\n\n\nLet \\(Y = |X - 2|\\). Find the expected value of \\(Y\\).\nWith the same \\(Y\\) defined above, find its variance: \\(Var(Y)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(E(Y) = |0-2|(1/8) + |1-2|(3/8) + |2-2|(3/8) + |3-2|(1/8) = 0.75\\)\n\\(Var(Y) = (2-0.75)^2(1/8) + (1-0.75)^2(3/8) +\\) \\((0-0.75)^2(3/8) + (1-0.75)^2(1/8) = 0.4375\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/practice.html#product-of-tickets",
+    "href": "3-probability/05-ev-sd/practice.html#product-of-tickets",
+    "title": "Practice: Expected Value and Variance",
+    "section": "5) Product of tickets",
+    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 2\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/practice.html#sum-of-tickets",
+    "href": "3-probability/05-ev-sd/practice.html#sum-of-tickets",
+    "title": "Practice: Expected Value and Variance",
+    "section": "6) Sum of tickets",
+    "text": "6) Sum of tickets\nWe have two boxes of tickets: A = [0  2  4  6] and B = [1  3  5  7]. We draw—with replacement—1 ticket from box A, and 1 ticket from box B. Let \\(S\\) be the sum of the two tickets.\n\nWrite R code which will allow you get one simulation of this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment and graph the empirical distribution of \\(S\\). Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = c(0, 2, 4, 6)\nbox2 = c(1, 3, 5, 7)\n\nsum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n\n[1] 5\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = {\n    sum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n  }\n)\n\ndata.frame(sum = simulations) |&gt;\n  ggplot(aes(x = sum)) + \n  geom_histogram(binwidth = 1, color = \"white\")",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/practice.html#great-danes",
+    "href": "3-probability/05-ev-sd/practice.html#great-danes",
+    "title": "Practice: Expected Value and Variance",
+    "section": "7) Great Danes",
+    "text": "7) Great Danes\nThe mean gestation period for Great Danes is 70 days (expected value) with an associated variance of 2 \\((\\text{days})^2\\). Let \\(Y\\) be the length of pregnancy for Great Danes in terms of weeks.\n\nWhat is \\(E(Y)\\) in terms of weeks?\nWhat is \\(Var(Y)\\) in terms of weeks?\nWhat is \\(SD(X)\\) in terms of weeks?\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nLet \\(X\\) be the length of pregnancy in days, and \\(Y = X/7\\) be the length of pregnancy in weeks. Then \\(E(Y) = E(X/7) = (1/7) E(X) = 70/7 = 10\\) weeks\n\\(Var(Y) = Var(X/7) = (1/49) Var(X) = 2/49 \\approx 0.0408 \\ \\text{weeks}^2\\)\n\\(SD(Y) = \\sqrt{Var(Y)} = \\sqrt{2/49} \\approx 0.2020\\) weeks",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/practice.html#two-colored-dice",
+    "href": "3-probability/05-ev-sd/practice.html#two-colored-dice",
+    "title": "Practice: Expected Value and Variance",
+    "section": "8) Two colored dice",
+    "text": "8) Two colored dice\nConsider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let \\(V\\) be a random variable that takes the following values:\n\\[\nV = \\begin{cases}\n0 & \\text{if both dice land on even numbers} \\\\\n1 & \\text{if both dice land on odd numbers} \\\\\n2 & \\text{if one die is even, and the other is odd}\n\\end{cases}\n\\]\n\nFind \\(E(V)\\)\nFind \\(Var(V)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFirst you need to find the probabilities \\(P(V=0) = 9/36\\), \\(P(V=1) = 9/36\\) and \\(P(V=2) = 18/36\\).\nThen find \\(E(V) = 0(9/36) + 1(9/36) + 2(18/36) = 1.25\\)\n\\(Var(V) = E(V^2) - E(V)^2 = 0.6875\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/05-ev-sd/practice.html#games-of-chance",
+    "href": "3-probability/05-ev-sd/practice.html#games-of-chance",
+    "title": "Practice: Expected Value and Variance",
+    "section": "9) Games of Chance",
+    "text": "9) Games of Chance\nConsider the following games:\nGame A: Consider the box [1  1  1  0  0  0]; 50 draws will be made at random with replacement from this box. On each draw, you will be paid the amount shown on the ticket, in dollars.\nGame B: A die will be rolled 50 times. Each time it shows a three or a five, you win $1; on the other numbers, you win nothing.\n\nFind the expected gain in game A\nFind the expected gain in game B\n\nWhich game is better if you are betting on winning more money? Explain briefly.\n\n\n\n\n\n\nShow answers\n\n\n\n\n\nGame A\nLet \\(X\\) be the number in a single draw. \\(EV(X) = (0)(3/6) + (1)(3/6) = 1/2\\)\nLet \\(S_X\\) be the sum of the numbers in 50 draws. Notice that \\(S = 50X\\). Thus, \\(EV(S_X) = 50 E(X) = 50 (1/2) = 25\\)\n\n\nGame B\nLet \\(Y\\) be the dollar amount you win in game B\n\\[\nP(Y = y) = \\begin{cases}\n4/6, & \\text{for } y = 0 \\\\\n2/6, & \\text{for } y = 1 \\\\\n\\end{cases}\n\\]\n\\(E(Y) = (0)(4/6) + (1)(2/6) = 2/6 = 1/3\\)\nLet \\(Sy\\) be the total gain in 50 draws of game B, thus \\(EV(S_Y) = 50 E(Y) = 50 (1/3) \\approx 16.66\\)\n\n\nIn summary, game A is better. In game A there are 50 draws, on each draw you have a probability of 3/6 of winning $1. In contrast, in game B there are 50 rolls, on each roll you have a probability of 2/6 of winning.",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html",
+    "href": "3-probability/04-random-variables/practice.html",
+    "title": "Practice: Random Variables",
     "section": "",
-    "text": "−+\n01:00\n\n\n\nRoll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise.\n\nWhat is the cdf \\(F(x)\\)?\n\n\nThe chance that \\(X = 1\\) can be broken up into six mutually exclusive situations, that the dice both show one spot, or both show two spots, etc. Each of these has probability \\(1/36\\) so the total probability by the addition rule is \\(6/36 = 1/6\\)"
+    "text": "Choose a STAT 20 student at random. Decide whether each of the following is a discrete or continuous random variable:\n\nThe number of courses the student takes this semester:\nThe student’s weight:\nThe student’s commute time (in minutes) to campus:\nThe number of pets the student has:\nThe (exact) time the student sleeps during a week:\nThe number of caffeinated beverages that the student drinks in a typical week:\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nDiscrete\nContinuous\nContinuous\nDiscrete\nContinuous\nDiscrete",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Random Variables"
+    ]
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-3",
-    "href": "3-probability/04-random-variables/slides.html#section-3",
-    "title": "Random Variables",
+    "objectID": "3-probability/04-random-variables/practice.html#type-of-random-variable",
+    "href": "3-probability/04-random-variables/practice.html#type-of-random-variable",
+    "title": "Practice: Random Variables",
     "section": "",
-    "text": "−+\n01:30\n\n\n\nThe graph of the cdf of a random variable \\(X\\) is shown below. What is \\(F(2)\\)? What about \\(f(2)\\)?\n\n\n\\(F(2) = 2/3, f(2) = 0\\)"
+    "text": "Choose a STAT 20 student at random. Decide whether each of the following is a discrete or continuous random variable:\n\nThe number of courses the student takes this semester:\nThe student’s weight:\nThe student’s commute time (in minutes) to campus:\nThe number of pets the student has:\nThe (exact) time the student sleeps during a week:\nThe number of caffeinated beverages that the student drinks in a typical week:\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nDiscrete\nContinuous\nContinuous\nDiscrete\nContinuous\nDiscrete",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Random Variables"
+    ]
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-4",
-    "href": "3-probability/04-random-variables/slides.html#section-4",
-    "title": "Random Variables",
+    "objectID": "3-probability/04-random-variables/practice.html#tossing-a-fair-coin",
+    "href": "3-probability/04-random-variables/practice.html#tossing-a-fair-coin",
+    "title": "Practice: Random Variables",
+    "section": "2) Tossing a fair coin",
+    "text": "2) Tossing a fair coin\nLet \\(X\\) be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of \\(X\\), that is: \\(P(X = k)\\)\n\nWhat values will \\(k\\) take?\nUse dbinom() to find the probability distribution of \\(X\\). In other words, obtain the values of \\(P(X = k)\\) for all values of \\(k\\).\nSketch a graph of the probability histogram of \\(X\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(x)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(k = 0, 1, 2, 3, 4, 5\\)\ndbinom(x = 0:5, size = 5, prob = 0.5)\nGraph of the probability histogram.\n\n\n\n\n\n\nProbability Histogram\n\n\n\n\n\nSketch a graph of the CDF.\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#tossing-a-biased-coin",
+    "href": "3-probability/04-random-variables/practice.html#tossing-a-biased-coin",
+    "title": "Practice: Random Variables",
+    "section": "3) Tossing a biased Coin",
+    "text": "3) Tossing a biased Coin\nLet \\(Y\\) be the number of heads in four tosses of a biased coin where the chance of heads is 3/5.\n\nUse dbinom() to find the probability distribution of \\(Y\\). In other words, write down the values of \\(P(Y = k)\\) for all values of \\(k\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(y)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndbinom(x = 0:4, size = 4, prob = 3/5)\nCDF\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#deck-of-cards",
+    "href": "3-probability/04-random-variables/practice.html#deck-of-cards",
+    "title": "Practice: Random Variables",
+    "section": "4) Deck of cards",
+    "text": "4) Deck of cards\nConsider a deck of 52 cards. Suppose we are interested in the number of hearts dealt in a hand of five. Call this number \\(Z\\).\n\nWhich of the following is the correct distribution of \\(Z\\)?\n\nBernoulli\n\nBinomial\n\nHypergeometric\nPoisson\n\nBased on your answer for part a), find the probability distribution of \\(P(Z=k)\\). Do this with the corresponding R function for the chosen distribution.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\noption iii) Hypergeometric\ndhyper(x = 0:5, m = 13, n = 39, k = 5)\nCDF\n\n\n\n\n\n\nCDF",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice",
+    "href": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice",
+    "title": "Practice: Random Variables",
+    "section": "5) Rolling a pair of dice",
+    "text": "5) Rolling a pair of dice\nConsider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let \\(W\\) be a random variable that takes the following values:\n\n\\(W = -1\\) if the number in the blue die is less than the number in the red die.\n\\(W = 0\\) if the number in the blue die is equal to the number in the red die.\n\\(W = 1\\) if the number in the blue die is greater than the number in the red die.\n\nFor example, if the blue die lands 3 and the red lands 5, then \\(W\\) = -1. If both dice land 2, then \\(W\\) = 0. If the blue die lands 4 and the red lands 1, then \\(W\\) = 1.\nBelow is a sketch of the cumulative distribution function (cdf) \\(F(w)\\).\n\n\n\n\n\nBased on \\(F(w)\\), find the probabilities:\n\n\\(P(W = -1)\\)\n\\(P(W = 0)\\)\n\\(P(W = 0.5)\\)\n\\(P(W = 1)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(W = -1) = 15/36\\)\n\\(P(W = 0) = 21/36 - 15/36 = 6/36\\)\n\\(P(W = 0.5) = 0\\)\n\\(P(W = 1) = 1 - 21/36 = 15/36\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice-contd",
+    "href": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice-contd",
+    "title": "Practice: Random Variables",
+    "section": "6) Rolling a pair of dice (cont’d)",
+    "text": "6) Rolling a pair of dice (cont’d)\nRefer to the colored dice of the previous problem. Let \\(V\\) be a random variable that takes the following values:\n\n\\(V = 0\\) if both dice land on even numbers.\n\\(V = 1\\) if both dice land on odd numbers.\n\\(V = 2\\) if one die is even, and the other is odd (regardless of color).\n\n\nFind \\(P(V = 0)\\)\nFind \\(P(V = 1)\\)\nFind \\(P(V = 2)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(V = 0) = 9/36\\)\n\\(P(V = 1) = 9/36\\)\n\\(P(V = 2) = 18/36\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Random Variables"
+    ]
+  },
+  {
+    "objectID": "3-probability/03-probability-dsns/practice.html",
+    "href": "3-probability/03-probability-dsns/practice.html",
+    "title": "Practice: Probability Distributions",
     "section": "",
-    "text": "−+\n02:00\n\n\n\nYou have \\(10\\) people with a cold and you have a remedy with a \\(20\\%\\) chance of success. What is the chance that your remedy will cure at least one sufferer?\n\nWhat is the chance that at least one person is cured?\n\n\n\\(P(X \\ge 1) = 1 - P(X &lt; 1) = 1 - P(X = 0) = 1 - (1-p)^{10}\\), where \\(p = 0.2\\), because \\(X \\sim Bin(10, p)\\). \\(1-p = 0.8 \\: \\& \\: 1-0.8^{10} = 0.8926\\)"
+    "text": "A fair coin is tossed independently 5 times. P(heads) = P(tails) = 0.5. Use the binomial probability to find the:\n\nprobability of all heads\nprobability of no heads\nprobability of at least one heads\nprobability of more heads than tails\nprobability of less than three heads\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(X = 5) = \\binom{5}{5} (0.5)^5 (1 - 0.5)^0\\) = 0.03125\n\\(P(X = 0) = \\binom{5}{0} (0.5)^0 (1 - 0.5)^5\\) = 0.03125\n\\(P(X \\geq 1) = 1 - P(X = 0)\\) = 0.96875\n\\(P(X \\geq 3)\\) = 0.5\n\\(P(X &lt; 3)\\) = 0.5",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
-    "objectID": "3-probability/04-random-variables/slides.html#section-5",
-    "href": "3-probability/04-random-variables/slides.html#section-5",
-    "title": "Random Variables",
+    "objectID": "3-probability/03-probability-dsns/practice.html#tossing-a-coin-4-times",
+    "href": "3-probability/03-probability-dsns/practice.html#tossing-a-coin-4-times",
+    "title": "Practice: Probability Distributions",
     "section": "",
-    "text": "−+\n01:30\n\n\n\nThere are 4 histograms of different Poisson distributions below. Match each distribution to its parameter \\(\\lambda\\). Recall that \\(\\lambda\\) is how many occurrences we think will happen in a given period of time.\n\\[\n(1)\\: \\lambda = 0.5 \\hspace{2cm} (2)\\: \\lambda = 1 \\hspace{2cm} (3) \\: \\lambda = 2 \\hspace{2cm} (4) \\: \\lambda = 4\\hspace{2cm}\n\\]\n\n\nexplain the smaller the rate, the lower the probability of higher values. A-4, B-1, C-3, D-2"
+    "text": "A fair coin is tossed independently 5 times. P(heads) = P(tails) = 0.5. Use the binomial probability to find the:\n\nprobability of all heads\nprobability of no heads\nprobability of at least one heads\nprobability of more heads than tails\nprobability of less than three heads\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(X = 5) = \\binom{5}{5} (0.5)^5 (1 - 0.5)^0\\) = 0.03125\n\\(P(X = 0) = \\binom{5}{0} (0.5)^0 (1 - 0.5)^5\\) = 0.03125\n\\(P(X \\geq 1) = 1 - P(X = 0)\\) = 0.96875\n\\(P(X \\geq 3)\\) = 0.5\n\\(P(X &lt; 3)\\) = 0.5",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#agenda",
-    "href": "3-probability/03-probability-dsns/slides.html#agenda",
-    "title": "Probability Distributions",
-    "section": "Agenda",
-    "text": "Agenda\n\nAnnouncements\nProbability refresher (last week)\nBreak\nConcept questions: Probability Distributions\nPS 8: Probability Distributions"
+    "objectID": "3-probability/03-probability-dsns/practice.html#batch-of-smartphones",
+    "href": "3-probability/03-probability-dsns/practice.html#batch-of-smartphones",
+    "title": "Practice: Probability Distributions",
+    "section": "2) Batch of smartphones",
+    "text": "2) Batch of smartphones\nSuppose that a batch of smartphones contains 15% of defective pieces. Consider a random sample of 5 smartphones are taken from the batch. Let \\(X\\) be a binomial random variable representing the number of defective pieces.\n\nFind \\(P(X = 0)\\)\nFind \\(P(X = 1)\\)\nFind \\(P(X = 5)\\)\nIf a quality inspection will reject the batch of tablets if two or more defective pieces are found, what is the probability that the batch will be rejected?\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(X = 0) = \\binom{5}{0} (0.15)^{0} (1 - 0.15)^{5}\\) = 0.4437\n\\(P(X = 1) = \\binom{5}{1} (0.15)^{1} (1 - 0.15)^{4}\\) = 0.3915\n\\(P(X = 5) = \\binom{5}{5} (0.15)^{5} (1 - 0.15)^{0}\\) = 0.0001\n\\(P(k \\geq 2) = 1 - P(x &lt; 2)\\) = 0.1649",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#announcements",
-    "href": "3-probability/03-probability-dsns/slides.html#announcements",
-    "title": "Probability Distributions",
-    "section": "Announcements",
-    "text": "Announcements\n\nNo lab today\n\n\n\nProblem Set 8 (paper max. 3) due next Tuesday at 9am\n\n\n\n\nRQ: Random Variables due Wednesday 11:59pm\n\n\nYou may need to review the concepts as I said in slack, depending on how they do in the pe refresher"
+    "objectID": "3-probability/03-probability-dsns/practice.html#guessing-the-distribution",
+    "href": "3-probability/03-probability-dsns/practice.html#guessing-the-distribution",
+    "title": "Practice: Probability Distributions",
+    "section": "3) Guessing the distribution",
+    "text": "3) Guessing the distribution\nIn a group of 20 college students, four are athletes. You select three of the 20 students at random (first, second, and third) and ask their major. The distribution of the number of athletes you choose is:\n\nbinomial with n = 20 and p = 0.2.\nbinomial with n = 3 and p = 0.2.\nNot binomial.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\nPart (c). The selections are not independent; once we choose one student, it changes the probability that the next student is an athlete.",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section",
-    "href": "3-probability/03-probability-dsns/slides.html#section",
-    "title": "Probability Distributions",
-    "section": "",
-    "text": "−+\n02:00\n\n\n\nConsider the box of tickets shown below.\n\n\n\n\n\nThe plots below show:\n\nThe probability histogram for the value of a ticket drawn at random from the box\nAn empirical histogram for which the data were generated by drawing 10 tickets from the box with replacement\nAn empirical histogram for which the data were generated by drawing 100 tickets from the box with replacement\nAn empirical histogram generated by 20 draws from a different box.\n\n\n\n\n\n\n\n\n\n\n\nIdentify which is which by matching the letters to the numbers.\n\n\nSince you have to scroll, maybe draw the box on the board. Scroll to see graphs\n\nB-1 the prob dsn of tickets\nD-2 emp dsn of 10 draws\nC-3 emp dsn of 100 draws\nA-4 emp dsn from different box"
+    "objectID": "3-probability/03-probability-dsns/practice.html#selecting-students-in-a-class-of-30",
+    "href": "3-probability/03-probability-dsns/practice.html#selecting-students-in-a-class-of-30",
+    "title": "Practice: Probability Distributions",
+    "section": "4) Selecting students in a class of 30",
+    "text": "4) Selecting students in a class of 30\nIn a class of 30, there are 18 male students and 12 female students. 10 students have \\(A\\)’s, 10 have \\(B\\)’s, and 10 have \\(C\\)’s. A student’s grade and sex are independent.\n\nIf you randomly select one student, what is the chance of selecting a female with grade \\(B\\)?\nIf you randomly select one student, what is the chance of selecting a female student or a grade \\(B\\) student?\nChoose 10 students at random from the class without replacement. What is the probability that they all have \\(B\\)’s?\nChoose 10 students at random from the class, with replacement. What is the probability that 5 are male and 5 are female?\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nP(Female and B-grade) = \\((12/30) \\times (10/30) = 4/30 \\approx 0.1333\\)\nP(Female or B-grade) = \\((12/30) + (10/30) - (4/30) = 18/30 = 0.6\\)\n\\((10/30) \\times (9/29) \\times \\dots \\times (1/21)\\).\nThis can also be solved using hypergeometric distribution with parameters \\(N = 30\\), \\(G = 10\\), \\(n = 10\\). Using R: dhyper(x = 10, m = 10, n = 20, k = 10)\n\\(\\binom{10}{5} (18/30)^5 (12/30)^5 \\approx 0.20\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-1",
-    "href": "3-probability/03-probability-dsns/slides.html#section-1",
-    "title": "Probability Distributions",
-    "section": "",
-    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nRoll a fair ten-sided die 20 times. We count the number of times we roll a multiple of 3.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial(20, 3/10). The pollev will have 4 choices, and then figuring out the parameters can be a classroom discussion. The fourth choice is “Need more info”"
+    "objectID": "3-probability/03-probability-dsns/practice.html#deck-of-100-cards",
+    "href": "3-probability/03-probability-dsns/practice.html#deck-of-100-cards",
+    "title": "Practice: Probability Distributions",
+    "section": "5) Deck of 100 cards",
+    "text": "5) Deck of 100 cards\nConsider a deck of 100 cards, consisting of four suits: 25 cards are Gryffindor, 25 are Ravenclaw, 25 are Hufflepuff, and 25 are Slytherin. Suppose we are interested in the number of Ravenclaw cards dealt in a hand of seven. Call this number \\(Z\\).\n\nWhat is the distribution of \\(Z\\)?\n\nBernoulli\nBinomial\nHypergeometric\nPoisson\nOther\n\nBased on your answer for part a), find the probabilities \\(P(Z=z)\\) for all valid values of \\(z\\).\nFind the values of \\(F(z) = P(Z \\leq z)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nOption (iii), with parameters: \\(N = 100\\), \\(G = 25\\), \\(n = 7\\)\nUsing R, we can get all the probability values of \\(f(z)\\) with:\ndhyper(x = 0:7, m = 25, n = 75, k = 7)\nUsing R, we can get all the cumulative probabilities \\(F(z)\\) with:\nphyper(q = 0:7, m = 25, n = 75, k = 7)\n\n\n\n   Z            fz         Fz\n1  0  1.239933e-01  0.1239933\n2  1  3.144757e-01  0.4384690\n3  2  3.234607e-01  0.7619297\n4  3  1.746384e-01  0.9365681\n5  4  5.336174e-02  0.9899298\n6  5  9.210382e-03  0.9991402\n7  6  8.297641e-04  0.9999700\n8  7  3.002956e-05  1.0000000",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-2",
-    "href": "3-probability/03-probability-dsns/slides.html#section-2",
-    "title": "Probability Distributions",
-    "section": "",
-    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nYouGov surveyed 1,500 adult US citizens last December and counted the number of respondents who had read at least one book in 2023. The population of the US is about 335 million.\n\nBinomial, hypergeometric, or neither?\n\n\nHypergeometric(\\(N = 335\\) mill, \\(n = 1500\\), G), where G is not known, being the number of people who have read at least one book . Can remark that we could use the binomial to model this rather than HG, and that we will discuss sample surveys in this unit. Disturbingly, only 54% of respondents had read at least one book. Here is the link: https://today.yougov.com/entertainment/articles/48239-54-percent-of-americans-read-a-book-this-year"
+    "objectID": "3-probability/03-probability-dsns/practice.html#poisson-distribution",
+    "href": "3-probability/03-probability-dsns/practice.html#poisson-distribution",
+    "title": "Practice: Probability Distributions",
+    "section": "6) Poisson Distribution",
+    "text": "6) Poisson Distribution\nThe function dpois() gives you probabilities of a Poisson random variable. For example, let \\(X\\) be a Poisson variable with \\(\\lambda = 5\\). Recall that \\(X\\) takes non negative values \\(x = 0, 1, 2, 3, \\dots\\).\nHere’s some code in R to get the probability distribution, and graph its probability histogram\n\nx = 0:20  # x values, stop at 20, but in theory they go on\nprob = dpois(x, lambda = 5)\n\n# probability histogram\ndata.frame(x = factor(x), prob = prob) |&gt; \n  ggplot(aes(x = x, y = prob)) + \n  geom_col()\n\n\nWhat does the parameter \\(\\lambda\\) represent? (i.e. how do you make sense of it?)\nUse R to graph the probability histogram for various parameter values: \\(\\lambda\\) = 0.5, \\(\\lambda\\) = 2, \\(\\lambda\\) = 4.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFrom the STAT 20 notes: “\\(\\lambda\\) is called the rate of the distribution, and represents how many successes we expect in the given time unit.”\nExample with lambda = 4\n\n\nx = 0:20  # x values, stop at 20, but in theory they go on\nprob = dpois(x, lambda = 4)\n\n# probability histogram\ndata.frame(x = factor(x), prob = prob) |&gt; \n  ggplot(aes(x = x, y = prob)) + geom_col()",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-3",
-    "href": "3-probability/03-probability-dsns/slides.html#section-3",
-    "title": "Probability Distributions",
-    "section": "",
-    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\n\nA six-sided die is tossed twice, and we check if the sum of the spots is 8 or not.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial, with \\(n = 1, p = 5/36\\) or Bernoulli with \\(p = 5/36\\)."
-  },
-  {
-    "objectID": "3-probability/03-probability-dsns/slides.html#section-4",
-    "href": "3-probability/03-probability-dsns/slides.html#section-4",
-    "title": "Probability Distributions",
-    "section": "",
-    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\nA bag that has 6 pieces of fruit: 2 mangoes, 3 apples, and 1 orange. I reach into the bag and draw out one fruit at a time, selecting each fruit at random (so they are equally likely on each draw). I count the number of draws until and including the first time I draw a apple.\n\nBinomial, hypergeometric, or neither?\n\n\nNeither. It would be useful at this point to write out what is going on, and point out that they are using the multiplication rule and a conditional probability."
+    "objectID": "3-probability/03-probability-dsns/practice.html#binomial-distributions",
+    "href": "3-probability/03-probability-dsns/practice.html#binomial-distributions",
+    "title": "Practice: Probability Distributions",
+    "section": "7) Binomial Distributions",
+    "text": "7) Binomial Distributions\nThe following figure shows four binomial distributions with \\(n\\) = 6 trials. Match the given probability of success with the corresponding graph.\n\n\n\n\n\n\np = 0.30 goes with graph:\np = 0.50 goes with graph:\np = 0.65 goes with graph:\np = 0.90 goes with graph:\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nGraph 2\nGraph 1\nGraph 3\nGraph 4",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Probability Distributions"
+    ]
   },
   {
     "objectID": "3-probability/02-cond-prob-indep/practice.html",
@@ -784,6 +867,7 @@
     "text": "Consider a box containing 10 balls: 4 blue and 6 red, as displayed in the following figure. Assume you pick a 1st ball, then a 2nd ball (no replacement).\n\n\n\n\n\nFind the probability that:\n\nboth balls are blue.\nboth balls are red.\n1st is blue, 2nd is red.\n1st is red, 2nd is blue.\n2nd is blue, given 1st is red.\n2nd is blue, given 1st is blue.\n1st is blue, given 2nd is red.\nat least one of them is blue.\nboth are of the same color.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n(4/10)(3/9) = 12/90\n(6/10)(5/9) = 30/90\n(4/10)(6/9) = 24/90\n(6/10)(4/9) = 24/90\n4/9\n3/9\n4/9\n1 - P(no blues) = 1 - (6/10)(5/9) = 60/90\nP(2 blues) + P(2 reds) = (12/90) + (30/90) = 42/90",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Computing Probabilities"
     ]
   },
@@ -795,6 +879,7 @@
     "text": "Consider a box containing 10 balls: 4 blue and 6 red, as displayed in the following figure. Assume you pick a 1st ball, then a 2nd ball (no replacement).\n\n\n\n\n\nFind the probability that:\n\nboth balls are blue.\nboth balls are red.\n1st is blue, 2nd is red.\n1st is red, 2nd is blue.\n2nd is blue, given 1st is red.\n2nd is blue, given 1st is blue.\n1st is blue, given 2nd is red.\nat least one of them is blue.\nboth are of the same color.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n(4/10)(3/9) = 12/90\n(6/10)(5/9) = 30/90\n(4/10)(6/9) = 24/90\n(6/10)(4/9) = 24/90\n4/9\n3/9\n4/9\n1 - P(no blues) = 1 - (6/10)(5/9) = 60/90\nP(2 blues) + P(2 reds) = (12/90) + (30/90) = 42/90",
     "crumbs": [
       "Practice Problems",
+      "Probability",
       "Practice: Computing Probabilities"
     ]
   },
@@ -803,9 +888,82 @@
     "href": "3-probability/02-cond-prob-indep/practice.html#box-with-balls-and-r-code",
     "title": "Practice: Computing Probabilities",
     "section": "2) Box with balls and R code",
-    "text": "2) Box with balls and R code\nlibrary(tidyverse)\nRefer to the box of the preceding problem. The following code allows you to simulate drawing 2 balls from the box 100 times—via replicate(). In order to use tidyverse functions, we need to reshape the simulations output into a data.frame.\n\nset.seed(2024)\n\nbox = c(rep(\"red\", 6), rep(\"blue\", 4))\n\n# simulate drawing 2 balls, 100 times\nsimulations = replicate(\n  n = 100,\n  expr = sample(box, size = 2))\n\n# table output (as a data frame)\nrownames(simulations) = c(\"first\", \"second\")\nballs_df = data.frame(t(simulations))\n\nhead(balls_df)\n\n\nExamples\nSay we want to approximate probability of getting a first blue ball.\n\n# proportion: 1st ball is blue\nballs_df |&gt;\n  summarize(prop_1blue = mean(first == \"blue\"))\n\nWhat if we we want to approximate probability of getting the first ball blue, and the second ball red?\n\n# proportion: 1st is blue, 2nd is red\nballs_df |&gt;\n  summarize(prop_1blue_2red = mean(first == \"blue\" & second == \"red\"))\n\n\n\nYour Turn\nChange the value of set.seed() and increase the number of simulations to 1000. Write R pipelines to approximate the following probabilities. How do these approximations compare to the probabilities you calculated?\n\nApproximate the probability that both balls are blue.\n\n\n\nShow answer\nballs_df |&gt;\n  summarize(mean(first == \"blue\" & second == \"blue\"))\n\n\n\nApproximate the probability that 1st ball is red, 2nd ball is blue.\n\n\n\nShow answer\n# b) 1st is red, 2nd is blue\nballs_df |&gt;\n  summarize(mean(first == \"red\" & second == \"blue\"))\n\n\n\nApproximate the probability that both balls are red.\n\n\n\nShow answer\n# c) both are red\nballs_df |&gt;\n  summarize(mean(first == \"red\" & second == \"red\"))\n\n\n\nApproximate the probability 1st ball is blue or 2nd ball is blue.\n\n\n\nShow answer\n# d) 1st is blue OR 2nd is blue\nballs_df |&gt;\n  summarize(mean(first == \"blue\" | second == \"blue\"))\n\n\n\nApproximate the probability 2nd ball is blue, given 1st ball is red.\n\n\n\nShow answer\n# e) 2nd is blue, given that 1st is red\nballs_df |&gt;\n  filter(first == \"red\") |&gt;\n  summarize(mean(second == \"blue\"))\n\n\n\nApproximate the probability 2nd ball is blue, given 1st ball is blue.\n\n\n\nShow answer\n# f) 2nd is blue, given that 1st is blue\nballs_df |&gt;\n  filter(first == \"blue\") |&gt;\n  summarize(mean(second == \"blue\"))\n\n\n\nApproximate the probability 1st ball is blue, given 2nd ball is red.\n\n\n\nShow answer\n# g) 1st is blue, given that 2nd is red\nballs_df |&gt;\n  filter(second == \"red\") |&gt;\n  summarize(mean(first == \"blue\"))",
+    "text": "2) Box with balls and R code\nlibrary(tidyverse)\nRefer to the box of the preceding problem. The following code allows you to simulate drawing 2 balls from the box 100 times—via replicate(). In order to use tidyverse functions, we need to reshape the simulations output into a data.frame.\n\nset.seed(2024)\n\nbox = c(rep(\"red\", 6), rep(\"blue\", 4))\n\n# simulate drawing 2 balls, 100 times\nsimulations = replicate(\n  n = 100,\n  expr = sample(box, size = 2))\n\n# table output (as a data frame)\nrownames(simulations) = c(\"first\", \"second\")\nballs_df = data.frame(t(simulations))\n\nhead(balls_df)\n\n  first second\n1   red    red\n2   red   blue\n3  blue    red\n4   red   blue\n5  blue    red\n6   red    red\n\n\n\nExamples\nSay we want to approximate probability of getting a first blue ball.\n\n# proportion: 1st ball is blue\nballs_df |&gt;\n  summarize(prop_1blue = mean(first == \"blue\"))\n\n  prop_1blue\n1       0.44\n\n\nWhat if we we want to approximate probability of getting the first ball blue, and the second ball red?\n\n# proportion: 1st is blue, 2nd is red\nballs_df |&gt;\n  summarize(prop_1blue_2red = mean(first == \"blue\" & second == \"red\"))\n\n  prop_1blue_2red\n1             0.3\n\n\n\n\nYour Turn\nChange the value of set.seed() and increase the number of simulations to 1000. Write R pipelines to approximate the following probabilities. How do these approximations compare to the probabilities you calculated?\n\nApproximate the probability that both balls are blue.\n\n\n\nShow answer\nballs_df |&gt;\n  summarize(mean(first == \"blue\" & second == \"blue\"))\n\n\n\nApproximate the probability that 1st ball is red, 2nd ball is blue.\n\n\n\nShow answer\n# b) 1st is red, 2nd is blue\nballs_df |&gt;\n  summarize(mean(first == \"red\" & second == \"blue\"))\n\n\n\nApproximate the probability that both balls are red.\n\n\n\nShow answer\n# c) both are red\nballs_df |&gt;\n  summarize(mean(first == \"red\" & second == \"red\"))\n\n\n\nApproximate the probability 1st ball is blue or 2nd ball is blue.\n\n\n\nShow answer\n# d) 1st is blue OR 2nd is blue\nballs_df |&gt;\n  summarize(mean(first == \"blue\" | second == \"blue\"))\n\n\n\nApproximate the probability 2nd ball is blue, given 1st ball is red.\n\n\n\nShow answer\n# e) 2nd is blue, given that 1st is red\nballs_df |&gt;\n  filter(first == \"red\") |&gt;\n  summarize(mean(second == \"blue\"))\n\n\n\nApproximate the probability 2nd ball is blue, given 1st ball is blue.\n\n\n\nShow answer\n# f) 2nd is blue, given that 1st is blue\nballs_df |&gt;\n  filter(first == \"blue\") |&gt;\n  summarize(mean(second == \"blue\"))\n\n\n\nApproximate the probability 1st ball is blue, given 2nd ball is red.\n\n\n\nShow answer\n# g) 1st is blue, given that 2nd is red\nballs_df |&gt;\n  filter(second == \"red\") |&gt;\n  summarize(mean(first == \"blue\"))",
     "crumbs": [
       "Practice Problems",
+      "Probability",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#students-in-stat-101",
+    "href": "3-probability/02-cond-prob-indep/practice.html#students-in-stat-101",
+    "title": "Practice: Computing Probabilities",
+    "section": "3) Students in STAT 101",
+    "text": "3) Students in STAT 101\nSuppose that 35% of students in STAT 101 are from Southern California, 40% are from Northern California, and 25% are from outside California. What is the probability that a student selected at random:\n\nWill be from Southern CA?\nWill not be from Northern CA?\nWill be from Southern or Northern CA?\nWill be from Northern California, given that they are not from Southern CA?\nWill be from Northern California, given that they are not from outside CA?\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n0.35\n0.35 + 0.25 = 0.6\n0.35 + 0.40 = 0.75\n0.4 / 0.65\n0.4 / 0.75",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#tickets-from-a-box",
+    "href": "3-probability/02-cond-prob-indep/practice.html#tickets-from-a-box",
+    "title": "Practice: Computing Probabilities",
+    "section": "5) Tickets from a box",
+    "text": "5) Tickets from a box\nSuppose we draw 2 tickets at random without replacement from a box with tickets marked {1, 2, 3, . . . , 9}. Find the probability that:\n\nThe first ticket drawn is labeled with an even number.\nThe second ticket drawn is labeled with an even number.\nBoth tickets drawn are labeled with an even number.\nAt least one of the tickets drawn is labeled with an even number.\nThe first ticket drawn is labeled with a prime number (recall that 1 is not a prime).\nThe second ticket drawn is labeled with a prime number.\nBoth tickets drawn are labeled with a prime number.\nAt least one of the tickets drawn is labeled with a prime number.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n(32/72) = 4/9\n(32/72) = 4/9\n(4/9) (3/8) = 12/72\nP(at least one even) = 1 - P(none are even) = 1 - (5/9)(4/8) = 52/72\n(32/72) = 4/9\n(32/72) = 4/9\n(4/9) (3/8) = 12/72\nP(at least one prime) = 1 - P(none are prime) = 1 - (5/9)(4/8) = 52/72",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#matching-probabilities",
+    "href": "3-probability/02-cond-prob-indep/practice.html#matching-probabilities",
+    "title": "Practice: Computing Probabilities",
+    "section": "6) Matching Probabilities",
+    "text": "6) Matching Probabilities\nMatch the terms (a-f) with their definitions (i-vi)\nTerms\n\nP(A|B) = P(A and B) / P(B)\nP(A or B) = P(A) + P(B) - P(A and B)\nP(A|B) = P(A)\nP(A) = P(B)\nP(A and B) = P(B | A) P(A)\nP(A and B) = 0\n\nDefinitions\n\nequally likely\nmutually exclusive\nconditional probability\nmultiplication rule\nindependence\naddition rule\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\nwith (d)\n\n\nwith (f)\n\n\nwith (a)\n\n\nwith (e)\n\n\nwith (c)\n\n\nwith (b)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#roll-a-pair-of-dice",
+    "href": "3-probability/02-cond-prob-indep/practice.html#roll-a-pair-of-dice",
+    "title": "Practice: Computing Probabilities",
+    "section": "7) Roll a pair of dice",
+    "text": "7) Roll a pair of dice\nYou roll a red die and a blue die, both fair and independent. Find the probability that:\n\nThe red die and the blue die both roll 1’s.\nThe red die and the blue die both roll the same number.\nThe number on the red die is bigger than the one on the blue die.\nThe red die rolls a 3.\nAt least one die rolls a 3.\nExactly one die rolls a 3.\nThe smallest number on either die is 4.\nThe largest number on either die is 4.\nAt least one of the dice rolls a number greater than 4.\nExactly one of the dice rolls a number greater than 4.\nThe numbers on the dice sum to 7.\nThe numbers on the dice sum to 4.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n1/36\n1/6\n15/36\n1/6\n11/36\n10/36\n5/36\n7/36\n20/36\n16/36\n6/36\n3/36",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#students-club",
+    "href": "3-probability/02-cond-prob-indep/practice.html#students-club",
+    "title": "Practice: Computing Probabilities",
+    "section": "8) Students’ Club",
+    "text": "8) Students’ Club\nA students’ club has 90 members. Fifty are Statistics majors and fifty are Applied Math (A.M.) majors. There are some that are double majoring in Stats and A.M. What is the probability that a member selected at random:\n\nIs a double major?\nIs a Stats major but not an A.M. major?\nIs an A.M. major but not a Stats major?\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n10/90\n40/90\n40/90",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Computing Probabilities"
+    ]
+  },
+  {
+    "objectID": "3-probability/02-cond-prob-indep/practice.html#finding-probabilities",
+    "href": "3-probability/02-cond-prob-indep/practice.html#finding-probabilities",
+    "title": "Practice: Computing Probabilities",
+    "section": "9) Finding probabilities",
+    "text": "9) Finding probabilities\nSuppose that A and B are independent events with \\(P(A)\\) = 0.7, and \\(P(B^c)\\) = 0.4. Find the following probabilities:\n\n\\(P(A^c)\\)\n\\(P(B)\\)\n\\(P(B \\text{ and } A)\\)\n\\(P(A \\text{ or } B)\\)\n\\(P(A^c \\text{ and } B)\\)\n\\(P(B | A)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n0.3\n0.6\n0.42\n0.88\n0.18\n0.6",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
       "Practice: Computing Probabilities"
     ]
   },
@@ -1069,6 +1227,7 @@
     "text": "For each of the following parts indicate the type of variable according to the taxonomy of data.\n\nThe number of classes a student is taking\nA student’s year in college (Freshman, Sophomore, etc.)\nStudent’s favorite color\nThe area code of a student’s phone number\nThe amount of time it takes to finish a STAT 20 quiz\nThe temperature of a room in Fahrenheit degrees\nThe type of car you drive\nThe speed of a vehicle in miles per hour\nA car’s model year\nThe number of text messages you send per day\nThe brand of coffee you drink\nYour student ID number\nThe number of siblings a person has\nA person’s home zip code\nThe rating of a movie (1 to 5 stars)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndiscrete numerical\nordinal categorical\nnominal categorical\nnominal categorical\ncontinuous numerical\ncontinuous numerical\nnominal categorical\ncontinuous numerical\nordinal categorical\ndiscrete numerical\nnominal categorical\nnominal categorical\ndiscrete numerical\nnominal categorical\nusually discrete numerical, but one can also argue that it can be ordinal categorical (depending on the context, and application)",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Taxonomy of Data"
     ]
   },
@@ -1080,6 +1239,7 @@
     "text": "For each of the following parts indicate the type of variable according to the taxonomy of data.\n\nThe number of classes a student is taking\nA student’s year in college (Freshman, Sophomore, etc.)\nStudent’s favorite color\nThe area code of a student’s phone number\nThe amount of time it takes to finish a STAT 20 quiz\nThe temperature of a room in Fahrenheit degrees\nThe type of car you drive\nThe speed of a vehicle in miles per hour\nA car’s model year\nThe number of text messages you send per day\nThe brand of coffee you drink\nYour student ID number\nThe number of siblings a person has\nA person’s home zip code\nThe rating of a movie (1 to 5 stars)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndiscrete numerical\nordinal categorical\nnominal categorical\nnominal categorical\ncontinuous numerical\ncontinuous numerical\nnominal categorical\ncontinuous numerical\nordinal categorical\ndiscrete numerical\nnominal categorical\nnominal categorical\ndiscrete numerical\nnominal categorical\nusually discrete numerical, but one can also argue that it can be ordinal categorical (depending on the context, and application)",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Taxonomy of Data"
     ]
   },
@@ -1091,6 +1251,7 @@
     "text": "2) Terrestrial Planets\nConsider the following table containing data from so-called Terrestrial planets.\n\n\n\nname\ngravity\ntemp\nmoons_num\nmoons_fac\nhaswater\n\n\n\n\nMercury\n3.7\n167\n0\nnone\nno\n\n\nVenus\n8.9\n464\n0\nnone\nno\n\n\nEarth\n9.8\n15\n1\none\nyes\n\n\nMars\n3.7\n-65\n2\ntwo\nno\n\n\n\n\nname: name of planet\ngravity: gravity (\\(m/s^2\\))\ntemp: mean temperature in Celsius\nmoons_num: number of moons (numeric)\nmoons_fac: number of moons (factor)\nhaswater: whether it has known bodies of liquid water on its surface\n\n\n2.1) Creating Vectors and Factors\nGo to stat20.datahub and open a new Quarto document (.qmd file).\nRefer to the data table of terrestrial planets. Insert new code chunks to create the following vectors.\n\nCreate a vector name and display it (i.e. type its name)\n\n\n\nShow answer\nname &lt;- c(\"Mercury\", \"Venus\", \"Earth\", \"Mars\")\nname\n\n\n\nCreate a vector gravity\n\n\n\nShow answer\ngravity &lt;- c(3.7, 8.9, 9.8, 3.7)\ngravity\n\n\n\nCreate a vector temp\n\n\n\nShow answer\ntemp &lt;- c(167, 464, 15, -65)\ntemp\n\n\n\nCreate a vector moons_num\n\n\n\nShow answer\nmoons_num &lt;- c(0, 0, 1, 2)\nmoons_num\n\n\n\nCreate a factor moons_fac\n\n\n\nShow answer\nmoons_fac &lt;- factor(c(\"none\", \"none\", \"one\", \"two\"))\nmoons_fac\n\n\n\nCreate a factor haswater\n\n\n\nShow answer\nhaswater &lt;- factor(c(\"no\", \"no\", \"yes\", \"no\"))\nhaswater\n\n\n\n\n2.2) Some basic computations\nAnswer each of the following parts in their own code chunks.\n\nUse the length() function to find the number of elements in vector name.\n\n\n\nShow answer\nlength(name)\n\n\n\nUse the sqrt() function to calculate the square root of gravity values.\n\n\n\nShow answer\nsqrt(gravity)\n\n\n\nUse the mean() function to compute the mean number of moons.\n\n\n\nShow answer\nmean(moons_num)\n\n\n\nUse the comparison operator &gt; to see which temperature values in temp are greater than 100\n\n\n\nShow answer\ntemp &gt; 100\n\n\n\nUse the following formula to compute x\n\n\\[\n\\texttt{x} = \\frac{\\texttt{temp}^2 + \\log(\\texttt{gravity})}{\\texttt{moons\\_num} + 10}\n\\]\n\n\nShow answer\nx = (temp^2 + log(gravity)) / (moons_num + 10)\nx\n\n\n\n\n\n\n2.3) Data Frame planets\nIn a new code chunk, use the data.frame() function to create a planets data frame containing all the vectors and factors created in part 2.1. And then type (print) planets in order to see its contents.\n\n\nShow answer\nplanets = data.frame(name, gravity, temp, moons_num, moons_fac, haswater)\nplanets",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Taxonomy of Data"
     ]
   },
@@ -1120,7 +1281,7 @@
     "href": "index.html",
     "title": "Gaston Sanchez’s instructional materials for STAT 20",
     "section": "",
-    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz\n\nQuiz",
+    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz Slides\n\nQuiz",
     "crumbs": [
       "Home"
     ]
@@ -1325,70 +1486,228 @@
     "text": "Concept Question 3b\n\n\n\n−+\n02:00\n\n\n\n\nSuppose we assume, instead, that the probability that the Dodgers would have beaten the Yankees in any single game was 50%, independently of all the other games.\nIn this case, was the probability that the series would have gone to 6 games higher than the probability that the series would have gone to 7 games, given that 5 games were played?\n\n\nif 5 games are played it means one of the teams is leading 3-2. Therefore there are two scenarios: the team that is ahead wins game 6 and the series, or the team that is behind wins game 6 and they go to 7 games. Both are equally likely."
   },
   {
-    "objectID": "3-probability/04-random-variables/practice.html",
-    "href": "3-probability/04-random-variables/practice.html",
-    "title": "Practice: Random Variables",
+    "objectID": "3-probability/03-probability-dsns/slides.html#agenda",
+    "href": "3-probability/03-probability-dsns/slides.html#agenda",
+    "title": "Probability Distributions",
+    "section": "Agenda",
+    "text": "Agenda\n\nAnnouncements\nProbability refresher (last week)\nBreak\nConcept questions: Probability Distributions\nPS 8: Probability Distributions"
+  },
+  {
+    "objectID": "3-probability/03-probability-dsns/slides.html#announcements",
+    "href": "3-probability/03-probability-dsns/slides.html#announcements",
+    "title": "Probability Distributions",
+    "section": "Announcements",
+    "text": "Announcements\n\nNo lab today\n\n\n\nProblem Set 8 (paper max. 3) due next Tuesday at 9am\n\n\n\n\nRQ: Random Variables due Wednesday 11:59pm\n\n\nYou may need to review the concepts as I said in slack, depending on how they do in the pe refresher"
+  },
+  {
+    "objectID": "3-probability/03-probability-dsns/slides.html#section",
+    "href": "3-probability/03-probability-dsns/slides.html#section",
+    "title": "Probability Distributions",
     "section": "",
-    "text": "Let \\(X\\) be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of \\(X\\), that is: \\(P(X = k)\\)\n\nWhat values will \\(k\\) take?\nUse dbinom() to find the probability distribution of \\(X\\). In other words, obtain the values of \\(P(X = k)\\) for all values of \\(k\\).\nSketch a graph of the probability histogram of \\(X\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(x)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(k = 0, 1, 2, 3, 4, 5\\)\ndbinom(x = 0:5, size = 5, prob = 0.5)\nGraph of the probability histogram.\n\n\n\n\n\n\nProbability Histogram\n\n\n\n\n\nSketch a graph of the CDF.\n\n\n\n\n\n\nCDF",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Random Variables"
-    ]
+    "text": "−+\n02:00\n\n\n\nConsider the box of tickets shown below.\n\n\n\n\n\nThe plots below show:\n\nThe probability histogram for the value of a ticket drawn at random from the box\nAn empirical histogram for which the data were generated by drawing 10 tickets from the box with replacement\nAn empirical histogram for which the data were generated by drawing 100 tickets from the box with replacement\nAn empirical histogram generated by 20 draws from a different box.\n\n\n\n\n\n\n\n\n\n\n\nIdentify which is which by matching the letters to the numbers.\n\n\nSince you have to scroll, maybe draw the box on the board. Scroll to see graphs\n\nB-1 the prob dsn of tickets\nD-2 emp dsn of 10 draws\nC-3 emp dsn of 100 draws\nA-4 emp dsn from different box"
   },
   {
-    "objectID": "3-probability/04-random-variables/practice.html#tossing-a-fair-coin",
-    "href": "3-probability/04-random-variables/practice.html#tossing-a-fair-coin",
-    "title": "Practice: Random Variables",
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-1",
+    "href": "3-probability/03-probability-dsns/slides.html#section-1",
+    "title": "Probability Distributions",
     "section": "",
-    "text": "Let \\(X\\) be the number of heads in five tosses of a fair coin. We are interested in finding the probability distribution of \\(X\\), that is: \\(P(X = k)\\)\n\nWhat values will \\(k\\) take?\nUse dbinom() to find the probability distribution of \\(X\\). In other words, obtain the values of \\(P(X = k)\\) for all values of \\(k\\).\nSketch a graph of the probability histogram of \\(X\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(x)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(k = 0, 1, 2, 3, 4, 5\\)\ndbinom(x = 0:5, size = 5, prob = 0.5)\nGraph of the probability histogram.\n\n\n\n\n\n\nProbability Histogram\n\n\n\n\n\nSketch a graph of the CDF.\n\n\n\n\n\n\nCDF",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Random Variables"
-    ]
+    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nRoll a fair ten-sided die 20 times. We count the number of times we roll a multiple of 3.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial(20, 3/10). The pollev will have 4 choices, and then figuring out the parameters can be a classroom discussion. The fourth choice is “Need more info”"
   },
   {
-    "objectID": "3-probability/04-random-variables/practice.html#tossing-a-biased-coin",
-    "href": "3-probability/04-random-variables/practice.html#tossing-a-biased-coin",
-    "title": "Practice: Random Variables",
-    "section": "2) Tossing a biased Coin",
-    "text": "2) Tossing a biased Coin\nLet \\(Y\\) be the number of heads in four tosses of a biased coin where the chance of heads is 3/5.\n\nUse dbinom() to find the probability distribution of \\(Y\\). In other words, write down the values of \\(P(Y = k)\\) for all values of \\(k\\).\nSketch a graph of the cumulative distribution function (cdf) \\(F(y)\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\ndbinom(x = 0:4, size = 4, prob = 3/5)\nCDF\n\n\n\n\n\n\nCDF",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Random Variables"
-    ]
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-2",
+    "href": "3-probability/03-probability-dsns/slides.html#section-2",
+    "title": "Probability Distributions",
+    "section": "",
+    "text": "−+\n01:00\n\n\n\nDoes the quantity described below have a probability distribution that is binomial (if so, what are \\(n\\) and \\(p\\)?), hypergeometric (if so , what are \\(N\\), \\(G\\), and \\(n\\)?), or neither (why)?\n\n\nYouGov surveyed 1,500 adult US citizens last December and counted the number of respondents who had read at least one book in 2023. The population of the US is about 335 million.\n\nBinomial, hypergeometric, or neither?\n\n\nHypergeometric(\\(N = 335\\) mill, \\(n = 1500\\), G), where G is not known, being the number of people who have read at least one book . Can remark that we could use the binomial to model this rather than HG, and that we will discuss sample surveys in this unit. Disturbingly, only 54% of respondents had read at least one book. Here is the link: https://today.yougov.com/entertainment/articles/48239-54-percent-of-americans-read-a-book-this-year"
   },
   {
-    "objectID": "3-probability/04-random-variables/practice.html#deck-of-cards",
-    "href": "3-probability/04-random-variables/practice.html#deck-of-cards",
-    "title": "Practice: Random Variables",
-    "section": "3) Deck of cards",
-    "text": "3) Deck of cards\nConsider a deck of 52 cards. Suppose we are interested in the number of hearts dealt in a hand of five. Call this number \\(Z\\).\n\nWhich of the following is the correct distribution of \\(Z\\)?\n\nBernoulli\n\nBinomial\n\nHypergeometric\nPoisson\n\nBased on your answer for part a), find the probability distribution of \\(P(Z=k)\\). Do this with the corresponding R function for the chosen distribution.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\noption iii) Hypergeometric\ndhyper(x = 0:5, m = 13, n = 39, k = 5)\nCDF\n\n\n\n\n\n\nCDF",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Random Variables"
-    ]
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-3",
+    "href": "3-probability/03-probability-dsns/slides.html#section-3",
+    "title": "Probability Distributions",
+    "section": "",
+    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\n\nA six-sided die is tossed twice, and we check if the sum of the spots is 8 or not.\n\n\n\nBinomial, hypergeometric, or neither?\n\n\nBinomial, with \\(n = 1, p = 5/36\\) or Bernoulli with \\(p = 5/36\\)."
   },
   {
-    "objectID": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice",
-    "href": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice",
-    "title": "Practice: Random Variables",
-    "section": "4) Rolling a pair of dice",
-    "text": "4) Rolling a pair of dice\nConsider two colored 6-sided dice: one of them is a blue die, and the other is a red die. You roll the dice, and look at the numbers on their top faces. Let \\(W\\) be a random variable that takes the following values:\n\n\\(W = -1\\) if the number in the blue die is less than the number in the red die.\n\\(W = 0\\) if the number in the blue die is equal to the number in the red die.\n\\(W = 1\\) if the number in the blue die is greater than the number in the red die.\n\nFor example, if the blue die lands 3 and the red lands 5, then \\(W\\) = -1. If both dice land 2, then \\(W\\) = 0. If the blue die lands 4 and the red lands 1, then \\(W\\) = 1.\nBelow is a sketch of the cumulative distribution function (cdf) \\(F(w)\\).\n\n\n\n\n\nBased on \\(F(w)\\), find the probabilities:\n\n\\(P(W = -1)\\)\n\\(P(W = 0)\\)\n\\(P(W = 0.5)\\)\n\\(P(W = 1)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(W = -1) = 15/36\\)\n\\(P(W = 0) = 21/36 - 15/36 = 6/36\\)\n\\(P(W = 0.5) = 0\\)\n\\(P(W = 1) = 1 - 21/36 = 15/36\\)",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Random Variables"
-    ]
+    "objectID": "3-probability/03-probability-dsns/slides.html#section-4",
+    "href": "3-probability/03-probability-dsns/slides.html#section-4",
+    "title": "Probability Distributions",
+    "section": "",
+    "text": "−+\n01:00\n\n\n\nAre we describing a probability distribution below that is binomial? Or is it hypergeometric? Or do neither apply?\n\nA bag that has 6 pieces of fruit: 2 mangoes, 3 apples, and 1 orange. I reach into the bag and draw out one fruit at a time, selecting each fruit at random (so they are equally likely on each draw). I count the number of draws until and including the first time I draw a apple.\n\nBinomial, hypergeometric, or neither?\n\n\nNeither. It would be useful at this point to write out what is going on, and point out that they are using the multiplication rule and a conditional probability."
   },
   {
-    "objectID": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice-contd",
-    "href": "3-probability/04-random-variables/practice.html#rolling-a-pair-of-dice-contd",
-    "title": "Practice: Random Variables",
-    "section": "5) Rolling a pair of dice (cont’d)",
-    "text": "5) Rolling a pair of dice (cont’d)\nRefer to the colored dice of the previous problem. Let \\(V\\) be a random variable that takes the following values:\n\n\\(V = 0\\) if both dice land on even numbers.\n\\(V = 1\\) if both dice land on odd numbers.\n\\(V = 2\\) if one die is even, and the other is odd (regardless of color).\n\n\nFind \\(P(V = 0)\\)\nFind \\(P(V = 1)\\)\nFind \\(P(V = 2)\\)\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\n\\(P(V = 0) = 9/36\\)\n\\(P(V = 1) = 9/36\\)\n\\(P(V = 2) = 18/36\\)",
-    "crumbs": [
-      "Practice Problems",
-      "Practice: Random Variables"
-    ]
+    "objectID": "3-probability/04-random-variables/slides.html#agenda",
+    "href": "3-probability/04-random-variables/slides.html#agenda",
+    "title": "Random Variables",
+    "section": "Agenda",
+    "text": "Agenda\n\nQuiz-3 reminder\nWSP-5 reminder\nBrief lecture on random variables\nWS: Random Variables"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
+    "href": "3-probability/04-random-variables/slides.html#announcements-quiz-3",
+    "title": "Random Variables",
+    "section": "Announcements: Quiz 3",
+    "text": "Announcements: Quiz 3\n\nQuiz-3 next Monday, Oct 13th in class.\n\nSection 1, 8am in Barker 101\nSection 8, 10am in SOCS 60\n\n\n\nTopics:\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
+    "href": "3-probability/04-random-variables/slides.html#announcements-wsp-5-oct-14th",
+    "title": "Random Variables",
+    "section": "Announcements: WSP 5, Oct-14th",
+    "text": "Announcements: WSP 5, Oct-14th\n\nWS Computing probs\nWS Prob distributions\nWS Random variables\nWS EV and Variance"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-1",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-1",
+    "title": "Random Variables",
+    "section": "Random Variables 1",
+    "text": "Random Variables 1\nLet \\(X\\) be the number of heads in three tosses of a fair coin. What is the distribution of \\(X\\)? That is, what is \\(f(x) = P(X = x)\\)? What values will \\(x\\) take?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-2",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-2",
+    "title": "Random Variables",
+    "section": "Random Variables 2",
+    "text": "Random Variables 2\nWhat about if \\(X\\) is the number of heads in 3 tosses of a biased coin, where the chance of heads is \\(\\frac{2}{3}\\)? Now what is \\(f(x) = P(X = x)\\)?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-dbinom",
+    "title": "Random Variables",
+    "section": "Demo: dbinom()",
+    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-dbinom-1",
+    "href": "3-probability/04-random-variables/slides.html#demo-dbinom-1",
+    "title": "Random Variables",
+    "section": "Demo: dbinom()",
+    "text": "Demo: dbinom()\ndbinom() gives you the pmf\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# probability distribution (pmf)\npmf = dbinom(x = 0:n, size = n, prob = p)\npmf\n\n\n\n[1] 0.03703704 0.22222222 0.44444444 0.29629630"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-pbinom",
+    "title": "Random Variables",
+    "section": "Demo: pbinom()",
+    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-pbinom-1",
+    "href": "3-probability/04-random-variables/slides.html#demo-pbinom-1",
+    "title": "Random Variables",
+    "section": "Demo: pbinom()",
+    "text": "Demo: pbinom()\npbinom() gives you the CDF\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# cumulative distribution function\ncdf = pbinom(q = 0:3, size = n, prob = p)\ncdf\n\n\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000\n\n\n\n\n\n\n# equivalent\ncumsum(pmf)\n\n[1] 0.03703704 0.25925926 0.70370370 1.00000000"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-rbinom",
+    "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
+    "title": "Random Variables",
+    "section": "Demo rbinom()",
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 2 2 2 1 3 2 2 3 2 1 1 2 2 3 1 2 3 2 1 3 1 1 2 1 0 3 1 2 1 2 2 1 2 2 3 1\n [38] 1 2 2 2 2 2 2 2 2 3 2 1 3 3 3 0 2 2 1 0 3 2 0 2 3 2 2 2 2 2 2 2 0 2 1 2 2\n [75] 2 3 1 3 0 2 3 2 2 2 2 2 0 3 2 2 2 3 3 2 1 3 2 1 2 0"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
+    "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
+    "title": "Random Variables",
+    "section": "Demo: Empirical Probability Distribution",
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  8\n2      1 19\n3      2 53\n4      3 20\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  8 0.08\n2      1 19 0.19\n3      2 53 0.53\n4      3 20 0.20"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
+    "href": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
+    "title": "Random Variables",
+    "section": "Demo: Empirical histogram",
+    "text": "Demo: Empirical histogram\n\n\nCode\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  ggplot(aes(x = tosses, y = prop)) +\n  geom_col() +\n  labs(title = \"Probability Histogram\", \n       subtitle = \"Number of heads in 3 tosses of biased coin\", \n       x = \"heads\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-3",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-3",
+    "title": "Random Variables",
+    "section": "Random Variables 3",
+    "text": "Random Variables 3\nNow suppose we toss a fair coin until the first time it lands heads, and let \\(X\\) be the number of tosses (including the last one, which is the first time the coin lands heads). What is the pmf of \\(X\\)? Is it binomial?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#random-variables-4",
+    "href": "3-probability/04-random-variables/slides.html#random-variables-4",
+    "title": "Random Variables",
+    "section": "Random Variables 4",
+    "text": "Random Variables 4\nFinally, let’s consider a deck of cards, and we are interested in the number of hearts dealt in a hand of five. Call this number \\(X\\). What is the pmf of \\(X\\)?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#fx-and-fx",
+    "href": "3-probability/04-random-variables/slides.html#fx-and-fx",
+    "title": "Random Variables",
+    "section": "\\(f(x)\\) and \\(F(x)\\)",
+    "text": "\\(f(x)\\) and \\(F(x)\\)\n\n\\(f(x)\\) is the probability mass function of \\(X\\).\n\nWhat does that mean?\nWhat is the connection to the distribution table?\nWhat is the connection to the probability histogram?\n\n\n\n\n\n\\(F(x)\\) is the cumulative distribution function.\n\n\n\n\nWhat is the connection between \\(f\\) and \\(F\\)?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#example",
+    "href": "3-probability/04-random-variables/slides.html#example",
+    "title": "Random Variables",
+    "section": "Example",
+    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#example-1",
+    "href": "3-probability/04-random-variables/slides.html#example-1",
+    "title": "Random Variables",
+    "section": "Example",
+    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\n\npmf: \\(\\quad f(X) = P(X=x)\\)\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\ncdf: \\(\\quad F(x) = P(X \\leq x)\\)\n\n\\(P(X \\leq x) = 0 \\quad \\quad \\text{for} \\ x &lt; 0\\)\n\\(P(X \\leq x) = 3/8 \\quad \\text{for} \\ 0 \\leq x &lt; 1\\)\n\\(P(X \\leq x) = 5/8 \\quad \\text{for} \\ 1 \\leq x &lt; 2\\)\n\\(P(X \\leq x) = 1 \\quad \\quad \\text{for} \\ x \\geq 2\\)"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#example-2",
+    "href": "3-probability/04-random-variables/slides.html#example-2",
+    "title": "Random Variables",
+    "section": "Example",
+    "text": "Example\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket.\n\n\n\\[\nf(X) \\rightarrow P(X=x)\n\\]\n\n\\(P(X = 0) = 3/8\\)\n\\(P(X = 1) = 2/8\\)\n\\(P(X = 2) = 3/8\\)\n\n\n\\[\nF(X) \\rightarrow P(X \\leq x)\n\\]\n\\[\nF(X) = \\begin{cases}\n0, \\quad  \\quad x &lt; 0 \\\\\n3/8, \\quad 0 \\leq x &lt; 1 \\\\\n5/8, \\quad 1 \\leq x &lt; 2 \\\\\n8/8, \\quad 2 \\leq x  \n\\end{cases}\n\\]\n\n\nDraw an example on the board. Maybe box of tickets { 0, 0, 0 , 1, 1, 2, 2, 2} draw one ticket, and let \\(X\\) be the value of the ticket. Write out both \\(f(x)\\) and \\(F(x)\\) in function notation, then draw the cdf and show how we can get from the cdf to the pmf."
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#sketching-fx",
+    "href": "3-probability/04-random-variables/slides.html#sketching-fx",
+    "title": "Random Variables",
+    "section": "Sketching \\(F(X)\\)",
+    "text": "Sketching \\(F(X)\\)\nBox with tickets: { 0, 0, 0, 1, 1, 2, 2, 2 }.\nDraw one ticket, and let \\(X\\) be the value of the ticket."
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#section",
+    "href": "3-probability/04-random-variables/slides.html#section",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#section-1",
+    "href": "3-probability/04-random-variables/slides.html#section-1",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Roll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise. For example, if both dice land \\(2\\), then \\(X = 1\\), but if one lands \\(2\\) and the other lands \\(3\\), then \\(X = 0\\).\n\n\n\n\n\n\n\nWhat is \\(P(X=1)\\)?"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#section-2",
+    "href": "3-probability/04-random-variables/slides.html#section-2",
+    "title": "Random Variables",
+    "section": "",
+    "text": "−+\n01:00\n\n\n\nRoll a pair of fair six-sided dice and let \\(X = 1\\) if the dice land showing the same number of spots, and \\(0\\) otherwise.\n\nWhat is the cdf \\(F(x)\\)?\n\n\nThe chance that \\(X = 1\\) can be broken up into six mutually exclusive situations, that the dice both show one spot, or both show two spots, etc. Each of these has probability \\(1/36\\) so the total probability by the addition rule is \\(6/36 = 1/6\\)"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#section-3",
+    "href": "3-probability/04-random-variables/slides.html#section-3",
+    "title": "Random Variables",
+    "section": "",
+    "text": "−+\n01:30\n\n\n\nThe graph of the cdf of a random variable \\(X\\) is shown below. What is \\(F(2)\\)? What about \\(f(2)\\)?\n\n\n\\(F(2) = 2/3, f(2) = 0\\)"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#section-4",
+    "href": "3-probability/04-random-variables/slides.html#section-4",
+    "title": "Random Variables",
+    "section": "",
+    "text": "−+\n02:00\n\n\n\nYou have \\(10\\) people with a cold and you have a remedy with a \\(20\\%\\) chance of success. What is the chance that your remedy will cure at least one sufferer?\n\nWhat is the chance that at least one person is cured?\n\n\n\\(P(X \\ge 1) = 1 - P(X &lt; 1) = 1 - P(X = 0) = 1 - (1-p)^{10}\\), where \\(p = 0.2\\), because \\(X \\sim Bin(10, p)\\). \\(1-p = 0.8 \\: \\& \\: 1-0.8^{10} = 0.8926\\)"
+  },
+  {
+    "objectID": "3-probability/04-random-variables/slides.html#section-5",
+    "href": "3-probability/04-random-variables/slides.html#section-5",
+    "title": "Random Variables",
+    "section": "",
+    "text": "−+\n01:30\n\n\n\nThere are 4 histograms of different Poisson distributions below. Match each distribution to its parameter \\(\\lambda\\). Recall that \\(\\lambda\\) is how many occurrences we think will happen in a given period of time.\n\\[\n(1)\\: \\lambda = 0.5 \\hspace{2cm} (2)\\: \\lambda = 1 \\hspace{2cm} (3) \\: \\lambda = 2 \\hspace{2cm} (4) \\: \\lambda = 4\\hspace{2cm}\n\\]\n\n\nexplain the smaller the rate, the lower the probability of higher values. A-4, B-1, C-3, D-2"
   },
   {
     "objectID": "3-probability/05-ev-sd/slides.html#section",
@@ -1587,6 +1906,7 @@
     "text": "1) Which of the following is most affected by an outlier in a dataset?\n\nMean\nMedian\nMode\n\n\n\n2) The median is the best measure of center for which type of data?\n\nSymmetrical and normally distributed\nSkewed and containing outliers\nCategorical and nominal\nDiscrete and uniform\n\n\n\n3) In a dataset, if every value is increased by 10, what happens to the mean and median?\n\nBoth remain the same.\nBoth increase by 10.\nThe mean increases by 10, but the median remains the same.\nThe mean remains the same, but the median increases by 10.\n\n\n\n4) Which measure of center is best to describe the typical hair color of students in a class?\n\nMean\nMedian\nMode\nAll of the above\n\n\n\n5) Which of the following statements about the mode is true?\n\nThe mode is highly affected by outliers.\nThe mode is the only measure of center that can be used for nominal data.\nEvery dataset has exactly one mode.\nThe mode is always a unique number in the dataset.\n\n\n\n6) Mean vs Median\nA college statistics class conducted a survey of how students spend their money. They asked 25 students to estimate how much money they typically spend each week on fast food. They determined that the mean amount spent on fast food each week is $31.52 and the median is $32. Later they realized that a value entered as $2 should have been $20. They recalculate the mean and the median.\nWhich of the following is true?\n\nThe mean and median will increase.\nThe mean will increase, but the median will remain the same.\nThe mean will stay the same, but the median will increase.\nBoth the mean and median will remain the same.\n\n\n\n7) Preferring the Median\nFor which one of the following distributions will the median be a better measure of center than the mean?\n\nSalary data for players in the National Basketball Association (NBA) where most of the players earn the league minimum and a few superstars earn very high salaries in comparison.\nRepeated weight measurements of the same 1.6-ounce bag of Peanut M&Ms by students in a large chemistry class using a non-digital balance scale.\nHeight data from a large random sample of men.\nExam scores with a central peak around an average test score and a few students scoring lower than the average and a few scoring higher.\n\n\n\n8) If the standard deviation of a dataset is small, what does this tell you about the data points?\n\nThey are widely dispersed.\nThey are clustered closely around the mean.\nThe data is skewed.\nThe data is symmetrical.\n\n\n\n9) The Interquartile Range (IQR) is the difference between:\n\nThe maximum and minimum values.\nThe mean and the median.\nThe first quartile (\\(Q_1\\)) and the third quartile (\\(Q_3\\)).\nThe mode and the mean.\n\n\n\n10) What is the standard deviation of the dataset {10, 10, 10, 10}?\n\n10\n1\n0\nUndefined\n\n\n\n11) The variance of a dataset is always:\n\nGreater than the standard deviation.\nLess than the standard deviation.\nNegative.\nNon-negative.\n\n\n\n12) What does a large Interquartile Range (IQR) indicate?\n\nThe dataset is symmetrical.\nThe middle 50% of the data is widely spread out.\nThe dataset has no outliers.\nThe mean and median are the same.\n\n\n\n13) Which of the following is not a measure of spread?\n\nRange\nInterquartile Range (IQR)\nStandard deviation\nMean\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nPart a)\nPart b)\nPart b)\nPart c)\nPart b)\nPart b)\nPart a)\nPart b)\nPart c)\nPart c)\nPart d)\nPart b)\nPart d)",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Summarizing Numerical Data"
     ]
   },
@@ -1598,6 +1918,7 @@
     "text": "In a Quarto document file, run the following commands:\n# packages\nlibrary(tidyverse)",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Linear Regression"
     ]
   },
@@ -1609,6 +1930,7 @@
     "text": "In a Quarto document file, run the following commands:\n# packages\nlibrary(tidyverse)",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Linear Regression"
     ]
   },
@@ -1620,6 +1942,7 @@
     "text": "Relationship between income and illiteracy\nWe want to study the relationship between percent of illiteracy using per-capita income\n\nScatter plot\nUse ggplot commands to make a scatter plot to visualize the relationship between income (x-axis) and illiteracy (y-axis), displaying the name of each state.\n\nggplot(_______, aes(x = _________, y = ___________)) + \n  geom_point() +\n  geom_text(aes(label = _______), size = 3, alpha = 0.5)\n\n\n\nShow answer\nggplot(states, aes(x = income, y = illiteracy)) + \n  geom_point() +\n  geom_text(aes(label = name), size = 3, alpha = 0.5)\n\n\n\n\nCorrelation Coefficient\nComplete the following pipeline to obtain the correlation, cor(), between income and illiteracy\n\n# correlation coefficient\nstates |&gt; summarize(___________________)\n\n\n\nShow answer\n# correlation coefficient\nstates |&gt;\n  summarize(correl = cor(income, illiteracy))\n\n\nTrue or False: based on the states data and the preceding scatter plot …\n\nHaving a larger proportion of literate people in a state creates an increment of per-capita income.\nStates with larger per-capita incomes tend to have lower percentages of illiterate population.\nHigh levels of per-capita income produce more educated people.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. The verb “creates” implies causation.\nTrue\nFalse. The verb “produce” implies causation.\n\n\n\n\n\n\nLinear Regression Model\nUse the lm() function to fit a linear model between income (x) and illiteracy (y)\n\nmod1 &lt;- lm(____________________, data = ______)\nmod1\n\n\n\nShow answer\nmod1 = lm(formula = illiteracy ~ income, data = states)\nmod1\n\n\nBased on the output of your model mod1, provide a verbal interpretation of the obtained coefficients.\n\n\nShow answer\n# Answer: For every additional unit in per-capita income, the percent of\n# illiterate population tends to decrease by 0.0004\n\n\n\n\nScatter Plot with Regression Line\n\nRe-graph the scatter plot of income (x) and illiteracy (y), adding the line of the linear model with.\n\n\n# visualize regression line\nggplot(______, aes(x = ______, y = _______)) + \n  geom_point() +\n  geom_text(aes(label = ______), size = 3, alpha = 0.5) +\n  geom_abline(slope = ______, intercept = ______)\n\n\n\nShow answer\n# visualize regression line\nggplot(states, aes(x = income, y = illiteracy)) + \n  geom_point() +\n  geom_text(aes(label = name), size = 3, alpha = 0.5) +\n  geom_abline(slope = -0.00043, \n              intercept = 3.0932)\n\n\n\nInstead of using geom_abline() use geom_smooth(method = \"lm\", se = FALSE, formula = y ~ x) and compare it with your previous graphic.\n\n\n\nShow answer\n# visualize regression line\nggplot(states, aes(x = income, y = illiteracy)) + \n  geom_point() +\n  geom_text(aes(label = name), size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE, formula = y ~ x)",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Linear Regression"
     ]
   },
@@ -1631,6 +1954,7 @@
     "text": "Predicting life_exp in terms of murder and hs_plus55\nNow let’s predict life expectancy (life_exp) in terms of murder rate (murder) and an indicator variable derived from high-school graduates, specifically percent of HS graduates greater than or equal to 55 (hs_plus55).\nThis analysis requires mutating the states data to add the categorical variable hs_plus55 that indicates whether a state had a highschool graduation rate larger than or equal to 55 percent. This mutation requires a logical condition hs_grad &gt;= 55\n\n\nShow answer\n# mutate: add variable \"hs_plus55\"\nstates &lt;- states |&gt; \n  mutate(hs_plus55 = hs_grad &gt;= 55)\n\n\n\nScatter plot\nMake a scatter plot of \"murder\" (x-axis) and \"life_exp\" (y-axis), color coding the points by \"hs_plus55\"\n\n# scatter plot, color coding by hs_plus55\n\n\n\nShow answer\n# scatter plot, color coding by hs_plus55\nggplot(states, aes(x = murder, y = life_exp, color = hs_plus55)) +\n  geom_point()\n\n\n\n\nMultiple Regression Model\nFit a linear model predicting \"life_exp\" in terms of \"murder\" and \"hs_plus55\".\n\n\nShow answer\n# linear model predicting \"life_exp\" in terms of \"murder\" and \"hs_plus55\"\nm2 = lm(life_exp ~ murder + hs_plus55, data = states)\nm2\n\n\nProvide a verbal interpretation for the coefficients in the above model.\n\n\nShow answer\n# Verbal interpretation of \"murder\" coefficient:\n# For 2 states both having the same \"hs_plus55\" level, a unit increase in \n# \"murder\" is associated with a decrease of 0.2555 years in \"life_exp\"\n\n# Verbal interpretation of \"hs_plus55\" coefficient\n# For those states with the same \"murder\" rate, having a HS-graduation percentage \n# greater than or equal to 55%, tends to be associated with an increase of\n# 0.5588 years in \"life_exp\"  \n\n\n\n\nPlotting Challenge\nObtain a scatter plot to visualize the parallel lines associated to the regression model fitted above. Hint: Use two layers of geom_abline()—one layer per regression line.\n\n\nShow answer\n# challenge: scatter plot with fitted lines\nggplot(states, aes(x = murder, y = life_exp, \n                   color = hs_plus55, group = hs_plus55)) +\n  geom_point() +\n  geom_abline(slope = m2$coefficients[2], \n              intercept = m2$coefficients[1] + m2$coefficients[3],\n              color = \"turquoise\") +\n  geom_abline(slope = m2$coefficients[2], \n              intercept = m2$coefficients[1],\n              color = \"tomato\")",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Linear Regression"
     ]
   },
@@ -1639,9 +1963,10 @@
     "href": "2-summarizing-data/01-summarizing-categorical-data/practice.html",
     "title": "Practice: Summarizing Categorical Data",
     "section": "",
-    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart”\n\n\n\n\n\n\n\n\n\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\nShow answers (except part n)\n# a) 400 / 1000 (marginal prop)\n# b) 500 / 1000 (marginal prop)\n# c) 300 / 1000 (joint prop)\n# d) 500 / 1000 (marginal prop)\n# e) 50 / 100 (conditional prop)\n# f) 500 / 1000 (marginal prop)\n# g) 150 / 500 (conditional prop)\n# h) 150 / 500\n# i) 350 / 500\n# j) rows: 1000 (one per individual)\n#    variables: 2\n#    - human-droid status\n#    - affiliation party\n#\n# k) True\n# l) False\n# m) True\n# o) False. There is clearly a large proportion of droids in the empire, \n#    as well as a large proportion of humans in the rebellion.\n\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 2: Stacked bar chart\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
+    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Summarizing Categorical Data"
     ]
   },
@@ -1650,9 +1975,10 @@
     "href": "2-summarizing-data/01-summarizing-categorical-data/practice.html#affiliation-party-and-human-droid-status",
     "title": "Practice: Summarizing Categorical Data",
     "section": "",
-    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart”\n\n\n\n\n\n\n\n\n\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\nShow answers (except part n)\n# a) 400 / 1000 (marginal prop)\n# b) 500 / 1000 (marginal prop)\n# c) 300 / 1000 (joint prop)\n# d) 500 / 1000 (marginal prop)\n# e) 50 / 100 (conditional prop)\n# f) 500 / 1000 (marginal prop)\n# g) 150 / 500 (conditional prop)\n# h) 150 / 500\n# i) 350 / 500\n# j) rows: 1000 (one per individual)\n#    variables: 2\n#    - human-droid status\n#    - affiliation party\n#\n# k) True\n# l) False\n# m) True\n# o) False. There is clearly a large proportion of droids in the empire, \n#    as well as a large proportion of humans in the rebellion.\n\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 2: Stacked bar chart\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
+    "text": "Consider the following contingency table with the counts for the affiliation party and human-droid status of some individuals.\n\n\n\n\nEmpire\nRebellion\nUnaffiliated\n\n\n\n\nHuman\n100\n350\n50\n\n\nDroid\n300\n150\n50\n\n\n\n\n\n\nWhat proportion of individuals are affiliated with the Empire? What kind of proportion is this?\nWhat proportion of individuals are affiliated with the Rebellion? What kind of proportion is this?\nWhat proportion of individuals are droids affiliated with the empire? What kind of proportion is this?\nWhat proportion of individuals are Human? What kind of proportion is this?\nOf the Unaffiliated individuals, what proportion are humans? What kind of proportion is this?\nWhat proportion of individuals are not Human? What kind of proportion is this?\nWhat proportion of the droid individuals are part of the Rebellion? What kind of proportion is this?\nWhat proportion of humans are not in the Rebellion?\nOf the Rebellion individuals, what proportion are humans?\nWhat are the dimensions of the raw data from which this table was constructed?\nTrue or False. You can derive a marginal proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a joint proportion—from the contingency table—that has a numerator of 500.\nTrue or False. You can derive a conditional proportion—from the contingency table—that has a denominator of 500.\nSketch a stacked bar chart of Affiliation party, color coding by human-droid status. To be more precise: use x-axis for affiliation, y-axis for counts, and color code bars by human-droid status.\nTrue or False. From the sketched bar chart, one can see that there is no association between affiliation party and human-droid status.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\n400 / 1000 (marginal prop)\n500 / 1000 (marginal prop)\n300 / 1000 (joint prop)\n500 / 1000 (marginal prop)\n50 / 100 (conditional prop)\n500 / 1000 (marginal prop)\n150 / 500 (conditional prop)\n150 / 500\n350 / 500\nrows: 1000 (one per individual); variables: 2\n\nhuman-droid status\naffiliation party\n\nTrue\nFalse\nTrue\nGraphic\n\n\n\n\n\n\n\n\n\nFigure 1: Stacked bar chart\n\n\n\n\n\n\nFalse. There is clearly a large proportion of droids in the empire, as well as a large proportion of humans in the rebellion.",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Summarizing Categorical Data"
     ]
   },
@@ -1664,6 +1990,7 @@
     "text": "We recommend that you use a new Quarto document to write the commands associated with this set of practice problems.\n# required package\nlibrary(tidyverse)\nggplot2 cheat sheet. Likewise, while working on the practice problems have at hand the cheat sheet for ggplot2\nhttps://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Grammar of Graphics"
     ]
   },
@@ -1675,6 +2002,7 @@
     "text": "We recommend that you use a new Quarto document to write the commands associated with this set of practice problems.\n# required package\nlibrary(tidyverse)\nggplot2 cheat sheet. Likewise, while working on the practice problems have at hand the cheat sheet for ggplot2\nhttps://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Grammar of Graphics"
     ]
   },
@@ -1686,6 +2014,7 @@
     "text": "Iris data set\nWe are going to use the famous iris data set which is a built-in data frame in R. This data set contains petal and sepal measurements of iris flowers from three different species (see image below).\n\n\n\n\n\n\n# iris data set: first 5 rows\nhead(iris, n = 5)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n\n\n\n# frequency of Species\ncount(iris, Species)\n\n     Species  n\n1     setosa 50\n2 versicolor 50\n3  virginica 50",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Grammar of Graphics"
     ]
   },
@@ -1697,6 +2026,7 @@
     "text": "1) Mappings and Geometries (Fill in the blanks)\nIn your quarto document, create code chunks and complete the commands to obtain the following graphics (use one chunk per graphic!)\n\nHistogram of Sepal.Length\n\n\n# a) histogram of Sepal.Length\nggplot(data = ______,\n       mapping = aes(x = ______________)) +\n  geom____________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length)) +\n  geom_histogram()\n\n\n\nDensity plot of Sepal.Length\n\n\n# b) density plot of Sepal.Length\nggplot(data = ______,\n       mapping = aes(x = ______________)) +\n  geom____________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length)) +\n  geom_density()\n\n\n\nViolin plots of Sepal.Length (x) by Species (y)\n\n\n# c) violin plot of Sepal.Length\nggplot(data = ______,\n       mapping = aes(x = ____________, y = ___________)) +\n  geom____________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length, y = Species)) +\n  geom_violin()\n\n\n\nScatter plot of Sepal.Length (x) and Sepal.Width (y)\n\n\n# d) scatterplot of Sepal.Length (x) and Sepal.Width (y)\nggplot(data = ______,\n       mapping = aes(x = ______________, y = ______________)) +\n  geom____________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length, y = Sepal.Width)) +\n  geom_point()\n\n\n\nScatter plot of Sepal.Length (x) and Sepal.Width (y) coloring (color) points by Species.\n\n\n# e) scatter plot of Sepal.Length (x) and Sepal.Width (y)\n# coloring (color) points by Species\nggplot(data = ______,\n       mapping = aes(___ = _____________, \n                     ___ = _____________,\n                     _____ = _____________)) +\n  geom____________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length, \n                     y = Sepal.Width,\n                     color = Species)) +\n  geom_point()\n\n\n\nBoxplots of Sepal.Length (x) by Species (y)\n\n\n# f) boxplots of Sepal.Length (x) by Species (y)\nggplot(data = ______,\n       mapping = aes(x = ______________, y = ______________)) +\n  geom_____________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length, y = Species)) +\n  geom_boxplot()\n\n\n\nBoxplots of Sepal.Length (y) by Species (x)\n\n\n# g) boxplots of Sepal.Length (y) by Species (x)\nggplot(data = ______,\n       mapping = aes(x = ______________, y = ______________)) +\n  geom_____________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Species, y = Sepal.Length)) +\n  geom_boxplot()\n\n\n\nDensity plots of Sepal.Length, color-filled (fill) by Species\n\n\n# h) density plots of Sepal.Length, color-filled (fill) by Species\nggplot(data = ______,\n       mapping = aes(x = ______________,\n                     fill = ____________)) +\n  geom___________()\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length, fill = Species)) +\n  geom_density()",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Grammar of Graphics"
     ]
   },
@@ -1708,6 +2038,7 @@
     "text": "3) Settings -vs- Mappings\nIn the Grammar of Graphics, it is important to understand the difference between a mapping and a setting. Recall that a setting is when you set or fix the value of a visual attribute to a constant or a value that does NOT come from the data frame.\n\nHistogram of Sepal.Length, filling the bars in \"orange\" (fill) and changing the color of the bar borders to \"white\" (color)\n\n\n# a) histogram of Sepal.Length, filling the bars in \"orange\" (fill)\n# and changing the color of the bar borders to \"white\" (color)\nggplot(data = ______,\n       mapping = aes(x = ______________)) +\n  geom____________(fill = _______, color = _________)\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length)) +\n  geom_histogram(fill = \"orange\", color = \"white\")\n\n\n\nScatter plot of Sepal.Length (x) and Sepal.Width (y) coloring points in \"red\" (color) change size of points to 3 (size)\n\n\n# b) scatter plot of Sepal.Length (x) and Sepal.Width (y)\n# coloring points in \"red\" (color) \n# change size of points to 3 (size)\nggplot(data = ______,\n       mapping = aes(___ = _____________, \n                     ___ = _____________)) +\n  geom__________(color = ________, size = ___)\n\n\n\nShow answer\ngggplot(data = iris,\n       mapping = aes(x = Sepal.Length, \n                     y = Sepal.Width)) +\n  geom_point(color = \"red\", size = 3)\n\n\n\nBar plot of Species from a random sample of 40 flowers filling color of bars to \"turquoise\".\n\n\n# c) bar plot of Species from a random sample of 40 flowers\n# filling color of bars to \"turquoise\"\nset.seed(246)\niris_sample = slice_sample(iris, n = 40, replace = TRUE)\n\nggplot(data = ____________,\n       mapping = aes(x = _________)) +\n  geom__________(fill = ________)\n\n\n\nShow answer\n# random sample of 40 flowers\nset.seed(246)\niris_sample = slice_sample(iris, n = 40, replace = TRUE)\n\nggplot(data = iris_sample,\n       mapping = aes(x = Species)) +\n  geom_bar(fill = \"turquoise\")",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Grammar of Graphics"
     ]
   },
@@ -1719,6 +2050,7 @@
     "text": "3) Labels, Annotations and Themes\n\nChoose two numerical variables from iris and graph a scatter plot, set the color of points to \"blue\", and add the following:\n\n\ntitle\nx-axis label\ny-axis label\n\n\n# a) scatterplot, set color of points to \"blue\"\n# adding title and axis labels\nggplot(data = ______,\n       mapping = aes(___ = _____________, \n                     ___ = _____________)) +\n  geom____________(color = _____) +\n  labs(title = __________,\n       x = __________,\n       y = __________)\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Sepal.Length, \n                     y = Sepal.Width,\n                     color = Species)) +\n  geom_point() +\n  labs(title = \"Relationship between Sepal Length and Sepal Width\",\n       x = \"Sepal Length\",\n       y = \"Sepal Width\")\n\n\n\nChoose a different pair of numerical variables from iris and graph another scatter plot, color coding points by Species, and add a text annotation to highlight something interesting or unusual in the plot.\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Petal.Length, \n                     y = Sepal.Width,\n                     color = Species)) +\n  geom_point() +\n  annotate(geom = \"text\",\n           x = 1.5,\n           y = 2.2,\n           label = \"a tiny setosa\")\n\n\n\n# b) scatterplot, coloring (color) points by Species,\n# adding an annotation\nggplot(data = ______,\n       mapping = aes(___ = _____________, \n                     ___ = _____________,\n                     _____ = _____________)) +\n  geom____________() +\n  annotate(geom = \"text\",\n           x = __________,\n           y = __________,\n           label = ___________)\n\n\nChoose one of your previous two scatter plots and re-graph it but this time using a ggplot theme that it’s different from the default one. Also, add labels and the annotation.\n\n\n\nShow answer\nggplot(data = iris,\n       mapping = aes(x = Petal.Length, \n                     y = Sepal.Width,\n                     color = Species)) +\n  geom_point() +\n  labs(title = \"Relationship between Petal Length and Sepal Width\",\n       x = \"Sepal Length\",\n       y = \"Sepal Width\") +\n  annotate(geom = \"text\",\n           x = 1.5,\n           y = 2.2,\n           label = \"a tiny setosa\") +\n  theme_minimal()\n\n\n\n# c) yet another scatterplot\nggplot(data = ______,\n       mapping = aes(________)) +\n  geom________() +\n  labs(_____) +\n  annotate(_____) +\n  theme________()",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Grammar of Graphics"
     ]
   },
@@ -1730,6 +2062,7 @@
     "text": "4) More Questions\n\nAre the following lines of code equivalent (i.e. give you the same plot)?\n\nggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) + \n  geom_point()\n\nggplot(iris, aes(x = Petal.Length, y = Petal.Width)) + \n  geom_point(aes(color = Species))\n\n\nShow answer\n# Answer: True\n\n\n\nAre the following lines of code equivalent (i.e. give you the same plot)?\n\nggplot(iris, aes(Petal.Length, Petal.Width)) + \n  geom_point(color = \"blue\")\n\nggplot(iris, aes(Petal.Length, Petal.Width, color = \"blue\")) + \n  geom_point()\n\n\nShow answer\n# Answer: False\n\n\n\nAre the following lines of code equivalent?\n\nggplot(iris, aes(Petal.Length, Petal.Width)) + \n  geom_point()\n\nggplot(iris) + \n  geom_point(aes(Petal.Length, Petal.Width))\n\n\nShow answer\n# Answer: True\n\n\n\nWhat is the problem with the following code? How can it be fixed?\n\n# scatter plot of Petal.Width, and Petal.Length\nggplot(iris) +\n  geom_point(x = Petal.Width, y = Petal.Length)\n\n\nShow answer\n# Answer: the x and y mappings need to be specified inside aes()\n\n\n\nWhat is the problem with the following code? How can it be fixed?\n\n# scatter plot of Petal.Width, and Petal.Length\nggplot(iris, aes(Petal.Length, Petal.Width))\n  geom_point(aes(color = Species))\n\n\nShow answer\n# Answer: the plus sign '+' is missing\n\n\n\nWhat is the problem with the following code? How can it be fixed?\n\n# scatter plot of Petal.Width, and Petal.Length\nggplot(iris, aes(x = Petal.Length  y = Petal.Width)) +\n  goem_point(aes(color = Species))\n\n\nShow answer\n# Answer: missing comma between arguments 'x' and 'y' inside ggplot()\n# misspelled 'goem_point()`",
     "crumbs": [
       "Practice Problems",
+      "Summary",
       "Practice: Grammar of Graphics"
     ]
   }
