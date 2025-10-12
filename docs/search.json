@@ -210,263 +210,331 @@
     "text": "Describing Associations\nWhen considering the structure in a scatter plot, pay attention to:\n\nThe strength of the association\n\nHow much does the conditional distribution of y change when you move along the x?\n\n\n\n\nThe shape of the association\n\nLinear? Quadratic? Cubic or beyond?\n\n\n\n\n\nThe direction of the (linear) association\n\nPositive or negative?"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#agenda",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#agenda",
-    "title": "Summarizing Numerical Data",
-    "section": "Agenda",
-    "text": "Agenda\n\nAnnouncements\nNotes Recap\nPractice Concept Questions\nCoding Activity: Graphing Numerical Data\nBreak\nWorksheet “Summarizing Numerical Data” (part of WSP-3)\nLab 2.2 (time permitting)"
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#about-dplyr",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#about-dplyr",
+    "title": "Data Wrangling",
+    "section": "About dplyr",
+    "text": "About dplyr\n\nlibrary(tidyverse)   # includes dplyr\n\n\n\nThe \"dplyr\" package in R is a fundamental tool for data manipulation, forming a core component of the tidyverse suite of packages.\nIt provides a consistent set of “verbs” or functions designed to simplify common data wrangling tasks with data frames and tibbles (an enhanced data frame structure)."
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#announcements",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#announcements",
-    "title": "Summarizing Numerical Data",
-    "section": "Announcements",
-    "text": "Announcements\n\nRQ: Grammar of Graphics due Thursday at 11:59pm\n\n\n\nLab 2: Class Survey (both parts) due Tuesday at 8am\n\nLab 2.1: Group submission\nLab 2.2: Individual submission"
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#dplyr-verbs",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#dplyr-verbs",
+    "title": "Data Wrangling",
+    "section": "dplyr verbs",
+    "text": "dplyr verbs\n\n\n\nslice()\nselect()\nfilter()\nmutate()\narrange()\nsummarize()\ngroup_by()\n\n\n\nAll of these have a data frame as the first argument\n\n\n\n\nAll of these produce a data frame as output\n\n\n\n\nWithin the function, you can simply refer to columns names unquoted."
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#graphics",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#graphics",
-    "title": "Summarizing Numerical Data",
-    "section": "Graphics",
-    "text": "Graphics\nYou can construct a statistical graphic to show the shape, which you can describe in terms of modality and skew\n\nDot plot\nHistogram\nDensity plot\nViolin plot\nBox plot"
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#example-toy-data",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#example-toy-data",
+    "title": "Data Wrangling",
+    "section": "Example: Toy Data",
+    "text": "Example: Toy Data\n\nwizards &lt;- data.frame(\n  name = c(\"Harry\", \"Bellatrix\", \"Hermione\", \"Draco\"),\n  house = c(\"Gryffindor\", \"Slytherin\", \"Gryffindor\",  \"Slytherin\"),\n  height = c(1.78, 1.57, 1.65, 1.75),\n  spells = c(60, 75, 70, 55)\n)"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-center",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-center",
-    "title": "Summarizing Numerical Data",
-    "section": "Measures of Center",
-    "text": "Measures of Center\nYou can calculate a measure of center to convey a sense of a typical (representative) observation\n\nMean\nMedian\nMode"
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#example-toy-data-1",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#example-toy-data-1",
+    "title": "Data Wrangling",
+    "section": "Example: Toy Data",
+    "text": "Example: Toy Data\n\nwizards &lt;- data.frame(\n  name = c(\"Harry\", \"Bellatrix\", \"Hermione\", \"Draco\"),\n  house = c(\"Gryffindor\", \"Slytherin\", \"Gryffindor\",  \"Slytherin\"),\n  height = c(1.78, 1.57, 1.65, 1.75),\n  spells = c(60, 75, 70, 55)\n)\n\nwizards\n\n\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-spread",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-spread",
-    "title": "Summarizing Numerical Data",
-    "section": "Measures of Spread",
-    "text": "Measures of Spread\nAnd you can calculate a measure of spread (i.e. scatter, dispersion, variation) to capture how much variability there is in the data\n\nRange\nInter Quartile Range (IQR)\nMean Absolute Deviation (MAD)\nSample Variance (Var)\nSample Standard Deviation (SD)"
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#slice",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#slice",
+    "title": "Data Wrangling",
+    "section": "slice()",
+    "text": "slice()\nIsolates particular rows of a data frame by row number.\n\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\n\nslice(wizards, 2)\n\n\n\n       name     house height spells\n1 Bellatrix Slytherin   1.57     75"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section",
-    "title": "Summarizing Numerical Data",
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#slice-1",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#slice-1",
+    "title": "Data Wrangling",
+    "section": "slice()",
+    "text": "slice()\nIsolates particular rows of a data frame by row number.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nslice(wizards, 2:4)\n\n\n\n       name      house height spells\n1 Bellatrix  Slytherin   1.57     75\n2  Hermione Gryffindor   1.65     70\n3     Draco  Slytherin   1.75     55"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#slice-2",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#slice-2",
+    "title": "Data Wrangling",
+    "section": "slice()",
+    "text": "slice()\nIsolates particular rows of a data frame by row number.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nslice(wizards, -3)\n\n\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3     Draco  Slytherin   1.75     55"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#select",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#select",
+    "title": "Data Wrangling",
+    "section": "select()",
+    "text": "select()\n\nSelects variables by name or number.\n\n\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\n\nselect(wizards, house)\n\n\n\n       house\n1 Gryffindor\n2  Slytherin\n3 Gryffindor\n4  Slytherin"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#select-1",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#select-1",
+    "title": "Data Wrangling",
+    "section": "select()",
+    "text": "select()\nSelects variables by name or number.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nselect(wizards, 2)\n\n\n\n       house\n1 Gryffindor\n2  Slytherin\n3 Gryffindor\n4  Slytherin"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#select-2",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#select-2",
+    "title": "Data Wrangling",
+    "section": "select()",
+    "text": "select()\nSelects variables by name or number.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nselect(wizards, house, name)\n\n\n\n       house      name\n1 Gryffindor     Harry\n2  Slytherin Bellatrix\n3 Gryffindor  Hermione\n4  Slytherin     Draco"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#select-3",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#select-3",
+    "title": "Data Wrangling",
+    "section": "select()",
+    "text": "select()\nSelects variables by name or number.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nselect(wizards, -spells)\n\n\n\n       name      house height\n1     Harry Gryffindor   1.78\n2 Bellatrix  Slytherin   1.57\n3  Hermione Gryffindor   1.65\n4     Draco  Slytherin   1.75"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#select-4",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#select-4",
+    "title": "Data Wrangling",
+    "section": "select()",
+    "text": "select()\nSelects variables by name or number.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nselect(wizards, name:height)\n\n\n\n       name      house height\n1     Harry Gryffindor   1.78\n2 Bellatrix  Slytherin   1.57\n3  Hermione Gryffindor   1.65\n4     Draco  Slytherin   1.75"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#filter",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#filter",
+    "title": "Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\n\nReturns rows that meet certain criteria.\n\n\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\n\nfilter(wizards, house == \"Gryffindor\")\n\n\n\n      name      house height spells\n1    Harry Gryffindor   1.78     60\n2 Hermione Gryffindor   1.65     70"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#filter-1",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#filter-1",
+    "title": "Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\nReturns rows that meet certain criteria.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nfilter(wizards, spells &lt; 60)\n\n\n\n   name     house height spells\n1 Draco Slytherin   1.75     55"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#filter-2",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#filter-2",
+    "title": "Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\nReturns rows that meet certain criteria.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nfilter(wizards, name %in% c(\"Harry\", \"Hermione\"))\n\n\n\n      name      house height spells\n1    Harry Gryffindor   1.78     60\n2 Hermione Gryffindor   1.65     70"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#filter-3",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#filter-3",
+    "title": "Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\nReturns rows that meet certain criteria.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nfilter(wizards, \n       name %in% c(\"Harry\", \"Hermione\"),\n       spells &lt; 70)\n\n\n\n   name      house height spells\n1 Harry Gryffindor   1.78     60"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#mutate",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#mutate",
+    "title": "Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\n\nUpdates an existing variable, or adds a new variable that can be a function of previous variables.\n\n\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\n\nmutate(wizards, name = toupper(name))\n\n\n\n       name      house height spells\n1     HARRY Gryffindor   1.78     60\n2 BELLATRIX  Slytherin   1.57     75\n3  HERMIONE Gryffindor   1.65     70\n4     DRACO  Slytherin   1.75     55"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#mutate-1",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#mutate-1",
+    "title": "Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nUpdates an existing variable, or adds a new variable that can be a function of previous variables.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nmutate(wizards, height_cm = height * 100)\n\n\n\n       name      house height spells height_cm\n1     Harry Gryffindor   1.78     60       178\n2 Bellatrix  Slytherin   1.57     75       157\n3  Hermione Gryffindor   1.65     70       165\n4     Draco  Slytherin   1.75     55       175"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#arrange",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#arrange",
+    "title": "Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\n\nSort the rows of a data frame by the values of variables.\n\n\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\n\narrange(wizards, height)\n\n\n\n       name      house height spells\n1 Bellatrix  Slytherin   1.57     75\n2  Hermione Gryffindor   1.65     70\n3     Draco  Slytherin   1.75     55\n4     Harry Gryffindor   1.78     60"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#arrange-1",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#arrange-1",
+    "title": "Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\nSort the rows of a data frame by the values of variables.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\narrange(wizards, desc(height))\n\n\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2     Draco  Slytherin   1.75     55\n3  Hermione Gryffindor   1.65     70\n4 Bellatrix  Slytherin   1.57     75"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#arrange-2",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#arrange-2",
+    "title": "Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\nSort the rows of a data frame by the values of variables.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\narrange(wizards, house)\n\n\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2  Hermione Gryffindor   1.65     70\n3 Bellatrix  Slytherin   1.57     75\n4     Draco  Slytherin   1.75     55"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#arrange-3",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#arrange-3",
+    "title": "Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\nSort the rows of a data frame by the values of variables.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\narrange(wizards, house, height)\n\n\n\n       name      house height spells\n1  Hermione Gryffindor   1.65     70\n2     Harry Gryffindor   1.78     60\n3 Bellatrix  Slytherin   1.57     75\n4     Draco  Slytherin   1.75     55"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#summarize",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#summarize",
+    "title": "Data Wrangling",
+    "section": "summarize()",
+    "text": "summarize()\n\nSummarize a variable with a statistic.\n\n\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\n\nsummarize(wizards, \n          mean(height))\n\n\n\n  mean(height)\n1       1.6875"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#summarize-1",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#summarize-1",
+    "title": "Data Wrangling",
+    "section": "summarize()",
+    "text": "summarize()\nSummarize a variable with a statistic.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nsummarize(wizards, \n          avg_height = mean(height))\n\n\n\n  avg_height\n1     1.6875"
+  },
+  {
+    "objectID": "2-summarizing-data/04-data-manipulation/slides.html#summarize-2",
+    "href": "2-summarizing-data/04-data-manipulation/slides.html#summarize-2",
+    "title": "Data Wrangling",
+    "section": "summarize()",
+    "text": "summarize()\nSummarize a variable with a statistic.\n\nwizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\n\nsummarize(wizards, \n          avg_height = mean(height),\n          sd_height = sd(height))\n\n\n\n  avg_height  sd_height\n1     1.6875 0.09604686"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/practice.html",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/practice.html",
+    "title": "Practice: Summarizing Numerical Data",
     "section": "",
-    "text": "Typical value?\n\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\n\nsample size ( \\(n\\) ): 11\nmean ( \\(\\bar{x}\\) ): 8.45\nmedian: 8\nmode: 7"
+    "text": "1) Which of the following is most affected by an outlier in a dataset?\n\nMean\nMedian\nMode\n\n\n\n2) The median is the best measure of center for which type of data?\n\nSymmetrical and normally distributed\nSkewed and containing outliers\nCategorical and nominal\nDiscrete and uniform\n\n\n\n3) In a dataset, if every value is increased by 10, what happens to the mean and median?\n\nBoth remain the same.\nBoth increase by 10.\nThe mean increases by 10, but the median remains the same.\nThe mean remains the same, but the median increases by 10.\n\n\n\n4) Which measure of center is best to describe the typical hair color of students in a class?\n\nMean\nMedian\nMode\nAll of the above\n\n\n\n5) Which of the following statements about the mode is true?\n\nThe mode is highly affected by outliers.\nThe mode is the only measure of center that can be used for nominal data.\nEvery dataset has exactly one mode.\nThe mode is always a unique number in the dataset.\n\n\n\n6) Mean vs Median\nA college statistics class conducted a survey of how students spend their money. They asked 25 students to estimate how much money they typically spend each week on fast food. They determined that the mean amount spent on fast food each week is $31.52 and the median is $32. Later they realized that a value entered as $2 should have been $20. They recalculate the mean and the median.\nWhich of the following is true?\n\nThe mean and median will increase.\nThe mean will increase, but the median will remain the same.\nThe mean will stay the same, but the median will increase.\nBoth the mean and median will remain the same.\n\n\n\n7) Preferring the Median\nFor which one of the following distributions will the median be a better measure of center than the mean?\n\nSalary data for players in the National Basketball Association (NBA) where most of the players earn the league minimum and a few superstars earn very high salaries in comparison.\nRepeated weight measurements of the same 1.6-ounce bag of Peanut M&Ms by students in a large chemistry class using a non-digital balance scale.\nHeight data from a large random sample of men.\nExam scores with a central peak around an average test score and a few students scoring lower than the average and a few scoring higher.\n\n\n\n8) If the standard deviation of a dataset is small, what does this tell you about the data points?\n\nThey are widely dispersed.\nThey are clustered closely around the mean.\nThe data is skewed.\nThe data is symmetrical.\n\n\n\n9) The Interquartile Range (IQR) is the difference between:\n\nThe maximum and minimum values.\nThe mean and the median.\nThe first quartile (\\(Q_1\\)) and the third quartile (\\(Q_3\\)).\nThe mode and the mean.\n\n\n\n10) What is the standard deviation of the dataset {10, 10, 10, 10}?\n\n10\n1\n0\nUndefined\n\n\n\n11) The variance of a dataset is always:\n\nGreater than the standard deviation.\nLess than the standard deviation.\nNegative.\nNon-negative.\n\n\n\n12) What does a large Interquartile Range (IQR) indicate?\n\nThe dataset is symmetrical.\nThe middle 50% of the data is widely spread out.\nThe dataset has no outliers.\nThe mean and median are the same.\n\n\n\n13) Which of the following is not a measure of spread?\n\nRange\nInterquartile Range (IQR)\nStandard deviation\nMean\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nPart a)\nPart b)\nPart b)\nPart c)\nPart b)\nPart b)\nPart a)\nPart b)\nPart c)\nPart c)\nPart d)\nPart b)\nPart d)",
+    "crumbs": [
+      "Practice Problems",
+      "Summary",
+      "Practice: Summarizing Numerical Data"
+    ]
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-1",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-1",
-    "title": "Summarizing Numerical Data",
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#example-toy-data",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#example-toy-data",
+    "title": "Data Pipelines",
+    "section": "Example: Toy Data",
+    "text": "Example: Toy Data\n\nwizards &lt;- data.frame(\n  name = c(\"Harry\", \"Bellatrix\", \"Hermione\", \"Draco\"),\n  house = c(\"Gryffindor\", \"Slytherin\", \"Gryffindor\",  \"Slytherin\"),\n  height = c(1.78, 1.57, 1.65, 1.75),\n  spells = c(60, 75, 70, 55)\n)"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#example-toy-data-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#example-toy-data-1",
+    "title": "Data Pipelines",
+    "section": "Example: Toy Data",
+    "text": "Example: Toy Data\n\nwizards &lt;- data.frame(\n  name = c(\"Harry\", \"Bellatrix\", \"Hermione\", \"Draco\"),\n  house = c(\"Gryffindor\", \"Slytherin\", \"Gryffindor\",  \"Slytherin\"),\n  height = c(1.78, 1.57, 1.65, 1.75),\n  spells = c(60, 75, 70, 55)\n)\n\nwizards\n\n\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#section",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#section",
+    "title": "Data Pipelines",
     "section": "",
-    "text": "How can we express the variability in this data set using a single number?\n\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]"
+    "text": "wizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\nGoal: Calculate the average height of characters from Gryffindor\n\n\n\n\nLet’s look at three ways to solve this."
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-2",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-2",
-    "title": "Summarizing Numerical Data",
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#nesting",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#nesting",
+    "title": "Data Pipelines",
+    "section": "Nesting",
+    "text": "Nesting\n\nsummarize(filter(wizards, house == \"Gryffindor\"),\n          mean(height))\n\n  mean(height)\n1        1.715\n\n\n\n\n\n\nMust be read from the inside out\nHard to keep track of arguments"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#step-by-step",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#step-by-step",
+    "title": "Data Pipelines",
+    "section": "Step-by-step",
+    "text": "Step-by-step\n\nwizards2 &lt;- filter(wizards, house == \"Gryffindor\")\nsummarize(wizards2, mean(height))\n\n  mean(height)\n1        1.715\n\n\n\n\n\n\nHave to repeat data frame names\nCreates unnecessary objects"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#using-the-pipe-operator",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#using-the-pipe-operator",
+    "title": "Data Pipelines",
+    "section": "Using the Pipe Operator",
+    "text": "Using the Pipe Operator\n\nwizards |&gt;"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#using-the-pipe-operator-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#using-the-pipe-operator-1",
+    "title": "Data Pipelines",
+    "section": "Using the Pipe Operator",
+    "text": "Using the Pipe Operator\n\nwizards |&gt; \n  filter(house == \"Gryffindor\") |&gt;"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#using-the-pipe-operator-2",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#using-the-pipe-operator-2",
+    "title": "Data Pipelines",
+    "section": "Using the Pipe Operator",
+    "text": "Using the Pipe Operator\n\nwizards |&gt; \n  filter(house == \"Gryffindor\") |&gt; \n  summarize(mean(height))\n\n\n\n  mean(height)\n1        1.715\n\n\n\n\n\n\nCan be read like an English paragraph\nOnly type the data once\nNo leftover objects"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#understanding-your-pipeline",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#understanding-your-pipeline",
+    "title": "Data Pipelines",
+    "section": "Understanding your pipeline",
+    "text": "Understanding your pipeline\nIt’s good practice to understand the output of each line by breaking the pipe.\n\n\n\n\n\n\n# bad pipe!\nwizards |&gt; \n  select(house) |&gt; \n  filter(mean(height))\n\n\n\nError in `filter()`:\nℹ In argument: `mean(height)`.\nCaused by error:\n! object 'height' not found\n\n\n\n\n\n\n# inspecting the pipe\nwizards |&gt; \n  select(house)\n\n\n\n       house\n1 Gryffindor\n2  Slytherin\n3 Gryffindor\n4  Slytherin"
+  },
+  {
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#section-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#section-1",
+    "title": "Data Pipelines",
     "section": "",
-    "text": "\\[ {\\Large 6} \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad {\\Large 11}\\]\n\nThe Range\n\\[\\textrm{range:} \\quad max - min\\]\n\\[ 11 - 6 = 5\\]\nCharacteristics\n\nVery sensitive to extreme values!"
+    "text": "wizards\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2 Bellatrix  Slytherin   1.57     75\n3  Hermione Gryffindor   1.65     70\n4     Draco  Slytherin   1.75     55\n\n\n\n\n\nCalculate the average height of characters across each house."
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-3",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-3",
-    "title": "Summarizing Numerical Data",
-    "section": "",
-    "text": "\\[ 6 \\quad 7 \\quad {\\Large 7 \\quad  7} \\quad 8 \\quad  {\\large 8} \\quad 9 \\quad {\\Large 9 \\quad 10} \\quad 11  \\quad 11\\]\n\nThe Inner Quartile Range (IQR)\nThe difference between the 3rd quartile, \\(Q_3\\), and the 1st quartile, \\(Q_1\\) (i.e. the middle 50% of the data)\n\\[\\textrm{IQR:} \\quad Q_3 - Q_1\\]\n\\[ 9.5 - 7 = 2.5 \\]\nCharacteristics\n\nRobust to outliers\nUsed to set the width of the box in a boxplot"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by",
+    "title": "Data Pipelines",
+    "section": "group_by()",
+    "text": "group_by()\nFlag the rows of a data frame as belong to a group defined by a factor. For use in downstream operations.\n\n\nwizards |&gt; \n  group_by(house)\n\n\n\n# A tibble: 4 × 4\n# Groups:   house [2]\n  name      house      height spells\n  &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1 Harry     Gryffindor   1.78     60\n2 Bellatrix Slytherin    1.57     75\n3 Hermione  Gryffindor   1.65     70\n4 Draco     Slytherin    1.75     55"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-4",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-4",
-    "title": "Summarizing Numerical Data",
-    "section": "",
-    "text": "\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\nMean Absolute Deviation\nTake the differences from each observation, \\(x_i\\), to the sample mean, \\(\\bar{x}\\), take their absolute values, add them up, and divide by \\(n\\). Simply put, this is the average distance from the mean.\n\\[MAD: \\quad \\frac{1}{n}\\sum_{i = 1}^n |x_i - \\bar{x}| \\]\n\\[ MAD = 1.4 \\]\nCharacteristics\n\nIncorporates information from all observations\nRobust to extreme values"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-1",
+    "title": "Data Pipelines",
+    "section": "group_by()",
+    "text": "group_by()\nFlag the rows of a data frame as belong to a group defined by a factor. For use in downstream operations.\n\n\nwizards |&gt; \n  group_by(house) |&gt; \n  summarize(mean(height))\n\n\n\n# A tibble: 2 × 2\n  house      `mean(height)`\n  &lt;chr&gt;               &lt;dbl&gt;\n1 Gryffindor           1.72\n2 Slytherin            1.66"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-5",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-5",
-    "title": "Summarizing Numerical Data",
-    "section": "",
-    "text": "\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\nSample Variance\nTake the differences from each observation, \\(x_i\\), to the sample mean, \\(\\bar{x}\\), square them, add them up, and divide by \\(n - 1\\) .\n\\[s^2: \\quad \\frac{1}{n - 1}\\sum_{i = 1}^n (x_i - \\bar{x})^2 \\]\n\\[ s^2 = 2.87 \\]\n\nCharacteristics\n\nIncorporates information from all observations\n\n\n\nModerately sensitive to extreme values\n\n\n\nMeasured in squared units!"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-summarize",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-summarize",
+    "title": "Data Pipelines",
+    "section": "group_by() with summarize()",
+    "text": "group_by() with summarize()\n\n\nwizards |&gt; \n  summarize(mean(height))\n\n\n\n  mean(height)\n1       1.6875"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-6",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-6",
-    "title": "Summarizing Numerical Data",
-    "section": "",
-    "text": "\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\nSample Standard Deviation\nTake the differences from each observation, \\(x_i\\), to the sample mean, \\(\\bar{x}\\), square them, add them up, divide by \\(n - 1\\), then take the square root.\n\\[\nS:  \\sqrt{\\frac{1}{n - 1}\\sum_{i = 1}^n (x_i - \\bar{x})^2}\n\\]\n\\[ s = 1.70 \\]\n\nCharacteristics\n\nIncorporates info from all observations\n\n\n\nModerately sensitive to extreme values\n\n\n\nMeasured in units of the original data"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-summarize-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-summarize-1",
+    "title": "Data Pipelines",
+    "section": "group_by() with summarize()",
+    "text": "group_by() with summarize()\n\nwizards |&gt; \n  group_by(house) |&gt; \n  summarize(mean(height))\n\n\n\n# A tibble: 2 × 2\n  house      `mean(height)`\n  &lt;chr&gt;               &lt;dbl&gt;\n1 Gryffindor           1.72\n2 Slytherin            1.66"
   },
   {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#agenda",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#agenda",
-    "title": "Multiple Linear Regression",
-    "section": "Agenda",
-    "text": "Agenda\n\nAnnouncements\nLinear Regression Refresher\n\nSimple Linear Regression\nMultiple Linear Regression\n\nPractice Problems on Regression\nLab 3.2 Flights"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-filter",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-filter",
+    "title": "Data Pipelines",
+    "section": "group_by() with filter()",
+    "text": "group_by() with filter()\n\n\nwizards |&gt; \n  filter(height == max(height))\n\n\n\n   name      house height spells\n1 Harry Gryffindor   1.78     60"
   },
   {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#announcements-quiz-2",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#announcements-quiz-2",
-    "title": "Multiple Linear Regression",
-    "section": "Announcements: Quiz 2",
-    "text": "Announcements: Quiz 2\n\nQuiz-2 next Monday, Sep 29th in class.\n\nSection 1, 8am in Barker 101\nSection 8, 10am in SOCS 60\n\n\n\nTopics:\n\nSummarizing Numerical Data\nA Grammar of Graphics\nConditioning\nSummarizing Associations\nMultiple Linear Regression"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-filter-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-filter-1",
+    "title": "Data Pipelines",
+    "section": "group_by() with filter()",
+    "text": "group_by() with filter()\n\nwizards |&gt; \ngroup_by(house) |&gt; \n  filter(height == max(height))\n\n\n\n# A tibble: 2 × 4\n# Groups:   house [2]\n  name  house      height spells\n  &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1 Harry Gryffindor   1.78     60\n2 Draco Slytherin    1.75     55"
   },
   {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-linear-regression-models-in-r",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-linear-regression-models-in-r",
-    "title": "Multiple Linear Regression",
-    "section": "Simple Linear Regression Models in R",
-    "text": "Simple Linear Regression Models in R\nFunction lm()\n# simple linear regression\nmod &lt;- lm(formula = y ~ x, data = dataset)\n\n\n\ny: response variable\nx: predictor variable\ndata: name of data frame\n\n\n\ncoefficients(mod): regression coeffs\nfitted(mod): predicted values\nresiduals(mod): residuals"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-arrange",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-arrange",
+    "title": "Data Pipelines",
+    "section": "group_by() with arrange()",
+    "text": "group_by() with arrange()\n\n\nwizards |&gt; \n  arrange(desc(height))\n\n\n\n       name      house height spells\n1     Harry Gryffindor   1.78     60\n2     Draco  Slytherin   1.75     55\n3  Hermione Gryffindor   1.65     70\n4 Bellatrix  Slytherin   1.57     75"
   },
   {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-linear-regression-models-in-r",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-linear-regression-models-in-r",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Linear Regression Models in R",
-    "text": "Multiple Linear Regression Models in R\nFunction lm()\n# multiple linear regression\nmod &lt;- lm(formula = y ~ x1 + x2 + ..., data = dataset)\n\n\n\ny: response variable\nx1, x2, ...: predictor variables\ndata: name of data frame\n\n\n\ncoefficients(mod): regression coeffs\nfitted(mod): predicted values\nresiduals(mod): residuals"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-arrange-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-arrange-1",
+    "title": "Data Pipelines",
+    "section": "group_by() with arrange()",
+    "text": "group_by() with arrange()\n\nwizards |&gt; \n  group_by(house) |&gt; \n  arrange(desc(height))\n\n\n\n# A tibble: 4 × 4\n# Groups:   house [2]\n  name      house      height spells\n  &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1 Harry     Gryffindor   1.78     60\n2 Draco     Slytherin    1.75     55\n3 Hermione  Gryffindor   1.65     70\n4 Bellatrix Slytherin    1.57     75\n\n\n\n\n\narrange() ignores group_by() and is always global."
   },
   {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
-    "title": "Multiple Linear Regression",
-    "section": "Penguins Data",
-    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Chinstrap Dream            51.7          20.3        3775 male  \n2 Gentoo    Biscoe           42.8          14.2        4700 female\n3 Gentoo    Biscoe           46.5          14.4        4900 female\n4 Adelie    Dream            36            18.5        3100 female\n5 Chinstrap Dream            48.5          17.5        3400 male"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-mutate",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-mutate",
+    "title": "Data Pipelines",
+    "section": "group_by() with mutate()",
+    "text": "group_by() with mutate()\n\n\nwizards |&gt; \n  mutate(height_z = (height - mean(height)) / sd(height))\n\n\n\n       name      house height spells   height_z\n1     Harry Gryffindor   1.78     60  0.9630715\n2 Bellatrix  Slytherin   1.57     75 -1.2233611\n3  Hermione Gryffindor   1.65     70 -0.3904344\n4     Draco  Slytherin   1.75     55  0.6507240"
   },
   {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
-    "title": "Multiple Linear Regression",
-    "section": "Simple Regression: 2 numerical",
-    "text": "Simple Regression: 2 numerical\n\n# model 1\nm1 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\nm1\n\n\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n      20.78665        -0.08233  \n\n\n\n\\[\n\\widehat{\\texttt{bill_depth_mm}} = 20.786 -0.0823 \\ \\texttt{bill_length_mm}\n\\]"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-2",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-2",
-    "title": "Multiple Linear Regression",
-    "section": "Simple Regression: 2 numerical",
-    "text": "Simple Regression: 2 numerical\n\n# model 1\nm1 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\nm1\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n      20.78665        -0.08233  \n\n\n\n\n\n−+\n01:00\n\n\n\n\nHow can we interpret the coefficient associated to bill_length_mm?"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-3",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-3",
-    "title": "Multiple Linear Regression",
-    "section": "Simple Regression: 2 numerical",
-    "text": "Simple Regression: 2 numerical\n\n# model 1\nm1 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\nm1\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n      20.78665        -0.08233  \n\n\n\n\nFor every additional millimeter in bill length, we expect bill depth to decrease by 0.08233 millimeters."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-1",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-1",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 3 numerical",
-    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\\[\n\\widehat{\\texttt{bill_depth_mm}} = 21.278 + 0.0273 \\ \\texttt{bill_length_mm} \\\\ - 0.0012 \\ \\texttt{body_mass_g}\n\\]"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-2",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-2",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 3 numerical",
-    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\n\n−+\n01:00\n\n\n\n\nHow can we interpret the coefficient associated to bill_length_mm?"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-3",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-3",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 3 numerical",
-    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\nFor penguins of the same body mass, an additional millimeter in bill length is associated with an increase of 0.0273 millimeters in bill depth."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-4",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-4",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 3 numerical",
-    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the coefficient associated to body_mass_g?"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-5",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-5",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 3 numerical",
-    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\nFor penguins of the same bill length, an additional gram in body mass is associated with a decrease of 0.0012 millimeters in bill depth."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-1",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-1",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 2 numerical, 1 categorical",
-    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\\[\n\\widehat{\\texttt{bill_depth_mm}} = 22.56 -0.145 \\ \\texttt{bill_length_mm} \\quad \\tiny{female} \\\\\n\\widehat{\\texttt{bill_depth_mm}} = (22.56 + 2.013) -0.145 \\ \\texttt{bill_length_mm} \\quad \\tiny{male}\n\\]"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-2",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-2",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 2 numerical, 1 categorical",
-    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the coefficient associated to bill_length_mm?"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-3",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-3",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 2 numerical, 1 categorical",
-    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\nFor penguins of the same sex, an additional millimeter in bill length is associated with a decrease of 0.1458 millimeters in bill depth."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-4",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-4",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 2 numerical, 1 categorical",
-    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the coefficient associated to sexmale?"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-5",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-5",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 2 numerical, 1 categorical",
-    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\nFor penguins of the same bill length, male penguins are expected to have a bill depth 2.0133 millimeters bigger than females."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-6",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-6",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 2 numerical, 1 categorical",
-    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the intercept term?"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-7",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-7",
-    "title": "Multiple Linear Regression",
-    "section": "Multiple Regression: 2 numerical, 1 categorical",
-    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\nThe value that we would expect bill depth to take when bill length is 0, and sex is female."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#number-of-coefficients",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#number-of-coefficients",
-    "title": "Multiple Linear Regression",
-    "section": "Number of Coefficients",
-    "text": "Number of Coefficients\n\nlm1 &lt;- lm(bill_depth_mm ~ bill_length_mm, \n          data = penguins)\n\nlm2 &lt;- lm(bill_depth_mm ~ bill_length_mm + species, \n          data = penguins)\n\nlm3 &lt;- lm(bill_depth_mm ~ bill_length_mm + body_mass_g, \n          data = penguins)\n\nlm4 &lt;- lm(bill_depth_mm ~ bill_length_mm + body_mass_g + sex, \n          data = penguins)\n\n\n\n\n−+\n02:00\n\n\n\n\nWhat’s the number of coefficients in each model?\n\n\nRemind students that they need to remember whether species and body_mass_g are numerical or categorical. Students should know how many species there are (three).\nOne addl. coefficient for body mass; two addl. for species (one less than the number of species, which is three). This gives a total of three more coefficients."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-linear-models",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-linear-models",
-    "title": "Multiple Linear Regression",
-    "section": "Visualizing Linear Models",
-    "text": "Visualizing Linear Models\n\nlm1 &lt;- lm(bill_depth_mm ~ bill_length_mm, \n          data = penguins)\n\nlm2 &lt;- lm(bill_depth_mm ~ bill_length_mm + species, \n          data = penguins)\n\nlm3 &lt;- lm(bill_depth_mm ~ bill_length_mm + body_mass_g, \n          data = penguins)\n\n\n\n\n−+\n01:30\n\n\n\n\nHow would each model best be visualized?\n\n\nlm1 with a line; lm2 with 2 parallel lines (one for each sex); lm3 with planes in a 3D space. The indicator coefficients will shift the planes up and down. There are three species, so three parallel planes is what we are looking for."
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm1-2-numerical",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm1-2-numerical",
-    "title": "Multiple Linear Regression",
-    "section": "Visualizing lm1 (2 numerical)",
-    "text": "Visualizing lm1 (2 numerical)"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm2-2-numerical-1-categorical",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm2-2-numerical-1-categorical",
-    "title": "Multiple Linear Regression",
-    "section": "Visualizing lm2 (2 numerical, 1 categorical)",
-    "text": "Visualizing lm2 (2 numerical, 1 categorical)"
-  },
-  {
-    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm3-3-numerical",
-    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm3-3-numerical",
-    "title": "Multiple Linear Regression",
-    "section": "Visualizing lm3 (3 numerical)",
-    "text": "Visualizing lm3 (3 numerical)"
+    "objectID": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-mutate-1",
+    "href": "2-summarizing-data/05-data-pipelines/slides.html#group_by-with-mutate-1",
+    "title": "Data Pipelines",
+    "section": "group_by() with mutate()",
+    "text": "group_by() with mutate()\n\nwizards |&gt; \n  group_by(house) |&gt; \n  mutate(height_z = (height - mean(height)) / sd(height))\n\n\n\n# A tibble: 4 × 5\n# Groups:   house [2]\n  name      house      height spells height_z\n  &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n1 Harry     Gryffindor   1.78     60    0.707\n2 Bellatrix Slytherin    1.57     75   -0.707\n3 Hermione  Gryffindor   1.65     70   -0.707\n4 Draco     Slytherin    1.75     55    0.707"
   },
   {
     "objectID": "assets/final-exam-slide.html#section",
@@ -624,7 +692,7 @@
     "href": "3-probability/05-ev-sd/practice.html#product-of-tickets",
     "title": "Practice: Expected Value and Variance",
     "section": "5) Product of tickets",
-    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 2\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
+    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 0\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
     "crumbs": [
       "Practice Problems",
       "Probability",
@@ -672,7 +740,7 @@
     "href": "3-probability/05-ev-sd/practice.html#games-of-chance",
     "title": "Practice: Expected Value and Variance",
     "section": "9) Games of Chance",
-    "text": "9) Games of Chance\nConsider the following games:\nGame A: Consider the box [1  1  1  0  0  0]; 50 draws will be made at random with replacement from this box. On each draw, you will be paid the amount shown on the ticket, in dollars.\nGame B: A die will be rolled 50 times. Each time it shows a three or a five, you win $1; on the other numbers, you win nothing.\n\nFind the expected gain in game A\nFind the expected gain in game B\n\nWhich game is better if you are betting on winning more money? Explain briefly.\n\n\n\n\n\n\nShow answers\n\n\n\n\n\nGame A\nLet \\(X\\) be the number in a single draw. \\(EV(X) = (0)(3/6) + (1)(3/6) = 1/2\\)\nLet \\(S_X\\) be the sum of the numbers in 50 draws. Notice that \\(S = 50X\\). Thus, \\(EV(S_X) = 50 E(X) = 50 (1/2) = 25\\)\n\n\nGame B\nLet \\(Y\\) be the dollar amount you win in game B\n\\[\nP(Y = y) = \\begin{cases}\n4/6, & \\text{for } y = 0 \\\\\n2/6, & \\text{for } y = 1 \\\\\n\\end{cases}\n\\]\n\\(E(Y) = (0)(4/6) + (1)(2/6) = 2/6 = 1/3\\)\nLet \\(Sy\\) be the total gain in 50 draws of game B, thus \\(EV(S_Y) = 50 E(Y) = 50 (1/3) \\approx 16.66\\)\n\n\nIn summary, game A is better. In game A there are 50 draws, on each draw you have a probability of 3/6 of winning $1. In contrast, in game B there are 50 rolls, on each roll you have a probability of 2/6 of winning.",
+    "text": "9) Games of Chance\nConsider the following games:\nGame A: Consider the box [1  1  1  0  0  0]; 50 draws will be made at random with replacement from this box. On each draw, you will be paid the amount shown on the ticket, in dollars.\nGame B: A die will be rolled 50 times. Each time it shows a three or a five, you win $1; on the other numbers, you win nothing.\n\nFind the expected gain in game A\nFind the expected gain in game B\n\nWhich game is better if you are betting on winning more money? Explain briefly.\n\n\n\n\n\n\nShow answers\n\n\n\n\n\nGame A\nLet \\(X\\) be the number in a single draw. \\(EV(X) = (0)(3/6) + (1)(3/6) = 1/2\\)\nLet \\(S_X\\) be the sum of the numbers in 50 draws. Notice that \\(S = 50X\\). Thus, \\(EV(S_X) = 50 E(X) = 50 (1/2) = 25\\)\n\n\nGame B\nLet \\(Y\\) be the dollar amount you win in a single roll (of a die)\n\\[\nP(Y = y) = \\begin{cases}\n4/6, & \\text{for } y = 0 \\\\\n2/6, & \\text{for } y = 1 \\\\\n\\end{cases}\n\\]\n\\(E(Y) = (0)(4/6) + (1)(2/6) = 2/6 = 1/3\\)\nLet \\(Sy\\) be the total gain in 50 draws of game B, thus \\(EV(S_Y) = 50 E(Y) = 50 (1/3) \\approx 16.66\\)\n\n\nIn summary, game A is better. In game A there are 50 draws, on each draw you have a probability of 3/6 of winning $1. In contrast, in game B there are 50 rolls, on each roll you have a probability of 2/6 of winning.",
     "crumbs": [
       "Practice Problems",
       "Probability",
@@ -1281,7 +1349,7 @@
     "href": "index.html",
     "title": "Gaston Sanchez’s instructional materials for STAT 20",
     "section": "",
-    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz Slides\n\nQuiz",
+    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nData Manipulation\nData Pipelines\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz Slides\n\nQuiz",
     "crumbs": [
       "Home"
     ]
@@ -1602,14 +1670,14 @@
     "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
     "title": "Random Variables",
     "section": "Demo rbinom()",
-    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 2 2 2 1 3 2 2 3 2 1 1 2 2 3 1 2 3 2 1 3 1 1 2 1 0 3 1 2 1 2 2 1 2 2 3 1\n [38] 1 2 2 2 2 2 2 2 2 3 2 1 3 3 3 0 2 2 1 0 3 2 0 2 3 2 2 2 2 2 2 2 0 2 1 2 2\n [75] 2 3 1 3 0 2 3 2 2 2 2 2 0 3 2 2 2 3 3 2 1 3 2 1 2 0"
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 1 3 3 2 1 3 3 2 3 1 0 3 1 1 2 2 1 2 1 3 1 2 2 2 2 3 3 2 2 1 2 2 3 2 2 3 2\n [38] 1 2 2 2 3 2 3 3 2 1 3 1 3 3 3 0 2 1 2 0 2 0 3 2 1 2 2 3 2 3 1 2 3 3 3 1 1\n [75] 2 2 2 3 2 3 1 3 1 3 2 3 2 3 3 2 2 3 1 3 1 3 2 2 3 3"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "title": "Random Variables",
     "section": "Demo: Empirical Probability Distribution",
-    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  8\n2      1 19\n3      2 53\n4      3 20\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  8 0.08\n2      1 19 0.19\n3      2 53 0.53\n4      3 20 0.20"
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  4\n2      1 21\n3      2 39\n4      3 36\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  4 0.04\n2      1 21 0.21\n3      2 39 0.39\n4      3 36 0.36"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
@@ -1899,16 +1967,263 @@
     "text": "Group Quiz\n\n\n\n−+\n15:00"
   },
   {
-    "objectID": "2-summarizing-data/02-summarizing-numerical-data/practice.html",
-    "href": "2-summarizing-data/02-summarizing-numerical-data/practice.html",
-    "title": "Practice: Summarizing Numerical Data",
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#agenda",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#agenda",
+    "title": "Multiple Linear Regression",
+    "section": "Agenda",
+    "text": "Agenda\n\nAnnouncements\nLinear Regression Refresher\n\nSimple Linear Regression\nMultiple Linear Regression\n\nPractice Problems on Regression\nLab 3.2 Flights"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#announcements-quiz-2",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#announcements-quiz-2",
+    "title": "Multiple Linear Regression",
+    "section": "Announcements: Quiz 2",
+    "text": "Announcements: Quiz 2\n\nQuiz-2 next Monday, Sep 29th in class.\n\nSection 1, 8am in Barker 101\nSection 8, 10am in SOCS 60\n\n\n\nTopics:\n\nSummarizing Numerical Data\nA Grammar of Graphics\nConditioning\nSummarizing Associations\nMultiple Linear Regression"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-linear-regression-models-in-r",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-linear-regression-models-in-r",
+    "title": "Multiple Linear Regression",
+    "section": "Simple Linear Regression Models in R",
+    "text": "Simple Linear Regression Models in R\nFunction lm()\n# simple linear regression\nmod &lt;- lm(formula = y ~ x, data = dataset)\n\n\n\ny: response variable\nx: predictor variable\ndata: name of data frame\n\n\n\ncoefficients(mod): regression coeffs\nfitted(mod): predicted values\nresiduals(mod): residuals"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-linear-regression-models-in-r",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-linear-regression-models-in-r",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Linear Regression Models in R",
+    "text": "Multiple Linear Regression Models in R\nFunction lm()\n# multiple linear regression\nmod &lt;- lm(formula = y ~ x1 + x2 + ..., data = dataset)\n\n\n\ny: response variable\nx1, x2, ...: predictor variables\ndata: name of data frame\n\n\n\ncoefficients(mod): regression coeffs\nfitted(mod): predicted values\nresiduals(mod): residuals"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
+    "title": "Multiple Linear Regression",
+    "section": "Penguins Data",
+    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Gentoo    Biscoe           49.1          14.8        5150 female\n2 Gentoo    Biscoe           46.5          14.5        4400 female\n3 Adelie    Biscoe           40.5          18.9        3950 male  \n4 Chinstrap Dream            51.3          19.9        3700 male  \n5 Chinstrap Dream            49.3          19.9        4050 male"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
+    "title": "Multiple Linear Regression",
+    "section": "Simple Regression: 2 numerical",
+    "text": "Simple Regression: 2 numerical\n\n# model 1\nm1 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\nm1\n\n\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n      20.78665        -0.08233  \n\n\n\n\\[\n\\widehat{\\texttt{bill_depth_mm}} = 20.786 -0.0823 \\ \\texttt{bill_length_mm}\n\\]"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-2",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-2",
+    "title": "Multiple Linear Regression",
+    "section": "Simple Regression: 2 numerical",
+    "text": "Simple Regression: 2 numerical\n\n# model 1\nm1 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\nm1\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n      20.78665        -0.08233  \n\n\n\n\n\n−+\n01:00\n\n\n\n\nHow can we interpret the coefficient associated to bill_length_mm?"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-3",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-3",
+    "title": "Multiple Linear Regression",
+    "section": "Simple Regression: 2 numerical",
+    "text": "Simple Regression: 2 numerical\n\n# model 1\nm1 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\nm1\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n      20.78665        -0.08233  \n\n\n\n\nFor every additional millimeter in bill length, we expect bill depth to decrease by 0.08233 millimeters."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-1",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-1",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 3 numerical",
+    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\\[\n\\widehat{\\texttt{bill_depth_mm}} = 21.278 + 0.0273 \\ \\texttt{bill_length_mm} \\\\ - 0.0012 \\ \\texttt{body_mass_g}\n\\]"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-2",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-2",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 3 numerical",
+    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\n\n−+\n01:00\n\n\n\n\nHow can we interpret the coefficient associated to bill_length_mm?"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-3",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-3",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 3 numerical",
+    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\nFor penguins of the same body mass, an additional millimeter in bill length is associated with an increase of 0.0273 millimeters in bill depth."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-4",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-4",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 3 numerical",
+    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the coefficient associated to body_mass_g?"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-5",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-3-numerical-5",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 3 numerical",
+    "text": "Multiple Regression: 3 numerical\n\n# model 2\nm2 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, \n         data = penguins)\nm2\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + body_mass_g, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm     body_mass_g  \n     21.278127        0.027373       -0.001264  \n\n\n\n\nFor penguins of the same bill length, an additional gram in body mass is associated with a decrease of 0.0012 millimeters in bill depth."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-1",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-1",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 2 numerical, 1 categorical",
+    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\\[\n\\widehat{\\texttt{bill_depth_mm}} = 22.56 -0.145 \\ \\texttt{bill_length_mm} \\quad \\tiny{female} \\\\\n\\widehat{\\texttt{bill_depth_mm}} = (22.56 + 2.013) -0.145 \\ \\texttt{bill_length_mm} \\quad \\tiny{male}\n\\]"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-2",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-2",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 2 numerical, 1 categorical",
+    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the coefficient associated to bill_length_mm?"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-3",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-3",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 2 numerical, 1 categorical",
+    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\nFor penguins of the same sex, an additional millimeter in bill length is associated with a decrease of 0.1458 millimeters in bill depth."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-4",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-4",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 2 numerical, 1 categorical",
+    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the coefficient associated to sexmale?"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-5",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-5",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 2 numerical, 1 categorical",
+    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\nFor penguins of the same bill length, male penguins are expected to have a bill depth 2.0133 millimeters bigger than females."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-6",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-6",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 2 numerical, 1 categorical",
+    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\n\n−+\n01:00\n\n\n\n\n\nHow can we interpret the intercept term?"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-7",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#multiple-regression-2-numerical-1-categorical-7",
+    "title": "Multiple Linear Regression",
+    "section": "Multiple Regression: 2 numerical, 1 categorical",
+    "text": "Multiple Regression: 2 numerical, 1 categorical\n\n# model 3\nm3 &lt;- lm(formula = bill_depth_mm ~ bill_length_mm + sex, \n         data = penguins)\nm3\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm + sex, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm         sexmale  \n       22.5614         -0.1458          2.0133  \n\n\n\n\nThe value that we would expect bill depth to take when bill length is 0, and sex is female."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#number-of-coefficients",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#number-of-coefficients",
+    "title": "Multiple Linear Regression",
+    "section": "Number of Coefficients",
+    "text": "Number of Coefficients\n\nlm1 &lt;- lm(bill_depth_mm ~ bill_length_mm, \n          data = penguins)\n\nlm2 &lt;- lm(bill_depth_mm ~ bill_length_mm + species, \n          data = penguins)\n\nlm3 &lt;- lm(bill_depth_mm ~ bill_length_mm + body_mass_g, \n          data = penguins)\n\nlm4 &lt;- lm(bill_depth_mm ~ bill_length_mm + body_mass_g + sex, \n          data = penguins)\n\n\n\n\n−+\n02:00\n\n\n\n\nWhat’s the number of coefficients in each model?\n\n\nRemind students that they need to remember whether species and body_mass_g are numerical or categorical. Students should know how many species there are (three).\nOne addl. coefficient for body mass; two addl. for species (one less than the number of species, which is three). This gives a total of three more coefficients."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-linear-models",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-linear-models",
+    "title": "Multiple Linear Regression",
+    "section": "Visualizing Linear Models",
+    "text": "Visualizing Linear Models\n\nlm1 &lt;- lm(bill_depth_mm ~ bill_length_mm, \n          data = penguins)\n\nlm2 &lt;- lm(bill_depth_mm ~ bill_length_mm + species, \n          data = penguins)\n\nlm3 &lt;- lm(bill_depth_mm ~ bill_length_mm + body_mass_g, \n          data = penguins)\n\n\n\n\n−+\n01:30\n\n\n\n\nHow would each model best be visualized?\n\n\nlm1 with a line; lm2 with 2 parallel lines (one for each sex); lm3 with planes in a 3D space. The indicator coefficients will shift the planes up and down. There are three species, so three parallel planes is what we are looking for."
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm1-2-numerical",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm1-2-numerical",
+    "title": "Multiple Linear Regression",
+    "section": "Visualizing lm1 (2 numerical)",
+    "text": "Visualizing lm1 (2 numerical)"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm2-2-numerical-1-categorical",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm2-2-numerical-1-categorical",
+    "title": "Multiple Linear Regression",
+    "section": "Visualizing lm2 (2 numerical, 1 categorical)",
+    "text": "Visualizing lm2 (2 numerical, 1 categorical)"
+  },
+  {
+    "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm3-3-numerical",
+    "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#visualizing-lm3-3-numerical",
+    "title": "Multiple Linear Regression",
+    "section": "Visualizing lm3 (3 numerical)",
+    "text": "Visualizing lm3 (3 numerical)"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#agenda",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#agenda",
+    "title": "Summarizing Numerical Data",
+    "section": "Agenda",
+    "text": "Agenda\n\nAnnouncements\nNotes Recap\nPractice Concept Questions\nCoding Activity: Graphing Numerical Data\nBreak\nWorksheet “Summarizing Numerical Data” (part of WSP-3)\nLab 2.2 (time permitting)"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#announcements",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#announcements",
+    "title": "Summarizing Numerical Data",
+    "section": "Announcements",
+    "text": "Announcements\n\nRQ: Grammar of Graphics due Thursday at 11:59pm\n\n\n\nLab 2: Class Survey (both parts) due Tuesday at 8am\n\nLab 2.1: Group submission\nLab 2.2: Individual submission"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#graphics",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#graphics",
+    "title": "Summarizing Numerical Data",
+    "section": "Graphics",
+    "text": "Graphics\nYou can construct a statistical graphic to show the shape, which you can describe in terms of modality and skew\n\nDot plot\nHistogram\nDensity plot\nViolin plot\nBox plot"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-center",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-center",
+    "title": "Summarizing Numerical Data",
+    "section": "Measures of Center",
+    "text": "Measures of Center\nYou can calculate a measure of center to convey a sense of a typical (representative) observation\n\nMean\nMedian\nMode"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-spread",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#measures-of-spread",
+    "title": "Summarizing Numerical Data",
+    "section": "Measures of Spread",
+    "text": "Measures of Spread\nAnd you can calculate a measure of spread (i.e. scatter, dispersion, variation) to capture how much variability there is in the data\n\nRange\nInter Quartile Range (IQR)\nMean Absolute Deviation (MAD)\nSample Variance (Var)\nSample Standard Deviation (SD)"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section",
+    "title": "Summarizing Numerical Data",
     "section": "",
-    "text": "1) Which of the following is most affected by an outlier in a dataset?\n\nMean\nMedian\nMode\n\n\n\n2) The median is the best measure of center for which type of data?\n\nSymmetrical and normally distributed\nSkewed and containing outliers\nCategorical and nominal\nDiscrete and uniform\n\n\n\n3) In a dataset, if every value is increased by 10, what happens to the mean and median?\n\nBoth remain the same.\nBoth increase by 10.\nThe mean increases by 10, but the median remains the same.\nThe mean remains the same, but the median increases by 10.\n\n\n\n4) Which measure of center is best to describe the typical hair color of students in a class?\n\nMean\nMedian\nMode\nAll of the above\n\n\n\n5) Which of the following statements about the mode is true?\n\nThe mode is highly affected by outliers.\nThe mode is the only measure of center that can be used for nominal data.\nEvery dataset has exactly one mode.\nThe mode is always a unique number in the dataset.\n\n\n\n6) Mean vs Median\nA college statistics class conducted a survey of how students spend their money. They asked 25 students to estimate how much money they typically spend each week on fast food. They determined that the mean amount spent on fast food each week is $31.52 and the median is $32. Later they realized that a value entered as $2 should have been $20. They recalculate the mean and the median.\nWhich of the following is true?\n\nThe mean and median will increase.\nThe mean will increase, but the median will remain the same.\nThe mean will stay the same, but the median will increase.\nBoth the mean and median will remain the same.\n\n\n\n7) Preferring the Median\nFor which one of the following distributions will the median be a better measure of center than the mean?\n\nSalary data for players in the National Basketball Association (NBA) where most of the players earn the league minimum and a few superstars earn very high salaries in comparison.\nRepeated weight measurements of the same 1.6-ounce bag of Peanut M&Ms by students in a large chemistry class using a non-digital balance scale.\nHeight data from a large random sample of men.\nExam scores with a central peak around an average test score and a few students scoring lower than the average and a few scoring higher.\n\n\n\n8) If the standard deviation of a dataset is small, what does this tell you about the data points?\n\nThey are widely dispersed.\nThey are clustered closely around the mean.\nThe data is skewed.\nThe data is symmetrical.\n\n\n\n9) The Interquartile Range (IQR) is the difference between:\n\nThe maximum and minimum values.\nThe mean and the median.\nThe first quartile (\\(Q_1\\)) and the third quartile (\\(Q_3\\)).\nThe mode and the mean.\n\n\n\n10) What is the standard deviation of the dataset {10, 10, 10, 10}?\n\n10\n1\n0\nUndefined\n\n\n\n11) The variance of a dataset is always:\n\nGreater than the standard deviation.\nLess than the standard deviation.\nNegative.\nNon-negative.\n\n\n\n12) What does a large Interquartile Range (IQR) indicate?\n\nThe dataset is symmetrical.\nThe middle 50% of the data is widely spread out.\nThe dataset has no outliers.\nThe mean and median are the same.\n\n\n\n13) Which of the following is not a measure of spread?\n\nRange\nInterquartile Range (IQR)\nStandard deviation\nMean\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nPart a)\nPart b)\nPart b)\nPart c)\nPart b)\nPart b)\nPart a)\nPart b)\nPart c)\nPart c)\nPart d)\nPart b)\nPart d)",
-    "crumbs": [
-      "Practice Problems",
-      "Summary",
-      "Practice: Summarizing Numerical Data"
-    ]
+    "text": "Typical value?\n\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\n\nsample size ( \\(n\\) ): 11\nmean ( \\(\\bar{x}\\) ): 8.45\nmedian: 8\nmode: 7"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-1",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-1",
+    "title": "Summarizing Numerical Data",
+    "section": "",
+    "text": "How can we express the variability in this data set using a single number?\n\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-2",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-2",
+    "title": "Summarizing Numerical Data",
+    "section": "",
+    "text": "\\[ {\\Large 6} \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad {\\Large 11}\\]\n\nThe Range\n\\[\\textrm{range:} \\quad max - min\\]\n\\[ 11 - 6 = 5\\]\nCharacteristics\n\nVery sensitive to extreme values!"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-3",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-3",
+    "title": "Summarizing Numerical Data",
+    "section": "",
+    "text": "\\[ 6 \\quad 7 \\quad {\\Large 7 \\quad  7} \\quad 8 \\quad  {\\large 8} \\quad 9 \\quad {\\Large 9 \\quad 10} \\quad 11  \\quad 11\\]\n\nThe Inner Quartile Range (IQR)\nThe difference between the 3rd quartile, \\(Q_3\\), and the 1st quartile, \\(Q_1\\) (i.e. the middle 50% of the data)\n\\[\\textrm{IQR:} \\quad Q_3 - Q_1\\]\n\\[ 9.5 - 7 = 2.5 \\]\nCharacteristics\n\nRobust to outliers\nUsed to set the width of the box in a boxplot"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-4",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-4",
+    "title": "Summarizing Numerical Data",
+    "section": "",
+    "text": "\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\nMean Absolute Deviation\nTake the differences from each observation, \\(x_i\\), to the sample mean, \\(\\bar{x}\\), take their absolute values, add them up, and divide by \\(n\\). Simply put, this is the average distance from the mean.\n\\[MAD: \\quad \\frac{1}{n}\\sum_{i = 1}^n |x_i - \\bar{x}| \\]\n\\[ MAD = 1.4 \\]\nCharacteristics\n\nIncorporates information from all observations\nRobust to extreme values"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-5",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-5",
+    "title": "Summarizing Numerical Data",
+    "section": "",
+    "text": "\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\nSample Variance\nTake the differences from each observation, \\(x_i\\), to the sample mean, \\(\\bar{x}\\), square them, add them up, and divide by \\(n - 1\\) .\n\\[s^2: \\quad \\frac{1}{n - 1}\\sum_{i = 1}^n (x_i - \\bar{x})^2 \\]\n\\[ s^2 = 2.87 \\]\n\nCharacteristics\n\nIncorporates information from all observations\n\n\n\nModerately sensitive to extreme values\n\n\n\nMeasured in squared units!"
+  },
+  {
+    "objectID": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-6",
+    "href": "2-summarizing-data/02-summarizing-numerical-data/slides.html#section-6",
+    "title": "Summarizing Numerical Data",
+    "section": "",
+    "text": "\\[ 6 \\quad 7 \\quad 7 \\quad  7 \\quad 8 \\quad  8 \\quad 9 \\quad 9 \\quad 10 \\quad 11  \\quad 11\\]\n\nSample Standard Deviation\nTake the differences from each observation, \\(x_i\\), to the sample mean, \\(\\bar{x}\\), square them, add them up, divide by \\(n - 1\\), then take the square root.\n\\[\nS:  \\sqrt{\\frac{1}{n - 1}\\sum_{i = 1}^n (x_i - \\bar{x})^2}\n\\]\n\\[ s = 1.70 \\]\n\nCharacteristics\n\nIncorporates info from all observations\n\n\n\nModerately sensitive to extreme values\n\n\n\nMeasured in units of the original data"
   },
   {
     "objectID": "2-summarizing-data/06-summarizing-associations/practice.html",

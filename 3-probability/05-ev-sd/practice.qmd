@@ -327,7 +327,7 @@ Let $S_X$ be the sum of the numbers in 50 draws. Notice that $S = 50X$. Thus, $E
 
 __Game B__
 
-Let $Y$ be the dollar amount you win in game B
+Let $Y$ be the dollar amount you win in a single roll (of a die)
 
 $$
 P(Y = y) = \begin{cases}

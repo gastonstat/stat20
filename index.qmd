@@ -33,6 +33,10 @@ A friendly reminder to myself when teaching [STAT 20](https://stat20.berkeley.ed
 
 - [A Grammar of Graphics](2-summarizing-data/03-a-grammar-of-graphics/slides.html){target="_blank"}
 
+- [Data Manipulation](2-summarizing-data/04-data-manipulation/slides.html){target="_blank"}
+
+- [Data Pipelines](2-summarizing-data/05-data-pipelines/slides.html){target="_blank"}
+
 - [Summarizing Associations](2-summarizing-data/06-summarizing-associations/slides.html){target="_blank"}
 
 - [Multiple Linear Regression](2-summarizing-data/07-multiple-linear-regression/slides.html){target="_blank"}

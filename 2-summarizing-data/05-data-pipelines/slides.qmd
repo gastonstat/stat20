@@ -1,0 +1,298 @@
+---
+title: "Data Pipelines"
+format:
+  stat20slides-revealjs:
+    chalkboard: true
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+```
+
+
+## Example: Toy Data {auto-animate=true}
+
+```{r}
+wizards <- data.frame(
+  name = c("Harry", "Bellatrix", "Hermione", "Draco"),
+  house = c("Gryffindor", "Slytherin", "Gryffindor",  "Slytherin"),
+  height = c(1.78, 1.57, 1.65, 1.75),
+  spells = c(60, 75, 70, 55)
+)
+```
+
+
+## Example: Toy Data {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+wizards <- data.frame(
+  name = c("Harry", "Bellatrix", "Hermione", "Draco"),
+  house = c("Gryffindor", "Slytherin", "Gryffindor",  "Slytherin"),
+  height = c(1.78, 1.57, 1.65, 1.75),
+  spells = c(60, 75, 70, 55)
+)
+
+wizards
+```
+
+
+# Data Pipelines
+
+##
+
+```{r}
+wizards
+```
+
+\
+
+::: {.fragment}
+[Goal:]{.bold-hilit} Calculate the average height of characters from Gryffindor
+:::
+
+\
+
+::: {.fragment}
+Let's look at three ways to solve this.
+:::
+
+
+## Nesting
+
+```{r}
+summarize(filter(wizards, house == "Gryffindor"),
+          mean(height))
+```
+
+\
+
+::: {.fragment}
+::: {.incremental}
+- Must be read from the inside out
+
+- Hard to keep track of arguments
+:::
+:::
+
+
+## Step-by-step
+
+```{r}
+wizards2 <- filter(wizards, house == "Gryffindor")
+summarize(wizards2, mean(height))
+```
+
+\
+
+::: {.fragment}
+::: {.incremental}
+- Have to repeat data frame names
+
+- Creates unnecessary objects
+:::
+:::
+
+
+## Using the Pipe Operator {auto-animate=true}
+
+```{r eval = FALSE}
+wizards |>
+```
+
+## Using the Pipe Operator {auto-animate=true}
+
+```{r eval = FALSE}
+wizards |> 
+  filter(house == "Gryffindor") |> 
+```
+
+## Using the Pipe Operator {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+wizards |> 
+  filter(house == "Gryffindor") |> 
+  summarize(mean(height))
+```
+
+\
+
+::: {.fragment}
+::: {.incremental}
+- Can be read like an English paragraph
+
+- Only type the data once
+
+- No leftover objects
+:::
+:::
+
+
+## Understanding your pipeline
+
+It's good practice to understand the output of each line by _breaking the pipe_.
+
+\
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fragment}
+```{r}
+#| output-location: fragment
+# bad pipe!
+wizards |> 
+  select(house) |> 
+  filter(mean(height))
+```
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+```{r}
+#| output-location: fragment
+# inspecting the pipe
+wizards |> 
+  select(house)
+```
+:::
+:::
+
+::::
+
+
+# Grouped Operations
+
+##
+
+```{r}
+wizards
+```
+
+\
+
+:::{.fragment}
+Calculate the average height of characters across each house.
+:::
+
+
+## `group_by()`
+
+Flag the rows of a data frame as belong to a group defined by a factor. For use in downstream operations.
+
+:::{.fragment}
+```{r}
+#| output-location: fragment
+wizards |> 
+  group_by(house)
+```
+:::
+
+
+## `group_by()`
+
+Flag the rows of a data frame as belong to a group defined by a factor. For use in downstream operations.
+
+:::{.fragment}
+```{r}
+#| output-location: fragment
+wizards |> 
+  group_by(house) |> 
+  summarize(mean(height))
+```
+:::
+
+
+## `group_by()` with `summarize()` {auto-animate=true}
+
+:::{.fragment}
+```{r}
+#| output-location: fragment
+wizards |> 
+  summarize(mean(height))
+```
+:::
+
+
+## `group_by()` with `summarize()` {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+wizards |> 
+  group_by(house) |> 
+  summarize(mean(height))
+```
+
+
+## `group_by()` with `filter()` {auto-animate=true}
+
+:::{.fragment}
+```{r}
+#| output-location: fragment
+wizards |> 
+  filter(height == max(height))
+```
+:::
+
+
+## `group_by()` with `filter()` {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+wizards |> 
+group_by(house) |> 
+  filter(height == max(height))
+```
+
+
+## `group_by()` with `arrange()` {auto-animate=true}
+
+:::{.fragment}
+```{r}
+#| output-location: fragment
+wizards |> 
+  arrange(desc(height))
+```
+:::
+
+
+## `group_by()` with `arrange()` {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+wizards |> 
+  group_by(house) |> 
+  arrange(desc(height))
+```
+
+\
+
+:::{.fragment}
+`arrange()` ignores `group_by()` and is always global.
+:::
+
+
+## `group_by()` with `mutate()` {auto-animate=true}
+
+:::{.fragment}
+```{r}
+#| output-location: fragment
+wizards |> 
+  mutate(height_z = (height - mean(height)) / sd(height))
+```
+:::
+
+
+## `group_by()` with `mutate()` {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+wizards |> 
+  group_by(house) |> 
+  mutate(height_z = (height - mean(height)) / sd(height))
+```
+
+
+

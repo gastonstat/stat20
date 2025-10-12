@@ -220,16 +220,18 @@ Draw one ticket, and let $X$ be the value of the ticket.
 \
 
 :::::: columns
-::::: incremental
 ::: {.column width="50%"}
+::: {.incremental}
 **pmf:** $\quad f(X) = P(X=x)$
 
 -   $P(X = 0) = 3/8$
 -   $P(X = 1) = 2/8$
 -   $P(X = 2) = 3/8$
 :::
+:::
 
 ::: {.column width="50%"}
+::: {.incremental}
 **cdf:** $\quad F(x) = P(X \leq x)$
 
 -   $P(X \leq x) = 0 \quad \quad \text{for} \ x < 0$
@@ -237,7 +239,7 @@ Draw one ticket, and let $X$ be the value of the ticket.
 -   $P(X \leq x) = 5/8 \quad \text{for} \ 1 \leq x < 2$
 -   $P(X \leq x) = 1 \quad \quad \text{for} \ x \geq 2$
 :::
-:::::
+:::
 ::::::
 
 ## Example
