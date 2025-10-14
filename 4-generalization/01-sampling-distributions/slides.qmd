@@ -1,0 +1,75 @@
+---
+title: "From Samples to Populations"
+format:
+  stat20slides-revealjs:
+    chalkboard: true
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+```
+
+
+# Vocabulary
+
+## Terms
+
+- Sample
+- Population
+- Statistic
+- Population Parameter
+
+
+## Estimation
+
+Estimate:
+
+- population mean
+- population proportion
+
+Watch out for estimation errors
+
+
+## Sources of Error
+
+Bias and Variance
+
+(the famous B-V tradeoff)
+
+
+## Biases
+
+- [Selection Bias:]{.hilit} When not all units in the population are equally likely to be selected for the sample.
+
+- [Measurement Bias:]{.hilit} When your process of measuring a variable systematically misses the target in one direction.
+
+    + when questions are confusingly worded or leading, 
+    + when respondents may not be comfortable answering honestly.
+
+
+- [Non-response Bias:]{.hilit} When certain units originally selected for the sample fail to provide data
+
+Solution (ideal): Simple Random Sample (SRS)
+
+
+## Types of Variation
+
+- [Sampling Variability:]{.hilit} the variability from one sample to the next
+
+- [Measurement Variability:]{.hilit} When we take multiple measurements on the same object and we get variations in measurements from one sample to the next.
+
+
+# Sampling Distribution
+
+## What is a Sampling Distribution?
+
+Sampling Distribution is the distribution of a statistic upon repeated sampling.
+
+No longer are we considering the (usually unknowable) distribution of the population or the observed distribution of the data 
+
+Usually the sampling distribution is a hypothetical thing: what would our statistic have looked like if we had taken a different sample of data?
+
+
+
+

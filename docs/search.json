@@ -692,7 +692,7 @@
     "href": "3-probability/05-ev-sd/practice.html#product-of-tickets",
     "title": "Practice: Expected Value and Variance",
     "section": "5) Product of tickets",
-    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 0\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
+    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 6\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
     "crumbs": [
       "Practice Problems",
       "Probability",
@@ -704,7 +704,7 @@
     "href": "3-probability/05-ev-sd/practice.html#sum-of-tickets",
     "title": "Practice: Expected Value and Variance",
     "section": "6) Sum of tickets",
-    "text": "6) Sum of tickets\nWe have two boxes of tickets: A = [0  2  4  6] and B = [1  3  5  7]. We draw—with replacement—1 ticket from box A, and 1 ticket from box B. Let \\(S\\) be the sum of the two tickets.\n\nWrite R code which will allow you get one simulation of this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment and graph the empirical distribution of \\(S\\). Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = c(0, 2, 4, 6)\nbox2 = c(1, 3, 5, 7)\n\nsum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n\n[1] 5\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = {\n    sum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n  }\n)\n\ndata.frame(sum = simulations) |&gt;\n  ggplot(aes(x = sum)) + \n  geom_histogram(binwidth = 1, color = \"white\")",
+    "text": "6) Sum of tickets\nWe have two boxes of tickets: A = [0  2  4  6] and B = [1  3  5  7]. We draw—with replacement—1 ticket from box A, and 1 ticket from box B. Let \\(S\\) be the sum of the two tickets.\n\nWrite R code which will allow you get one simulation of this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment and graph the empirical distribution of \\(S\\). Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = c(0, 2, 4, 6)\nbox2 = c(1, 3, 5, 7)\n\nsum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n\n[1] 11\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = {\n    sum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n  }\n)\n\ndata.frame(sum = simulations) |&gt;\n  ggplot(aes(x = sum)) + \n  geom_histogram(binwidth = 1, color = \"white\")",
     "crumbs": [
       "Practice Problems",
       "Probability",
@@ -745,6 +745,66 @@
       "Practice Problems",
       "Probability",
       "Practice: Expected Value and Variance"
+    ]
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/practice.html",
+    "href": "3-probability/06-normal-approx/practice.html",
+    "title": "Practice: Normal Approximation",
+    "section": "",
+    "text": "A fair die will be rolled \\(n\\) times and the object is to guess the total number of spots in \\(n\\) rolls. For which value of \\(n\\) will the SE be greater:\n\n\\(n = 100\\)\n\\(n = 200\\)\nSE will be the same regardless of \\(n\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Normal Approximation"
+    ]
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/practice.html#rolling-dice",
+    "href": "3-probability/06-normal-approx/practice.html#rolling-dice",
+    "title": "Practice: Normal Approximation",
+    "section": "",
+    "text": "A fair die will be rolled \\(n\\) times and the object is to guess the total number of spots in \\(n\\) rolls. For which value of \\(n\\) will the SE be greater:\n\n\\(n = 100\\)\n\\(n = 200\\)\nSE will be the same regardless of \\(n\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Normal Approximation"
+    ]
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/practice.html#random-variables",
+    "href": "3-probability/06-normal-approx/practice.html#random-variables",
+    "title": "Practice: Normal Approximation",
+    "section": "2) Random Variables",
+    "text": "2) Random Variables\nWe have a box of 50 tickets marked with one of {-2, 1, 0, 1, 2}. We draw \\(n\\) tickets at random with replacement from this box. Which of the following quantities is random? Select all that apply.\n\nThe average of the tickets in the box\nThe variance of the tickets in the box\nThe average \\(\\bar{X}\\) of the draws.\nThe sum \\(S_n\\) of the draws\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\noption a) will give you smaller SE\noptions c) and d)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Normal Approximation"
+    ]
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/practice.html#clt",
+    "href": "3-probability/06-normal-approx/practice.html#clt",
+    "title": "Practice: Normal Approximation",
+    "section": "3) CLT",
+    "text": "3) CLT\nConsider a box with 50 tickets of which 40 are marked with “0” and 10 are marked with “1”. Suppose we draw 100 tickets—with replacement—from the box and look at the sum of the draws \\(Sn\\); like in the following code:\n\nset.seed(468)\nbox &lt;- c(rep(0, 40), rep(1, 10))\n\ndraws = sample(box, size = 100, replace = TRUE)\nsum(draws)\n\n[1] 20\n\n\nWrite R code, using the function replicate(), to generate 5,000 simulations of the above chance process, and make a histogram of the 5,000 sums. Does the Central Limit Theorem applies in this case?\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nsums = replicate(\n  n = 5000,\n  expr = {\n    draws = sample(box, size = 100, replace = TRUE)\n    sum(draws)\n  }\n)\n\ndata.frame(sums) |&gt; \n  ggplot(aes(x = sums)) +\n  geom_histogram(color = \"white\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Normal Approximation"
+    ]
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/practice.html#box-model",
+    "href": "3-probability/06-normal-approx/practice.html#box-model",
+    "title": "Practice: Normal Approximation",
+    "section": "4) Box Model",
+    "text": "4) Box Model\nLet \\(X\\) be a discrete random variable with the following pmf\n\\[\nf(x) = \\begin{cases}\n0.1 & \\text{for } x = 0 \\\\\n0.2 & \\text{for } x = 3 \\\\\n0.3 & \\text{for } x = 5 \\\\\n0.4 & \\text{for } x = 9\n\\end{cases}\n\\]\nWrite R code to simulate drawing a sample of size 5 with replacement from a box associated to the distribution of \\(X\\).\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nx &lt;- c(0, 3, 5, 9)\nsample(x, size = 5, prob = c(0.1, 0.2, 0.3, 0.4), replace = TRUE)\n\n# equivalent\nbox &lt;- c(0, 3, 3, 5, 5, 5, 9, 9, 9, 9)\nsample(box, size = 5, replace = TRUE)",
+    "crumbs": [
+      "Practice Problems",
+      "Probability",
+      "Practice: Normal Approximation"
     ]
   },
   {
@@ -1345,11 +1405,53 @@
     "text": "Group Quiz\n\n\n\n−+\n15:00\n\n\n\n\n\n\nForm groups of 3 people, then ONE person raise your hand (to get your quiz).\nBe sure to write ALL group members names on the quiz on both pages.\nIf you find yourself without a group, come to the front of class and we’ll help you form one.\n\n\n\nYour can start when you get your quiz.\nWhen done, bring your quiz and everyone’s cheat sheets to a tutor or me. Then please leave the room quietly.\n\nGood luck! 🍀"
   },
   {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#terms",
+    "href": "4-generalization/01-sampling-distributions/slides.html#terms",
+    "title": "From Samples to Populations",
+    "section": "Terms",
+    "text": "Terms\n\nSample\nPopulation\nStatistic\nPopulation Parameter"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#estimation",
+    "href": "4-generalization/01-sampling-distributions/slides.html#estimation",
+    "title": "From Samples to Populations",
+    "section": "Estimation",
+    "text": "Estimation\nEstimate:\n\npopulation mean\npopulation proportion\n\nWatch out for estimation errors"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#sources-of-error",
+    "href": "4-generalization/01-sampling-distributions/slides.html#sources-of-error",
+    "title": "From Samples to Populations",
+    "section": "Sources of Error",
+    "text": "Sources of Error\nBias and Variance\n(the famous B-V tradeoff)"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#biases",
+    "href": "4-generalization/01-sampling-distributions/slides.html#biases",
+    "title": "From Samples to Populations",
+    "section": "Biases",
+    "text": "Biases\n\nSelection Bias: When not all units in the population are equally likely to be selected for the sample.\nMeasurement Bias: When your process of measuring a variable systematically misses the target in one direction.\n\nwhen questions are confusingly worded or leading,\nwhen respondents may not be comfortable answering honestly.\n\nNon-response Bias: When certain units originally selected for the sample fail to provide data\n\nSolution (ideal): Simple Random Sample (SRS)"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#types-of-variation",
+    "href": "4-generalization/01-sampling-distributions/slides.html#types-of-variation",
+    "title": "From Samples to Populations",
+    "section": "Types of Variation",
+    "text": "Types of Variation\n\nSampling Variability: the variability from one sample to the next\nMeasurement Variability: When we take multiple measurements on the same object and we get variations in measurements from one sample to the next."
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#what-is-a-sampling-distribution",
+    "href": "4-generalization/01-sampling-distributions/slides.html#what-is-a-sampling-distribution",
+    "title": "From Samples to Populations",
+    "section": "What is a Sampling Distribution?",
+    "text": "What is a Sampling Distribution?\nSampling Distribution is the distribution of a statistic upon repeated sampling.\nNo longer are we considering the (usually unknowable) distribution of the population or the observed distribution of the data\nUsually the sampling distribution is a hypothetical thing: what would our statistic have looked like if we had taken a different sample of data?"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Gaston Sanchez’s instructional materials for STAT 20",
     "section": "",
-    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nData Manipulation\nData Pipelines\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\n\n\n\nGeneralization\n\nComing soon\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz Slides\n\nQuiz",
+    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nData Manipulation\nData Pipelines\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\nNormal Approximation\n\n\n\nGeneralization\n\nSampling\nComing soon\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz Slides\n\nQuiz",
     "crumbs": [
       "Home"
     ]
@@ -1670,14 +1772,14 @@
     "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
     "title": "Random Variables",
     "section": "Demo rbinom()",
-    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 1 3 3 2 1 3 3 2 3 1 0 3 1 1 2 2 1 2 1 3 1 2 2 2 2 3 3 2 2 1 2 2 3 2 2 3 2\n [38] 1 2 2 2 3 2 3 3 2 1 3 1 3 3 3 0 2 1 2 0 2 0 3 2 1 2 2 3 2 3 1 2 3 3 3 1 1\n [75] 2 2 2 3 2 3 1 3 1 3 2 3 2 3 3 2 2 3 1 3 1 3 2 2 3 3"
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 0 3 1 1 3 2 3 2 3 1 2 3 2 3 0 1 2 2 3 1 2 1 2 1 2 0 3 2 2 2 0 2 3 2 1 1\n [38] 3 2 1 1 2 3 3 2 2 2 1 2 3 1 2 2 2 2 1 3 1 2 3 1 3 2 2 2 0 2 2 2 3 3 1 2 3\n [75] 3 3 2 3 2 3 3 3 2 2 3 3 3 2 3 1 2 2 3 1 1 1 3 2 2 2"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "title": "Random Variables",
     "section": "Demo: Empirical Probability Distribution",
-    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  4\n2      1 21\n3      2 39\n4      3 36\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  4 0.04\n2      1 21 0.21\n3      2 39 0.39\n4      3 36 0.36"
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  5\n2      1 21\n3      2 43\n4      3 31\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  5 0.05\n2      1 21 0.21\n3      2 43 0.43\n4      3 31 0.31"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
@@ -1776,6 +1878,335 @@
     "title": "Random Variables",
     "section": "",
     "text": "−+\n01:30\n\n\n\nThere are 4 histograms of different Poisson distributions below. Match each distribution to its parameter \\(\\lambda\\). Recall that \\(\\lambda\\) is how many occurrences we think will happen in a given period of time.\n\\[\n(1)\\: \\lambda = 0.5 \\hspace{2cm} (2)\\: \\lambda = 1 \\hspace{2cm} (3) \\: \\lambda = 2 \\hspace{2cm} (4) \\: \\lambda = 4\\hspace{2cm}\n\\]\n\n\nexplain the smaller the rate, the lower the probability of higher values. A-4, B-1, C-3, D-2"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#section",
+    "href": "3-probability/06-normal-approx/slides.html#section",
+    "title": "Normal Approximation and Box Models",
+    "section": "",
+    "text": "Look at a chance problem like drawing (with replacement) from a box with numbered tickets\n\n\nBox Models provide an analogy for many chance processes which help to analyze chance variability"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#flipping-a-fair-coin",
+    "href": "3-probability/06-normal-approx/slides.html#flipping-a-fair-coin",
+    "title": "Normal Approximation and Box Models",
+    "section": "Flipping a fair coin",
+    "text": "Flipping a fair coin\n\n\\(X\\) = Getting heads when tossing a fair coin (once).\n\n\n\n\nBox with tickets:\n\\[\n\\boxed{ \\ \\fbox{0} \\quad \\fbox{1} \\ }\n\\]\n\n\nDraw one ticket out of this box."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#flipping-a-biased-coin",
+    "href": "3-probability/06-normal-approx/slides.html#flipping-a-biased-coin",
+    "title": "Normal Approximation and Box Models",
+    "section": "Flipping a biased coin",
+    "text": "Flipping a biased coin\n\n\\(X\\) = Getting heads when tossing a biased coin (2/3 chance of heads).\n\n\n\n\nBox with tickets:\n\\[\n\\boxed{ \\ \\fbox{0} \\quad \\fbox{1} \\quad \\fbox{1} \\ }\n\\]\n\n\nDraw one ticket out this box."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#flipping-another-biased-coin",
+    "href": "3-probability/06-normal-approx/slides.html#flipping-another-biased-coin",
+    "title": "Normal Approximation and Box Models",
+    "section": "Flipping another biased coin",
+    "text": "Flipping another biased coin\n\n\\(X\\) = Getting heads when tossing a biased coin (1/4 chance of heads).\n\n\n\n\nBox with tickets:\n\\[\n\\boxed{ \\ \\fbox{0} \\quad \\fbox{0} \\quad \\fbox{0} \\quad \\fbox{1} \\ }\n\\]\n\n\nDraw one ticket out this box."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#flipping-a-fair-coin-5-times",
+    "href": "3-probability/06-normal-approx/slides.html#flipping-a-fair-coin-5-times",
+    "title": "Normal Approximation and Box Models",
+    "section": "Flipping a fair coin 5 times",
+    "text": "Flipping a fair coin 5 times\n\n\\(X\\) = Number of heads when tossing a fair coin five times.\n\n\n\n\nBox with tickets:\n\\[\n\\boxed{ \\ \\fbox{0} \\quad \\fbox{1} \\ }\n\\]\n\n\nDraw five tickets with replacement out of this box, and add them up."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die",
+    "href": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die",
+    "title": "Normal Approximation and Box Models",
+    "section": "Number of spots when rolling a fair die",
+    "text": "Number of spots when rolling a fair die\n\n\\(X\\) = number of spots when rolling a die (once).\n\n\n\n\nBox with tickets:\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\n\n\nDraw one ticket out of this box."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\n\n\\(X\\) = Sum of dice.\n\n\n\n\nBox with tickets:\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\n\n\nDraw two tickets with replacement out of this box, and add them."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#determining-a-box",
+    "href": "3-probability/06-normal-approx/slides.html#determining-a-box",
+    "title": "Normal Approximation and Box Models",
+    "section": "Determining a box",
+    "text": "Determining a box\n\n\\(X\\) is a random variable with the distribution shown below:\n\\[\nX = \\begin{cases}\n3, \\; \\text{ with prob } 1/3\\\\\n4, \\; \\text{ with prob } 1/4\\\\\n5, \\; \\text{ with prob } 5/12\n\\end{cases}\n\\]\n\n\n\n\nBox with tickets:\n\\[\n\\boxed{ \\ \\fbox{3} \\ \\fbox{3} \\ \\fbox{3} \\ \\fbox{3} \\quad \\fbox{4} \\ \\fbox{4} \\ \\fbox{4} \\quad \\fbox{5} \\ \\fbox{5} \\ \\fbox{5} \\ \\fbox{5} \\ \\fbox{5} \\ }\n\\]\n\n\nDraw one ticket out of this box."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#spins-of-an-american-roulette",
+    "href": "3-probability/06-normal-approx/slides.html#spins-of-an-american-roulette",
+    "title": "Normal Approximation and Box Models",
+    "section": "5 spins of an American roulette",
+    "text": "5 spins of an American roulette\n\n\\(X\\) = Number of spins landing on red\n\n\n\n\nBox with 38 tickets:\n\\[\n\\boxed{ \\ \\underset{\\text{18 black}}{\\fbox{0} \\ \\fbox{0} \\dots \\fbox{0}} \\quad \\underset{\\text{18 red}}{\\fbox{1} \\ \\fbox{1} \\dots \\fbox{1}} \\quad \\underset{\\text{2 green}}{\\fbox{0} \\ \\fbox{0}} \\ }\n\\]\n\n\nDraw five tickets with replacement out of this box, and add them."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die-1",
+    "href": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die-1",
+    "title": "Normal Approximation and Box Models",
+    "section": "Number of spots when rolling a fair die",
+    "text": "Number of spots when rolling a fair die\n\\(X\\) = number of spots when rolling a die (once).\n\n\nDraw one ticket out this box:\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\n\n\nE(X) = ?\nVar(X) = ?"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die-2",
+    "href": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die-2",
+    "title": "Normal Approximation and Box Models",
+    "section": "Number of spots when rolling a fair die",
+    "text": "Number of spots when rolling a fair die\n\\(X\\) = number of spots when rolling a die (once).\n\n\nDraw one ticket out this box:\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\n\nE(X) = Average of tickets in box\nVar(X) = Variance of tickets in box"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die-3",
+    "href": "3-probability/06-normal-approx/slides.html#number-of-spots-when-rolling-a-fair-die-3",
+    "title": "Normal Approximation and Box Models",
+    "section": "Number of spots when rolling a fair die",
+    "text": "Number of spots when rolling a fair die\n\\(X\\) = number of spots when rolling a die (once).\n\n\nDraw one ticket out this box:\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\n\n\\[\nE(X) = \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} = 3.5\n\\]\n\n\n\\[\nVar(X) = \\frac{(1-3.5)^2 + (2-3.5)^2 + \\dots + (5-3.5)^2 + (6-3.5)^2}{6} = 2.91\n\\]"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-1",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-1",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\n\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\n\\(E(S) = ?\\)\n\\(Var(S) = ?\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-2",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-2",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\n\\(E(S) = E(X_1 + X_2)\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-3",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-3",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\\(E(S) = E(X_1 + X_2) = E(X_1) + E(X_2)\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-4",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-4",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\\(E(S) = E(X_1 + X_2) = E(X_1) + E(X_2) = 2E(X)\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-5",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-5",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\\(E(S) = E(X_1 + X_2) = E(X_1) + E(X_2) = 2E(X) = 2(3.5) = 7\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-6",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-6",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\n\\(Var(S) = Var(X_1 + X_2)\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-7",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-7",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\\(Var(S) = Var(X_1 + X_2) = Var(X_1) + Var(X_2)\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-8",
+    "href": "3-probability/06-normal-approx/slides.html#sum-of-spots-when-rolling-a-pair-of-fair-dice-8",
+    "title": "Normal Approximation and Box Models",
+    "section": "Sum of spots when rolling a pair of fair dice",
+    "text": "Sum of spots when rolling a pair of fair dice\nDraw two tickets with replacement out of this box, and add them.\n\\[\n\\boxed{ \\ \\fbox{1} \\quad \\fbox{2} \\quad \\fbox{3} \\quad \\fbox{4} \\quad \\fbox{5} \\quad \\fbox{6} \\ }\n\\]\nSum of dice \\(S = X_1 + X_2\\), where \\(X_1\\) is the number in first ticket, and \\(X_2\\) is the number in second ticket.\n\n\n\\(Var(S) = Var(X_1 + X_2) = Var(X_1) + Var(X_2) = 2Var(X)\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#section-1",
+    "href": "3-probability/06-normal-approx/slides.html#section-1",
+    "title": "Normal Approximation and Box Models",
+    "section": "",
+    "text": "Expected Value for S sum of draws from a box model:\n\n\\[\n\\Large E(S) = (\\text{# of draws}) \\times (\\text{avg of box})\n\\]\n\n\n\n\n\\[\n\\begin{align}\nE(S) &= E(X_1 + \\dots + X_n) \\\\\n     &= E(X_1) + \\dots + E(X_n)\\\\\n     &= nE(X)\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#section-2",
+    "href": "3-probability/06-normal-approx/slides.html#section-2",
+    "title": "Normal Approximation and Box Models",
+    "section": "",
+    "text": "Variance for S sum of draws from a box model:\n\n\n\\[\n\\Large Var(S) = (\\text{# of draws}) \\times (\\text{variance of box})\n\\]\n\n\n\n\n\\[\n\\begin{align}\nVar(S) &= Var(X_1 + \\dots + X_n) \\\\\n     &= Var(X_1) + \\dots + Var(X_n)\\\\\n     &= n \\times Var(X)\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#standard-error",
+    "href": "3-probability/06-normal-approx/slides.html#standard-error",
+    "title": "Normal Approximation and Box Models",
+    "section": "Standard Error",
+    "text": "Standard Error\nHow far off we expect to be from the expected value?\n\n\\[\n\\Large SE(S) = (\\text{# of draws})^{1/2} \\times (\\text{SD of box})\n\\]\n\n\n\n\n\\[\n\\begin{align}\nSD(S) &= \\left( nVar(X) \\right)^{1/2} \\\\\n     &= \\sqrt{n} \\times Var(X)\n\\end{align}\n\\]\n\n\n\n\n\nAs we increase the number of draws, the SE becomes larger\nSE is a measure of the likely size of the chance error"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#important-random-variables",
+    "href": "3-probability/06-normal-approx/slides.html#important-random-variables",
+    "title": "Normal Approximation and Box Models",
+    "section": "Important Random Variables",
+    "text": "Important Random Variables\n\n\\(X\\): single ticket\n\\(S\\): sum of \\(n\\) tickets (sample sum)\n\\(\\bar{X}\\): average of \\(n\\) tickets (sample mean)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#normal-distribution-1",
+    "href": "3-probability/06-normal-approx/slides.html#normal-distribution-1",
+    "title": "Normal Approximation and Box Models",
+    "section": "Normal Distribution",
+    "text": "Normal Distribution\nThe most important continuous distribution in Statistics."
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#anatomy-of-normal-curve",
+    "href": "3-probability/06-normal-approx/slides.html#anatomy-of-normal-curve",
+    "title": "Normal Approximation and Box Models",
+    "section": "Anatomy of Normal Curve",
+    "text": "Anatomy of Normal Curve"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#section-3",
+    "href": "3-probability/06-normal-approx/slides.html#section-3",
+    "title": "Normal Approximation and Box Models",
+    "section": "",
+    "text": "Normal Distribution: \\(\\mu = 5\\), \\(\\sigma=1\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#normal-distributions-different-means",
+    "href": "3-probability/06-normal-approx/slides.html#normal-distributions-different-means",
+    "title": "Normal Approximation and Box Models",
+    "section": "Normal Distributions: different means",
+    "text": "Normal Distributions: different means"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#normal-distributions-different-std-devs",
+    "href": "3-probability/06-normal-approx/slides.html#normal-distributions-different-std-devs",
+    "title": "Normal Approximation and Box Models",
+    "section": "Normal Distributions: different std-devs",
+    "text": "Normal Distributions: different std-devs"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#normal-distribution-2",
+    "href": "3-probability/06-normal-approx/slides.html#normal-distribution-2",
+    "title": "Normal Approximation and Box Models",
+    "section": "Normal Distribution",
+    "text": "Normal Distribution\nTotal area under the curve?"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#normal-distribution-3",
+    "href": "3-probability/06-normal-approx/slides.html#normal-distribution-3",
+    "title": "Normal Approximation and Box Models",
+    "section": "Normal Distribution",
+    "text": "Normal Distribution\nTotal area under the curve is 1"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#of-area-within-1-sigma",
+    "href": "3-probability/06-normal-approx/slides.html#of-area-within-1-sigma",
+    "title": "Normal Approximation and Box Models",
+    "section": "68% of area within \\(1 \\sigma\\)",
+    "text": "68% of area within \\(1 \\sigma\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#of-area-within-2-sigma",
+    "href": "3-probability/06-normal-approx/slides.html#of-area-within-2-sigma",
+    "title": "Normal Approximation and Box Models",
+    "section": "95% of area within \\(2 \\sigma\\)",
+    "text": "95% of area within \\(2 \\sigma\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#of-area-within-3-sigma",
+    "href": "3-probability/06-normal-approx/slides.html#of-area-within-3-sigma",
+    "title": "Normal Approximation and Box Models",
+    "section": "99.7% of area within \\(3 \\sigma\\)",
+    "text": "99.7% of area within \\(3 \\sigma\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#functions-in-r",
+    "href": "3-probability/06-normal-approx/slides.html#functions-in-r",
+    "title": "Normal Approximation and Box Models",
+    "section": "Functions in R",
+    "text": "Functions in R\n\ndnorm() computes the density \\(f(x)\\) of \\(X \\sim N(\\mu, \\sigma)\\)\ndnorm(0, mean = 0, sd = 1) computes \\(f(0)\\) for \\(X \\sim N(0, 1)\\)\n\n\n\n\npnorm() computes the CDF \\(F(x) = P(X \\leq x)\\) of \\(X\\)\npnorm(0.5, mean = 1, sd = 2) computes \\(F(0) = P(X \\leq 0)\\) for \\(X \\sim N(1, 2)\\)\n\n\n\n\nrnorm() generates random numbers from a Normal distribution\nrnorm(n = 10, mean = 5, sd = 3) generates 10 values from \\(X \\sim(5, 3)\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#if-x-sim-nmu-5-sigma1-then-px-leq-5",
+    "href": "3-probability/06-normal-approx/slides.html#if-x-sim-nmu-5-sigma1-then-px-leq-5",
+    "title": "Normal Approximation and Box Models",
+    "section": "If \\(X \\sim N(\\mu = 5, \\sigma=1)\\), then \\(P(X \\leq 5) = ?\\)",
+    "text": "If \\(X \\sim N(\\mu = 5, \\sigma=1)\\), then \\(P(X \\leq 5) = ?\\)\n\n\n\n# F(5)\npnorm(5, mean = 5, sd = 2)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#p-0.5-leq-x-leq-1.5",
+    "href": "3-probability/06-normal-approx/slides.html#p-0.5-leq-x-leq-1.5",
+    "title": "Normal Approximation and Box Models",
+    "section": "\\(P(-0.5 \\leq X \\leq 1.5)\\)",
+    "text": "\\(P(-0.5 \\leq X \\leq 1.5)\\)\n\n\n\n# F(1.5) - F(-0.5)\npnorm(1.5) - pnorm(-0.5)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#if-x-sim-nmu-0-sigma2-then-p-2-leq-x-leq-2",
+    "href": "3-probability/06-normal-approx/slides.html#if-x-sim-nmu-0-sigma2-then-p-2-leq-x-leq-2",
+    "title": "Normal Approximation and Box Models",
+    "section": "If \\(X \\sim N(\\mu = 0, \\sigma=2)\\), then \\(P(-2 \\leq X \\leq 2) = ?\\)",
+    "text": "If \\(X \\sim N(\\mu = 0, \\sigma=2)\\), then \\(P(-2 \\leq X \\leq 2) = ?\\)\n\n\n\n# F(2) - F(-2)\npnorm(2, mean = 0, sd = 2) - pnorm(-2, mean = 0, sd = 2)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#important-random-variables-1",
+    "href": "3-probability/06-normal-approx/slides.html#important-random-variables-1",
+    "title": "Normal Approximation and Box Models",
+    "section": "Important Random Variables",
+    "text": "Important Random Variables\n\n\\(S\\) and \\(\\bar{X}\\) will follow an approximately Normal Distribution, as we increase the number of draws.\nCentral Limit Theorem\n\n\n\n\nLet \\(\\mu\\) be the average of the box, and \\(\\sigma\\) the SD of the box:\n\\(S \\sim N(n \\times \\mu, \\ \\sqrt{n} \\times \\sigma)\\)\n\\(\\bar{X} \\sim N(\\mu, \\ \\sigma / \\sqrt{n})\\)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#example-american-roulette",
+    "href": "3-probability/06-normal-approx/slides.html#example-american-roulette",
+    "title": "Normal Approximation and Box Models",
+    "section": "Example: American Roulette",
+    "text": "Example: American Roulette\n\nNet gain while betting on red on a roulette spin.\n\n\n\n\nIf we bet a dollar on red, then our net gain is\n\\[\n\\text{gain} = \\begin{cases}\n+1 & \\text{with prob } \\frac{18}{38} \\\\\n-1 & \\text{with prob } \\frac{20}{38}\n\\end{cases}\n\\]"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#example-american-roulette-1",
+    "href": "3-probability/06-normal-approx/slides.html#example-american-roulette-1",
+    "title": "Normal Approximation and Box Models",
+    "section": "Example: American Roulette",
+    "text": "Example: American Roulette\n\n# define the gain for a single spin\ngain &lt;- c(1, -1)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#example-american-roulette-2",
+    "href": "3-probability/06-normal-approx/slides.html#example-american-roulette-2",
+    "title": "Normal Approximation and Box Models",
+    "section": "Example: American Roulette",
+    "text": "Example: American Roulette\n\n# define the gain for a single spin\ngain &lt;- c(1, -1)\n\n# define the corresponding probabilities\nprob_gain &lt;- c(18/38, 20/38)"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#example-american-roulette-3",
+    "href": "3-probability/06-normal-approx/slides.html#example-american-roulette-3",
+    "title": "Normal Approximation and Box Models",
+    "section": "Example: American Roulette",
+    "text": "Example: American Roulette\n\n# define the gain for a single spin\ngain &lt;- c(1, -1)\n\n# define the corresponding probabilities\nprob_gain &lt;- c(18/38, 20/38)\n\nexp_gain &lt;- sum(gain * prob_gain)\nexp_gain\n\n\n\n[1] -0.05263158\n\n\n\n\n\n\n# simulate gain from 10 spins of the wheel\nset.seed(123)\nsample(x = gain, size = 10, prob = prob_gain, replace = TRUE)\n\n [1] -1  1 -1  1  1 -1  1  1  1 -1"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#example-american-roulette-4",
+    "href": "3-probability/06-normal-approx/slides.html#example-american-roulette-4",
+    "title": "Normal Approximation and Box Models",
+    "section": "Example: American Roulette",
+    "text": "Example: American Roulette\n\n\nCode\ngains &lt;- replicate(\n  n = 1000, # 1000 repetitions\n  expr = {\n    # net gain in 10 spins of roulette\n    spins = sample(x = gain, size = 10, prob = prob_gain, replace = TRUE)\n    gain = sum(spins)\n})\n\n# empirical histogram\ndata.frame(gains) |&gt; \n  ggplot(aes(x = gains)) +\n  geom_histogram(color = \"white\", binwidth = 2) +\n  labs(title = \"N = 10\",\n       x = \"net gain\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#section-4",
+    "href": "3-probability/06-normal-approx/slides.html#section-4",
+    "title": "Normal Approximation and Box Models",
+    "section": "",
+    "text": "Code\ngains &lt;- replicate(\n  n = 1000, # 1000 repetitions\n  expr = {\n    # net gain in 10 spins of roulette\n    spins = sample(x = gain, size = 100, prob = prob_gain, replace = TRUE)\n    gain = sum(spins)\n})\n\n# empirical histogram\ndata.frame(gains) |&gt; \n  ggplot(aes(x = gains)) +\n  geom_histogram(color = \"white\", binwidth = 2) +\n  labs(title = \"N = 100\",\n       x = \"net gain\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#section-5",
+    "href": "3-probability/06-normal-approx/slides.html#section-5",
+    "title": "Normal Approximation and Box Models",
+    "section": "",
+    "text": "Code\ngains &lt;- replicate(\n  n = 1000, # 1000 repetitions\n  expr = {\n    # net gain in 10 spins of roulette\n    spins = sample(x = gain, size = 1000, prob = prob_gain, replace = TRUE)\n    gain = sum(spins)\n})\n\n# empirical histogram\ndata.frame(gains) |&gt; \n  ggplot(aes(x = gains)) +\n  geom_histogram(color = \"white\", binwidth = 8) +\n  labs(title = \"N = 1000\",\n       x = \"net gain\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "3-probability/06-normal-approx/slides.html#section-6",
+    "href": "3-probability/06-normal-approx/slides.html#section-6",
+    "title": "Normal Approximation and Box Models",
+    "section": "",
+    "text": "Code\ngains &lt;- replicate(\n  n = 1000, # 1000 repetitions\n  expr = {\n    # net gain in 10 spins of roulette\n    spins = sample(x = gain, size = 5000, prob = prob_gain, replace = TRUE)\n    gain = sum(spins)\n})\n\n# empirical histogram\ndata.frame(gains) |&gt; \n  ggplot(aes(x = gains)) +\n  geom_histogram(color = \"white\", binwidth = 15) +\n  labs(title = \"N = 5000\",\n       x = \"net gain\") +\n  theme_bw()"
   },
   {
     "objectID": "3-probability/05-ev-sd/slides.html#section",
@@ -1999,7 +2430,7 @@
     "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
     "title": "Multiple Linear Regression",
     "section": "Penguins Data",
-    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Gentoo    Biscoe           49.1          14.8        5150 female\n2 Gentoo    Biscoe           46.5          14.5        4400 female\n3 Adelie    Biscoe           40.5          18.9        3950 male  \n4 Chinstrap Dream            51.3          19.9        3700 male  \n5 Chinstrap Dream            49.3          19.9        4050 male"
+    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species island    bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Adelie  Biscoe              37.8          18.3        3400 female\n2 Gentoo  Biscoe              47.5          15          4950 female\n3 Adelie  Torgersen           38.8          17.6        3275 female\n4 Adelie  Torgersen           43.1          19.2        3500 male  \n5 Gentoo  Biscoe              50.8          17.3        5600 male"
   },
   {
     "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",

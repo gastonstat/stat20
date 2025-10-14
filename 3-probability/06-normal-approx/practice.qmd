@@ -1,0 +1,112 @@
+---
+title: "Practice: Normal Approximation"
+---
+
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+## 1) Rolling Dice
+
+A fair die will be rolled $n$ times and the object is to guess the total number 
+of spots in $n$ rolls. For which value of $n$ will the SE be greater: 
+
+a) $n = 100$
+
+b) $n = 200$
+
+c) SE will be the same regardless of $n$
+
+
+## 2) Random Variables
+
+We have a box of 50 tickets marked with one of {-2, 1, 0, 1, 2}. We draw $n$ 
+tickets at random with replacement from this box. Which of the following 
+quantities is random? Select all that apply.
+
+a) The average of the tickets in the box
+
+b) The variance of the tickets in the box
+
+c) The average $\bar{X}$ of the draws. 
+
+d) The sum $S_n$ of the draws
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+1) option a) will give you smaller SE
+2) options c) and d)
+:::
+
+
+## 3) CLT
+
+Consider a `box` with 50 tickets of which 40 are marked with "0" and 10 are marked with "1". 
+Suppose we draw 100 tickets---with replacement---from the `box` and look at the 
+sum of the draws $Sn$; like in the following code:
+
+```{r}
+set.seed(468)
+box <- c(rep(0, 40), rep(1, 10))
+
+draws = sample(box, size = 100, replace = TRUE)
+sum(draws)
+```
+
+
+Write R code, using the function `replicate()`, to generate 5,000 simulations of the above chance process, and make a histogram of the 5,000 sums. Does the Central Limit Theorem applies in this case?
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+```{r}
+sums = replicate(
+  n = 5000,
+  expr = {
+    draws = sample(box, size = 100, replace = TRUE)
+    sum(draws)
+  }
+)
+
+data.frame(sums) |> 
+  ggplot(aes(x = sums)) +
+  geom_histogram(color = "white")
+```
+:::
+
+
+## 4) Box Model
+
+Let $X$ be a discrete random variable with the following _pmf_
+
+$$
+f(x) = \begin{cases}
+0.1 & \text{for } x = 0 \\
+0.2 & \text{for } x = 3 \\
+0.3 & \text{for } x = 5 \\
+0.4 & \text{for } x = 9
+\end{cases}
+$$
+
+Write R code to simulate drawing a sample of size 5 with replacement from a box 
+associated to the distribution of $X$.
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+```{r eval = FALSE}
+x <- c(0, 3, 5, 9)
+sample(x, size = 5, prob = c(0.1, 0.2, 0.3, 0.4), replace = TRUE)
+
+# equivalent
+box <- c(0, 3, 3, 5, 5, 5, 9, 9, 9, 9)
+sample(box, size = 5, replace = TRUE)
+```
+:::
+
+

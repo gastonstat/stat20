@@ -1,0 +1,981 @@
+---
+title: "Normal Approximation and Box Models"
+format:
+  stat20slides-revealjs:
+    chalkboard: true
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+```
+
+
+# A Box Model
+
+## 
+
+Look at a chance problem like drawing (with replacement) from a box with numbered tickets
+
+\
+
+[Box Models]{.hilit} provide an analogy for many chance processes which help to analyze chance variability
+
+
+## Flipping a fair coin
+
+::: {.fragment}
+$X$ = Getting heads when tossing a fair coin (once). 
+:::
+
+\
+
+::: {.fragment}
+Box with tickets: 
+
+$$
+\boxed{ \ \fbox{0} \quad \fbox{1} \ }
+$$
+:::
+
+::: {.fragment}
+Draw one ticket out of this box.
+:::
+
+
+## Flipping a biased coin
+
+::: {.fragment}
+$X$ = Getting heads when tossing a biased coin (2/3 chance of heads). 
+:::
+
+\
+
+::: {.fragment}
+Box with tickets: 
+
+$$
+\boxed{ \ \fbox{0} \quad \fbox{1} \quad \fbox{1} \ }
+$$
+:::
+
+::: {.fragment}
+Draw one ticket out this box.
+:::
+
+
+## Flipping another biased coin
+
+::: {.fragment}
+$X$ = Getting heads when tossing a biased coin (1/4 chance of heads). 
+:::
+
+\
+
+::: {.fragment}
+Box with tickets: 
+
+$$
+\boxed{ \ \fbox{0} \quad \fbox{0} \quad \fbox{0} \quad \fbox{1} \ }
+$$
+:::
+
+::: {.fragment}
+Draw one ticket out this box.
+:::
+
+
+## Flipping a fair coin 5 times
+
+::: {.fragment}
+$X$ = Number of heads when tossing a fair coin five times. 
+:::
+
+\
+
+::: {.fragment}
+Box with tickets: 
+
+$$
+\boxed{ \ \fbox{0} \quad \fbox{1} \ }
+$$
+:::
+
+::: {.fragment}
+Draw five tickets [with replacement]{.hilit} out of this box, and add them up.
+:::
+
+
+## Number of spots when rolling a fair die
+
+::: {.fragment}
+$X$ = number of spots when rolling a die (once). 
+:::
+
+\
+
+::: {.fragment}
+Box with tickets: 
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+:::
+
+::: {.fragment}
+Draw one ticket out of this box.
+:::
+
+
+## Sum of spots when rolling a pair of fair dice
+
+::: {.fragment}
+$X$ = Sum of dice. 
+:::
+
+\
+
+::: {.fragment}
+Box with tickets: 
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+:::
+
+::: {.fragment}
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+:::
+
+
+## Determining a box
+
+::: {.fragment}
+$X$ is a random variable with the distribution shown below:
+
+$$
+X = \begin{cases}
+ 3, \; \text{ with prob } 1/3\\
+ 4, \; \text{ with prob } 1/4\\
+ 5, \; \text{ with prob } 5/12
+ \end{cases}
+$$
+:::
+
+\
+
+::: {.fragment}
+Box with tickets: 
+
+$$
+\boxed{ \ \fbox{3} \ \fbox{3} \ \fbox{3} \ \fbox{3} \quad \fbox{4} \ \fbox{4} \ \fbox{4} \quad \fbox{5} \ \fbox{5} \ \fbox{5} \ \fbox{5} \ \fbox{5} \ }
+$$
+:::
+
+::: {.fragment}
+Draw one ticket out of this box.
+:::
+
+
+## 5 spins of an American roulette
+
+::: {.fragment}
+$X$ = Number of spins landing on red 
+:::
+
+\
+
+::: {.fragment}
+Box with 38 tickets: 
+
+$$
+\boxed{ \ \underset{\text{18 black}}{\fbox{0} \ \fbox{0} \dots \fbox{0}} \quad \underset{\text{18 red}}{\fbox{1} \ \fbox{1} \dots \fbox{1}} \quad \underset{\text{2 green}}{\fbox{0} \ \fbox{0}} \ }
+$$
+:::
+
+::: {.fragment}
+Draw five tickets [with replacement]{.hilit} out of this box, and add them.
+:::
+
+
+# Box Model and Expected Value
+
+
+## Number of spots when rolling a fair die
+
+$X$ = number of spots when rolling a die (once). 
+
+\
+
+Draw one ticket out this box:
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+::: {.fragment}
+- E(X) = ?
+
+- Var(X) = ?
+:::
+
+
+## Number of spots when rolling a fair die
+
+$X$ = number of spots when rolling a die (once). 
+
+\
+
+Draw one ticket out this box:
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+- E(X) = Average of tickets in box
+
+- Var(X) = Variance of tickets in box
+
+
+## Number of spots when rolling a fair die
+
+$X$ = number of spots when rolling a die (once). 
+
+\
+
+Draw one ticket out this box:
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+::: {.fragment}
+$$
+E(X) = \frac{1 + 2 + 3 + 4 + 5 + 6}{6} = 3.5
+$$
+:::
+
+::: {.fragment}
+$$
+Var(X) = \frac{(1-3.5)^2 + (2-3.5)^2 + \dots + (5-3.5)^2 + (6-3.5)^2}{6} = 2.91
+$$
+:::
+
+
+## Sum of spots when rolling a pair of fair dice
+
+::: {.fragment}
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+:::
+
+
+::: {.fragment}
+- $E(S) = ?$
+
+- $Var(S) = ?$
+:::
+
+
+## Sum of spots when rolling a pair of fair dice
+
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+
+\
+
+::: {.fragment}
+$E(S) = E(X_1 + X_2)$
+:::
+
+
+## Sum of spots when rolling a pair of fair dice
+
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+
+\
+
+$E(S) = E(X_1 + X_2) = E(X_1) + E(X_2)$
+
+
+## Sum of spots when rolling a pair of fair dice
+
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+
+\
+
+$E(S) = E(X_1 + X_2) = E(X_1) + E(X_2) = 2E(X)$
+
+
+## Sum of spots when rolling a pair of fair dice
+
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+
+\
+
+$E(S) = E(X_1 + X_2) = E(X_1) + E(X_2) = 2E(X) = 2(3.5) = 7$
+
+
+## Sum of spots when rolling a pair of fair dice
+
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+
+\
+
+::: {.fragment}
+$Var(S) = Var(X_1 + X_2)$
+:::
+
+
+## Sum of spots when rolling a pair of fair dice
+
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+
+\
+
+$Var(S) = Var(X_1 + X_2) = Var(X_1) + Var(X_2)$
+
+
+## Sum of spots when rolling a pair of fair dice
+
+Draw two tickets [with replacement]{.hilit} out of this box, and add them.
+
+$$
+\boxed{ \ \fbox{1} \quad \fbox{2} \quad \fbox{3} \quad \fbox{4} \quad \fbox{5} \quad \fbox{6} \ }
+$$
+
+Sum of dice $S = X_1 + X_2$, where $X_1$ is the number in first ticket,
+and $X_2$ is the number in second ticket.
+
+\
+
+$Var(S) = Var(X_1 + X_2) = Var(X_1) + Var(X_2) = 2Var(X)$
+
+
+# Important Random Variables and CLT
+
+##
+
+Expected Value for [S]{.hilit} sum of draws from a box model:
+
+::: {.fragment}
+$$
+\Large E(S) = (\text{# of draws}) \times (\text{avg of box})
+$$
+:::
+
+\
+
+::: {.fragment}
+$$
+\begin{align}
+E(S) &= E(X_1 + \dots + X_n) \\
+     &= E(X_1) + \dots + E(X_n)\\
+     &= nE(X)
+\end{align}
+$$
+:::
+
+
+##
+
+::: {.fragment}
+Variance for [S]{.hilit} sum of draws from a box model:
+:::
+
+::: {.fragment}
+$$
+\Large Var(S) = (\text{# of draws}) \times (\text{variance of box})
+$$
+:::
+
+\
+
+::: {.fragment}
+$$
+\begin{align}
+Var(S) &= Var(X_1 + \dots + X_n) \\
+     &= Var(X_1) + \dots + Var(X_n)\\
+     &= n \times Var(X)
+\end{align}
+$$
+:::
+
+
+## Standard Error
+
+How far off we expect to be from the expected value?
+
+::: {.fragment}
+$$
+\Large SE(S) = (\text{# of draws})^{1/2} \times (\text{SD of box})
+$$
+:::
+
+\
+
+::: {.fragment}
+$$
+\begin{align}
+SD(S) &= \left( nVar(X) \right)^{1/2} \\
+     &= \sqrt{n} \times Var(X)
+\end{align}
+$$
+:::
+
+\
+
+::: {.fragment}
+- As we increase the number of draws, the SE becomes larger
+
+- SE is a measure of the likely size of the chance error
+:::
+
+
+## Important Random Variables
+
+::: {.incremental}
+- $X$: single ticket
+
+- $S$: sum of $n$ tickets (sample sum)
+
+- $\bar{X}$: average of $n$ tickets (sample mean)
+:::
+
+
+# Normal Distribution
+
+```{r echo = FALSE}
+# normal function 
+normal <- function(x, mu = 0, sigma = 1) {
+  1 / (sigma * sqrt(2*pi)) * exp(-0.5 * ((x - mu)/ sigma)^2)
+}
+
+# polygon coordinates of area under the curve
+normal_auc <- function(x0, x1, mu = 0, sigma = 1, n = 50) {
+  stopifnot(n > 0)
+  if (x0 > x1) {
+    stop("x0 must be lower than x1")
+  }
+  xs <- c(
+    rep(x0, n),
+    seq(x0, x1, length.out = n),
+    rep(x1, n),
+    rep(x1, x0, length.out = n)
+  )
+  ys <- c(
+    seq(0, normal(x0, mu = mu, sigma = sigma), length.out = n),
+    normal(seq(x0, x1, length.out = n), mu = mu, sigma = sigma),
+    seq(0, normal(x1, mu = mu, sigma = sigma), length.out = n),
+    rep(0, n)
+  )
+  list(xs = xs, ys = ys)
+}
+```
+
+
+## Normal Distribution
+
+The most important continuous distribution in Statistics.
+
+
+## Anatomy of Normal Curve
+
+```{r echo = FALSE}
+x <- seq(-3, 3, length.out = 500)
+y  <- normal(x)
+xlabels <- c(
+  expression(mu - 3*sigma),
+  expression(mu - 2*sigma),
+  expression(mu - sigma),
+  expression(mu),
+  expression(mu + sigma),
+  expression(mu + 2*sigma),
+  expression(mu + 3*sigma)
+)
+
+xa <- seq(-3, 3, 1)
+ya <- normal(xa)
+
+plot(x, y, type = 'l', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(-3,3,1), labels = rep('', 7))
+mtext(c(expression(mu - sigma), expression(mu), expression(mu + sigma)), 
+      at = c(-1, 0, 1), side = 1, line = 0.5)
+segments(x0 = xa[3:5], y0 = 0, x1 = xa[3:5], y1 = ya[3:5], lwd = c(3,2,3),
+         col = c('tomato', 'gray50', 'tomato'), lty = c(1,2,1))  
+points(xa[c(3,5)], ya[c(3,5)], pch = 19, col = 'tomato')
+text(xa[3]-0.6, ya[3], "inflection", col = 'tomato')
+text(xa[4], ya[3]-0.1, "1 unit\n around 0", col = 'tomato')
+text(xa[5]+0.6, ya[3], "inflection", col = 'tomato')
+text(xa[3]+0.15, ya[3] + 0.15, "concave up", col = 'orange')
+text(xa[5]+1.4, ya[3] - 0.12, "concave down", col = 'orange')
+```
+
+
+## 
+
+### Normal Distribution: $\mu = 5$, $\sigma=1$
+
+```{r echo = FALSE}
+# Typical normal probability distribution (mu = 5, sigma = 1)
+x <- seq(2, 8, length.out = 500)
+y <- normal(x, mu = 5)
+
+plot(x, y, type = 'l', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+abline(h = 0)
+segments(x0 = 5, y0 = 0, x1 = 5, y1 = normal(5, mu = 5), 
+         col = 'gray50', lwd = 4, lty = 2)  
+axis(side = 1, at = seq(2, 8, 1))
+text(x = 5, y = 0.05, labels = "mean = 5")
+```
+
+
+## Normal Distributions: different means
+
+```{r echo = FALSE}
+# Two normal probability distributions (same sigma)
+x1 <- seq(2, 8, length.out = 500)
+y1  <- normal(x1, mu = 5)
+x2 <- seq(0, 6, length.out = 500)
+y2  <- normal(x2, mu = 3)
+
+plot(x1, y1, type = 'l', col = 'tomato', lwd = 4,
+     xlim = c(0, 8), axes = FALSE, xlab = '', ylab = '')
+abline(h = 0)
+axis(side = 1, at = seq(0, 8, 1))
+lines(x2, y2, col = 'orange', lwd = 4)
+segments(x0 = 5, y0 = 0, x1 = 5, y1 = normal(5, mu = 5), 
+         col = 'tomato', lwd = 4, lty = 2)
+text(x = 5, y = 0.05, labels = "mean = 5")
+segments(x0 = 3, y0 = 0, x1 = 3, y1 = normal(3, mu = 3), 
+         col = 'orange', lwd = 4, lty = 2)
+text(x = 3, y = 0.05, labels = "mean = 3")
+```
+
+
+## Normal Distributions: different std-devs
+
+```{r echo = FALSE}
+# Two normal probability distributions (same mu, different sigma)
+x1 <- seq(0, 10, length.out = 500)
+y1  <- normal(x1, mu = 5)
+x2 <- seq(0, 10, length.out = 500)
+y2  <- normal(x2, mu = 5, sigma = 2)
+
+plot(x1, y1, type = 'n', col = 'tomato', lwd = 5,
+     xlim = c(0, 10), axes = FALSE, xlab = '', ylab = '')
+abline(h = 0, col = "gray50")
+axis(side = 1, at = seq(0, 10, 2))
+lines(x1, y1, col = 'tomato', lwd = 5)
+lines(x2, y2, col = 'orange', lwd = 5)
+segments(x0 = 5, y0 = 0, x1 = 5, y1 = normal(5, mu = 5), 
+         col = 'gray60', lwd = 4, lty = 2)
+text(x = 5, y = 0.05, labels = "mean = 5")
+```
+
+
+## Normal Distribution
+
+Total area under the curve?
+
+```{r echo = FALSE}
+# Total area under the curve
+x <- seq(2, 8, length.out = 500)
+y  <- normal(x, mu = 5)
+auc <- normal_auc(2, 8, mu = 5)
+
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(1, 8, 1), line = -0.3)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+
+## Normal Distribution
+
+Total area under the curve is 1
+
+```{r echo = FALSE}
+# Total area under the curve
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(1, 8, 1), line = -0.3)
+polygon(auc$xs, auc$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+## 68% of area within $1 \sigma$
+
+
+```{r echo = FALSE}
+# The 68-95-99.7 rule
+xlabels <- c(
+  expression(mu - 3*sigma),
+  expression(mu - 2*sigma),
+  expression(mu - sigma),
+  expression(mu),
+  expression(mu + sigma),
+  expression(mu + 2*sigma),
+  expression(mu + 3*sigma)
+)
+
+x <- seq(-4, 4, length.out = 500)
+y  <- normal(x)
+auc1 <- normal_auc(-1, 1)
+auc2 <- normal_auc(-2, 2)
+auc3 <- normal_auc(-3, 3)
+
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(-4, 4, 1), labels = rep('', 9))
+mtext(xlabels, at = seq(-3, 3, 1), side = 1, line = 0.5)
+polygon(auc1$xs, auc1$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+
+
+## 95% of area within $2 \sigma$
+
+```{r echo = FALSE}
+# The 95 rule
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(-4, 4, 1), labels = rep('', 9))
+mtext(xlabels, at = seq(-3, 3, 1), side = 1, line = 0.5)
+polygon(auc2$xs, auc2$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+
+## 99.7% of area within $3 \sigma$
+
+```{r echo = FALSE}
+# The 99.7 rule
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(-4, 4, 1), labels = rep('', 9))
+mtext(xlabels, at = seq(-3, 3, 1), side = 1, line = 0.5)
+polygon(auc3$xs, auc3$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+## Functions in R
+
+::: {.fragment}
+`dnorm()` computes the density $f(x)$ of $X \sim N(\mu, \sigma)$
+
+`dnorm(0, mean = 0, sd = 1)` computes $f(0)$ for $X \sim N(0, 1)$
+:::
+
+\
+
+::: {.fragment}
+`pnorm()` computes the CDF $F(x) = P(X \leq x)$ of $X$ 
+
+`pnorm(0.5, mean = 1, sd = 2)` computes $F(0) = P(X \leq 0)$ for $X \sim N(1, 2)$
+:::
+
+\
+
+::: {.fragment}
+`rnorm()` generates random numbers from a Normal distribution
+
+`rnorm(n = 10, mean = 5, sd = 3)` generates 10 values from $X \sim(5, 3)$
+:::
+
+
+## If $X \sim N(\mu = 5, \sigma=1)$, then $P(X \leq 5) = ?$
+
+```{r echo = FALSE}
+# Cumulative Probability
+x <- seq(2, 8, length.out = 500)
+y  <- normal(x, mu = 5)
+auc1 <- normal_auc(2, 5, mu = 5)
+auc2 <- normal_auc(5, 8, mu = 5)
+
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(1, 8, 1), line = -0.3)
+polygon(auc1$xs, auc1$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+::: {.fragment}
+```{r eval = FALSE}
+# F(5)
+pnorm(5, mean = 5, sd = 2)
+```
+:::
+
+
+## $P(-0.5 \leq X \leq 1.5)$
+
+```{r echo = FALSE}
+x <- seq(-4, 4, length.out = 500)
+y  <- normal(x)
+auc1 <- normal_auc(-0.5, 1.5)
+
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(-4, 4, 1))
+polygon(auc1$xs, auc1$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+text(-0.6, 0.02, "-0.5", cex = 1.5)
+text(1.6, 0.02, "1.5", cex = 1.5)
+```
+
+::: {.fragment}
+```{r eval = FALSE}
+# F(1.5) - F(-0.5)
+pnorm(1.5) - pnorm(-0.5)
+```
+:::
+
+
+## If $X \sim N(\mu = 0, \sigma=2)$, then $P(-2 \leq X \leq 2) = ?$
+
+```{r echo = FALSE}
+x <- seq(-6, 6, length.out = 500)
+y  <- normal(x, 0, 2)
+auc1 <- normal_auc(-2, 2, 0, 2)
+
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(-6, 6, 2), labels = rep('', 7))
+#mtext(xlabels, at = seq(-3, 3, 1), side = 1, line = 0.5)
+mtext(seq(-6, 6, 2), at = seq(-6, 6, 2), side = 1, line = 0.5)
+polygon(auc1$xs, auc1$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+::: {.fragment}
+```{r eval = FALSE}
+# F(2) - F(-2)
+pnorm(2, mean = 0, sd = 2) - pnorm(-2, mean = 0, sd = 2)
+```
+:::
+
+
+# Normal Approximation and CLT
+
+## Important Random Variables
+
+::: {.fragment}
+$S$ and $\bar{X}$ will follow an approximately Normal Distribution, as we increase the number of draws.
+
+[Central Limit Theorem]{.bold-hilit}
+:::
+
+\
+
+::: {.fragment}
+Let $\mu$ be the average of the box, and $\sigma$ the SD of the box:
+
+$S \sim N(n \times \mu, \ \sqrt{n} \times \sigma)$
+
+$\bar{X} \sim N(\mu, \ \sigma / \sqrt{n})$
+:::
+
+
+## Example: American Roulette
+
+::: {.fragment}
+Net gain while betting on red on a roulette spin.
+:::
+
+\
+
+::: {.fragment}
+If we bet a dollar on red, then our net gain is 
+
+$$
+\text{gain} = \begin{cases}
++1 & \text{with prob } \frac{18}{38} \\
+-1 & \text{with prob } \frac{20}{38}
+\end{cases}
+$$
+:::
+
+
+## Example: American Roulette {auto-animate=true}
+
+```{r}
+# define the gain for a single spin
+gain <- c(1, -1)
+```
+
+
+## Example: American Roulette {auto-animate=true}
+
+```{r}
+# define the gain for a single spin
+gain <- c(1, -1)
+
+# define the corresponding probabilities
+prob_gain <- c(18/38, 20/38) 
+```
+
+
+## Example: American Roulette {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+# define the gain for a single spin
+gain <- c(1, -1)
+
+# define the corresponding probabilities
+prob_gain <- c(18/38, 20/38)
+
+exp_gain <- sum(gain * prob_gain)
+exp_gain
+```
+
+\
+
+::: {.fragment}
+```{r}
+# simulate gain from 10 spins of the wheel
+set.seed(123)
+sample(x = gain, size = 10, prob = prob_gain, replace = TRUE)
+```
+:::
+
+
+## Example: American Roulette {auto-animate=true}
+
+```{r}
+#| code-fold: true
+gains <- replicate(
+  n = 1000, # 1000 repetitions
+  expr = {
+    # net gain in 10 spins of roulette
+    spins = sample(x = gain, size = 10, prob = prob_gain, replace = TRUE)
+    gain = sum(spins)
+})
+
+# empirical histogram
+data.frame(gains) |> 
+  ggplot(aes(x = gains)) +
+  geom_histogram(color = "white", binwidth = 2) +
+  labs(title = "N = 10",
+       x = "net gain") +
+  theme_bw()
+```
+
+
+##
+
+```{r}
+#| code-fold: true
+gains <- replicate(
+  n = 1000, # 1000 repetitions
+  expr = {
+    # net gain in 10 spins of roulette
+    spins = sample(x = gain, size = 100, prob = prob_gain, replace = TRUE)
+    gain = sum(spins)
+})
+
+# empirical histogram
+data.frame(gains) |> 
+  ggplot(aes(x = gains)) +
+  geom_histogram(color = "white", binwidth = 2) +
+  labs(title = "N = 100",
+       x = "net gain") +
+  theme_bw()
+```
+
+
+##
+
+```{r}
+#| code-fold: true
+gains <- replicate(
+  n = 1000, # 1000 repetitions
+  expr = {
+    # net gain in 10 spins of roulette
+    spins = sample(x = gain, size = 1000, prob = prob_gain, replace = TRUE)
+    gain = sum(spins)
+})
+
+# empirical histogram
+data.frame(gains) |> 
+  ggplot(aes(x = gains)) +
+  geom_histogram(color = "white", binwidth = 8) +
+  labs(title = "N = 1000",
+       x = "net gain") +
+  theme_bw()
+```
+
+
+##
+
+```{r}
+#| code-fold: true
+gains <- replicate(
+  n = 1000, # 1000 repetitions
+  expr = {
+    # net gain in 10 spins of roulette
+    spins = sample(x = gain, size = 5000, prob = prob_gain, replace = TRUE)
+    gain = sum(spins)
+})
+
+# empirical histogram
+data.frame(gains) |> 
+  ggplot(aes(x = gains)) +
+  geom_histogram(color = "white", binwidth = 15) +
+  labs(title = "N = 5000",
+       x = "net gain") +
+  theme_bw()
+```
+
+

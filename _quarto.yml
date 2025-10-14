@@ -29,6 +29,7 @@ website:
               - 3-probability/03-probability-dsns/practice.qmd
               - 3-probability/04-random-variables/practice.qmd
               - 3-probability/05-ev-sd/practice.qmd
+              - 3-probability/06-normal-approx/practice.qmd
       - about.qmd
 
 format:
