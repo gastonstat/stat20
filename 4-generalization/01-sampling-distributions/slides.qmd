@@ -18,24 +18,116 @@ library(tidyverse)
 - Sample
 - Population
 - Statistic
-- Population Parameter
+- Parameter
 
 
-## Estimation
+# Populations and Samples
 
-Estimate:
+## 
+
+![](images/fish-in-lake.png){fig-align="center"}
+
+##
+
+![](images/fish-population.png){fig-align="center"}
+
+
+## Interested in
+
+Often we want to know something about the population:
+
+- Proportion of female fish (out of all fish)
+
+- Proportion of male fish (out of all fish)
+
+- Average weight (of all fish)
+
+- Average number of fins (of all fish)
+
+
+## Typical limitations
+
+But we don't have access to all of its individuals
+
+- Hard to observe population
+
+- Not enough time
+
+- Not enough money
+
+- Not enough resources
+
+- ETC
+
+
+## 
+
+![](images/fish-in-lake2.png){fig-align="center"}
+
+## {.nostretch}
+
+![](images/fish-sample.png){fig-align="center" width=30%}
+
+## From the sample ...
+
+We can catch some fish and calculate:
+
+- Proportion of female fish (in sample)
+
+- Proportion of male fish (in sample)
+
+- Average weight (in sample)
+
+- Average number of fins (in sample)
+
+
+## To help you remember {.nostretch}
+
+\
+
+![](images/parameters-statistics.png){fig-align="center" width=70%}
+
+
+## Estimation Idea {.nostretch}
+
+![](images/statistic-parameter.png){fig-align="center" width=70%}
+
+
+## Estimation (Generalization) Idea {.nostretch}
+
+![](images/fish-inference.png){fig-align="center" width=80%}
+
+
+# Estimation
+
+## Estimating Parameters
+
+Estimate parameters:
 
 - population mean
 - population proportion
 
-Watch out for estimation errors
+\
+
+BTW:
+
+- We never estimate statistics
+- Watch out for estimation errors
 
 
-## Sources of Error
+## Sampling (in practice) {.nostretch}
 
-Bias and Variance
+![](images/statistic-equation1.png){fig-align="center" width=70%}
 
-(the famous B-V tradeoff)
+## Sampling (in practice) {.nostretch}
+
+![](images/statistic-equation2.png){fig-align="center" width=70%}
+
+
+## Sources of Error: Bias and Variance
+
+![](images/bias-variance-targets.png){fig-align="center"}
+
 
 
 ## Biases

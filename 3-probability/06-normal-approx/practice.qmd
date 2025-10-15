@@ -9,7 +9,27 @@ library(tidyverse)
 ```
 
 
-## 1) Rolling Dice
+## 1) Rolling a five-sided die
+
+A fair __five__-sided die will be rolled $n = 10$ times. Let $S$ be the sum of 
+the spots in the $n$ rolls. Find:
+
+a) $E(S)$
+
+b) $Var(S)$
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) $E(S) = E(X_1 + X_2 + \dots + X_{10}) = 10 \times E(X) = 10 (3) = 30$
+
+b) $Var(S) = Var(X_1 + X_2 + \dots + X_{10}) = 10 \times Var(X) = 10 (2) = 20$
+:::
+
+
+\
+
+## 2) Rolling a six-sided die
 
 A fair die will be rolled $n$ times and the object is to guess the total number 
 of spots in $n$ rolls. For which value of $n$ will the SE be greater: 
@@ -20,8 +40,37 @@ b) $n = 200$
 
 c) SE will be the same regardless of $n$
 
+::: {.callout-note collapse="true"}
+## Show answer
 
-## 2) Random Variables
+option a) will give you smaller SE
+:::
+
+
+\
+
+## 3) Sample Mean
+
+We have a box of 50 tickets marked with one of {-3, 1, 0, 1, 3}. We draw 
+$n = 100$ tickets at random with replacement from this box, and look at the
+sample mean $\bar{X}$. Find:
+
+a) $E(\bar{X})$
+
+b) $Var(\bar{X})$
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) $E(\bar{X}) = E\big((X_1 + X_2 + \dots + X_{100})/100 \big) = (100 \times E(X)) / 100 = 0$
+
+b) $Var(\bar{X}) = Var\big((X_1 + X_2 + \dots + X_{100})/100 \big) = Var(X) / 100 \approx 0.04$
+:::
+
+
+\
+
+## 4) Random Quantities
 
 We have a box of 50 tickets marked with one of {-2, 1, 0, 1, 2}. We draw $n$ 
 tickets at random with replacement from this box. Which of the following 
@@ -37,14 +86,161 @@ d) The sum $S_n$ of the draws
 
 
 ::: {.callout-note collapse="true"}
-## Show answers
+## Show answer
 
-1) option a) will give you smaller SE
-2) options c) and d)
+Options c) and d)
 :::
 
 
-## 3) CLT
+\
+
+## 5) Box Model
+
+Let $X$ be a discrete random variable with the following _pmf_
+
+$$
+f(x) = \begin{cases}
+0.1 & \text{for } x = 0 \\
+0.2 & \text{for } x = 3 \\
+0.3 & \text{for } x = 5 \\
+0.4 & \text{for } x = 9
+\end{cases}
+$$
+
+Write R code to simulate drawing a sample of size 5 with replacement from a box 
+associated to the distribution of $X$.
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+```{r eval = FALSE}
+x <- c(0, 3, 5, 9)
+sample(x, size = 5, prob = c(0.1, 0.2, 0.3, 0.4), replace = TRUE)
+
+# equivalent
+box <- c(0, 3, 3, 5, 5, 5, 9, 9, 9, 9)
+sample(box, size = 5, replace = TRUE)
+```
+:::
+
+
+\
+
+## 6) Normal Distribution 1
+
+Given that $X$ is a normal variable with mean 110 and standard deviation 12, 
+use `pnorm()` to find:
+
+a) $P(X \leq 120)$
+
+b) $P(X \geq 80)$
+
+c) $P(108 \leq X \leq 117)$
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) `pnorm(120, mean = 110, sd = 12)`
+
+b) `pnorm(80, mean = 110, sd = 12, lower.tail = FALSE)`
+
+c) `pnorm(117, mean = 110, sd = 12) - pnorm(108, mean = 110, sd = 12)`
+:::
+
+
+\
+
+## 7) Normal Distribution 2
+
+Given that $X$ is a normal variable with mean 0 and standard deviation 1, 
+use `qnorm()` to find:
+
+a) $x$ such that $P(X \leq x) = 0.05$
+
+b) $x$ such that $P(X \geq x) = 0.25$
+
+c) $x$ such that $P(-x \leq X \leq x) = 0.80$
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) `qnorm(0.05, mean = 0, sd = 1)`
+
+b) `qnorm(0.25, mean = 0, sd = 1, lower.tail = FALSE)`
+
+c) `qnorm(0.1, mean = 0, sd = 1)` and `qnorm(0.1, mean = 0, sd = 1, lower.tail = FALSE)`
+:::
+
+
+\
+
+## 8) Attendance
+
+Attendance at large exhibition shows in San Francisco averages about 8000 people per day, with standard deviation of about 500. Assume that the daily attendance figures follow a normal distribution. Use `pnorm()` to find the probability that the daily attendance:
+
+a) will be fewer than 7200 people
+
+b) will be more than 8900 people
+
+c) will be between 7100 and 8800 people
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) `pnorm(7200, mean = 8000, sd = 500)`
+
+b) `pnorm(8900, mean = 8000, sd = 500, lower.tail = FALSE)`
+
+c) `pnorm(8800, mean = 8000, sd = 500) - pnorm(7100, mean = 8000, sd = 500)`
+:::
+
+
+\
+
+## 9) Lifespan
+
+Assume that the life of of an electronic device is normally distributed with mean 5000 hours and standard deviation 450 hours. 
+
+a) Find the probability that the device will wear out in 4400 hours or less.
+
+b) The manufacturer wants to place a guarantee on the devices so that no more than 5% fail during the guarantee period. How many hours should the guarantee cover?
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) `pnorm(4400, mean = 5000, sd = 450)`
+
+b) `qnorm(0.05, mean = 5000, sd = 450)`
+:::
+
+
+\
+
+## 10) Height of Students
+
+Suppose the heights of male graduate students are normally distributed with a mean of $\mu = 72$ inches with standard deviation $\sigma = 4$ inches.   
+
+a) What is the probability that a male student will be over 75 inches tall?
+
+b) What is the probability that a male student chosen at random is less than 69 inches but more than 67 inches tall?
+
+c) Suppose that a dormitory order beds for these students. The beds should be of such a size that only one man in one hundred will be too tall for this bed. What should the length of the beds be?
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) `pnorm(75, mean = 72, sd = 4, lower.tail = FALSE)`
+
+b) `pnorm(69, mean = 72, sd = 4) - pnorm(67, mean = 72, sd = 4)`
+
+c) `qnorm(0.01, mean = 72, sd = 4, lower.tail = FALSE)`
+:::
+
+
+\
+
+## 11) CLT simulation
 
 Consider a `box` with 50 tickets of which 40 are marked with "0" and 10 are marked with "1". 
 Suppose we draw 100 tickets---with replacement---from the `box` and look at the 
@@ -76,36 +272,6 @@ sums = replicate(
 data.frame(sums) |> 
   ggplot(aes(x = sums)) +
   geom_histogram(color = "white")
-```
-:::
-
-
-## 4) Box Model
-
-Let $X$ be a discrete random variable with the following _pmf_
-
-$$
-f(x) = \begin{cases}
-0.1 & \text{for } x = 0 \\
-0.2 & \text{for } x = 3 \\
-0.3 & \text{for } x = 5 \\
-0.4 & \text{for } x = 9
-\end{cases}
-$$
-
-Write R code to simulate drawing a sample of size 5 with replacement from a box 
-associated to the distribution of $X$.
-
-::: {.callout-note collapse="true"}
-## Show answers
-
-```{r eval = FALSE}
-x <- c(0, 3, 5, 9)
-sample(x, size = 5, prob = c(0.1, 0.2, 0.3, 0.4), replace = TRUE)
-
-# equivalent
-box <- c(0, 3, 3, 5, 5, 5, 9, 9, 9, 9)
-sample(box, size = 5, replace = TRUE)
 ```
 :::
 

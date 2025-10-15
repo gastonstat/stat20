@@ -396,10 +396,10 @@ and $X_2$ is the number in second ticket.
 
 \
 
-$Var(S) = Var(X_1 + X_2) = Var(X_1) + Var(X_2) = 2Var(X)$
+$Var(S) = Var(X_1 + X_2) = Var(X_1) + Var(X_2) = 2 \times Var(X)$
 
 
-# Important Random Variables and CLT
+# Important Random Variables
 
 ##
 
@@ -418,7 +418,7 @@ $$
 \begin{align}
 E(S) &= E(X_1 + \dots + X_n) \\
      &= E(X_1) + \dots + E(X_n)\\
-     &= nE(X)
+     &= n \times E(X)
 \end{align}
 $$
 :::
@@ -449,13 +449,13 @@ $$
 :::
 
 
-## Standard Error
+## Standard Deviation
 
 How far off we expect to be from the expected value?
 
 ::: {.fragment}
 $$
-\Large SE(S) = (\text{# of draws})^{1/2} \times (\text{SD of box})
+\Large SD(S) = (\text{# of draws})^{1/2} \times (\text{SD of box})
 $$
 :::
 
@@ -465,7 +465,7 @@ $$
 $$
 \begin{align}
 SD(S) &= \left( nVar(X) \right)^{1/2} \\
-     &= \sqrt{n} \times Var(X)
+     &= \sqrt{n} \times SD(X)
 \end{align}
 $$
 :::
@@ -473,20 +473,22 @@ $$
 \
 
 ::: {.fragment}
-- As we increase the number of draws, the SE becomes larger
-
-- SE is a measure of the likely size of the chance error
+- As we increase the number of draws, the SD becomes larger but not in a linear way.
 :::
 
 
 ## Important Random Variables
 
 ::: {.incremental}
-- $X$: single ticket
+- $X$: single draw
 
-- $S$: sum of $n$ tickets (sample sum)
+\
 
-- $\bar{X}$: average of $n$ tickets (sample mean)
+- $S$: sum of $n$ draws (sample sum)
+
+\
+
+- $\bar{X}$: average of $n$ draws (sample mean)
 :::
 
 
@@ -523,7 +525,28 @@ normal_auc <- function(x0, x1, mu = 0, sigma = 1, n = 50) {
 
 ## Normal Distribution
 
+::: {.fragment}
 The most important continuous distribution in Statistics.
+:::
+
+\
+
+::: {.fragment}
+Also known as the __Gaussian__ distribution.
+:::
+
+\
+
+::: {.fragment}
+If a random variable $X$ follows a normal distribution, we write:
+:::
+
+::: {.fragment}
+$$
+X \sim N(\mu, \sigma) \quad \text{or} \quad X \sim N(\mu, \sigma^2)
+$$
+where $\mu$ is the mean, and $\sigma$ is the SD ($\sigma^2$ is the Var).
+:::
 
 
 ## Anatomy of Normal Curve
@@ -709,32 +732,133 @@ polygon(auc3$xs, auc3$ys, col = 'orange', border = NA)
 lines(x, y, col = 'gray50', lwd = 4)
 ```
 
+
 ## Functions in R
 
 ::: {.fragment}
 `dnorm()` computes the density $f(x)$ of $X \sim N(\mu, \sigma)$
-
-`dnorm(0, mean = 0, sd = 1)` computes $f(0)$ for $X \sim N(0, 1)$
 :::
 
 \
 
 ::: {.fragment}
 `pnorm()` computes the CDF $F(x) = P(X \leq x)$ of $X$ 
+:::
 
-`pnorm(0.5, mean = 1, sd = 2)` computes $F(0) = P(X \leq 0)$ for $X \sim N(1, 2)$
+\
+
+::: {.fragment}
+`qnorm()` is the inverse of the CDF; given a probability (or percentile) it returns the value on the x-axis that corresponds to that percentile
 :::
 
 \
 
 ::: {.fragment}
 `rnorm()` generates random numbers from a Normal distribution
-
-`rnorm(n = 10, mean = 5, sd = 3)` generates 10 values from $X \sim(5, 3)$
 :::
 
 
-## If $X \sim N(\mu = 5, \sigma=1)$, then $P(X \leq 5) = ?$
+## `dnorm()`
+
+`dnorm()` computes the density $f(x)$ of $X \sim N(\mu, \sigma)$
+
+\
+
+::: {.fragment}
+example 1: $\quad f(0)$ for $X \sim N(0, 1)$
+
+```{r}
+dnorm(0, mean = 0, sd = 1)
+```
+:::
+
+\
+
+::: {.fragment}
+example 2: $\quad f(6)$ for $X \sim N(5, 2)$
+
+```{r}
+dnorm(6, mean = 5, sd = 2)
+```
+:::
+
+
+## `pnorm()`
+
+`pnorm()` computes $F(x)$ of $X \sim N(\mu, \sigma)$
+
+\
+
+::: {.fragment}
+example 1: $\quad F(0.5) = P(X \leq 0.5)$ for $X \sim N(1, 2)$
+
+```{r}
+pnorm(0.5, mean = 1, sd = 2)
+```
+:::
+
+\
+
+::: {.fragment}
+example 2: $\quad P(X \geq 7)$ for $X \sim N(5, 2)$
+
+```{r}
+pnorm(7, mean = 5, sd = 2, lower.tail = FALSE)
+```
+:::
+
+
+## `qnorm()`
+
+`qnorm()` computes the inverse of $F(x)$ for $X \sim N(\mu, \sigma)$
+
+\
+
+::: {.fragment}
+example 1: which $x$ gives $P(X \leq x) = 0.20$ for $X \sim N(1, 2)$
+
+```{r}
+qnorm(0.2, mean = 1, sd = 2)
+```
+:::
+
+\
+
+::: {.fragment}
+example 2: which $x$ gives $P(X \geq x) = 0.20$ for $X \sim N(1, 2)$
+
+```{r}
+pnorm(0.2, mean = 1, sd = 2, lower.tail = FALSE)
+```
+:::
+
+
+## `rnorm()`
+
+`rnorm()` generates random numbers from a Normal distribution
+
+\
+
+::: {.fragment}
+example 1: generate 3 values from $X \sim N(0, 1)$
+
+```{r}
+rnorm(n = 3, mean = 0, sd = 1)
+```
+:::
+
+\
+
+::: {.fragment}
+example 2: generate 7 values from $X \sim N(5, 2)$
+
+```{r}
+rnorm(n = 7, mean = 5, sd = 2)
+```
+:::
+
+
+## $P(X \leq 5)$ for $X \sim N(\mu = 5, \sigma=1)$
 
 ```{r echo = FALSE}
 # Cumulative Probability
@@ -758,7 +882,30 @@ pnorm(5, mean = 5, sd = 2)
 :::
 
 
-## $P(-0.5 \leq X \leq 1.5)$
+## $P(X \geq 6)$ for $X \sim N(\mu = 5, \sigma=1)$
+
+```{r echo = FALSE}
+# Cumulative Probability
+x <- seq(2, 8, length.out = 500)
+y  <- normal(x, mu = 5)
+auc1 <- normal_auc(6, 8, mu = 5)
+
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(1, 8, 1), line = -0.3)
+polygon(auc1$xs, auc1$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+```
+
+::: {.fragment}
+```{r eval = FALSE}
+# 1 - F(6)
+pnorm(6, mean = 5, sd = 2, lower.tail = FALSE)
+```
+:::
+
+
+## $P(-0.5 \leq X \leq 1.5)$ for $X \sim N(\mu = 0, \sigma=1)$
 
 ```{r echo = FALSE}
 x <- seq(-4, 4, length.out = 500)
@@ -782,7 +929,7 @@ pnorm(1.5) - pnorm(-0.5)
 :::
 
 
-## If $X \sim N(\mu = 0, \sigma=2)$, then $P(-2 \leq X \leq 2) = ?$
+## $P(-2 \leq X \leq 2)$ for $X \sim N(\mu = 0, \sigma=2)$
 
 ```{r echo = FALSE}
 x <- seq(-6, 6, length.out = 500)
@@ -802,6 +949,31 @@ lines(x, y, col = 'gray50', lwd = 4)
 ```{r eval = FALSE}
 # F(2) - F(-2)
 pnorm(2, mean = 0, sd = 2) - pnorm(-2, mean = 0, sd = 2)
+```
+:::
+
+
+## $P(X \leq x) = 0.3$ for $X \sim N(\mu = 0, \sigma=2)$
+
+```{r echo = FALSE}
+x <- seq(-6, 6, length.out = 500)
+y  <- normal(x, 0, 2)
+auc1 <- normal_auc(-6, -1.0488, 0, 2)
+
+plot(x, y, type = 'n', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+axis(side = 1, at = seq(-6, 6, 2), labels = rep('', 7))
+#mtext(xlabels, at = seq(-3, 3, 1), side = 1, line = 0.5)
+mtext(seq(-6, 6, 2), at = seq(-6, 6, 2), side = 1, line = 0.5)
+polygon(auc1$xs, auc1$ys, col = 'orange', border = NA)
+lines(x, y, col = 'gray50', lwd = 4)
+text(-2.6, 0.04, "0.30", cex = 1.5)
+```
+
+::: {.fragment}
+```{r eval = FALSE}
+# F(x) = 0.3
+qnorm(0.3, mean = 0, sd = 2)
 ```
 :::
 
@@ -850,6 +1022,7 @@ $$
 ## Example: American Roulette {auto-animate=true}
 
 ```{r}
+#| output-location: fragment
 # define the gain for a single spin
 gain <- c(1, -1)
 ```
@@ -858,6 +1031,7 @@ gain <- c(1, -1)
 ## Example: American Roulette {auto-animate=true}
 
 ```{r}
+#| output-location: fragment
 # define the gain for a single spin
 gain <- c(1, -1)
 
@@ -870,6 +1044,20 @@ prob_gain <- c(18/38, 20/38)
 
 ```{r}
 #| output-location: fragment
+# define the gain for a single spin
+gain <- c(1, -1)
+
+# define the corresponding probabilities
+prob_gain <- c(18/38, 20/38)
+
+exp_gain <- sum(gain * prob_gain)
+exp_gain
+```
+
+
+## Example: American Roulette {auto-animate=true}
+
+```{r}
 # define the gain for a single spin
 gain <- c(1, -1)
 
