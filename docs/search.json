@@ -2290,21 +2290,21 @@
     "href": "3-probability/06-normal-approx/slides.html#rnorm",
     "title": "Normal Approximation and Box Models",
     "section": "rnorm()",
-    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1] 0.3283522 1.4953634 0.6250936\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 3.629833 3.886753 3.247479 8.153012 3.075110 3.212184 6.451464"
+    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1] -0.1796964  1.0399569  0.6217685\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 5.664420 4.234579 6.151251 2.174590 4.485058 3.713557 5.483345"
   },
   {
     "objectID": "3-probability/06-normal-approx/slides.html#px-leq-5-for-x-sim-nmu-5-sigma1",
     "href": "3-probability/06-normal-approx/slides.html#px-leq-5-for-x-sim-nmu-5-sigma1",
     "title": "Normal Approximation and Box Models",
     "section": "\\(P(X \\leq 5)\\) for \\(X \\sim N(\\mu = 5, \\sigma=1)\\)",
-    "text": "\\(P(X \\leq 5)\\) for \\(X \\sim N(\\mu = 5, \\sigma=1)\\)\n\n\n\n# F(5)\npnorm(5, mean = 5, sd = 2)"
+    "text": "\\(P(X \\leq 5)\\) for \\(X \\sim N(\\mu = 5, \\sigma=1)\\)\n\n\n\n# F(5)\npnorm(5, mean = 5, sd = 1)"
   },
   {
     "objectID": "3-probability/06-normal-approx/slides.html#px-geq-6-for-x-sim-nmu-5-sigma1",
     "href": "3-probability/06-normal-approx/slides.html#px-geq-6-for-x-sim-nmu-5-sigma1",
     "title": "Normal Approximation and Box Models",
     "section": "\\(P(X \\geq 6)\\) for \\(X \\sim N(\\mu = 5, \\sigma=1)\\)",
-    "text": "\\(P(X \\geq 6)\\) for \\(X \\sim N(\\mu = 5, \\sigma=1)\\)\n\n\n\n# 1 - F(6)\npnorm(6, mean = 5, sd = 2, lower.tail = FALSE)"
+    "text": "\\(P(X \\geq 6)\\) for \\(X \\sim N(\\mu = 5, \\sigma=1)\\)\n\n\n\n# 1 - F(6)\npnorm(6, mean = 5, sd = 1, lower.tail = FALSE)"
   },
   {
     "objectID": "3-probability/06-normal-approx/slides.html#p-0.5-leq-x-leq-1.5-for-x-sim-nmu-0-sigma1",

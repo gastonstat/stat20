@@ -877,7 +877,7 @@ lines(x, y, col = 'gray50', lwd = 4)
 ::: {.fragment}
 ```{r eval = FALSE}
 # F(5)
-pnorm(5, mean = 5, sd = 2)
+pnorm(5, mean = 5, sd = 1)
 ```
 :::
 
@@ -900,7 +900,7 @@ lines(x, y, col = 'gray50', lwd = 4)
 ::: {.fragment}
 ```{r eval = FALSE}
 # 1 - F(6)
-pnorm(6, mean = 5, sd = 2, lower.tail = FALSE)
+pnorm(6, mean = 5, sd = 1, lower.tail = FALSE)
 ```
 :::
 
