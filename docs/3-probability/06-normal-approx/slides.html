@@ -761,9 +761,9 @@ X \sim N(\mu, \sigma) \quad \text{or} \quad X \sim N(\mu, \sigma^2)
 <div class="fragment">
 <p>example 2: which <span class="math inline">\(x\)</span> gives <span class="math inline">\(P(X \geq x) = 0.20\)</span> for <span class="math inline">\(X \sim N(1, 2)\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">pnorm</span>(<span class="fl">0.2</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.2</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6554217</code></pre>
+<pre><code>[1] 2.683242</code></pre>
 </div>
 </div>
 </div>
@@ -778,7 +778,7 @@ X \sim N(\mu, \sigma) \quad \text{or} \quad X \sim N(\mu, \sigma^2)
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1796964  1.0399569  0.6217685</code></pre>
+<pre><code>[1] -0.2333934 -0.2098640 -1.2703499</code></pre>
 </div>
 </div>
 </div>
@@ -789,7 +789,7 @@ X \sim N(\mu, \sigma) \quad \text{or} \quad X \sim N(\mu, \sigma^2)
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">7</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.664420 4.234579 6.151251 2.174590 4.485058 3.713557 5.483345</code></pre>
+<pre><code>[1] 5.127272 1.904984 3.651979 3.247891 4.410637 2.760221 3.545420</code></pre>
 </div>
 </div>
 </div>

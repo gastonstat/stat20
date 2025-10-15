@@ -828,7 +828,7 @@ qnorm(0.2, mean = 1, sd = 2)
 example 2: which $x$ gives $P(X \geq x) = 0.20$ for $X \sim N(1, 2)$
 
 ```{r}
-pnorm(0.2, mean = 1, sd = 2, lower.tail = FALSE)
+qnorm(0.2, mean = 1, sd = 2, lower.tail = FALSE)
 ```
 :::
 

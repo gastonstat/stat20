@@ -2283,14 +2283,14 @@
     "href": "3-probability/06-normal-approx/slides.html#qnorm",
     "title": "Normal Approximation and Box Models",
     "section": "qnorm()",
-    "text": "qnorm()\nqnorm() computes the inverse of \\(F(x)\\) for \\(X \\sim N(\\mu, \\sigma)\\)\n\n\n\nexample 1: which \\(x\\) gives \\(P(X \\leq x) = 0.20\\) for \\(X \\sim N(1, 2)\\)\n\nqnorm(0.2, mean = 1, sd = 2)\n\n[1] -0.6832425\n\n\n\n\n\n\nexample 2: which \\(x\\) gives \\(P(X \\geq x) = 0.20\\) for \\(X \\sim N(1, 2)\\)\n\npnorm(0.2, mean = 1, sd = 2, lower.tail = FALSE)\n\n[1] 0.6554217"
+    "text": "qnorm()\nqnorm() computes the inverse of \\(F(x)\\) for \\(X \\sim N(\\mu, \\sigma)\\)\n\n\n\nexample 1: which \\(x\\) gives \\(P(X \\leq x) = 0.20\\) for \\(X \\sim N(1, 2)\\)\n\nqnorm(0.2, mean = 1, sd = 2)\n\n[1] -0.6832425\n\n\n\n\n\n\nexample 2: which \\(x\\) gives \\(P(X \\geq x) = 0.20\\) for \\(X \\sim N(1, 2)\\)\n\nqnorm(0.2, mean = 1, sd = 2, lower.tail = FALSE)\n\n[1] 2.683242"
   },
   {
     "objectID": "3-probability/06-normal-approx/slides.html#rnorm",
     "href": "3-probability/06-normal-approx/slides.html#rnorm",
     "title": "Normal Approximation and Box Models",
     "section": "rnorm()",
-    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1] -0.1796964  1.0399569  0.6217685\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 5.664420 4.234579 6.151251 2.174590 4.485058 3.713557 5.483345"
+    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1] -0.2333934 -0.2098640 -1.2703499\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 5.127272 1.904984 3.651979 3.247891 4.410637 2.760221 3.545420"
   },
   {
     "objectID": "3-probability/06-normal-approx/slides.html#px-leq-5-for-x-sim-nmu-5-sigma1",
