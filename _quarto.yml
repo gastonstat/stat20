@@ -30,6 +30,10 @@ website:
               - 3-probability/04-random-variables/practice.qmd
               - 3-probability/05-ev-sd/practice.qmd
               - 3-probability/06-normal-approx/practice.qmd
+          - section: "Generalization"
+            contents:
+              - 4-generalization/01-sampling-distributions/practice.qmd
+              - 4-generalization/02-confidence-intervals/practice.qmd
       - about.qmd
 
 format:

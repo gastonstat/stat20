@@ -44,6 +44,10 @@ Often we want to know something about the population:
 
 - Average number of fins (of all fish)
 
+. . .
+
+We call these [Parameters]{.hilit}
+
 
 ## Typical limitations
 
@@ -80,12 +84,9 @@ We can catch some fish and calculate:
 
 - Average number of fins (in sample)
 
+. . .
 
-## To help you remember {.nostretch}
-
-\
-
-![](images/parameters-statistics.png){fig-align="center" width=70%}
+We call these [Statistics]{.hilit}
 
 
 ## Estimation Idea {.nostretch}
@@ -96,6 +97,13 @@ We can catch some fish and calculate:
 ## Estimation (Generalization) Idea {.nostretch}
 
 ![](images/fish-inference.png){fig-align="center" width=80%}
+
+
+## To help you remember {.nostretch}
+
+\
+
+![](images/parameters-statistics.png){fig-align="center" width=70%}
 
 
 # Estimation
@@ -119,7 +127,7 @@ BTW:
 
 ![](images/statistic-equation1.png){fig-align="center" width=70%}
 
-## Sampling (in practice) {.nostretch}
+## Sampling: Sources of Error {.nostretch}
 
 ![](images/statistic-equation2.png){fig-align="center" width=70%}
 
@@ -130,26 +138,39 @@ BTW:
 
 
 
-## Biases
+## Types of Bias
 
+::: {.fragment}
 - [Selection Bias:]{.hilit} When not all units in the population are equally likely to be selected for the sample.
+:::
 
+::: {.fragment}
 - [Measurement Bias:]{.hilit} When your process of measuring a variable systematically misses the target in one direction.
 
     + when questions are confusingly worded or leading, 
     + when respondents may not be comfortable answering honestly.
+:::
 
-
+::: {.fragment}
 - [Non-response Bias:]{.hilit} When certain units originally selected for the sample fail to provide data
+:::
 
+::: {.fragment}
 Solution (ideal): Simple Random Sample (SRS)
+:::
 
 
 ## Types of Variation
 
+::: {.fragment}
 - [Sampling Variability:]{.hilit} the variability from one sample to the next
+:::
 
+\
+
+::: {.fragment}
 - [Measurement Variability:]{.hilit} When we take multiple measurements on the same object and we get variations in measurements from one sample to the next.
+:::
 
 
 # Sampling Distribution
@@ -158,10 +179,26 @@ Solution (ideal): Simple Random Sample (SRS)
 
 Sampling Distribution is the distribution of a statistic upon repeated sampling.
 
+\
+
 No longer are we considering the (usually unknowable) distribution of the population or the observed distribution of the data 
+
+\
 
 Usually the sampling distribution is a hypothetical thing: what would our statistic have looked like if we had taken a different sample of data?
 
 
+## Demo
 
 
+# Worksheet
+
+```{r echo = FALSE}
+countdown::countdown(35, bottom = 0)
+```
+
+# Lab-4: Elections
+
+```{r echo = FALSE}
+countdown::countdown(35, bottom = 0)
+```

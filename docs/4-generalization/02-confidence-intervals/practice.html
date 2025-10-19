@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practice: Intro Probability – stat20</title>
+<title>Practice: Confidence Intervals – stat20</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -146,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Practice: Intro Probability</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../4-generalization/01-sampling-distributions/practice.html">Generalization</a></li><li class="breadcrumb-item"><a href="../../4-generalization/02-confidence-intervals/practice.html">Practice: Confidence Intervals</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -232,16 +197,16 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Probability</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../3-probability/01-chance-intro/practice.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../3-probability/01-chance-intro/practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practice: Intro Probability</span></a>
   </div>
 </li>
@@ -279,13 +244,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Generalization</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../4-generalization/01-sampling-distributions/practice.html" class="sidebar-item-text sidebar-link">
@@ -294,7 +259,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../4-generalization/02-confidence-intervals/practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../../4-generalization/02-confidence-intervals/practice.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Practice: Confidence Intervals</span></a>
   </div>
 </li>
@@ -318,24 +283,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#deck-of-cards" id="toc-deck-of-cards" class="nav-link active" data-scroll-target="#deck-of-cards">1) Deck of Cards</a>
-  <ul class="collapse">
-  <li><a href="#find-the-following-probabilities." id="toc-find-the-following-probabilities." class="nav-link" data-scroll-target="#find-the-following-probabilities.">Find the following probabilities.</a></li>
-  </ul></li>
-  <li><a href="#r-code-refresher" id="toc-r-code-refresher" class="nav-link" data-scroll-target="#r-code-refresher">R code refresher</a></li>
-  <li><a href="#flipping-a-coing" id="toc-flipping-a-coing" class="nav-link" data-scroll-target="#flipping-a-coing">2) Flipping a coing</a></li>
-  <li><a href="#rolling-a-die" id="toc-rolling-a-die" class="nav-link" data-scroll-target="#rolling-a-die">3) Rolling a die</a></li>
-  <li><a href="#rolling-a-pair-of-dice" id="toc-rolling-a-pair-of-dice" class="nav-link" data-scroll-target="#rolling-a-pair-of-dice">4) Rolling a pair of dice</a></li>
-  <li><a href="#go-bears" id="toc-go-bears" class="nav-link" data-scroll-target="#go-bears">5) GO BEARS</a></li>
+  <li><a href="#true-or-false" id="toc-true-or-false" class="nav-link active" data-scroll-target="#true-or-false">1) True or False</a></li>
+  <li><a href="#multiple-choice" id="toc-multiple-choice" class="nav-link" data-scroll-target="#multiple-choice">2) Multiple Choice</a></li>
+  <li><a href="#interpreting-a-confidence-interval" id="toc-interpreting-a-confidence-interval" class="nav-link" data-scroll-target="#interpreting-a-confidence-interval">3) Interpreting a Confidence Interval</a></li>
+  <li><a href="#student-engagement-part-1" id="toc-student-engagement-part-1" class="nav-link" data-scroll-target="#student-engagement-part-1">4) Student Engagement (part 1)</a></li>
+  <li><a href="#student-engagement-part-2" id="toc-student-engagement-part-2" class="nav-link" data-scroll-target="#student-engagement-part-2">5) Student Engagement (part 2)</a></li>
+  <li><a href="#c.i.-for-reaction-times" id="toc-c.i.-for-reaction-times" class="nav-link" data-scroll-target="#c.i.-for-reaction-times">6) C.I. for Reaction Times</a></li>
+  <li><a href="#c.i.-for-likely-voters" id="toc-c.i.-for-likely-voters" class="nav-link" data-scroll-target="#c.i.-for-likely-voters">7) C.I. for Likely Voters</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Probability</a></li><li class="breadcrumb-item"><a href="../../3-probability/01-chance-intro/practice.html">Practice: Intro Probability</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Problems</li><li class="breadcrumb-item"><a href="../../4-generalization/01-sampling-distributions/practice.html">Generalization</a></li><li class="breadcrumb-item"><a href="../../4-generalization/02-confidence-intervals/practice.html">Practice: Confidence Intervals</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Practice: Intro Probability</h1>
+<h1 class="title">Practice: Confidence Intervals</h1>
 </div>
 
 
@@ -352,34 +315,22 @@ window.Quarto = {
 </header>
 
 
-<section id="deck-of-cards" class="level2">
-<h2 class="anchored" data-anchor-id="deck-of-cards">1) Deck of Cards</h2>
-<p>Consider a standard deck of 52 cards, as displayed in the following figure.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/deck-of-cards.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
-</figure>
-</div>
-<p>Consider the following events when a card is randomly selected.</p>
-<ul>
-<li><p><span class="math inline">\(A\)</span>: card selected is a heart.</p></li>
-<li><p><span class="math inline">\(B\)</span>: card selected is color black.</p></li>
-<li><p><span class="math inline">\(C\)</span>: card selected is a face card (i.e.&nbsp;J, Q, K)</p></li>
-<li><p><span class="math inline">\(D\)</span>: card selected is a King.</p></li>
-</ul>
-<section id="find-the-following-probabilities." class="level3">
-<h3 class="anchored" data-anchor-id="find-the-following-probabilities.">Find the following probabilities.</h3>
+<section id="true-or-false" class="level2">
+<h2 class="anchored" data-anchor-id="true-or-false">1) True or False</h2>
 <ol type="a">
-<li><p><span class="math inline">\(P(A)\)</span></p></li>
-<li><p><span class="math inline">\(P(B)\)</span></p></li>
-<li><p><span class="math inline">\(P(C)\)</span></p></li>
-<li><p><span class="math inline">\(P(D)\)</span></p></li>
-<li><p><span class="math inline">\(P(A^c)\)</span></p></li>
-<li><p><span class="math inline">\(P(B^c)\)</span></p></li>
-<li><p><span class="math inline">\(P(C^c)\)</span></p></li>
-<li><p><span class="math inline">\(P(D^c)\)</span></p></li>
-<li><p><span class="math inline">\(P(A \cap B)\)</span></p></li>
-<li><p><span class="math inline">\(P(A \cup B)\)</span></p></li>
+<li><p>According to the Central Limit Theorem, the sampling distribution of the sample mean will always be approximately normal, regardless of the population’s distribution.</p></li>
+<li><p>The mean of the sampling distribution of the sample mean (<span class="math inline">\(\bar{x}\)</span>) is equal to the population mean (<span class="math inline">\(\mu\)</span>).</p></li>
+<li><p>As the sample size increases, the standard deviation of the sampling distribution of the <span class="math inline">\(\bar{x}\)</span> decreases.</p></li>
+<li><p>A 95% confidence interval can be interpreted as having a 95% probability of containing the true population mean.</p></li>
+<li><p>The sample mean (<span class="math inline">\(\bar{x}\)</span>) is always located at the exact center of its corresponding confidence interval.</p></li>
+<li><p>The standard deviation of the sampling distribution of <span class="math inline">\(\hat{p}\)</span>, increases as the sample size increases.</p></li>
+<li><p>To construct a confidence interval for a proportion, you must know the true population proportion (<span class="math inline">\(p\)</span>) to approximate the standard error.</p></li>
+<li><p>A larger sample size will, all else being equal, result in a narrower confidence interval for a population proportion.</p></li>
+<li><p>A <em>simple random sample</em> (SRS) is a random sample with replacement.</p></li>
+<li><p>If the population distribution is skewed, then we should expect an empirical distribution from this population to be skewed as well.</p></li>
+<li><p>If the sampling distribution of <span class="math inline">\(\bar{x}\)</span> is bell-shaped (approximately normal distribution), then the population distribution must also be bell-shaped.</p></li>
+<li><p>The distribution for the possible values of <span class="math inline">\(\hat{p}\)</span> is called the <em>sampling distribution (of sample proportions)</em>.</p></li>
+<li><p>When you have a simple random sample (SRS), the sample standard deviation <span class="math inline">\(s\)</span> is close to the population standard deviation <span class="math inline">\(\sigma\)</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -394,99 +345,280 @@ Show answers
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>13/52 = 1/4</li>
-<li>26/52 = 1/2</li>
-<li>12/52</li>
-<li>4/52 = 1/13</li>
-<li>1 - (13/52) = 3/4</li>
-<li>1 - (26/52) = 1/2</li>
-<li>1 - (12/52) = 40/52</li>
-<li>1 - (4/52) = 48/52</li>
-<li>0 because A and B are mutually exclusive</li>
-<li>P(A) + P(B) = 13/52 + 26/52 = 39/52</li>
+<li><p>False. For non-normal distributions we need <span class="math inline">\(n \geq 30\)</span></p></li>
+<li><p>True</p></li>
+<li><p>True</p></li>
+<li><p>False</p></li>
+<li><p>True</p></li>
+<li><p>False</p></li>
+<li><p>False. Since <span class="math inline">\(p\)</span> is unknown, we use the sample proportion <span class="math inline">\(\hat{p}\)</span> in the standard error calculation.</p></li>
+<li><p>True</p></li>
+<li><p>False. An SRS is taken without replacement.</p></li>
+<li><p>True</p></li>
+<li><p>False</p></li>
+<li><p>True</p></li>
+<li><p>True</p></li>
+<li><p>True.</p></li>
 </ol>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="r-code-refresher" class="level2">
-<h2 class="anchored" data-anchor-id="r-code-refresher">R code refresher</h2>
-<p><code>sample()</code>: takes an input vector <code>x</code>, and draws a random sample of a certain <code>size</code> with or without replacement (<code>replace</code>)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sample without replacement</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(vec, <span class="at">size =</span> <span class="dv">3</span>) </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sample with replacement</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(vec, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
-<p><code>set.seed()</code>: a number (integer) used by the random number generator(s) in R. It allows us to reproduce the output of <code>sample()</code> and other functions that generate random numbers in R.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4321</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># reproducible sample</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(letters, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="flipping-a-coing" class="level2">
-<h2 class="anchored" data-anchor-id="flipping-a-coing">2) Flipping a coing</h2>
+<section id="multiple-choice" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-choice">2) Multiple Choice</h2>
 <ol type="a">
-<li><p>Create a character vector <code>coin</code> that simulates the 2 sides of a coin <code>"heads"</code> and <code>"tails"</code></p></li>
-<li><p>Use <code>sample()</code> to simulate tossing a coin 6 times</p></li>
+<li><p>A population has a mean (<span class="math inline">\(\mu\)</span>) of 50 and a standard deviation (<span class="math inline">\(\sigma\)</span>) of 10. You take a random sample of size <span class="math inline">\(n=25\)</span>. What is the mean of the sampling distribution of the sample mean (<span class="math inline">\(\bar{x}\)</span>)?</p>
+<ol type="i">
+<li>50</li>
+<li>10</li>
+<li>2</li>
+<li>50 divided by 25</li>
+</ol></li>
+<li><p>The Central Limit Theorem is most useful when:</p>
+<ol type="i">
+<li>The population distribution is normal.</li>
+<li>The sample size is small.</li>
+<li>The population distribution is unknown or not normal.</li>
+<li>The standard deviation of the population is zero.</li>
+</ol></li>
+<li><p>According to the Central Limit Theorem, if you take sufficiently large samples from any population, the sampling distribution of the sample mean will:</p>
+<ol type="i">
+<li>have the same shape as the population distribution.</li>
+<li>be skewed in the same direction as the population distribution.</li>
+<li>be approximately normal, regardless of the population’s shape.</li>
+<li>have a standard deviation equal to the population standard deviation.</li>
+</ol></li>
+<li><p>A population has a mean <span class="math inline">\(\mu =100\)</span> and a standard deviation <span class="math inline">\(\sigma =20\)</span>. If you take a random sample of size <span class="math inline">\(n=64\)</span>, what is the standard error of the sample mean?</p>
+<ol type="i">
+<li>20</li>
+<li>1.25</li>
+<li>2.5</li>
+<li>64</li>
+</ol></li>
+<li><p>Holding all else constant, which of the following actions would result in a wider confidence interval for a population mean?</p>
+<ol type="i">
+<li>Increasing the sample size.</li>
+<li>Decreasing the confidence level (e.g., from 95% to 90%).</li>
+<li>Decreasing the sample standard deviation.</li>
+<li>Increasing the confidence level (e.g., from 95% to 99%).</li>
+</ol></li>
+<li><p>A 95% confidence interval for the mean height of a species of tree is calculated as (50 feet, 60 feet). Which of the following is the correct interpretation of this interval?</p>
+<ol type="i">
+<li>95% of all trees of this species have a height between 50 and 60 feet.</li>
+<li>There is a 95% probability that the mean height of all trees is between 50 and 60 feet.</li>
+<li>If we were to take many random samples and construct a confidence interval from each, we would expect 95% of these intervals to contain the true population mean.</li>
+<li>The true population mean is 55 feet, and the standard error is 5 feet.</li>
+</ol></li>
+<li><p>What effect does increasing the sample size (<span class="math inline">\(n\)</span>) have on the width of a confidence interval, assuming the confidence level and population standard deviation (<span class="math inline">\(\sigma\)</span>) remain unchanged?</p>
+<ol type="i">
+<li>The interval becomes wider.</li>
+<li>The interval becomes narrower.</li>
+<li>The width of the interval remains the same.</li>
+<li>The interval shifts to the right.</li>
+</ol></li>
+<li><p>If you double the sample size (<span class="math inline">\(n\)</span>), how does the margin of error change?</p>
+<ol type="i">
+<li>It is also doubled.</li>
+<li>It is halved.</li>
+<li>It is multiplied by <span class="math inline">\(\sqrt{2}\)</span>.</li>
+<li>It is divided by <span class="math inline">\(\sqrt{2}\)</span>.</li>
+</ol></li>
+<li><p>A researcher reports a 90% confidence interval for the average daily commute time in a city. Which of the following statements is true?</p>
+<ol type="i">
+<li>The researcher can be 90% certain that the true population mean is captured within this interval.</li>
+<li>There is a 10% chance that the true population mean is outside this interval.</li>
+<li>This interval provides a range of plausible values for the true population mean.</li>
+<li>All of the above.</li>
+</ol></li>
+<li><p>A 95% confidence interval for the population mean is calculated to be (23.5, 29.5). What was the sample mean (<span class="math inline">\(\bar{X}\)</span>) used to construct this interval?</p>
+<ol type="i">
+<li>26.5</li>
+<li>3.0</li>
+<li>6.0</li>
+<li>Cannot be determined from the information provided.</li>
+</ol></li>
+<li><p>Suppose we have a large population with mean <span class="math inline">\(\mu = 80\)</span> and standard deviation <span class="math inline">\(\sigma = 7.2\)</span>. Let’s say we randomly sample 100 values from this population and compute the mean, then repeat this sampling process 10,000 times and record all the means we get. Which of the following is the best approximation for the mean of our 10,000 sample means?</p>
+<ol type="i">
+<li>8</li>
+<li>80</li>
+<li>100</li>
+<li>Cannot be determined from the information provided.</li>
+</ol></li>
+<li><p>Consider sampling heights from the population of all female college soccer players in the United States. Assume the mean height of female college soccer players in the United States is <span class="math inline">\(\mu = 66\)</span> inches and the standard deviation is <span class="math inline">\(\sigma = 3.5\)</span> inches. Suppose we randomly sample 100 values from this population and compute the mean <span class="math inline">\(\bar{x}\)</span>, then repeat this sampling process 5,000 times and record all the means we get. Which of the following is the best approximation for the standard deviation of the 5,000 sample means?</p>
+<ol type="i">
+<li>0.035</li>
+<li>0.35</li>
+<li>3.5</li>
+<li>Cannot be determined from the information provided.</li>
+</ol></li>
 </ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"heads"</span>, <span class="st">"tails"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coin, <span class="at">size =</span> <span class="dv">6</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Option i</p></li>
+<li><p>Option iii</p></li>
+<li><p>Option iii, be approximately normal, regardless of the population’s shape.</p></li>
+<li><p>2.5</p></li>
+<li><p>Option iv, a higher confidence level involves a larger margin of error.</p></li>
+<li><p>Option iii</p></li>
+<li><p>Option ii, a larger sample size reduces the standard error of the mean.</p></li>
+<li><p>Option iv</p></li>
+<li><p>Option iv</p></li>
+<li><p>Option i. The sample mean is the center of the confidence interval and can be approximated by calculating <span class="math inline">\((23.5 + 29.5) / 2 = 26.5\)</span></p></li>
+<li><p>Option ii</p></li>
+<li><p>Option ii. The standard deviation of the sampling distribution of means with sample size 100 is <span class="math inline">\(\sigma / \sqrt{n} = 3.5/\sqrt{100}\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="interpreting-a-confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-a-confidence-interval">3) Interpreting a Confidence Interval</h2>
+<p>Suppose a poll of registered voters nationwide asked the question: “Do you think illegal immigrants who have lived in the United States since they were children should be eligible for legal citizenship, or not?” 63% answered “should be”, and a 95% confidence level for <span class="math inline">\(p_{yes}\)</span> was calculated to be (60% to 66%) Which of the following statements is correct?</p>
+<ol type="a">
+<li><p>There is a 95% chance that between 60% and 66% of all registered voters nationwide will answer illegal immigrants “should be” eligible for legal citizenship.</p></li>
+<li><p>We are 95% confident that between 60% and 66% of all registered voters nationwide will answer illegal immigrants “should be” eligible for legal citizenship.</p></li>
+<li><p>We are 95% confident that 63% of the registered voters in the sample answered illegal immigrants “should be” eligible for legal citizenship.</p></li>
+<li><p>We are confident that 95% of the registered voters in the sample answered “should be”.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Option c)</p>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="student-engagement-part-1" class="level2">
+<h2 class="anchored" data-anchor-id="student-engagement-part-1">4) Student Engagement (part 1)</h2>
+<p>The Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.</p>
+<p>In a simulation we select random samples from a population in which 40% do not use tutoring. For each sample we calculate the proportion who do not use tutoring. If we randomly sample 500 students at a time, what will be the mean and standard error of the sampling distribution of sample proportions?</p>
+<ol type="a">
+<li>mean = 0.46, SE <span class="math inline">\(\approx\)</span> 0.00048</li>
+<li>mean = 0.40, SE <span class="math inline">\(\approx\)</span> 0.022</li>
+<li>mean = 0.40, SE <span class="math inline">\(\approx\)</span> 0.00048</li>
+<li>mean = 0.46, SE <span class="math inline">\(\approx\)</span> 0.022</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Option b)</p>
+</div>
+</div>
 </div>
 </section>
-<section id="rolling-a-die" class="level2">
-<h2 class="anchored" data-anchor-id="rolling-a-die">3) Rolling a die</h2>
-<ol type="a">
-<li><p>Create a numeric vector <code>die</code> that simulates the sides of a die (1, 2, 3, 4, 5, 6)</p></li>
-<li><p>Use <code>sample()</code> to simulate tossing a die 10 times</p></li>
+<section id="student-engagement-part-2" class="level2">
+<h2 class="anchored" data-anchor-id="student-engagement-part-2">5) Student Engagement (part 2)</h2>
+<p>From the previous question. The Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.</p>
+<ol type="i">
+<li><p>True or False. In a simulation we select 3 random samples of 500 community college students. In each sample, we expect to see 200 (40% of 500) of the student do not use college tutoring services.</p></li>
+<li><p>If we randomly sample 100 community college students, how unusual would be to see that 35% of them never use tutoring services?</p></li>
+<li><p>If we randomly sample 500 community college students, how unusual would be to see that 35% of them never use tutoring services?</p></li>
 </ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(die, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="rolling-a-pair-of-dice" class="level2">
-<h2 class="anchored" data-anchor-id="rolling-a-pair-of-dice">4) Rolling a pair of dice</h2>
-<ol type="a">
-<li>With your <code>die</code> vector—from the preceding question—write code to simulate rolling a pair of dice, and getting the sum of the spots.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sample</span>(die, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="callout-title-container flex-fill">
+Show answers
 </div>
-</section>
-<section id="go-bears" class="level2">
-<h2 class="anchored" data-anchor-id="go-bears">5) GO BEARS</h2>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="a">
-<li><p>Create a character vector <code>box</code> containing the letters in the phrase <em>GO BEARS</em>.</p></li>
-<li><p>Write R code to sample all the letters from <code>box</code> <strong>without replacement</strong>. Repeat this process no more than 100 times.</p></li>
-<li><p>If you get a sample <code>"G" "O" "B" "E" "A" "R" "S"</code> (in this order) you win.</p></li>
+<li><p>False. We expect to see variability in random samples.</p></li>
+<li><p>Not unusual. The standard error of the sampling distribution of <span class="math inline">\(\hat{p}\)</span> for <span class="math inline">\(n=100\)</span> is <span class="math inline">\(SE = \sqrt{p(1-p)/n} \approx 0.049\)</span>. A statistic of <span class="math inline">\(\hat{p} = 0.35\)</span> would be a bit over one standard error.</p></li>
+<li><p>Very unusual. The standard error of the sampling distribution of <span class="math inline">\(\hat{p}\)</span> for <span class="math inline">\(n=500\)</span> is <span class="math inline">\(SE = \sqrt{p(1-p)/n} \approx 0.022\)</span>. A statistic of <span class="math inline">\(\hat{p} = 0.35\)</span> would be more than two standard errors.</p></li>
 </ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Show answer</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>box <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"G"</span>, <span class="st">"O"</span>, <span class="st">"B"</span>, <span class="st">"E"</span>, <span class="st">"A"</span>, <span class="st">"R"</span>, <span class="st">"S"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># run the following command 100 times</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(box, <span class="at">size =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="c.i.-for-reaction-times" class="level2">
+<h2 class="anchored" data-anchor-id="c.i.-for-reaction-times">6) C.I. for Reaction Times</h2>
+<p>A researcher measures the reaction time of 36 participants to a visual stimulus. The sample mean reaction time is <span class="math inline">\(\bar{x}=0.25\)</span> seconds, and the sample standard deviation is <span class="math inline">\(s=0.12\)</span> seconds. Assuming reaction times are approximately normally distributed, construct a 95% confidence interval for the true population mean reaction time, and provide a verbal interpretation for it.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(SE = s / \sqrt{n} = 0.12 / \sqrt{36} = 0.02\)</span></p>
+<p>CI: <span class="math inline">\([\bar{x} - 1.96 \times SE, \ \bar{x} + 1.96 \times SE]\)</span></p>
+<p>CI: <span class="math inline">\([0.25 - 1.96(0.02), 0.25 + 1.96(0.02)] \rightarrow (0.2108, 0.2892)\)</span></p>
+<p>We’re 95% confident that the population mean reaction time is within 0.2108 and 0.2892 seconds.</p>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="c.i.-for-likely-voters" class="level2">
+<h2 class="anchored" data-anchor-id="c.i.-for-likely-voters">7) C.I. for Likely Voters</h2>
+<p>A survey of 500 randomly selected likely voters in a state found that 285 plan to vote for a particular candidate. Construct a 95% confidence interval for the true proportion of all likely voters in the state who plan to vote for that candidate. And provide a verbal interpretation for the confidence interval.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\hat{p} = 285 / 500 = 0.57\)</span></p>
+<p><span class="math inline">\(SE = \sqrt{\hat{p} (1 - \hat{p}) / n} \approx 0.057\)</span></p>
+<p>CI: <span class="math inline">\([\hat{p} - 1.96 \times SE, \ \hat{p} + 1.96 \times SE]\)</span></p>
+<p>CI: <span class="math inline">\([0.57 - 1.96(0.057), 0.57 + 1.96(0.057)] \rightarrow (0.458, 0.681)\)</span></p>
+<p>We’re 95% confident that the proportion of all likely voters in the state who plan to vote for that candidate is within 45.8% and 68.1%.</p>
+</div>
+</div>
 </div>
 
 

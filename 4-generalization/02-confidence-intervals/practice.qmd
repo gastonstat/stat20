@@ -1,0 +1,308 @@
+---
+title: "Practice: Confidence Intervals"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+## 1) True or False
+
+a) According to the Central Limit Theorem, the sampling distribution of the sample mean will always be approximately normal, regardless of the population's distribution.
+
+b) The mean of the sampling distribution of the sample mean ($\bar{x}$) is equal to the population mean ($\mu$).
+
+c) As the sample size increases, the standard deviation of the sampling distribution of the $\bar{x}$ decreases.
+
+d) A 95% confidence interval can be interpreted as having a 95% probability of containing the true population mean.
+
+e) The sample mean ($\bar{x}$) is always located at the exact center of its corresponding confidence interval.
+
+f) The standard deviation of the sampling distribution of $\hat{p}$, increases as the sample size increases.
+
+g) To construct a confidence interval for a proportion, you must know the true population proportion ($p$) to approximate the standard error.
+
+h) A larger sample size will, all else being equal, result in a narrower confidence interval for a population proportion.
+
+i) A _simple random sample_ (SRS) is a random sample with replacement.
+
+j) If the population distribution is skewed, then we should expect an empirical distribution from this population to be skewed as well.
+
+k) If the sampling distribution of $\bar{x}$ is bell-shaped (approximately normal distribution), then the population distribution must also be bell-shaped.
+
+l) The distribution for the possible values of $\hat{p}$ is called the _sampling distribution (of sample proportions)_.
+
+m) When you have a simple random sample (SRS), the sample standard deviation $s$ is close to the population standard deviation $\sigma$.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) False. For non-normal distributions we need $n \geq 30$
+
+b) True
+
+c) True
+
+d) False
+
+e) True
+
+f) False
+
+g) False. Since $p$ is unknown, we use the sample proportion $\hat{p}$ in the standard error calculation.
+
+h) True
+
+i) False. An SRS is taken without replacement.
+
+j) True
+
+k) False
+
+l) True
+
+m) True
+
+n) True. 
+:::
+
+
+\
+
+
+## 2) Multiple Choice
+
+a) A population has a mean ($\mu$) of 50 and a standard deviation ($\sigma$) of 10. You take a random sample of size $n=25$. What is the mean of the sampling distribution of the sample mean ($\bar{x}$)?
+
+    i) 50
+    ii) 10
+    iii) 2
+    iv) 50 divided by 25
+
+
+b) The Central Limit Theorem is most useful when:
+
+    i) The population distribution is normal.
+    ii) The sample size is small.
+    iii) The population distribution is unknown or not normal.
+    iv) The standard deviation of the population is zero.
+
+
+c) According to the Central Limit Theorem, if you take sufficiently large samples from any population, the sampling distribution of the sample mean will:
+
+    i) have the same shape as the population distribution.
+    ii) be skewed in the same direction as the population distribution.
+    iii) be approximately normal, regardless of the population's shape.
+    iv) have a standard deviation equal to the population standard deviation.
+
+
+d) A population has a mean $\mu =100$ and a standard deviation $\sigma =20$. If you take a random sample of size $n=64$, what is the standard error of the sample mean?
+
+    i) 20
+    ii) 1.25
+    iii) 2.5
+    iv) 64
+
+
+e) Holding all else constant, which of the following actions would result in a wider confidence interval for a population mean?
+
+    i) Increasing the sample size.
+    ii) Decreasing the confidence level (e.g., from 95% to 90%).
+    iii) Decreasing the sample standard deviation.
+    iv) Increasing the confidence level (e.g., from 95% to 99%).
+
+
+f) A 95% confidence interval for the mean height of a species of tree is calculated as (50 feet, 60 feet). Which of the following is the correct interpretation of this interval?
+
+    i) 95% of all trees of this species have a height between 50 and 60 feet.
+    ii) There is a 95% probability that the mean height of all trees is between 50 and 60 feet.
+    iii) If we were to take many random samples and construct a confidence interval from each, we would expect 95% of these intervals to contain the true population mean.
+    iv) The true population mean is 55 feet, and the standard error is 5 feet.
+
+
+g) What effect does increasing the sample size ($n$) have on the width of a confidence interval, assuming the confidence level and population standard deviation ($\sigma$) remain unchanged?
+
+    i) The interval becomes wider.
+    ii) The interval becomes narrower.
+    iii) The width of the interval remains the same.
+    iv) The interval shifts to the right.
+
+
+h) If you double the sample size ($n$), how does the margin of error change?
+
+    i) It is also doubled.
+    ii) It is halved.
+    iii) It is multiplied by $\sqrt{2}$.
+    iv) It is divided by $\sqrt{2}$.
+
+
+i) A researcher reports a 90% confidence interval for the average daily commute time in a city. Which of the following statements is true?
+
+    i) The researcher can be 90% certain that the true population mean is captured within this interval.
+    ii) There is a 10% chance that the true population mean is outside this interval.
+    iii) This interval provides a range of plausible values for the true population mean.
+    iv) All of the above.
+
+
+j) A 95% confidence interval for the population mean is calculated to be (23.5, 29.5). What was the sample mean ($\bar{X}$) used to construct this interval?
+
+    i) 26.5
+    ii) 3.0
+    iii) 6.0
+    iv) Cannot be determined from the information provided.
+
+
+k) Suppose we have a large population with mean $\mu = 80$ and standard deviation $\sigma = 7.2$. Let's say we randomly sample 100 values from this population and compute the mean, then repeat this sampling process 10,000 times and record all the means we get. Which of the following is the best approximation for the mean of our 10,000 sample means?
+
+    i) 8
+    ii) 80
+    iii) 100
+    iv) Cannot be determined from the information provided.
+
+
+l) Consider sampling heights from the population of all female college soccer players in the United States. Assume the mean height of female college soccer players in the United States is $\mu = 66$ inches and the standard deviation is $\sigma = 3.5$ inches. Suppose we randomly sample 100 values from this population and compute the mean $\bar{x}$, then repeat this sampling process 5,000 times and record all the means we get. Which of the following is the best approximation for the standard deviation of the 5,000 sample means?
+
+    i) 0.035
+    ii) 0.35
+    iii) 3.5
+    iv) Cannot be determined from the information provided.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) Option i
+
+b) Option iii
+
+c) Option iii, be approximately normal, regardless of the population's shape.
+
+d) 2.5
+
+e) Option iv, a higher confidence level involves a larger margin of error.
+
+f) Option iii
+
+g) Option ii, a larger sample size reduces the standard error of the mean.
+
+h) Option iv
+
+i) Option iv
+
+j) Option i. The sample mean is the center of the confidence interval and can be approximated by calculating $(23.5 + 29.5) / 2 = 26.5$
+
+k) Option ii
+
+l) Option ii. The standard deviation of the sampling distribution of means with sample size 100 is $\sigma / \sqrt{n} = 3.5/\sqrt{100}$
+:::
+
+
+\
+
+
+## 3) Interpreting a Confidence Interval
+
+Suppose a poll of registered voters nationwide asked the question: "Do you think illegal immigrants who have lived in the United States since they were children should be eligible for legal citizenship, or not?" 63% answered "should be", and a 95% confidence level for $p_{yes}$ was calculated to be (60% to 66%) Which of the following statements is correct?
+
+a) There is a 95% chance that between 60% and 66% of all registered voters nationwide will answer illegal immigrants "should be" eligible for legal citizenship.
+
+b) We are 95% confident that between 60% and 66% of all registered voters nationwide will answer illegal immigrants "should be" eligible for legal citizenship.
+
+c) We are 95% confident that 63% of the registered voters in the sample answered illegal immigrants "should be" eligible for legal citizenship.
+
+d) We are confident that 95% of the registered voters in the sample answered "should be".
+
+::: {.callout-note collapse="true"}
+## Show answer
+
+Option c)
+:::
+
+
+\
+
+
+## 4) Student Engagement (part 1)
+
+The Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.
+
+In a simulation we select random samples from a population in which 40% do not use tutoring. For each sample we calculate the proportion who do not use tutoring. If we randomly sample 500 students at a time, what will be the mean and standard error of the sampling distribution of sample proportions?
+
+a) mean = 0.46, SE $\approx$ 0.00048
+b) mean = 0.40, SE $\approx$ 0.022
+c) mean = 0.40, SE $\approx$ 0.00048
+d) mean = 0.46, SE $\approx$ 0.022
+
+::: {.callout-note collapse="true"}
+## Show answer
+
+Option b)
+:::
+
+
+## 5) Student Engagement (part 2)
+
+From the previous question. The Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.
+
+i) True or False. In a simulation we select 3 random samples of 500 community college students. In each sample, we expect to see 200 (40% of 500) of the student do not use college tutoring services.
+
+ii) If we randomly sample 100 community college students, how unusual would be to see that 35% of them never use tutoring services?
+
+iii) If we randomly sample 500 community college students, how unusual would be to see that 35% of them never use tutoring services?
+    
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) False. We expect to see variability in random samples.
+
+b) Not unusual. The standard error of the sampling distribution of $\hat{p}$ for $n=100$ is $SE = \sqrt{p(1-p)/n} \approx 0.049$. A statistic of $\hat{p} = 0.35$ would be a bit over one standard error.
+
+c) Very unusual. The standard error of the sampling distribution of $\hat{p}$ for $n=500$ is $SE = \sqrt{p(1-p)/n} \approx 0.022$. A statistic of $\hat{p} = 0.35$ would be more than two standard errors.
+:::
+
+
+\
+
+
+## 6) C.I. for Reaction Times
+
+A researcher measures the reaction time of 36 participants to a visual stimulus. The sample mean reaction time is $\bar{x}=0.25$ seconds, and the sample standard deviation is $s=0.12$ seconds. Assuming reaction times are approximately normally distributed, construct a 95% confidence interval for the true population mean reaction time, and provide a verbal interpretation for it.
+
+::: {.callout-note collapse="true"}
+## Show answer
+
+$SE = s / \sqrt{n} = 0.12 / \sqrt{36} = 0.02$
+
+CI: $[\bar{x} - 1.96 \times SE, \ \bar{x} + 1.96 \times SE]$
+
+CI: $[0.25 - 1.96(0.02), 0.25 + 1.96(0.02)] \rightarrow (0.2108, 0.2892)$
+
+We're 95% confident that the population mean reaction time is within 0.2108 and 0.2892 seconds.
+:::
+
+
+\
+
+
+## 7) C.I. for Likely Voters
+
+A survey of 500 randomly selected likely voters in a state found that 285 plan to vote for a particular candidate. Construct a 95% confidence interval for the true proportion of all likely voters in the state who plan to vote for that candidate. And provide a verbal interpretation for the confidence interval.
+
+::: {.callout-note collapse="true"}
+## Show answer
+
+$\hat{p} = 285 / 500 = 0.57$
+
+$SE = \sqrt{\hat{p} (1 - \hat{p}) / n} \approx 0.057$
+
+CI: $[\hat{p} - 1.96 \times SE, \ \hat{p} + 1.96 \times SE]$
+
+CI: $[0.57 - 1.96(0.057), 0.57 + 1.96(0.057)] \rightarrow (0.458, 0.681)$
+
+We're 95% confident that the proportion of all likely voters in the state who plan to vote for that candidate is within 45.8% and 68.1%.
+:::
+

@@ -1,0 +1,164 @@
+---
+title: "Practice: Populations and Samples"
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+## 1) True or False
+
+a) A parameter is a numerical summary of a sample.
+
+b) A statistic is a numerical summary of a population.
+
+c) The goal of inferential statistics is to use sample statistics to make informed guesses about population parameters.
+
+d) If you survey every single member of a population, the mean value you calculate is a statistic.
+
+e) A population can be thought of as the entire group of individuals or objects about which you want to draw conclusions.
+
+f) If a statistic is a biased estimator, its sampling distribution will be centered exactly on the true population parameter.
+
+g) Systematic errors are also known as bias because they consistently push estimates in the same direction, either too high or too low.
+
+h) Increasing the sample size will reduce the effect of random sampling error.
+
+i) Bias in a study can be reduced by using a larger sample size.
+
+j) The sampling distribution of a statistic is the distribution of the population from which the samples were drawn.
+
+k) The standard deviation of the empirical distribution of a statistic is called the standard error.
+
+l) Selection bias is when your process of measuring a variable systematically misses the target in one direction.
+
+m) If there is _non-response bias_ in a sample, the final sample size for which there is full data is less than the initial sample size
+
+n) The _empirical distribution_ is the observed distribution of the population.
+
+o) The size of the population doesn't impact the accuracy of the confidence intervals, as long as the sample is small compared to the population.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) False
+
+b) False
+
+c) True
+
+d) False (this would be a parameter)
+
+e) True
+
+f) False
+
+g) True
+
+h) True
+
+i) False
+
+j) False
+
+k) False
+
+l) False. This is Measurement bias.
+
+m) True
+
+n) False. The empirical distribution is the observed distribution of the data at hand. Put another way: it is the distribution of a sample from the population.
+
+o) True
+:::
+
+
+\
+
+
+## 2) Multiple Choice
+
+a) A large online retailer wants to estimate the average spending per customer in 
+the last year. They take a random sample of 5,000 customers and find the average 
+spending to be $250. Which of the following is the population in this study?
+
+    i) The 5,000 customers selected.
+    ii) The average spending of $250.
+    iii) All customers of the online retailer.
+    iv) The total sales of the retailer.
+
+
+b) A government agency reports that the average weight of all newborn babies in 
+a particular country is 7.5 pounds. This value is a:
+
+    i) Sample
+    ii) Parameter
+    iii) Statistic
+    iv) Variable
+
+
+c) A researcher wants to know the average height of all university students in 
+a specific country. They measure the height of 100 randomly selected students. 
+What is the average height of these 100 students?
+
+    i) A parameter
+    ii) The population
+    iii) A statistic
+    iv) The sampling distribution
+
+
+d) A survey on student happiness at a university is sent to students via an 
+optional email link. What type of bias is most likely to occur?
+
+    i) Measurement bias
+    ii) Selection bias
+    iii) Interviewer bias
+    iv) Funding bias
+
+
+e) A temperature gauge consistently reads 2 degrees higher than the actual 
+temperature. This is an example of:
+
+    i) Random error
+    ii) Chance variation
+    iii) Systematic error (bias)
+    iv) Sampling variation
+
+
+f) A polling company uses a list of registered landline phone numbers to survey 
+voters. This might result in which type of bias?
+
+    i) Response bias
+    ii) Selection bias
+    iii) Observer bias
+    iv) Recall bias
+
+
+g) Which of the following is a key way to reduce the variability of a sample statistic?
+
+    i) Use a biased estimator.
+    ii) Increase the sample size.
+    iii) Use a smaller population.
+    iv) Use a less precise measurement tool.
+
+
+::: {.callout-note collapse="true"}
+## Show answers
+
+a) Option iii. This is the entire group the study is interested in.
+
+b) Option ii. It describes a characteristic of the entire population of newborn babies.
+
+c) Option iii. It is a value calculated from the sample of 100 students.
+
+d) Optional ii. The students who choose to respond may have different opinions about happiness than those who do not.
+
+e) Option iii. The error is consistent and predictable.
+
+f) Option iv. The sample does not represent the entire population of voters, as it excludes those without a landline phone.
+
+g) Option ii. A larger sample size leads to a sampling distribution with less spread (less variability).
+:::

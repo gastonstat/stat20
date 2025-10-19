@@ -1,0 +1,427 @@
+---
+title: "Confidence Intervals"
+format:
+  stat20slides-revealjs:
+    chalkboard: true
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+```
+
+
+# Estimating a Population Mean
+
+## Sampling Distribution of $\bar{x}$
+
+![](images/sampling-distribution-xbar.png){fig-align="center"}
+
+
+## Sampling Distribution and 95% C.I.
+
+::: {.fragment}
+By the Central Limit Theorem:
+
+$\bar{x} \sim N(\mu, \sigma / \sqrt{n})$
+:::
+
+\
+
+::: {.fragment}
+95% Confidence Interval
+
+$\bar{x} - 1.96 \times \sigma / \sqrt{n}, \ \bar{x} + 1.96 \times \sigma / \sqrt{n}$
+:::
+
+\
+
+::: {.fragment}
+In practice, we usually don't know $\sigma$, but we can use sample SD $s$
+
+$\bar{x} - 1.96 \times s / \sqrt{n}, \ \bar{x} + 1.96 \times s / \sqrt{n}$
+:::
+
+
+## Example: `flights` data
+
+```{r}
+library(tidyverse)
+library(stat20data)
+
+flights |> 
+  select(carrier, flight, dep_delay, air_time) |> 
+  slice(1:5)
+```
+
+
+## Population Distribution of `air_time`
+
+```{r}
+#| code-fold: true
+# population distribution
+flights |>
+  ggplot(aes(x = air_time)) +
+  geom_histogram(bins = 30, color = "white") +
+  labs(title = "Population Distribution Air Time")
+```
+
+
+## Population Mean `air_time`
+
+Parameter: Mean Airtime (`air_time`)
+
+```{r}
+# population airtime mean
+pop_mean = flights |>
+  summarize(mu = mean(air_time))
+
+pop_mean
+```
+
+
+## Simple Random Sample (SRS) {auto-animate=true}
+
+::: {.fragment}
+```{r}
+set.seed(246)
+
+sampled_flights = flights |>
+  slice_sample(n = 500)
+```
+:::
+
+
+## Simple Random Sample (SRS) {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+set.seed(246)
+
+sampled_flights = flights |>
+  slice_sample(n = 500)
+  
+sampled_flights |> 
+  select(carrier, flight, dep_delay, air_time) |> 
+  slice_head(n = 5)
+```
+
+
+## Distribution of a single sample
+
+```{r}
+#| code-fold: true
+# empirical distribution
+sampled_flights |> 
+  ggplot(aes(x = air_time)) +
+  geom_histogram(bins = 30, color = "white") +
+  labs(title = "Empirical Distribution Air Time (n = 500)")
+```
+
+
+## Sample Mean `air_time`
+
+::: {.fragment}
+Statistic: Sample Mean Airtime (`air_time`)
+
+```{r}
+# sample airtime mean
+xbar = sampled_flights |>
+  summarize(xbar = mean(air_time))
+
+xbar
+```
+:::
+
+
+## Generating Sampling Distribution
+
+::: {.fragment}
+```{r}
+# Repeat this process 1000 times
+sample_means = replicate(
+  n = 1000,
+  expr = {
+    flights |> 
+      slice_sample(n = 500) |>
+      summarize(xbar = mean(air_time)) |> 
+      pull(xbar)
+  }
+)
+```
+:::
+
+
+## Graphing Sampling Distribution
+
+```{r}
+#| code-fold: true
+# sampling distribution
+data.frame(xbar = sample_means) |>
+  ggplot(aes(x = xbar)) +
+  geom_histogram(bins = 30, color = "white") +
+  labs(title = "Sampling Distribution",
+       x = "Sample Means")
+```
+
+
+## Estimating a Population Mean {auto-animate=true}
+
+::: {.fragment}
+Let's go back to our statistic $\bar{x}$
+
+```{r}
+# pull() gives you output as vector
+xbar = sampled_flights |>
+  summarize(xbar = mean(air_time)) |> pull()
+```
+:::
+
+
+## C.I. for a Population Mean {auto-animate=true}
+
+Let's go back to our statistic $\bar{x}$
+
+```{r}
+# pull() gives you output as vector
+xbar = sampled_flights |>
+  summarize(xbar = mean(air_time)) |> pull()
+```
+
+\
+
+::: {.fragment}
+```{r}
+# compute (approximate) Standard Error (SE)
+s = sampled_flights |>
+  summarize(s = sd(air_time)) |> pull()
+se = s / sqrt(500)
+```
+:::
+
+
+## C.I. for a Population Mean {auto-animate=true}
+
+Let's go back to our statistic $\bar{x}$
+
+```{r}
+# pull() gives you output as vector
+xbar = sampled_flights |>
+  summarize(xbar = mean(air_time)) |> pull()
+```
+
+\
+
+```{r}
+# compute (approximate) Standard Error (SE)
+s = sampled_flights |>
+  summarize(s = sd(air_time)) |> pull()
+se = s / sqrt(500)
+
+# 95% C.I.
+c(xbar - 1.96*se, xbar + 1.96*se)
+```
+
+
+# Estimating a Population Proportion
+
+
+## Sampling Distribution of $\hat{p}$
+
+![](images/sampling-distribution-phat.png){fig-align="center"}
+
+
+## Sampling Distribution and C.I.
+
+::: {.fragment}
+By the Central Limit Theorem:
+
+$\hat{p} \sim N(p, \sqrt{p(1-p)/n})$
+:::
+
+\
+
+::: {.fragment}
+95% Confidence Interval; $SE = (p(1-p)/n)^{1/2}$
+
+$\hat{p} - 1.96 \times SE, \hat{p} + 1.96 \times SE$
+:::
+
+\
+
+::: {.fragment}
+In practice, we usually don't know $p$, but we can use sample $\hat{p}$
+
+$SE^* = \sqrt{\hat{p}(1-\hat{p})/n}$
+
+$\hat{p} - 1.96 \times SE^*, \ \hat{p} + 1.96 \times SE^*$
+:::
+
+
+## Population Distribution `delayed`
+
+```{r}
+#| code-fold: true
+# population distribution
+flights |>
+  mutate(delayed = dep_delay > 0) |>
+  ggplot(aes(x = delayed)) +
+  geom_bar() +
+  labs(title = "Population Distribution Delayed")
+```
+
+
+## Population Proportion `delayed`
+
+Parameter: Proportion of delayed flights
+
+```{r}
+# population proportion of delayed flights
+pop_prop = flights |>
+  mutate(delayed = dep_delay > 0) |>
+  summarize(prop = mean(delayed))
+
+pop_prop
+```
+
+
+## Simple Random Sample (SRS) {auto-animate=true}
+
+::: {.fragment}
+```{r}
+set.seed(246)
+
+sampled_flights = flights |>
+  mutate(delayed = dep_delay > 0) |>
+  slice_sample(n = 500)
+```
+:::
+
+
+## Simple Random Sample (SRS) {auto-animate=true}
+
+```{r}
+#| output-location: fragment
+set.seed(246)
+
+sampled_flights = flights |>
+  mutate(delayed = dep_delay > 0) |>
+  slice_sample(n = 500)
+  
+sampled_flights |> 
+  select(carrier, flight, delayed) |> 
+  slice_head(n = 5)
+```
+
+
+## Distribution of a single sample
+
+```{r}
+#| code-fold: true
+# empirical distribution
+sampled_flights |> 
+  ggplot(aes(x = delayed)) +
+  geom_bar() +
+  labs(title = "Empirical Distribution Delayed (n = 500)")
+```
+
+
+## Sample Proportion `delayed`
+
+::: {.fragment}
+Statistic: Sample Proportion (`delayed`)
+
+```{r}
+# sample proportion
+phat = sampled_flights |>
+  summarize(phat = mean(delayed))
+
+phat
+```
+:::
+
+
+## Generating Sampling Distribution
+
+::: {.fragment}
+```{r}
+# Repeat this process 1000 times
+sample_props = replicate(
+  n = 1000,
+  expr = {
+    flights |> 
+      slice_sample(n = 500) |>
+      mutate(delayed = dep_delay > 0) |> 
+      summarize(phat = mean(delayed)) |> 
+      pull(phat)
+  }
+)
+```
+:::
+
+
+## Graphing Sampling Distribution
+
+```{r}
+#| code-fold: true
+# sampling distribution
+data.frame(phat = sample_props) |>
+  ggplot(aes(x = phat)) +
+  geom_histogram(bins = 30, color = "white") +
+  labs(title = "Sampling Distribution",
+       x = "Sample Proportions")
+```
+
+
+## Estimating a Population Proportion {auto-animate=true}
+
+::: {.fragment}
+Let's go back to our statistic $\hat{p}$
+
+```{r}
+# pull() gives you output as vector
+phat = sampled_flights |>
+  summarize(phat = mean(delayed)) |> pull()
+```
+:::
+
+
+## C.I. for a Population Proportion {auto-animate=true}
+
+Let's go back to our statistic $\hat{p}$
+
+```{r}
+# pull() gives you output as vector
+phat = sampled_flights |>
+  summarize(phat = mean(delayed)) |> pull()
+```
+
+\
+
+::: {.fragment}
+```{r}
+# compute (approximate) Standard Error (SE)
+se = sqrt(phat * (1 - phat) / 500)
+```
+:::
+
+
+## C.I. for a Population Proportion {auto-animate=true}
+
+Let's go back to our statistic $\hat{p}$
+
+```{r}
+# pull() gives you output as vector
+phat = sampled_flights |>
+  summarize(phat = mean(delayed)) |> pull()
+```
+
+\
+
+```{r}
+# compute (approximate) Standard Error (SE)
+se = sqrt(phat * (1 - phat) / 500)
+
+# 95% C.I.
+c(phat - 1.96*se, phat + 1.96*se)
+```
