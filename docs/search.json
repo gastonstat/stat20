@@ -692,7 +692,7 @@
     "href": "3-probability/05-ev-sd/practice.html#product-of-tickets",
     "title": "Practice: Expected Value and Variance",
     "section": "5) Product of tickets",
-    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 0\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
+    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 20\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
     "crumbs": [
       "Practice Problems",
       "Probability",
@@ -2240,14 +2240,14 @@
     "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
     "title": "Random Variables",
     "section": "Demo rbinom()",
-    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 1 3 2 3 2 2 2 3 2 3 2 3 1 2 2 2 3 1 2 2 2 2 3 2 2 3 3 2 1 1 3 1 1 3 2 2 2\n [38] 1 3 3 2 2 1 2 2 0 1 2 1 2 1 2 2 2 2 2 1 3 0 3 3 3 2 2 1 3 2 2 2 2 3 2 1 1\n [75] 2 1 3 1 2 3 2 2 1 1 1 2 1 0 3 1 1 3 2 1 3 2 2 2 1 2"
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 1 2 1 3 1 2 2 2 3 3 1 3 2 3 3 3 1 1 3 2 1 1 1 2 2 3 3 2 3 3 1 1 2 2 1 1 1\n [38] 3 3 2 1 2 2 2 2 2 2 3 1 1 1 2 3 2 3 2 3 2 0 2 1 0 2 2 2 2 3 1 1 1 2 3 2 3\n [75] 2 3 3 2 3 3 2 3 3 2 3 2 2 2 2 1 0 1 3 3 2 3 3 2 1 2"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "title": "Random Variables",
     "section": "Demo: Empirical Probability Distribution",
-    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  3\n2      1 26\n3      2 47\n4      3 24\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  3 0.03\n2      1 26 0.26\n3      2 47 0.47\n4      3 24 0.24"
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  3\n2      1 25\n3      2 40\n4      3 32\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  3 0.03\n2      1 25 0.25\n3      2 40 0.40\n4      3 32 0.32"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
@@ -2618,7 +2618,7 @@
     "href": "3-probability/06-normal-approx/slides.html#rnorm",
     "title": "Normal Approximation and Box Models",
     "section": "rnorm()",
-    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1] -0.8843434  0.8435455  1.4808644\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 9.037944 3.746597 1.880701 5.871384 3.262744 8.562188 6.836051"
+    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1] -0.2051100 -0.1201549  0.2256920\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 6.246068 4.345725 4.386438 4.854817 6.257119 8.413961 4.833068"
   },
   {
     "objectID": "3-probability/06-normal-approx/slides.html#px-leq-5-for-x-sim-nmu-5-sigma1",
@@ -2947,7 +2947,7 @@
     "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
     "title": "Multiple Linear Regression",
     "section": "Penguins Data",
-    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Chinstrap Dream            52            18.1        4050 male  \n2 Adelie    Dream            37.8          18.1        3750 male  \n3 Gentoo    Biscoe           42.7          13.7        3950 female\n4 Gentoo    Biscoe           49.1          14.5        4625 female\n5 Gentoo    Biscoe           52.1          17          5550 male"
+    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Adelie  Dream            36.3          19.5        3800 male  \n2 Adelie  Biscoe           41.4          18.6        3700 male  \n3 Gentoo  Biscoe           43.6          13.9        4900 female\n4 Gentoo  Biscoe           45.5          13.9        4200 female\n5 Gentoo  Biscoe           46.5          14.8        5200 female"
   },
   {
     "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",
