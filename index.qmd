@@ -61,8 +61,7 @@ A friendly reminder to myself when teaching [STAT 20](https://stat20.berkeley.ed
 
 - [Sampling](4-generalization/01-sampling-distributions/slides.html){target="_blank"}
 
-
-- Coming soon
+- [Confidence Intervals](4-generalization/02-confidence-intervals/slides.html){target="_blank"}
 
 
 ### Causation
