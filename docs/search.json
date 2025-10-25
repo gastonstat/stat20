@@ -692,7 +692,7 @@
     "href": "3-probability/05-ev-sd/practice.html#product-of-tickets",
     "title": "Practice: Expected Value and Variance",
     "section": "5) Product of tickets",
-    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 20\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
+    "text": "5) Product of tickets\nWe have one box of tickets: [0  1  2  3  4  5]. We draw 2 tickets—with replacement—from the box and take their product. For example, if you get 2 and 4, their product is 8.\n\nWrite R code which will allow you to simulate this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment, and graph the empirical distribution of the product of the draws. Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = 0:5\n\nprod(sample(box1, size = 2, replace = TRUE))\n\n[1] 3\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = prod(sample(box1, size = 2, replace = TRUE))\n)\n\ndata.frame(prod = simulations) |&gt;\n  ggplot(aes(x = prod)) + \n  geom_histogram(bins = 20, color = \"white\")",
     "crumbs": [
       "Practice Problems",
       "Probability",
@@ -704,7 +704,7 @@
     "href": "3-probability/05-ev-sd/practice.html#sum-of-tickets",
     "title": "Practice: Expected Value and Variance",
     "section": "6) Sum of tickets",
-    "text": "6) Sum of tickets\nWe have two boxes of tickets: A = [0  2  4  6] and B = [1  3  5  7]. We draw—with replacement—1 ticket from box A, and 1 ticket from box B. Let \\(S\\) be the sum of the two tickets.\n\nWrite R code which will allow you get one simulation of this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment and graph the empirical distribution of \\(S\\). Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = c(0, 2, 4, 6)\nbox2 = c(1, 3, 5, 7)\n\nsum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n\n[1] 3\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = {\n    sum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n  }\n)\n\ndata.frame(sum = simulations) |&gt;\n  ggplot(aes(x = sum)) + \n  geom_histogram(binwidth = 1, color = \"white\")",
+    "text": "6) Sum of tickets\nWe have two boxes of tickets: A = [0  2  4  6] and B = [1  3  5  7]. We draw—with replacement—1 ticket from box A, and 1 ticket from box B. Let \\(S\\) be the sum of the two tickets.\n\nWrite R code which will allow you get one simulation of this random experiment.\nWrite R code which will allow you to simulate 500 repetitions of this random experiment and graph the empirical distribution of \\(S\\). Hint: the replicate() is your friend.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nR code:\n\n\nbox1 = c(0, 2, 4, 6)\nbox2 = c(1, 3, 5, 7)\n\nsum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n\n[1] 9\n\n\n\nR code:\n\n\nsimulations = replicate(\n  n = 500,\n  expr = {\n    sum(sample(box1, 1, replace = TRUE) + sample(box2, 1, replace = TRUE))\n  }\n)\n\ndata.frame(sum = simulations) |&gt;\n  ggplot(aes(x = sum)) + \n  geom_histogram(binwidth = 1, color = \"white\")",
     "crumbs": [
       "Practice Problems",
       "Probability",
@@ -1489,243 +1489,6 @@
     "text": "Group Quiz\n\n\n\n−+\n15:00\n\n\n\n\n\n\nForm groups of 3 people, then ONE person raise your hand (to get your quiz).\nBe sure to write ALL group members names on the quiz on both pages.\nIf you find yourself without a group, come to the front of class and we’ll help you form one.\n\n\n\nYour can start when you get your quiz.\nWhen done, bring your quiz and everyone’s cheat sheets to a tutor or me. Then please leave the room quietly.\n\nGood luck! 🍀"
   },
   {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html",
-    "href": "4-generalization/02-confidence-intervals/practice.html",
-    "title": "Practice: Confidence Intervals",
-    "section": "",
-    "text": "According to the Central Limit Theorem, the sampling distribution of the sample mean will always be approximately normal, regardless of the population’s distribution.\nThe mean of the sampling distribution of the sample mean (\\(\\bar{x}\\)) is equal to the population mean (\\(\\mu\\)).\nAs the sample size increases, the standard deviation of the sampling distribution of the \\(\\bar{x}\\) decreases.\nA 95% confidence interval can be interpreted as having a 95% probability of containing the true population mean.\nThe sample mean (\\(\\bar{x}\\)) is always located at the exact center of its corresponding confidence interval.\nThe standard deviation of the sampling distribution of \\(\\hat{p}\\), increases as the sample size increases.\nTo construct a confidence interval for a proportion, you must know the true population proportion (\\(p\\)) to approximate the standard error.\nA larger sample size will, all else being equal, result in a narrower confidence interval for a population proportion.\nA simple random sample (SRS) is a random sample with replacement.\nIf the population distribution is skewed, then we should expect an empirical distribution from this population to be skewed as well.\nIf the sampling distribution of \\(\\bar{x}\\) is bell-shaped (approximately normal distribution), then the population distribution must also be bell-shaped.\nThe distribution for the possible values of \\(\\hat{p}\\) is called the sampling distribution (of sample proportions).\nWhen you have a simple random sample (SRS), the sample standard deviation \\(s\\) is close to the population standard deviation \\(\\sigma\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. For non-normal distributions we need \\(n \\geq 30\\)\nTrue\nTrue\nFalse\nTrue\nFalse\nFalse. Since \\(p\\) is unknown, we use the sample proportion \\(\\hat{p}\\) in the standard error calculation.\nTrue\nFalse. An SRS is taken without replacement.\nTrue\nFalse\nTrue\nTrue\nTrue.",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html#true-or-false",
-    "href": "4-generalization/02-confidence-intervals/practice.html#true-or-false",
-    "title": "Practice: Confidence Intervals",
-    "section": "",
-    "text": "According to the Central Limit Theorem, the sampling distribution of the sample mean will always be approximately normal, regardless of the population’s distribution.\nThe mean of the sampling distribution of the sample mean (\\(\\bar{x}\\)) is equal to the population mean (\\(\\mu\\)).\nAs the sample size increases, the standard deviation of the sampling distribution of the \\(\\bar{x}\\) decreases.\nA 95% confidence interval can be interpreted as having a 95% probability of containing the true population mean.\nThe sample mean (\\(\\bar{x}\\)) is always located at the exact center of its corresponding confidence interval.\nThe standard deviation of the sampling distribution of \\(\\hat{p}\\), increases as the sample size increases.\nTo construct a confidence interval for a proportion, you must know the true population proportion (\\(p\\)) to approximate the standard error.\nA larger sample size will, all else being equal, result in a narrower confidence interval for a population proportion.\nA simple random sample (SRS) is a random sample with replacement.\nIf the population distribution is skewed, then we should expect an empirical distribution from this population to be skewed as well.\nIf the sampling distribution of \\(\\bar{x}\\) is bell-shaped (approximately normal distribution), then the population distribution must also be bell-shaped.\nThe distribution for the possible values of \\(\\hat{p}\\) is called the sampling distribution (of sample proportions).\nWhen you have a simple random sample (SRS), the sample standard deviation \\(s\\) is close to the population standard deviation \\(\\sigma\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. For non-normal distributions we need \\(n \\geq 30\\)\nTrue\nTrue\nFalse\nTrue\nFalse\nFalse. Since \\(p\\) is unknown, we use the sample proportion \\(\\hat{p}\\) in the standard error calculation.\nTrue\nFalse. An SRS is taken without replacement.\nTrue\nFalse\nTrue\nTrue\nTrue.",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html#multiple-choice",
-    "href": "4-generalization/02-confidence-intervals/practice.html#multiple-choice",
-    "title": "Practice: Confidence Intervals",
-    "section": "2) Multiple Choice",
-    "text": "2) Multiple Choice\n\nA population has a mean (\\(\\mu\\)) of 50 and a standard deviation (\\(\\sigma\\)) of 10. You take a random sample of size \\(n=25\\). What is the mean of the sampling distribution of the sample mean (\\(\\bar{x}\\))?\n\n50\n10\n2\n50 divided by 25\n\nThe Central Limit Theorem is most useful when:\n\nThe population distribution is normal.\nThe sample size is small.\nThe population distribution is unknown or not normal.\nThe standard deviation of the population is zero.\n\nAccording to the Central Limit Theorem, if you take sufficiently large samples from any population, the sampling distribution of the sample mean will:\n\nhave the same shape as the population distribution.\nbe skewed in the same direction as the population distribution.\nbe approximately normal, regardless of the population’s shape.\nhave a standard deviation equal to the population standard deviation.\n\nA population has a mean \\(\\mu =100\\) and a standard deviation \\(\\sigma =20\\). If you take a random sample of size \\(n=64\\), what is the standard error of the sample mean?\n\n20\n1.25\n2.5\n64\n\nHolding all else constant, which of the following actions would result in a wider confidence interval for a population mean?\n\nIncreasing the sample size.\nDecreasing the confidence level (e.g., from 95% to 90%).\nDecreasing the sample standard deviation.\nIncreasing the confidence level (e.g., from 95% to 99%).\n\nA 95% confidence interval for the mean height of a species of tree is calculated as (50 feet, 60 feet). Which of the following is the correct interpretation of this interval?\n\n95% of all trees of this species have a height between 50 and 60 feet.\nThere is a 95% probability that the mean height of all trees is between 50 and 60 feet.\nIf we were to take many random samples and construct a confidence interval from each, we would expect 95% of these intervals to contain the true population mean.\nThe true population mean is 55 feet, and the standard error is 5 feet.\n\nWhat effect does increasing the sample size (\\(n\\)) have on the width of a confidence interval, assuming the confidence level and population standard deviation (\\(\\sigma\\)) remain unchanged?\n\nThe interval becomes wider.\nThe interval becomes narrower.\nThe width of the interval remains the same.\nThe interval shifts to the right.\n\nIf you double the sample size (\\(n\\)), how does the margin of error change?\n\nIt is also doubled.\nIt is halved.\nIt is multiplied by \\(\\sqrt{2}\\).\nIt is divided by \\(\\sqrt{2}\\).\n\nA researcher reports a 90% confidence interval for the average daily commute time in a city. Which of the following statements is true?\n\nThe researcher can be 90% certain that the true population mean is captured within this interval.\nThere is a 10% chance that the true population mean is outside this interval.\nThis interval provides a range of plausible values for the true population mean.\nAll of the above.\n\nA 95% confidence interval for the population mean is calculated to be (23.5, 29.5). What was the sample mean (\\(\\bar{X}\\)) used to construct this interval?\n\n26.5\n3.0\n6.0\nCannot be determined from the information provided.\n\nSuppose we have a large population with mean \\(\\mu = 80\\) and standard deviation \\(\\sigma = 7.2\\). Let’s say we randomly sample 100 values from this population and compute the mean, then repeat this sampling process 10,000 times and record all the means we get. Which of the following is the best approximation for the mean of our 10,000 sample means?\n\n8\n80\n100\nCannot be determined from the information provided.\n\nConsider sampling heights from the population of all female college soccer players in the United States. Assume the mean height of female college soccer players in the United States is \\(\\mu = 66\\) inches and the standard deviation is \\(\\sigma = 3.5\\) inches. Suppose we randomly sample 100 values from this population and compute the mean \\(\\bar{x}\\), then repeat this sampling process 5,000 times and record all the means we get. Which of the following is the best approximation for the standard deviation of the 5,000 sample means?\n\n0.035\n0.35\n3.5\nCannot be determined from the information provided.\n\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nOption i\nOption iii\nOption iii, be approximately normal, regardless of the population’s shape.\n2.5\nOption iv, a higher confidence level involves a larger margin of error.\nOption iii\nOption ii, a larger sample size reduces the standard error of the mean.\nOption iv\nOption iv\nOption i. The sample mean is the center of the confidence interval and can be approximated by calculating \\((23.5 + 29.5) / 2 = 26.5\\)\nOption ii\nOption ii. The standard deviation of the sampling distribution of means with sample size 100 is \\(\\sigma / \\sqrt{n} = 3.5/\\sqrt{100}\\)",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html#interpreting-a-confidence-interval",
-    "href": "4-generalization/02-confidence-intervals/practice.html#interpreting-a-confidence-interval",
-    "title": "Practice: Confidence Intervals",
-    "section": "3) Interpreting a Confidence Interval",
-    "text": "3) Interpreting a Confidence Interval\nSuppose a poll of registered voters nationwide asked the question: “Do you think illegal immigrants who have lived in the United States since they were children should be eligible for legal citizenship, or not?” 63% answered “should be”, and a 95% confidence level for \\(p_{yes}\\) was calculated to be (60% to 66%) Which of the following statements is correct?\n\nThere is a 95% chance that between 60% and 66% of all registered voters nationwide will answer illegal immigrants “should be” eligible for legal citizenship.\nWe are 95% confident that between 60% and 66% of all registered voters nationwide will answer illegal immigrants “should be” eligible for legal citizenship.\nWe are 95% confident that 63% of the registered voters in the sample answered illegal immigrants “should be” eligible for legal citizenship.\nWe are confident that 95% of the registered voters in the sample answered “should be”.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\nOption c)",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-1",
-    "href": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-1",
-    "title": "Practice: Confidence Intervals",
-    "section": "4) Student Engagement (part 1)",
-    "text": "4) Student Engagement (part 1)\nThe Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.\nIn a simulation we select random samples from a population in which 40% do not use tutoring. For each sample we calculate the proportion who do not use tutoring. If we randomly sample 500 students at a time, what will be the mean and standard error of the sampling distribution of sample proportions?\n\nmean = 0.46, SE \\(\\approx\\) 0.00048\nmean = 0.40, SE \\(\\approx\\) 0.022\nmean = 0.40, SE \\(\\approx\\) 0.00048\nmean = 0.46, SE \\(\\approx\\) 0.022\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\nOption b)",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-2",
-    "href": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-2",
-    "title": "Practice: Confidence Intervals",
-    "section": "5) Student Engagement (part 2)",
-    "text": "5) Student Engagement (part 2)\nFrom the previous question. The Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.\n\nTrue or False. In a simulation we select 3 random samples of 500 community college students. In each sample, we expect to see 200 (40% of 500) of the student do not use college tutoring services.\nIf we randomly sample 100 community college students, how unusual would be to see that 35% of them never use tutoring services?\nIf we randomly sample 500 community college students, how unusual would be to see that 35% of them never use tutoring services?\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. We expect to see variability in random samples.\nNot unusual. The standard error of the sampling distribution of \\(\\hat{p}\\) for \\(n=100\\) is \\(SE = \\sqrt{p(1-p)/n} \\approx 0.049\\). A statistic of \\(\\hat{p} = 0.35\\) would be a bit over one standard error.\nVery unusual. The standard error of the sampling distribution of \\(\\hat{p}\\) for \\(n=500\\) is \\(SE = \\sqrt{p(1-p)/n} \\approx 0.022\\). A statistic of \\(\\hat{p} = 0.35\\) would be more than two standard errors.",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-reaction-times",
-    "href": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-reaction-times",
-    "title": "Practice: Confidence Intervals",
-    "section": "6) C.I. for Reaction Times",
-    "text": "6) C.I. for Reaction Times\nA researcher measures the reaction time of 36 participants to a visual stimulus. The sample mean reaction time is \\(\\bar{x}=0.25\\) seconds, and the sample standard deviation is \\(s=0.12\\) seconds. Assuming reaction times are approximately normally distributed, construct a 95% confidence interval for the true population mean reaction time, and provide a verbal interpretation for it.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(SE = s / \\sqrt{n} = 0.12 / \\sqrt{36} = 0.02\\)\nCI: \\([\\bar{x} - 1.96 \\times SE, \\ \\bar{x} + 1.96 \\times SE]\\)\nCI: \\([0.25 - 1.96(0.02), 0.25 + 1.96(0.02)] \\rightarrow (0.2108, 0.2892)\\)\nWe’re 95% confident that the population mean reaction time is within 0.2108 and 0.2892 seconds.",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-likely-voters",
-    "href": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-likely-voters",
-    "title": "Practice: Confidence Intervals",
-    "section": "7) C.I. for Likely Voters",
-    "text": "7) C.I. for Likely Voters\nA survey of 500 randomly selected likely voters in a state found that 285 plan to vote for a particular candidate. Construct a 95% confidence interval for the true proportion of all likely voters in the state who plan to vote for that candidate. And provide a verbal interpretation for the confidence interval.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(\\hat{p} = 285 / 500 = 0.57\\)\n\\(SE = \\sqrt{\\hat{p} (1 - \\hat{p}) / n} \\approx 0.057\\)\nCI: \\([\\hat{p} - 1.96 \\times SE, \\ \\hat{p} + 1.96 \\times SE]\\)\nCI: \\([0.57 - 1.96(0.057), 0.57 + 1.96(0.057)] \\rightarrow (0.458, 0.681)\\)\nWe’re 95% confident that the proportion of all likely voters in the state who plan to vote for that candidate is within 45.8% and 68.1%.",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Confidence Intervals"
-    ]
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/practice.html",
-    "href": "4-generalization/01-sampling-distributions/practice.html",
-    "title": "Practice: Populations and Samples",
-    "section": "",
-    "text": "A parameter is a numerical summary of a sample.\nA statistic is a numerical summary of a population.\nThe goal of inferential statistics is to use sample statistics to make informed guesses about population parameters.\nIf you survey every single member of a population, the mean value you calculate is a statistic.\nA population can be thought of as the entire group of individuals or objects about which you want to draw conclusions.\nIf a statistic is a biased estimator, its sampling distribution will be centered exactly on the true population parameter.\nSystematic errors are also known as bias because they consistently push estimates in the same direction, either too high or too low.\nIncreasing the sample size will reduce the effect of random sampling error.\nBias in a study can be reduced by using a larger sample size.\nThe sampling distribution of a statistic is the distribution of the population from which the samples were drawn.\nThe standard deviation of the empirical distribution of a statistic is called the standard error.\nSelection bias is when your process of measuring a variable systematically misses the target in one direction.\nIf there is non-response bias in a sample, the final sample size for which there is full data is less than the initial sample size\nThe empirical distribution is the observed distribution of the population.\nThe size of the population doesn’t impact the accuracy of the confidence intervals, as long as the sample is small compared to the population.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse\nFalse\nTrue\nFalse (this would be a parameter)\nTrue\nFalse\nTrue\nTrue\nFalse\nFalse\nFalse\nFalse. This is Measurement bias.\nTrue\nFalse. The empirical distribution is the observed distribution of the data at hand. Put another way: it is the distribution of a sample from the population.\nTrue",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Populations and Samples"
-    ]
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/practice.html#true-or-false",
-    "href": "4-generalization/01-sampling-distributions/practice.html#true-or-false",
-    "title": "Practice: Populations and Samples",
-    "section": "",
-    "text": "A parameter is a numerical summary of a sample.\nA statistic is a numerical summary of a population.\nThe goal of inferential statistics is to use sample statistics to make informed guesses about population parameters.\nIf you survey every single member of a population, the mean value you calculate is a statistic.\nA population can be thought of as the entire group of individuals or objects about which you want to draw conclusions.\nIf a statistic is a biased estimator, its sampling distribution will be centered exactly on the true population parameter.\nSystematic errors are also known as bias because they consistently push estimates in the same direction, either too high or too low.\nIncreasing the sample size will reduce the effect of random sampling error.\nBias in a study can be reduced by using a larger sample size.\nThe sampling distribution of a statistic is the distribution of the population from which the samples were drawn.\nThe standard deviation of the empirical distribution of a statistic is called the standard error.\nSelection bias is when your process of measuring a variable systematically misses the target in one direction.\nIf there is non-response bias in a sample, the final sample size for which there is full data is less than the initial sample size\nThe empirical distribution is the observed distribution of the population.\nThe size of the population doesn’t impact the accuracy of the confidence intervals, as long as the sample is small compared to the population.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse\nFalse\nTrue\nFalse (this would be a parameter)\nTrue\nFalse\nTrue\nTrue\nFalse\nFalse\nFalse\nFalse. This is Measurement bias.\nTrue\nFalse. The empirical distribution is the observed distribution of the data at hand. Put another way: it is the distribution of a sample from the population.\nTrue",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Populations and Samples"
-    ]
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/practice.html#multiple-choice",
-    "href": "4-generalization/01-sampling-distributions/practice.html#multiple-choice",
-    "title": "Practice: Populations and Samples",
-    "section": "2) Multiple Choice",
-    "text": "2) Multiple Choice\n\nA large online retailer wants to estimate the average spending per customer in the last year. They take a random sample of 5,000 customers and find the average spending to be $250. Which of the following is the population in this study?\n\nThe 5,000 customers selected.\nThe average spending of $250.\nAll customers of the online retailer.\nThe total sales of the retailer.\n\nA government agency reports that the average weight of all newborn babies in a particular country is 7.5 pounds. This value is a:\n\nSample\nParameter\nStatistic\nVariable\n\nA researcher wants to know the average height of all university students in a specific country. They measure the height of 100 randomly selected students. What is the average height of these 100 students?\n\nA parameter\nThe population\nA statistic\nThe sampling distribution\n\nA survey on student happiness at a university is sent to students via an optional email link. What type of bias is most likely to occur?\n\nMeasurement bias\nSelection bias\nInterviewer bias\nFunding bias\n\nA temperature gauge consistently reads 2 degrees higher than the actual temperature. This is an example of:\n\nRandom error\nChance variation\nSystematic error (bias)\nSampling variation\n\nA polling company uses a list of registered landline phone numbers to survey voters. This might result in which type of bias?\n\nResponse bias\nSelection bias\nObserver bias\nRecall bias\n\nWhich of the following is a key way to reduce the variability of a sample statistic?\n\nUse a biased estimator.\nIncrease the sample size.\nUse a smaller population.\nUse a less precise measurement tool.\n\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nOption iii. This is the entire group the study is interested in.\nOption ii. It describes a characteristic of the entire population of newborn babies.\nOption iii. It is a value calculated from the sample of 100 students.\nOptional ii. The students who choose to respond may have different opinions about happiness than those who do not.\nOption iii. The error is consistent and predictable.\nOption iv. The sample does not represent the entire population of voters, as it excludes those without a landline phone.\nOption ii. A larger sample size leads to a sampling distribution with less spread (less variability).",
-    "crumbs": [
-      "Practice Problems",
-      "Generalization",
-      "Practice: Populations and Samples"
-    ]
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#terms",
-    "href": "4-generalization/01-sampling-distributions/slides.html#terms",
-    "title": "From Samples to Populations",
-    "section": "Terms",
-    "text": "Terms\n\nSample\nPopulation\nStatistic\nParameter"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#interested-in",
-    "href": "4-generalization/01-sampling-distributions/slides.html#interested-in",
-    "title": "From Samples to Populations",
-    "section": "Interested in",
-    "text": "Interested in\nOften we want to know something about the population:\n\nProportion of female fish (out of all fish)\nProportion of male fish (out of all fish)\nAverage weight (of all fish)\nAverage number of fins (of all fish)\n\n\nWe call these Parameters"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#typical-limitations",
-    "href": "4-generalization/01-sampling-distributions/slides.html#typical-limitations",
-    "title": "From Samples to Populations",
-    "section": "Typical limitations",
-    "text": "Typical limitations\nBut we don’t have access to all of its individuals\n\nHard to observe population\nNot enough time\nNot enough money\nNot enough resources\nETC"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#from-the-sample",
-    "href": "4-generalization/01-sampling-distributions/slides.html#from-the-sample",
-    "title": "From Samples to Populations",
-    "section": "From the sample …",
-    "text": "From the sample …\nWe can catch some fish and calculate:\n\nProportion of female fish (in sample)\nProportion of male fish (in sample)\nAverage weight (in sample)\nAverage number of fins (in sample)\n\n\nWe call these Statistics"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#estimation-idea",
-    "href": "4-generalization/01-sampling-distributions/slides.html#estimation-idea",
-    "title": "From Samples to Populations",
-    "section": "Estimation Idea",
-    "text": "Estimation Idea"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#estimation-generalization-idea",
-    "href": "4-generalization/01-sampling-distributions/slides.html#estimation-generalization-idea",
-    "title": "From Samples to Populations",
-    "section": "Estimation (Generalization) Idea",
-    "text": "Estimation (Generalization) Idea"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#to-help-you-remember",
-    "href": "4-generalization/01-sampling-distributions/slides.html#to-help-you-remember",
-    "title": "From Samples to Populations",
-    "section": "To help you remember",
-    "text": "To help you remember"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#estimating-parameters",
-    "href": "4-generalization/01-sampling-distributions/slides.html#estimating-parameters",
-    "title": "From Samples to Populations",
-    "section": "Estimating Parameters",
-    "text": "Estimating Parameters\nEstimate parameters:\n\npopulation mean\npopulation proportion\n\n\n\nBTW:\n\nWe never estimate statistics\nWatch out for estimation errors"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#sampling-in-practice",
-    "href": "4-generalization/01-sampling-distributions/slides.html#sampling-in-practice",
-    "title": "From Samples to Populations",
-    "section": "Sampling (in practice)",
-    "text": "Sampling (in practice)"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#sampling-sources-of-error",
-    "href": "4-generalization/01-sampling-distributions/slides.html#sampling-sources-of-error",
-    "title": "From Samples to Populations",
-    "section": "Sampling: Sources of Error",
-    "text": "Sampling: Sources of Error"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#sources-of-error-bias-and-variance",
-    "href": "4-generalization/01-sampling-distributions/slides.html#sources-of-error-bias-and-variance",
-    "title": "From Samples to Populations",
-    "section": "Sources of Error: Bias and Variance",
-    "text": "Sources of Error: Bias and Variance"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#types-of-bias",
-    "href": "4-generalization/01-sampling-distributions/slides.html#types-of-bias",
-    "title": "From Samples to Populations",
-    "section": "Types of Bias",
-    "text": "Types of Bias\n\n\nSelection Bias: When not all units in the population are equally likely to be selected for the sample.\n\n\n\n\nMeasurement Bias: When your process of measuring a variable systematically misses the target in one direction.\n\nwhen questions are confusingly worded or leading,\nwhen respondents may not be comfortable answering honestly.\n\n\n\n\n\nNon-response Bias: When certain units originally selected for the sample fail to provide data\n\n\n\nSolution (ideal): Simple Random Sample (SRS)"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#types-of-variation",
-    "href": "4-generalization/01-sampling-distributions/slides.html#types-of-variation",
-    "title": "From Samples to Populations",
-    "section": "Types of Variation",
-    "text": "Types of Variation\n\n\nSampling Variability: the variability from one sample to the next\n\n\n\n\n\n\nMeasurement Variability: When we take multiple measurements on the same object and we get variations in measurements from one sample to the next."
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#what-is-a-sampling-distribution",
-    "href": "4-generalization/01-sampling-distributions/slides.html#what-is-a-sampling-distribution",
-    "title": "From Samples to Populations",
-    "section": "What is a Sampling Distribution?",
-    "text": "What is a Sampling Distribution?\nSampling Distribution is the distribution of a statistic upon repeated sampling.\n\n\nNo longer are we considering the (usually unknowable) distribution of the population or the observed distribution of the data\n\n\nUsually the sampling distribution is a hypothetical thing: what would our statistic have looked like if we had taken a different sample of data?"
-  },
-  {
-    "objectID": "4-generalization/01-sampling-distributions/slides.html#demo",
-    "href": "4-generalization/01-sampling-distributions/slides.html#demo",
-    "title": "From Samples to Populations",
-    "section": "Demo",
-    "text": "Demo"
-  },
-  {
     "objectID": "4-generalization/02-confidence-intervals/slides.html#sampling-distribution-of-barx",
     "href": "4-generalization/02-confidence-intervals/slides.html#sampling-distribution-of-barx",
     "title": "Confidence Intervals",
@@ -1915,11 +1678,437 @@
     "text": "C.I. for a Population Proportion\nLet’s go back to our statistic \\(\\hat{p}\\)\n\n# pull() gives you output as vector\nphat = sampled_flights |&gt;\n  summarize(phat = mean(delayed)) |&gt; pull()\n\n\n\n\n# compute (approximate) Standard Error (SE)\nse = sqrt(phat * (1 - phat) / 500)\n\n# 95% C.I.\nc(phat - 1.96*se, phat + 1.96*se)\n\n[1] 0.1370743 0.2029257"
   },
   {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#weird-looking-coin",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#weird-looking-coin",
+    "title": "Hypothesis Tests",
+    "section": "Weird looking Coin",
+    "text": "Weird looking Coin\nSay we find a weird looking coin on the street.\n\n\n\n\n\nWe suspect the coin is biased (maybe it lands more on Heads than Tails)\n\n\nHow can we determine whether the coin is biased or not?"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#opposing-ideas",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#opposing-ideas",
+    "title": "Hypothesis Tests",
+    "section": "2 Opposing Ideas",
+    "text": "2 Opposing Ideas\n\n\n\n\n\nCoin is Fair\n\nProb(heads) = 0.5\nBusiness as usual\n\n\nCoin is Biased\n\nProb(heads) &gt; 0.5\nSomething’s different"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#we-need-data",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#we-need-data",
+    "title": "Hypothesis Tests",
+    "section": "We need Data",
+    "text": "We need Data\n\nTo assess whether the coin is fair or not, we need to collect data.\nIn other words, we need to flip the coin and see what happens.\n\n\n\n\nLet’s suppose we flip the coin 100 times:\n\\[\n\\bigcirc_1 \\quad \\bigcirc_2 \\quad \\bigcirc_3 \\quad \\bigcirc_4 \\quad \\dots \\quad \\bigcirc_{98} \\quad \\bigcirc_{99} \\quad \\bigcirc_{100}\n\\]\nAssume we get 54 heads.\n\n\n\n\nWhat do we observe? \\(\\hat{p} = 54/100 = 0.54\\)"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#comparison",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#comparison",
+    "title": "Hypothesis Tests",
+    "section": "Comparison",
+    "text": "Comparison\n\nHow does observed \\(\\hat{p} = 0.54 \\ \\) compare to assumed \\(p_{fair}\\) (idea 1: business as usual)?\n\n\n\\[\n\\hat{p} - p_{fair}? \\quad \\rightarrow \\quad 0.54 - 0.5?\n\\]\n\n\nYes, we are observing more heads than expected, but this is not a fair comparison because we are not taking random variability into account.\n\n\n\n\nA better comparison is to express the above difference in terms of Standard Error (SE)."
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#comparison-1",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#comparison-1",
+    "title": "Hypothesis Tests",
+    "section": "Comparison",
+    "text": "Comparison\nHow does observed \\(\\hat{p} = 0.54 \\ \\) compare to assumed \\(p_{fair}\\) (idea 1: business as usual)?\n\n\\[\n\\frac{\\hat{p} - p_{fair}}{SE} = \\frac{0.54 - 0.5}{SE}\n\\]\n\n\nwhere:\n\\[\nSE = (p_{fair}(1 - p_{fair}) / n)^{1/2} = (0.5 \\times 0.5 / 100)^{1/2} = 0.05\n\\]\n\n\nthen:\n\\[\nz = \\frac{\\hat{p} - p_{fair}}{SE} = \\frac{0.54 - 0.5}{0.05} = 0.8\n\\]"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#comparison-2",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#comparison-2",
+    "title": "Hypothesis Tests",
+    "section": "Comparison",
+    "text": "Comparison\nHow does observed \\(\\hat{p} = 0.54 \\ \\) compare to assumed \\(p_{fair}\\) (idea 1: business as usual)?\n\\[\n\\frac{\\hat{p} - p_{fair}}{SE} = \\frac{0.54 - 0.5}{0.05} = 0.8\n\\]\n\nOur observed proportion of heads (in 100 flips) \\(\\hat{p} = 0.54\\) is 0.8 SE’s from the assumed proportion of heads of a normal coin: \\(p=0.5\\)"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#comparison-3",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#comparison-3",
+    "title": "Hypothesis Tests",
+    "section": "Comparison",
+    "text": "Comparison\nUnder Idea-1: Business as Usual, we expect the sampling distribution of p-hats to approximate a Normal distribution\n\\[\n\\hat{p} \\sim N(\\mu = 0.5, \\sigma = 0.05)\n\\]"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#comparison-4",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#comparison-4",
+    "title": "Hypothesis Tests",
+    "section": "Comparison",
+    "text": "Comparison\nUnder Idea-1: Business as Usual, we expect the sampling distribution of p-hats to approximate a Normal distribution\n\\[\n\\hat{p} \\sim N(\\mu = 0.5, \\sigma = 0.05)\n\\]"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#probability-of-observing-hatp",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#probability-of-observing-hatp",
+    "title": "Hypothesis Tests",
+    "section": "Probability of observing \\(\\hat{p}\\)",
+    "text": "Probability of observing \\(\\hat{p}\\)\nUnder Idea-1: Business as Usual, we expect the sampling distribution of p-hats to approximate a Normal distribution\n\\[\n\\hat{p} \\sim N(\\mu = 0.5, \\sigma = 0.05)\n\\]"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#probability-of-observing-hatp-1",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#probability-of-observing-hatp-1",
+    "title": "Hypothesis Tests",
+    "section": "Probability of observing \\(\\hat{p}\\)",
+    "text": "Probability of observing \\(\\hat{p}\\)\nWhat is the probability of observing \\(\\hat{p} = 0.54\\) or something more extreme, under the assumption that the coin is fair?\n\n\n\n\n\n\n\n\n\n\n\npnorm(0.54, mean = 0.5, sd = 0.05, lower.tail = FALSE)\n\n[1] 0.2118554"
+  },
+  {
+    "objectID": "4-generalization/04-hypothesis-tests/slides.html#framework",
+    "href": "4-generalization/04-hypothesis-tests/slides.html#framework",
+    "title": "Hypothesis Tests",
+    "section": "Framework",
+    "text": "Framework\n\nHypothesis (2-competing ideas):\n\nNull hypothesis (business as usual): \\(p = 0.5\\)\nAlternative hypothesis (something else is going on): \\(p &gt; 0.5\\)\n\nCollect Evidence (i.e. data)\n\nFlip the coin, and count number of heads: e.g., 54 heads in 100 flips\nobserved statistic: \\(\\hat{p} = 0.54\\)\n\nTest Statistic\n\n\\(z = (\\hat{p} - p) / SE = 0.8\\)\n\nP-value\n\n\\(P(\\hat{p} \\geq 0.54)\\): prob. of observing what we observe or something more extreme, assuming the null hypothesis is true."
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/practice.html",
+    "href": "4-generalization/01-sampling-distributions/practice.html",
+    "title": "Practice: Populations and Samples",
+    "section": "",
+    "text": "A parameter is a numerical summary of a sample.\nA statistic is a numerical summary of a population.\nThe goal of inferential statistics is to use sample statistics to make informed guesses about population parameters.\nIf you survey every single member of a population, the mean value you calculate is a statistic.\nA population can be thought of as the entire group of individuals or objects about which you want to draw conclusions.\nIf a statistic is a biased estimator, its sampling distribution will be centered exactly on the true population parameter.\nSystematic errors are also known as bias because they consistently push estimates in the same direction, either too high or too low.\nIncreasing the sample size will reduce the effect of random sampling error.\nBias in a study can be reduced by using a larger sample size.\nThe sampling distribution of a statistic is the distribution of the population from which the samples were drawn.\nThe standard deviation of the empirical distribution of a statistic is called the standard error.\nSelection bias is when your process of measuring a variable systematically misses the target in one direction.\nIf there is non-response bias in a sample, the final sample size for which there is full data is less than the initial sample size\nThe empirical distribution is the observed distribution of the population.\nThe size of the population doesn’t impact the accuracy of the confidence intervals, as long as the sample is small compared to the population.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse\nFalse\nTrue\nFalse (this would be a parameter)\nTrue\nFalse\nTrue\nTrue\nFalse\nFalse\nFalse\nFalse. This is Measurement bias.\nTrue\nFalse. The empirical distribution is the observed distribution of the data at hand. Put another way: it is the distribution of a sample from the population.\nTrue",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Populations and Samples"
+    ]
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/practice.html#true-or-false",
+    "href": "4-generalization/01-sampling-distributions/practice.html#true-or-false",
+    "title": "Practice: Populations and Samples",
+    "section": "",
+    "text": "A parameter is a numerical summary of a sample.\nA statistic is a numerical summary of a population.\nThe goal of inferential statistics is to use sample statistics to make informed guesses about population parameters.\nIf you survey every single member of a population, the mean value you calculate is a statistic.\nA population can be thought of as the entire group of individuals or objects about which you want to draw conclusions.\nIf a statistic is a biased estimator, its sampling distribution will be centered exactly on the true population parameter.\nSystematic errors are also known as bias because they consistently push estimates in the same direction, either too high or too low.\nIncreasing the sample size will reduce the effect of random sampling error.\nBias in a study can be reduced by using a larger sample size.\nThe sampling distribution of a statistic is the distribution of the population from which the samples were drawn.\nThe standard deviation of the empirical distribution of a statistic is called the standard error.\nSelection bias is when your process of measuring a variable systematically misses the target in one direction.\nIf there is non-response bias in a sample, the final sample size for which there is full data is less than the initial sample size\nThe empirical distribution is the observed distribution of the population.\nThe size of the population doesn’t impact the accuracy of the confidence intervals, as long as the sample is small compared to the population.\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse\nFalse\nTrue\nFalse (this would be a parameter)\nTrue\nFalse\nTrue\nTrue\nFalse\nFalse\nFalse\nFalse. This is Measurement bias.\nTrue\nFalse. The empirical distribution is the observed distribution of the data at hand. Put another way: it is the distribution of a sample from the population.\nTrue",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Populations and Samples"
+    ]
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/practice.html#multiple-choice",
+    "href": "4-generalization/01-sampling-distributions/practice.html#multiple-choice",
+    "title": "Practice: Populations and Samples",
+    "section": "2) Multiple Choice",
+    "text": "2) Multiple Choice\n\nA large online retailer wants to estimate the average spending per customer in the last year. They take a random sample of 5,000 customers and find the average spending to be $250. Which of the following is the population in this study?\n\nThe 5,000 customers selected.\nThe average spending of $250.\nAll customers of the online retailer.\nThe total sales of the retailer.\n\nA government agency reports that the average weight of all newborn babies in a particular country is 7.5 pounds. This value is a:\n\nSample\nParameter\nStatistic\nVariable\n\nA researcher wants to know the average height of all university students in a specific country. They measure the height of 100 randomly selected students. What is the average height of these 100 students?\n\nA parameter\nThe population\nA statistic\nThe sampling distribution\n\nA survey on student happiness at a university is sent to students via an optional email link. What type of bias is most likely to occur?\n\nMeasurement bias\nSelection bias\nInterviewer bias\nFunding bias\n\nA temperature gauge consistently reads 2 degrees higher than the actual temperature. This is an example of:\n\nRandom error\nChance variation\nSystematic error (bias)\nSampling variation\n\nA polling company uses a list of registered landline phone numbers to survey voters. This might result in which type of bias?\n\nResponse bias\nSelection bias\nObserver bias\nRecall bias\n\nWhich of the following is a key way to reduce the variability of a sample statistic?\n\nUse a biased estimator.\nIncrease the sample size.\nUse a smaller population.\nUse a less precise measurement tool.\n\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nOption iii. This is the entire group the study is interested in.\nOption ii. It describes a characteristic of the entire population of newborn babies.\nOption iii. It is a value calculated from the sample of 100 students.\nOptional ii. The students who choose to respond may have different opinions about happiness than those who do not.\nOption iii. The error is consistent and predictable.\nOption iv. The sample does not represent the entire population of voters, as it excludes those without a landline phone.\nOption ii. A larger sample size leads to a sampling distribution with less spread (less variability).",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Populations and Samples"
+    ]
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#terms",
+    "href": "4-generalization/01-sampling-distributions/slides.html#terms",
+    "title": "From Samples to Populations",
+    "section": "Terms",
+    "text": "Terms\n\nSample\nPopulation\nStatistic\nParameter"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#interested-in",
+    "href": "4-generalization/01-sampling-distributions/slides.html#interested-in",
+    "title": "From Samples to Populations",
+    "section": "Interested in",
+    "text": "Interested in\nOften we want to know something about the population:\n\nProportion of female fish (out of all fish)\nProportion of male fish (out of all fish)\nAverage weight (of all fish)\nAverage number of fins (of all fish)\n\n\nWe call these Parameters"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#typical-limitations",
+    "href": "4-generalization/01-sampling-distributions/slides.html#typical-limitations",
+    "title": "From Samples to Populations",
+    "section": "Typical limitations",
+    "text": "Typical limitations\nBut we don’t have access to all of its individuals\n\nHard to observe population\nNot enough time\nNot enough money\nNot enough resources\nETC"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#from-the-sample",
+    "href": "4-generalization/01-sampling-distributions/slides.html#from-the-sample",
+    "title": "From Samples to Populations",
+    "section": "From the sample …",
+    "text": "From the sample …\nWe can catch some fish and calculate:\n\nProportion of female fish (in sample)\nProportion of male fish (in sample)\nAverage weight (in sample)\nAverage number of fins (in sample)\n\n\nWe call these Statistics"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#estimation-idea",
+    "href": "4-generalization/01-sampling-distributions/slides.html#estimation-idea",
+    "title": "From Samples to Populations",
+    "section": "Estimation Idea",
+    "text": "Estimation Idea"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#estimation-generalization-idea",
+    "href": "4-generalization/01-sampling-distributions/slides.html#estimation-generalization-idea",
+    "title": "From Samples to Populations",
+    "section": "Estimation (Generalization) Idea",
+    "text": "Estimation (Generalization) Idea"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#to-help-you-remember",
+    "href": "4-generalization/01-sampling-distributions/slides.html#to-help-you-remember",
+    "title": "From Samples to Populations",
+    "section": "To help you remember",
+    "text": "To help you remember"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#estimating-parameters",
+    "href": "4-generalization/01-sampling-distributions/slides.html#estimating-parameters",
+    "title": "From Samples to Populations",
+    "section": "Estimating Parameters",
+    "text": "Estimating Parameters\nEstimate parameters:\n\npopulation mean\npopulation proportion\n\n\n\nBTW:\n\nWe never estimate statistics\nWatch out for estimation errors"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#sampling-in-practice",
+    "href": "4-generalization/01-sampling-distributions/slides.html#sampling-in-practice",
+    "title": "From Samples to Populations",
+    "section": "Sampling (in practice)",
+    "text": "Sampling (in practice)"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#sampling-sources-of-error",
+    "href": "4-generalization/01-sampling-distributions/slides.html#sampling-sources-of-error",
+    "title": "From Samples to Populations",
+    "section": "Sampling: Sources of Error",
+    "text": "Sampling: Sources of Error"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#sources-of-error-bias-and-variance",
+    "href": "4-generalization/01-sampling-distributions/slides.html#sources-of-error-bias-and-variance",
+    "title": "From Samples to Populations",
+    "section": "Sources of Error: Bias and Variance",
+    "text": "Sources of Error: Bias and Variance"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#types-of-bias",
+    "href": "4-generalization/01-sampling-distributions/slides.html#types-of-bias",
+    "title": "From Samples to Populations",
+    "section": "Types of Bias",
+    "text": "Types of Bias\n\n\nSelection Bias: When not all units in the population are equally likely to be selected for the sample.\n\n\n\n\nMeasurement Bias: When your process of measuring a variable systematically misses the target in one direction.\n\nwhen questions are confusingly worded or leading,\nwhen respondents may not be comfortable answering honestly.\n\n\n\n\n\nNon-response Bias: When certain units originally selected for the sample fail to provide data\n\n\n\nSolution (ideal): Simple Random Sample (SRS)"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#types-of-variation",
+    "href": "4-generalization/01-sampling-distributions/slides.html#types-of-variation",
+    "title": "From Samples to Populations",
+    "section": "Types of Variation",
+    "text": "Types of Variation\n\n\nSampling Variability: the variability from one sample to the next\n\n\n\n\n\n\nMeasurement Variability: When we take multiple measurements on the same object and we get variations in measurements from one sample to the next."
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#what-is-a-sampling-distribution",
+    "href": "4-generalization/01-sampling-distributions/slides.html#what-is-a-sampling-distribution",
+    "title": "From Samples to Populations",
+    "section": "What is a Sampling Distribution?",
+    "text": "What is a Sampling Distribution?\nSampling Distribution is the distribution of a statistic upon repeated sampling.\n\n\nNo longer are we considering the (usually unknowable) distribution of the population or the observed distribution of the data\n\n\nUsually the sampling distribution is a hypothetical thing: what would our statistic have looked like if we had taken a different sample of data?"
+  },
+  {
+    "objectID": "4-generalization/01-sampling-distributions/slides.html#demo",
+    "href": "4-generalization/01-sampling-distributions/slides.html#demo",
+    "title": "From Samples to Populations",
+    "section": "Demo",
+    "text": "Demo"
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html",
+    "href": "4-generalization/02-confidence-intervals/practice.html",
+    "title": "Practice: Confidence Intervals",
+    "section": "",
+    "text": "According to the Central Limit Theorem, the sampling distribution of the sample mean will always be approximately normal, regardless of the population’s distribution.\nThe mean of the sampling distribution of the sample mean (\\(\\bar{x}\\)) is equal to the population mean (\\(\\mu\\)).\nAs the sample size increases, the standard deviation of the sampling distribution of the \\(\\bar{x}\\) decreases.\nA 95% confidence interval can be interpreted as having a 95% probability of containing the true population mean.\nThe sample mean (\\(\\bar{x}\\)) is always located at the exact center of its corresponding confidence interval.\nThe standard deviation of the sampling distribution of \\(\\hat{p}\\), increases as the sample size increases.\nTo construct a confidence interval for a proportion, you must know the true population proportion (\\(p\\)) to approximate the standard error.\nA larger sample size will, all else being equal, result in a narrower confidence interval for a population proportion.\nA simple random sample (SRS) is a random sample with replacement.\nIf the population distribution is skewed, then we should expect an empirical distribution from this population to be skewed as well.\nIf the sampling distribution of \\(\\bar{x}\\) is bell-shaped (approximately normal distribution), then the population distribution must also be bell-shaped.\nThe distribution for the possible values of \\(\\hat{p}\\) is called the sampling distribution (of sample proportions).\nWhen you have a simple random sample (SRS), the sample standard deviation \\(s\\) is close to the population standard deviation \\(\\sigma\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. For non-normal distributions we need \\(n \\geq 30\\)\nTrue\nTrue\nFalse\nTrue\nFalse\nFalse. Since \\(p\\) is unknown, we use the sample proportion \\(\\hat{p}\\) in the standard error calculation.\nTrue\nFalse. An SRS is taken without replacement.\nTrue\nFalse\nTrue\nTrue\nTrue.",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html#true-or-false",
+    "href": "4-generalization/02-confidence-intervals/practice.html#true-or-false",
+    "title": "Practice: Confidence Intervals",
+    "section": "",
+    "text": "According to the Central Limit Theorem, the sampling distribution of the sample mean will always be approximately normal, regardless of the population’s distribution.\nThe mean of the sampling distribution of the sample mean (\\(\\bar{x}\\)) is equal to the population mean (\\(\\mu\\)).\nAs the sample size increases, the standard deviation of the sampling distribution of the \\(\\bar{x}\\) decreases.\nA 95% confidence interval can be interpreted as having a 95% probability of containing the true population mean.\nThe sample mean (\\(\\bar{x}\\)) is always located at the exact center of its corresponding confidence interval.\nThe standard deviation of the sampling distribution of \\(\\hat{p}\\), increases as the sample size increases.\nTo construct a confidence interval for a proportion, you must know the true population proportion (\\(p\\)) to approximate the standard error.\nA larger sample size will, all else being equal, result in a narrower confidence interval for a population proportion.\nA simple random sample (SRS) is a random sample with replacement.\nIf the population distribution is skewed, then we should expect an empirical distribution from this population to be skewed as well.\nIf the sampling distribution of \\(\\bar{x}\\) is bell-shaped (approximately normal distribution), then the population distribution must also be bell-shaped.\nThe distribution for the possible values of \\(\\hat{p}\\) is called the sampling distribution (of sample proportions).\nWhen you have a simple random sample (SRS), the sample standard deviation \\(s\\) is close to the population standard deviation \\(\\sigma\\).\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. For non-normal distributions we need \\(n \\geq 30\\)\nTrue\nTrue\nFalse\nTrue\nFalse\nFalse. Since \\(p\\) is unknown, we use the sample proportion \\(\\hat{p}\\) in the standard error calculation.\nTrue\nFalse. An SRS is taken without replacement.\nTrue\nFalse\nTrue\nTrue\nTrue.",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html#multiple-choice",
+    "href": "4-generalization/02-confidence-intervals/practice.html#multiple-choice",
+    "title": "Practice: Confidence Intervals",
+    "section": "2) Multiple Choice",
+    "text": "2) Multiple Choice\n\nA population has a mean (\\(\\mu\\)) of 50 and a standard deviation (\\(\\sigma\\)) of 10. You take a random sample of size \\(n=25\\). What is the mean of the sampling distribution of the sample mean (\\(\\bar{x}\\))?\n\n50\n10\n2\n50 divided by 25\n\nThe Central Limit Theorem is most useful when:\n\nThe population distribution is normal.\nThe sample size is small.\nThe population distribution is unknown or not normal.\nThe standard deviation of the population is zero.\n\nAccording to the Central Limit Theorem, if you take sufficiently large samples from any population, the sampling distribution of the sample mean will:\n\nhave the same shape as the population distribution.\nbe skewed in the same direction as the population distribution.\nbe approximately normal, regardless of the population’s shape.\nhave a standard deviation equal to the population standard deviation.\n\nA population has a mean \\(\\mu =100\\) and a standard deviation \\(\\sigma =20\\). If you take a random sample of size \\(n=64\\), what is the standard error of the sample mean?\n\n20\n1.25\n2.5\n64\n\nHolding all else constant, which of the following actions would result in a wider confidence interval for a population mean?\n\nIncreasing the sample size.\nDecreasing the confidence level (e.g., from 95% to 90%).\nDecreasing the sample standard deviation.\nIncreasing the confidence level (e.g., from 95% to 99%).\n\nA 95% confidence interval for the mean height of a species of tree is calculated as (50 feet, 60 feet). Which of the following is the correct interpretation of this interval?\n\n95% of all trees of this species have a height between 50 and 60 feet.\nThere is a 95% probability that the mean height of all trees is between 50 and 60 feet.\nIf we were to take many random samples and construct a confidence interval from each, we would expect 95% of these intervals to contain the true population mean.\nThe true population mean is 55 feet, and the standard error is 5 feet.\n\nWhat effect does increasing the sample size (\\(n\\)) have on the width of a confidence interval, assuming the confidence level and population standard deviation (\\(\\sigma\\)) remain unchanged?\n\nThe interval becomes wider.\nThe interval becomes narrower.\nThe width of the interval remains the same.\nThe interval shifts to the right.\n\nIf you double the sample size (\\(n\\)), how does the margin of error change?\n\nIt is also doubled.\nIt is halved.\nIt is multiplied by \\(\\sqrt{2}\\).\nIt is divided by \\(\\sqrt{2}\\).\n\nA researcher reports a 90% confidence interval for the average daily commute time in a city. Which of the following statements is true?\n\nThe researcher can be 90% certain that the true population mean is captured within this interval.\nThere is a 10% chance that the true population mean is outside this interval.\nThis interval provides a range of plausible values for the true population mean.\nAll of the above.\n\nA 95% confidence interval for the population mean is calculated to be (23.5, 29.5). What was the sample mean (\\(\\bar{X}\\)) used to construct this interval?\n\n26.5\n3.0\n6.0\nCannot be determined from the information provided.\n\nSuppose we have a large population with mean \\(\\mu = 80\\) and standard deviation \\(\\sigma = 7.2\\). Let’s say we randomly sample 100 values from this population and compute the mean, then repeat this sampling process 10,000 times and record all the means we get. Which of the following is the best approximation for the mean of our 10,000 sample means?\n\n8\n80\n100\nCannot be determined from the information provided.\n\nConsider sampling heights from the population of all female college soccer players in the United States. Assume the mean height of female college soccer players in the United States is \\(\\mu = 66\\) inches and the standard deviation is \\(\\sigma = 3.5\\) inches. Suppose we randomly sample 100 values from this population and compute the mean \\(\\bar{x}\\), then repeat this sampling process 5,000 times and record all the means we get. Which of the following is the best approximation for the standard deviation of the 5,000 sample means?\n\n0.035\n0.35\n3.5\nCannot be determined from the information provided.\n\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nOption i\nOption iii\nOption iii, be approximately normal, regardless of the population’s shape.\n2.5\nOption iv, a higher confidence level involves a larger margin of error.\nOption iii\nOption ii, a larger sample size reduces the standard error of the mean.\nOption iv\nOption iv\nOption i. The sample mean is the center of the confidence interval and can be approximated by calculating \\((23.5 + 29.5) / 2 = 26.5\\)\nOption ii\nOption ii. The standard deviation of the sampling distribution of means with sample size 100 is \\(\\sigma / \\sqrt{n} = 3.5/\\sqrt{100}\\)",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html#interpreting-a-confidence-interval",
+    "href": "4-generalization/02-confidence-intervals/practice.html#interpreting-a-confidence-interval",
+    "title": "Practice: Confidence Intervals",
+    "section": "3) Interpreting a Confidence Interval",
+    "text": "3) Interpreting a Confidence Interval\nSuppose a poll of registered voters nationwide asked the question: “Do you think illegal immigrants who have lived in the United States since they were children should be eligible for legal citizenship, or not?” 63% answered “should be”, and a 95% confidence level for \\(p_{yes}\\) was calculated to be (60% to 66%) Which of the following statements is correct?\n\nThere is a 95% chance that between 60% and 66% of all registered voters nationwide will answer illegal immigrants “should be” eligible for legal citizenship.\nWe are 95% confident that between 60% and 66% of all registered voters nationwide will answer illegal immigrants “should be” eligible for legal citizenship.\nWe are 95% confident that 63% of the registered voters in the sample answered illegal immigrants “should be” eligible for legal citizenship.\nWe are confident that 95% of the registered voters in the sample answered “should be”.\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\nOption c)",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-1",
+    "href": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-1",
+    "title": "Practice: Confidence Intervals",
+    "section": "4) Student Engagement (part 1)",
+    "text": "4) Student Engagement (part 1)\nThe Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.\nIn a simulation we select random samples from a population in which 40% do not use tutoring. For each sample we calculate the proportion who do not use tutoring. If we randomly sample 500 students at a time, what will be the mean and standard error of the sampling distribution of sample proportions?\n\nmean = 0.46, SE \\(\\approx\\) 0.00048\nmean = 0.40, SE \\(\\approx\\) 0.022\nmean = 0.40, SE \\(\\approx\\) 0.00048\nmean = 0.46, SE \\(\\approx\\) 0.022\n\n\n\n\n\n\n\nShow answer\n\n\n\n\n\nOption b)",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-2",
+    "href": "4-generalization/02-confidence-intervals/practice.html#student-engagement-part-2",
+    "title": "Practice: Confidence Intervals",
+    "section": "5) Student Engagement (part 2)",
+    "text": "5) Student Engagement (part 2)\nFrom the previous question. The Community College Survey of Student Engagement reports that 46% of the students surveyed rarely or never use peer or other tutoring resources. Suppose that in reality 40% of community college students never use tutoring services available at their college.\n\nTrue or False. In a simulation we select 3 random samples of 500 community college students. In each sample, we expect to see 200 (40% of 500) of the student do not use college tutoring services.\nIf we randomly sample 100 community college students, how unusual would be to see that 35% of them never use tutoring services?\nIf we randomly sample 500 community college students, how unusual would be to see that 35% of them never use tutoring services?\n\n\n\n\n\n\n\nShow answers\n\n\n\n\n\n\nFalse. We expect to see variability in random samples.\nNot unusual. The standard error of the sampling distribution of \\(\\hat{p}\\) for \\(n=100\\) is \\(SE = \\sqrt{p(1-p)/n} \\approx 0.049\\). A statistic of \\(\\hat{p} = 0.35\\) would be a bit over one standard error.\nVery unusual. The standard error of the sampling distribution of \\(\\hat{p}\\) for \\(n=500\\) is \\(SE = \\sqrt{p(1-p)/n} \\approx 0.022\\). A statistic of \\(\\hat{p} = 0.35\\) would be more than two standard errors.",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-reaction-times",
+    "href": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-reaction-times",
+    "title": "Practice: Confidence Intervals",
+    "section": "6) C.I. for Reaction Times",
+    "text": "6) C.I. for Reaction Times\nA researcher measures the reaction time of 36 participants to a visual stimulus. The sample mean reaction time is \\(\\bar{x}=0.25\\) seconds, and the sample standard deviation is \\(s=0.12\\) seconds. Assuming reaction times are approximately normally distributed, construct a 95% confidence interval for the true population mean reaction time, and provide a verbal interpretation for it.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(SE = s / \\sqrt{n} = 0.12 / \\sqrt{36} = 0.02\\)\nCI: \\([\\bar{x} - 1.96 \\times SE, \\ \\bar{x} + 1.96 \\times SE]\\)\nCI: \\([0.25 - 1.96(0.02), 0.25 + 1.96(0.02)] \\rightarrow (0.2108, 0.2892)\\)\nWe’re 95% confident that the population mean reaction time is within 0.2108 and 0.2892 seconds.",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-likely-voters",
+    "href": "4-generalization/02-confidence-intervals/practice.html#c.i.-for-likely-voters",
+    "title": "Practice: Confidence Intervals",
+    "section": "7) C.I. for Likely Voters",
+    "text": "7) C.I. for Likely Voters\nA survey of 500 randomly selected likely voters in a state found that 285 plan to vote for a particular candidate. Construct a 95% confidence interval for the true proportion of all likely voters in the state who plan to vote for that candidate. And provide a verbal interpretation for the confidence interval.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(\\hat{p} = 285 / 500 = 0.57\\)\n\\(SE = \\sqrt{\\hat{p} (1 - \\hat{p}) / n} \\approx 0.057\\)\nCI: \\([\\hat{p} - 1.96 \\times SE, \\ \\hat{p} + 1.96 \\times SE]\\)\nCI: \\([0.57 - 1.96(0.057), 0.57 + 1.96(0.057)] \\rightarrow (0.458, 0.681)\\)\nWe’re 95% confident that the proportion of all likely voters in the state who plan to vote for that candidate is within 45.8% and 68.1%.",
+    "crumbs": [
+      "Practice Problems",
+      "Generalization",
+      "Practice: Confidence Intervals"
+    ]
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#while-youre-waiting",
+    "href": "4-generalization/03-bootstrapping/slides.html#while-youre-waiting",
+    "title": "Bootstrapping",
+    "section": "While you’re waiting",
+    "text": "While you’re waiting\nIf you’ve been given an index card, please write on it:\n\nYour first name\nYour year at Cal (1 is first year, 2 is second year, etc)\nWhether or not you are interested in majoring in a business- or econ-related field. 1 = yes, 0 = no\n\n\nAs students arrive, randomly give ~8 of them an index card."
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#agenda",
+    "href": "4-generalization/03-bootstrapping/slides.html#agenda",
+    "title": "Bootstrapping",
+    "section": "Agenda",
+    "text": "Agenda\n\nConcept Question\nActivity: The Bootstrap\nPS: The Bootstrap\nBootstrapping with infer"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#section",
+    "href": "4-generalization/03-bootstrapping/slides.html#section",
+    "title": "Bootstrapping",
+    "section": "",
+    "text": "Which of these is a valid bootstrap sample?\n\n\n\n\n−+\n01:00\n\n\n\n\n\n  \n\n\n\nOriginal Sample\n\n\nname\nspecies\nlength\n\n\n\n\nGus\nChinstrap\n50.7\n\n\nLuz\nGentoo\n48.5\n\n\nIda\nChinstrap\n52.8\n\n\nOla\nGentoo\n44.5\n\n\nAbe\nAdelie\n42.0\n\n\n\n\n\n\n\n\n\nBS A\n\n\nname\nspecies\nlength\n\n\n\n\nIda\nChinstrap\n52.8\n\n\nLuz\nGentoo\n48.5\n\n\nAbe\nAdelie\n42.0\n\n\nOla\nGentoo\n44.5\n\n\nIda\nChinstrap\n52.8\n\n\n\n\n\n\nBS B\n\n\nname\nspecies\nlength\n\n\n\n\nOla\nGentoo\n44.5\n\n\nGus\nChinstrap\n50.7\n\n\nIda\nChinstrap\n52.8\n\n\nLuz\nGentoo\n48.5\n\n\nGus\nChinstrap\n50.7\n\n\nGus\nChinstrap\n50.7\n\n\n\n\n\n\n\n\n\nBS C\n\n\nname\nspecies\nlength\n\n\n\n\nGus\nChinstrap\n50.7\n\n\nOla\nGentoo\n48.5\n\n\nOla\nChinstrap\n52.8\n\n\nIda\nGentoo\n44.5\n\n\nIda\nAdelie\n42.0\n\n\n\n\n\n\nBS D\n\n\nname\nspecies\nlength\n\n\n\n\nGus\nChinstrap\n50.7\n\n\nAbe\nAdelie\n42.0\n\n\nGus\nChinstrap\n50.7\n\n\nGus\nChinstrap\n50.7\n\n\nGus\nChinstrap\n50.7"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#parameters-and-statistics",
+    "href": "4-generalization/03-bootstrapping/slides.html#parameters-and-statistics",
+    "title": "Bootstrapping",
+    "section": "Parameters and Statistics",
+    "text": "Parameters and Statistics\n\n\nOur Goal: Assess the sampling error / variability in our estimate of the median year at Cal and the proportion of students in an econ-related field.\n\n\n\nOur Tool: The Bootstrap"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#collecting-a-sample-of-data",
+    "href": "4-generalization/03-bootstrapping/slides.html#collecting-a-sample-of-data",
+    "title": "Bootstrapping",
+    "section": "Collecting a sample of data",
+    "text": "Collecting a sample of data\nIf you’ve been given an index card, please write on it:\n\nYour first name\nYour year at Cal (1 is first year, 2 is second year, etc)\nWhether or not you are interested in majoring in a business- or econ-related field. 1 = yes, 0 = no"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#section-3",
+    "href": "4-generalization/03-bootstrapping/slides.html#section-3",
+    "title": "Bootstrapping",
+    "section": "",
+    "text": "boardwork\n\nCollect index cards from students and record the data into a data frame on the board labelled “Observed sample”. Calculate the sample median and sample proportion of econ-related majors.\nAsk for a volunteer to generate the first bootstrap sample. Hand them the stack of cards and have them randomly choose a single card and read off the data to you. As they do so, write out the first row of a “Bootstrap Sample 1” data frame on the board. Be sure to label the row with the student name - that helps emphasis when there are repeats.Have them return the card to the deck, shuffle, and randomly choose a card and read off the data. Repeat until you have filled out the same number of rows as in the original data set. Calculate the median and proportion (you may want to write dplyr code to do this using summarize()).\nAsk for a second volunteer to generate the second bootstrap sample. Repeat the procedure as before, drawing a third data frame on the board and computing a second set of statistics (median and proportion).\nCollect the bootstrapped medians and proportions and sketch them as the first few points in a broader density plot that we’ll be able to see when we take more and more bootstrap samples. Label this as the “bootstrap distribution” and speak of it as an approximation to the true sampling distribution. You can explain the 1 - alpha bootstrap interval as the interval that captures the middle 95% of bootstrapped statistics."
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#example-penguins",
+    "href": "4-generalization/03-bootstrapping/slides.html#example-penguins",
+    "title": "Bootstrapping",
+    "section": "Example: Penguins",
+    "text": "Example: Penguins\nLet’s consider our 344 penguins to be a SRS from the broader population of Antarctic penguins. What is a point and interval estimate for the population proportion of penguins that are Adelie?\n\n\n\n\n\n\npenguins &lt;- penguins |&gt;\n  mutate(is_adelie = species == \"Adelie\")\n\npenguins |&gt;\n  ggplot(aes(x = is_adelie)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#point-estimate",
+    "href": "4-generalization/03-bootstrapping/slides.html#point-estimate",
+    "title": "Bootstrapping",
+    "section": "Point estimate",
+    "text": "Point estimate\n\nobs_stat &lt;- penguins |&gt;\n  summarize(p_adelie = mean(is_adelie))\nobs_stat\n\n# A tibble: 1 × 1\n  p_adelie\n     &lt;dbl&gt;\n1    0.442"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#generating-one-bootstrap-sample",
+    "href": "4-generalization/03-bootstrapping/slides.html#generating-one-bootstrap-sample",
+    "title": "Bootstrapping",
+    "section": "Generating one bootstrap sample",
+    "text": "Generating one bootstrap sample\n\nlibrary(infer)\npenguins |&gt;\n  specify(response = is_adelie,\n          success = \"TRUE\") |&gt;\n  generate(reps = 1, \n           type = \"bootstrap\")\n\n\n\n\nResponse: is_adelie (factor)\n# A tibble: 344 × 2\n# Groups:   replicate [1]\n   replicate is_adelie\n       &lt;int&gt; &lt;fct&gt;    \n 1         1 FALSE    \n 2         1 FALSE    \n 3         1 TRUE     \n 4         1 FALSE    \n 5         1 TRUE     \n 6         1 TRUE     \n 7         1 FALSE    \n 8         1 TRUE     \n 9         1 TRUE     \n10         1 TRUE     \n# ℹ 334 more rows"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#two-more-bootstrap-samples",
+    "href": "4-generalization/03-bootstrapping/slides.html#two-more-bootstrap-samples",
+    "title": "Bootstrapping",
+    "section": "Two more bootstrap samples",
+    "text": "Two more bootstrap samples\n\n\n\npenguins |&gt;\n  specify(response = is_adelie,\n          success = \"TRUE\") |&gt;\n  generate(reps = 1, \n           type = \"bootstrap\")\n\nResponse: is_adelie (factor)\n# A tibble: 344 × 2\n# Groups:   replicate [1]\n   replicate is_adelie\n       &lt;int&gt; &lt;fct&gt;    \n 1         1 FALSE    \n 2         1 TRUE     \n 3         1 FALSE    \n 4         1 FALSE    \n 5         1 FALSE    \n 6         1 TRUE     \n 7         1 TRUE     \n 8         1 FALSE    \n 9         1 FALSE    \n10         1 FALSE    \n# ℹ 334 more rows\n\n\n\n\npenguins |&gt;\n  specify(response = is_adelie,\n          success = \"TRUE\") |&gt;\n  generate(reps = 1, \n           type = \"bootstrap\")\n\nResponse: is_adelie (factor)\n# A tibble: 344 × 2\n# Groups:   replicate [1]\n   replicate is_adelie\n       &lt;int&gt; &lt;fct&gt;    \n 1         1 FALSE    \n 2         1 TRUE     \n 3         1 TRUE     \n 4         1 FALSE    \n 5         1 FALSE    \n 6         1 TRUE     \n 7         1 TRUE     \n 8         1 FALSE    \n 9         1 FALSE    \n10         1 FALSE    \n# ℹ 334 more rows"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#visualizing-9-bs-samples",
+    "href": "4-generalization/03-bootstrapping/slides.html#visualizing-9-bs-samples",
+    "title": "Bootstrapping",
+    "section": "Visualizing 9 bs samples",
+    "text": "Visualizing 9 bs samples\n\n\n\npenguins |&gt;\n  specify(response = is_adelie,\n          success = \"TRUE\") |&gt;\n  generate(reps = 9, \n           type = \"bootstrap\") |&gt;\n  ggplot(aes(x = is_adelie)) +\n  geom_bar() +\n  facet_wrap(vars(replicate),\n             nrow = 3)"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#calculating-9-hatp",
+    "href": "4-generalization/03-bootstrapping/slides.html#calculating-9-hatp",
+    "title": "Bootstrapping",
+    "section": "Calculating 9 \\(\\hat{p}\\)",
+    "text": "Calculating 9 \\(\\hat{p}\\)\n\n\n\npenguins |&gt;\n  specify(response = is_adelie,\n          success = \"TRUE\") |&gt;\n  generate(reps = 9, \n           type = \"bootstrap\") |&gt;\n  calculate(stat = \"prop\")\n\n\n\n\nResponse: is_adelie (factor)\n# A tibble: 9 × 2\n  replicate  stat\n      &lt;int&gt; &lt;dbl&gt;\n1         1 0.404\n2         2 0.430\n3         3 0.404\n4         4 0.433\n5         5 0.468\n6         6 0.448\n7         7 0.427\n8         8 0.413\n9         9 0.474\n\n\n\n\n\nNote the change in data frame size."
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#the-bootstrap-dist-reps-500",
+    "href": "4-generalization/03-bootstrapping/slides.html#the-bootstrap-dist-reps-500",
+    "title": "Bootstrapping",
+    "section": "The bootstrap dist (reps = 500)",
+    "text": "The bootstrap dist (reps = 500)\n\n\n\n\npenguins |&gt;\n  specify(response = is_adelie,\n          success = \"TRUE\") |&gt;\n  generate(reps = 500, \n           type = \"bootstrap\") |&gt;\n  calculate(stat = \"prop\") |&gt;\n  ggplot(aes(x = stat)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#interval-estimate",
+    "href": "4-generalization/03-bootstrapping/slides.html#interval-estimate",
+    "title": "Bootstrapping",
+    "section": "Interval Estimate",
+    "text": "Interval Estimate\n\nWe can extract the middle 95% by identifying the .025 quantile and the .975 quantile of the bootstrap distribution with get_ci().\n\npenguins |&gt;\n  specify(response = is_adelie,\n          success = \"TRUE\") |&gt;\n  generate(reps = 500, \n           type = \"bootstrap\") |&gt;\n  calculate(stat = \"prop\") |&gt;\n  get_ci(level = .95)\n\n\n\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    0.392    0.494"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#documentation-infer.tidymodels.org",
+    "href": "4-generalization/03-bootstrapping/slides.html#documentation-infer.tidymodels.org",
+    "title": "Bootstrapping",
+    "section": "Documentation: infer.tidymodels.org",
+    "text": "Documentation: infer.tidymodels.org"
+  },
+  {
+    "objectID": "4-generalization/03-bootstrapping/slides.html#your-turn",
+    "href": "4-generalization/03-bootstrapping/slides.html#your-turn",
+    "title": "Bootstrapping",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nCreate a 95% confidence interval for the median bill length of penguins.\n\n\n\n\n−+\n05:00"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Gaston Sanchez’s instructional materials for STAT 20",
     "section": "",
-    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nData Manipulation\nData Pipelines\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\nNormal Approximation\n\n\n\nGeneralization\n\nSampling\nConfidence Intervals\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz Slides\n\nQuiz",
+    "text": "A friendly reminder to myself when teaching STAT 20, and the reason why I use my own set of custom slides:\n\nThe world provides a million ways, for a human heart to grow.\nThere is no single compass, no mandatory flow.\n\n\nFollow your own drumbeat, until the day is gone,\nwhatever makes you happy, whatever turns you on.\n\nGas & Gem\n\n\nUnderstanding the World with Data\n\nUnderstanding the world\nTaxonomy of Data\n\n\n\nSummarizing Data\n\nSummarizing Categorical Data\nSummarizing Numerical Data\nA Grammar of Graphics\nData Manipulation\nData Pipelines\nSummarizing Associations\nMultiple Linear Regression\n\n\n\nProbability\n\nIntro to Probability\nComputing Probabilities\nProbability Distributions\nRandom Variables\nExpected Value and Variance\nNormal Approximation\n\n\n\nGeneralization\n\nSampling\nConfidence Intervals\nBootstrapping\nHypothesis Tests\n\n\n\nCausation\n\nComing soon\nComing soon\n\n\n\nPrediction\n\nComing soon\nComing soon\n\n\n\nQuiz Slides\n\nQuiz",
     "crumbs": [
       "Home"
     ]
@@ -2240,14 +2429,14 @@
     "href": "3-probability/04-random-variables/slides.html#demo-rbinom",
     "title": "Random Variables",
     "section": "Demo rbinom()",
-    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 1 2 1 3 1 2 2 2 3 3 1 3 2 3 3 3 1 1 3 2 1 1 1 2 2 3 3 2 3 3 1 1 2 2 1 1 1\n [38] 3 3 2 1 2 2 2 2 2 2 3 1 1 1 2 3 2 3 2 3 2 0 2 1 0 2 2 2 2 3 1 1 1 2 3 2 3\n [75] 2 3 3 2 3 3 2 3 3 2 3 2 2 2 2 1 0 1 3 3 2 3 3 2 1 2"
+    "text": "Demo rbinom()\nrbinom() simulates drawing from a binomial distribution; we can use it to get an empirical histogram\n\n# Binomial: parameters\nn = 3   # number of tosses\np = 2/3 # chance of heads\n\n# simulation (100 tosses of biased coin)\ntosses = rbinom(n = 100, size = n, prob = p)\ntosses\n\n\n\n  [1] 2 2 2 2 2 2 2 2 2 2 1 3 1 2 2 0 1 2 3 2 3 3 3 3 3 3 2 2 2 2 2 3 3 1 2 2 2\n [38] 2 2 2 2 2 3 1 2 1 3 2 2 2 2 2 2 1 1 1 3 2 2 2 1 1 1 2 3 1 3 2 2 2 2 3 1 2\n [75] 1 3 1 3 1 3 2 0 2 3 3 2 2 2 2 1 2 1 2 3 2 3 1 3 3 2"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "href": "3-probability/04-random-variables/slides.html#demo-empirical-probability-distribution",
     "title": "Random Variables",
     "section": "Demo: Empirical Probability Distribution",
-    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  3\n2      1 25\n3      2 40\n4      3 32\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  3 0.03\n2      1 25 0.25\n3      2 40 0.40\n4      3 32 0.32"
+    "text": "Demo: Empirical Probability Distribution\n\ndata.frame(tosses) |&gt; \n  count(tosses)\n\n\n\n  tosses  n\n1      0  2\n2      1 20\n3      2 53\n4      3 25\n\n\n\n\n\n\ndata.frame(tosses) |&gt; \n  count(tosses) |&gt; \n  mutate(prop = n / sum(n))\n\n\n\n  tosses  n prop\n1      0  2 0.02\n2      1 20 0.20\n3      2 53 0.53\n4      3 25 0.25"
   },
   {
     "objectID": "3-probability/04-random-variables/slides.html#demo-empirical-histogram",
@@ -2618,7 +2807,7 @@
     "href": "3-probability/06-normal-approx/slides.html#rnorm",
     "title": "Normal Approximation and Box Models",
     "section": "rnorm()",
-    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1] -0.2051100 -0.1201549  0.2256920\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 6.246068 4.345725 4.386438 4.854817 6.257119 8.413961 4.833068"
+    "text": "rnorm()\nrnorm() generates random numbers from a Normal distribution\n\n\n\nexample 1: generate 3 values from \\(X \\sim N(0, 1)\\)\n\nrnorm(n = 3, mean = 0, sd = 1)\n\n[1]  0.78423414 -0.06529815  0.82704855\n\n\n\n\n\n\nexample 2: generate 7 values from \\(X \\sim N(5, 2)\\)\n\nrnorm(n = 7, mean = 5, sd = 2)\n\n[1] 10.184109  4.554459  6.524132 10.909466  4.431108  1.121002  5.655911"
   },
   {
     "objectID": "3-probability/06-normal-approx/slides.html#px-leq-5-for-x-sim-nmu-5-sigma1",
@@ -2947,7 +3136,7 @@
     "href": "2-summarizing-data/07-multiple-linear-regression/slides.html#penguins-data",
     "title": "Multiple Linear Regression",
     "section": "Penguins Data",
-    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Adelie  Dream            36.3          19.5        3800 male  \n2 Adelie  Biscoe           41.4          18.6        3700 male  \n3 Gentoo  Biscoe           43.6          13.9        4900 female\n4 Gentoo  Biscoe           45.5          13.9        4200 female\n5 Gentoo  Biscoe           46.5          14.8        5200 female"
+    "text": "Penguins Data\n\npenguins |&gt; \n  select(c(1:4, 6:7)) |&gt; \n  slice_sample(n = 5)\n\n# A tibble: 5 × 6\n  species   island bill_length_mm bill_depth_mm body_mass_g sex   \n  &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt; &lt;fct&gt; \n1 Chinstrap Dream            49.2          18.2        4400 male  \n2 Adelie    Dream            38.9          18.8        3600 female\n3 Adelie    Biscoe           39.6          20.7        3900 female\n4 Adelie    Dream            39.7          17.9        4250 male  \n5 Adelie    Dream            44.1          19.7        4400 male"
   },
   {
     "objectID": "2-summarizing-data/07-multiple-linear-regression/slides.html#simple-regression-2-numerical-1",

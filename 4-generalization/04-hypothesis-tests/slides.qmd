@@ -1,0 +1,309 @@
+---
+title: "Hypothesis Tests"
+format:
+  stat20slides-revealjs:
+    chalkboard: true
+    auto-stretch: false
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(stat20data)
+library(infer)
+```
+
+```{r echo = FALSE}
+# normal function 
+normal <- function(x, mu = 0, sigma = 1) {
+  1 / (sigma * sqrt(2*pi)) * exp(-0.5 * ((x - mu)/ sigma)^2)
+}
+
+# polygon coordinates of area under the curve
+normal_auc <- function(x0, x1, mu = 0, sigma = 1, n = 50) {
+  stopifnot(n > 0)
+  if (x0 > x1) {
+    stop("x0 must be lower than x1")
+  }
+  xs <- c(
+    rep(x0, n),
+    seq(x0, x1, length.out = n),
+    rep(x1, n),
+    rep(x1, x0, length.out = n)
+  )
+  ys <- c(
+    seq(0, normal(x0, mu = mu, sigma = sigma), length.out = n),
+    normal(seq(x0, x1, length.out = n), mu = mu, sigma = sigma),
+    seq(0, normal(x1, mu = mu, sigma = sigma), length.out = n),
+    rep(0, n)
+  )
+  list(xs = xs, ys = ys)
+}
+```
+
+
+# A Loaded Coin?
+
+## Weird looking Coin
+
+Say we find a _weird looking_ coin on the street.
+
+![](images/quarter.jpg){width="15%" fig-align="center"}
+
+We suspect the coin is __biased__ (maybe it lands more on Heads than Tails)
+
+\
+
+How can we determine whether the coin is biased or not?
+
+
+## 2 Opposing Ideas
+
+\
+
+::: {.fragment}
+
+::: {.columns}
+
+::: {.incremental}
+::: {.column width="50%"}
+### Coin is Fair
+
+- Prob(heads) = 0.5
+- Business as usual
+:::
+
+::: {.column width="50%"}
+### Coin is Biased
+
+- Prob(heads) > 0.5
+- Something's different
+:::
+:::
+
+:::
+:::
+
+
+## We need Data
+
+::: {.fragment}
+To assess whether the coin is fair or not, we need to collect data.
+
+In other words, we need to flip the coin and see what happens.
+:::
+
+\
+
+::: {.fragment}
+Let's suppose we flip the coin 100 times:
+
+$$
+\bigcirc_1 \quad \bigcirc_2 \quad \bigcirc_3 \quad \bigcirc_4 \quad \dots \quad \bigcirc_{98} \quad \bigcirc_{99} \quad \bigcirc_{100}
+$$
+
+Assume we get 54 heads.
+:::
+
+\
+
+::: {.fragment}
+What do we observe? $\hat{p} = 54/100 = 0.54$
+:::
+
+
+## Comparison
+
+::: {.fragment}
+How does observed $\hat{p} = 0.54 \ $ compare to assumed $p_{fair}$ (idea 1: business as usual)?
+:::
+
+::: {.fragment}
+$$
+\hat{p} - p_{fair}? \quad \rightarrow \quad 0.54 - 0.5?
+$$
+:::
+
+::: {.fragment}
+Yes, we are observing more heads than expected, but this is not a fair comparison because we are not taking random variability into account.
+:::
+
+\
+
+::: {.fragment}
+A better comparison is to express the above difference in terms of Standard Error (SE).
+:::
+
+
+## Comparison
+
+How does observed $\hat{p} = 0.54 \ $ compare to assumed $p_{fair}$ (idea 1: business as usual)?
+
+::: {.fragment}
+$$
+\frac{\hat{p} - p_{fair}}{SE} = \frac{0.54 - 0.5}{SE}
+$$
+:::
+
+::: {.fragment}
+where:
+
+$$
+SE = (p_{fair}(1 - p_{fair}) / n)^{1/2} = (0.5 \times 0.5 / 100)^{1/2} = 0.05
+$$
+:::
+
+::: {.fragment}
+then:
+
+$$
+z = \frac{\hat{p} - p_{fair}}{SE} = \frac{0.54 - 0.5}{0.05} = 0.8
+$$
+:::
+
+
+## Comparison
+
+How does observed $\hat{p} = 0.54 \ $ compare to assumed $p_{fair}$ (idea 1: business as usual)?
+
+$$
+\frac{\hat{p} - p_{fair}}{SE} = \frac{0.54 - 0.5}{0.05} = 0.8
+$$
+
+::: {.fragment}
+Our observed proportion of heads (in 100 flips) $\hat{p} = 0.54$ is 0.8 SE's from the assumed proportion of heads of a normal coin: $p=0.5$
+:::
+
+
+## Comparison
+
+Under __Idea-1: Business as Usual__, we expect the sampling distribution of p-hats
+to approximate a Normal distribution
+
+$$
+\hat{p} \sim N(\mu = 0.5, \sigma = 0.05)
+$$
+
+```{r echo = FALSE, fig.align='center'}
+# Typical normal probability distribution (mu = 5, sigma = 1)
+x <- seq(0.35, 0.65, length.out = 500)
+y <- normal(x, mu = 0.5, sigma = 0.05)
+
+plot(x, y, type = 'l', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+abline(h = 0)
+axis(side = 1, at = seq(0.35, 0.65, by = 0.05))
+```
+
+
+## Comparison
+
+Under __Idea-1: Business as Usual__, we expect the sampling distribution of p-hats
+to approximate a Normal distribution
+
+$$
+\hat{p} \sim N(\mu = 0.5, \sigma = 0.05)
+$$
+
+```{r echo = FALSE, fig.align='center'}
+# Typical normal probability distribution (mu = 5, sigma = 1)
+x <- seq(0.35, 0.65, length.out = 500)
+y <- normal(x, mu = 0.5, sigma = 0.05)
+
+plot(x, y, type = 'l', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+abline(h = 0)
+segments(x0 = 0.54, y0 = 0, 
+         x1 = 0.54, y1 = normal(0.54, mu = 0.5, sigma = 0.05), 
+         col = 'tomato', lwd = 4, lty = 2)  
+axis(side = 1, at = seq(0.35, 0.65, by = 0.05))
+text(x = 0.54, y = 0.6, labels = "phat = 0.54", col = "tomato")
+```
+
+
+## Probability of observing $\hat{p}$
+
+Under __Idea-1: Business as Usual__, we expect the sampling distribution of p-hats
+to approximate a Normal distribution
+
+$$
+\hat{p} \sim N(\mu = 0.5, \sigma = 0.05)
+$$
+
+```{r echo = FALSE, fig.align='center'}
+# Typical normal probability distribution (mu = 5, sigma = 1)
+x <- seq(0.35, 0.65, length.out = 500)
+y <- normal(x, mu = 0.5, sigma = 0.05)
+
+auc1 <- normal_auc(0.54, 0.65, 0.5, 0.05)
+
+plot(x, y, type = 'l', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+abline(h = 0)
+polygon(auc1$xs, auc1$ys, col = '#FF000066', border = NA)
+segments(x0 = 0.54, y0 = 0, 
+         x1 = 0.54, y1 = normal(0.54, mu = 0.5, sigma = 0.05), 
+         col = 'tomato', lwd = 4, lty = 2)  
+axis(side = 1, at = seq(0.35, 0.65, by = 0.05))
+text(x = 0.54, y = 0.6, labels = "phat = 0.54", col = "tomato")
+text(x = 0.6, y = 6, labels = "Prob(phat >= 0.54)", 
+     col = "tomato", cex = 2)
+```
+
+
+## Probability of observing $\hat{p}$
+
+What is the probability of observing $\hat{p} = 0.54$ or something more extreme, under the assumption that the coin is fair?
+
+```{r echo = FALSE, fig.align='center'}
+# Typical normal probability distribution (mu = 5, sigma = 1)
+x <- seq(0.35, 0.65, length.out = 500)
+y <- normal(x, mu = 0.5, sigma = 0.05)
+
+auc1 <- normal_auc(0.54, 0.65, 0.5, 0.05)
+
+plot(x, y, type = 'l', col = 'gray50', lwd = 4,
+     axes = FALSE, xlab = '', ylab = '')
+abline(h = 0)
+polygon(auc1$xs, auc1$ys, col = '#FF000066', border = NA)
+segments(x0 = 0.54, y0 = 0, 
+         x1 = 0.54, y1 = normal(0.54, mu = 0.5, sigma = 0.05), 
+         col = 'tomato', lwd = 4, lty = 2)  
+axis(side = 1, at = seq(0.35, 0.65, by = 0.05))
+text(x = 0.54, y = 0.6, labels = "phat = 0.54", col = "tomato")
+text(x = 0.6, y = 6, labels = "Prob(phat >= 0.54)", 
+     col = "tomato", cex = 2)
+```
+
+::: {.fragment}
+```{r echo = TRUE}
+pnorm(0.54, mean = 0.5, sd = 0.05, lower.tail = FALSE)
+```
+:::
+
+
+# Hypothesis Test
+
+## Framework
+
+::: {.incremental}
+1) Hypothesis (2-competing ideas):
+    
+    - __Null__ hypothesis (business as usual): $p = 0.5$
+    - __Alternative__ hypothesis (something else is going on): $p > 0.5$
+    
+2) Collect Evidence (i.e. data)
+
+    - Flip the coin, and count number of heads: e.g., 54 heads in 100 flips
+    - observed statistic: $\hat{p} = 0.54$
+    
+3) Test Statistic
+
+    - $z = (\hat{p} - p) / SE = 0.8$
+    
+4) P-value
+
+    - $P(\hat{p} \geq 0.54)$: prob. of observing what we observe or something more extreme, assuming the null hypothesis is true.
+:::
