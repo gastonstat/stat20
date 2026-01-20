@@ -6,7 +6,6 @@ contributes:
   formats:
     revealjs:
       subtitle: "STAT 20: Introduction to Probability and Statistics"
-      author: "Adapted by Gaston Sanchez"
       theme: [slides.scss]
       logo: stat20-hex-vsmall.png
       height: 900

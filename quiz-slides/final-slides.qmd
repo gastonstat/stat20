@@ -1,0 +1,40 @@
+---
+title: "Final Exam"
+format:
+  stat20slides-revealjs
+---
+
+## Before the Exam
+
+1.  🧹 Clear your desk of everything except a pen/pencil, cheat sheet, and ID.
+
+\
+
+2.  🧢 Remove hats, hoods, and sunglasses.
+
+\
+
+3.  📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.
+
+\
+
+4.  Spread out as much as possible.
+
+
+## Exam
+
+```{r}
+#countdown::countdown(minutes = 170, bottom = 0)
+```
+
+1.  Write your name on __Bubble__ sheet and __Free-Response__ sheet.
+
+2.  If you need to use the bathroom, bring phone, exam and ID to the front.
+
+3.  ⌛If you finish early, bring exam and ID to the front of the class.
+
+4.  ⌛If you finish  within the last 5 mins, please hold on to your exam and wait.
+
+5.  ❗You must stop writing when time is called or risk a 0.
+
+Good luck! 🍀

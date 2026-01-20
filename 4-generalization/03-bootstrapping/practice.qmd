@@ -1,0 +1,92 @@
+---
+title: "Infer Pipelines"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(infer)
+library(palmerpenguins)
+```
+
+# Confidence Intervals
+
+
+## Bootstrap C.I. for Proportion of Adelie
+
+```{r}
+adelie_boot_dist = penguins |> 
+  mutate(is_adelie = species == "Adelie") |> 
+  specify(response = is_adelie, success = "TRUE") |> 
+  generate(reps = 500, type = "bootstrap") |> 
+  calculate(stat = "prop")
+
+adelie_boot_dist |> 
+  visualize()
+```
+
+```{r}
+# confidence interval
+adelie_boot_dist |> 
+  get_ci(level = 0.95)
+```
+
+
+## Bootstrap C.I. for Median Bill Length
+
+```{r}
+# empirical distribution
+penguins |> 
+  ggplot(aes(x = bill_length_mm)) +
+  geom_histogram(bins = 20, color = "white")
+```
+
+
+```{r}
+bill_length_boot_dist = penguins |> 
+  specify(response = bill_length_mm) |> 
+  generate(reps = 1000, type = "bootstrap") |> 
+  calculate(stat = "mean")
+
+bill_length_boot_dist |> 
+  visualize()
+```
+
+```{r}
+bill_length_boot_dist |> 
+  get_ci(level = 0.90)
+```
+
+
+
+# Hypothesis Tests
+
+- $H_0$: proportion of female is 0.5
+- $H_1$: proportion of female is less than 0.5
+
+```{r}
+# sample proportion (p-hat)
+phat = penguins |> 
+  drop_na(sex) |> 
+  summarize(phat = mean(sex == "female")) |> 
+  pull()
+
+phat
+```
+
+```{r}
+null_dist = penguins |> 
+  drop_na(sex) |> 
+  specify(response = sex, success = "female") |> 
+  hypothesize(null = "point", p = 0.5) |> 
+  generate(reps = 500) |> 
+  calculate(stat = "prop")
+```
+
+```{r}
+null_dist |> 
+  visualize() +
+  shade_p_value(obs_stat = phat, direction = "left")
+```
+

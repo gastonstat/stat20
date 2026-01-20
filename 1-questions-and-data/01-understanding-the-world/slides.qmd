@@ -29,7 +29,7 @@ countdown::countdown(5, top = 0)
 
 # The Data Science Lifecycle
 
-## Two Years Ago ...
+## Two and a half years ago ...
 
 ![](images/sideswiped.jpg)
 
@@ -256,6 +256,17 @@ Data from a Randomized Controlled Experiment shows that lab scores of STAT 20 st
 *Example*\
 Based on STAT 20 data from the past three semesters, I predict that the median score on quiz 1 will be 80%.
 
+
+# Your Turn!
+
+- Flip over your worksheet and answer the questions!
+
+```{r}
+countdown::countdown(5)
+```
+
+
+<!--
 # Practice Concept Questions
 
 ## Practice Concept Questions
@@ -267,6 +278,7 @@ We will now re-examine a few pathways in the *data science lifecycle*:
 . . .
 
 -   Collecting data -\> making a claim
+
 
 ## The AeroFlex Shoe
 
@@ -332,11 +344,15 @@ What kind of claim is this: a summary, a prediction, a generalization, or a caus
 countdown::countdown(1, top = 0)
 ```
 
+-->
+
+
 # Break
 
 ```{r}
 countdown::countdown(5, top = 0)
 ```
+
 
 # Course Structure
 
@@ -376,82 +392,35 @@ countdown::countdown(5, top = 0)
 :::
 ::::::::
 
-##  {data-menu-title="Course Website"}
-
-::: {style="text-align: center"}
-All of the materials and links for the course can be found at:
-
-[<https://stat20.berkeley.edu/fall-2025/>]{style="font-size: 1.5em"}
-:::
-
-![](images/website-screenshot.png){fig-align="center"}
-
-# {{< fa pen-to-square >}} Syllabus {background-color="#00403d"}
-
-Take 4 minutes to read through the syllabus and jot down at least one question that you have.
-
-
-![](images/syllabus-screenshot.png){fig-align="center" width="1000"}
-
-```{r}
-#| echo: false
-countdown::countdown(4, top = 0)
-```
-
-## Ed Discussion Forum
-
-:::::: columns
-::: {.column width="50%"}
-![](images/ed.png)
-:::
-
-:::: {.column .fragment width="50%"}
--   Forum to ask questions, answer questions, and course announcements
--   Please answer each other's questions!
-
-::: {.poll .fragment}
-Practice by asking/answering a question on the "Syllabus Discussion" thread on Ed via the link at the top right of <https://stat20.berkeley.edu/fall-2025/>.
-:::
-::::
-::::::
 
 # Intro to R and RStudio
 
--   Go to the course website: <https://stat20.berkeley.edu/fall-2025/>
+- Head to [stat20.datahub.berkeley.edu/](https://stat20.datahub.berkeley.edu/)!
 
--   Click on the **Assignments** tab
 
--   Click on **Lab 1: Part II**.
+## R and RStudio
 
-## Intro to R and RStudio (cont'd)
+- __R__: A free, open-source programming language designed for statistics and data science purposes.
 
-We will now
+- __RStudio__: A software through which you can run R code, compose documents, and easily keep track of your coding session. You can also store and manage your files.
 
--   Demo the four parts of RStudio
--   Show you how to work with a Quarto Document
--   Walk through the first few questions of Lab 1
 
 ## Components of RStudio
 
-1.  Console
+- __Console__: Where the live R session lives. Type commands into the prompt > and press enter/return to run them. The Console is in the lower-left pane.
 
-2.  Environment
+. . .
 
-3.  Editor
+- __Environment__: The space that keeps track of all of the data and objects that you have created or loaded and have access to. Found in the upper right pane.
 
-4.  File Directory
+. . .
 
-> Now we are going to switch over to RStudio to understand these 4 components a bit better.
+- __Editor__: Used to compose and edit text (.qmd files) and R code (.r files). Found in the upper left pane.
 
-## Components of RStudio
+. . .
 
-1.  **Console**: Where the live R session lives. Type commands into the prompt `>` and press enter/return to run them. The Console is in the lower-left pane.
+- __File Directory__: Used to navigate between your files/folders on your Rstudio account. Can move, copy, rename, delete, etc. Found in the lower right pane.
 
-2.  **Environment**: The space that keeps track of all of the data and objects that you have created or loaded and have access to. Found in the upper right pane.
-
-3.  **Editor**: Used to compose and edit text (.qmd files) and R code (.r files). Found in the upper left pane.
-
-4.  **File Directory**: Used to navigate between your files/folders on your Rstudio account. Can move, copy, rename, delete, etc. Found in the lower right pane.
 
 ## R as a calculator
 
@@ -520,31 +489,89 @@ R allows all of the standard arithmetic operations.
 :::
 :::::
 
-## Your turn
 
-::: poll
-What is three times one point two raised to the quantity thirteen divided six?
-:::
+## Object assignment
+
+You can create/save objects using the assignment operator `<-`. This is the equivalent of `=` in other programming languages.
 
 ```{r}
-countdown::countdown(minutes = 1, top = 0)
+#| echo: true
+my_fav_num <- 17
 ```
+
+. . .
+
+In order to be recognized as a valid object name, you have to follow certain conventions; namely, the object name should begin with a letter.
+
+| good names | names that cause errors |
+|------------|-------------------------|
+| `a`        |	`1trial`               |
+| `b`	       |	`$`                    |
+| `FOO`      |	`^mean`                |
+| `my_var`	 | `my var`                |
+
+
+## Functions on vectors
+
+A vector is the simplest structure used in R to store data. It can be created using the function `c()`.
+
+```{r}
+#| echo: true
+my_vector <- c(1, 3, 4)
+my_vector
+```
+
+. . .
+
+A function operates on an R object and produces output. R has many of the mathematical functions that you would expect.
+
+```{r}
+#| echo: true
+sum(my_vector)
+```
+
+
+## Load the Lab 1 Template into RStudio
+
+Click the link below ...
+
+\
+\
+
+[Load Lab Templates into RStudio](https://stat20.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-stat20%2Fstat20-labs&urlpath=rstudio%2F&branch=sp26)
+
+
+
+# Lab 1
+
+```{r}
+countdown::countdown(minutes = 15, top = 0)
+```
+
+
+## General Lab Workflow
+
+1) Lab Questions will be posted to the course website.
+
+2) You'll author your Lab Reports as Quarto Documents that blend text and code. They should contain only answers.
+
+3) Render your `.qmd` file to a `.pdf` file then download that file from RStudio to your computer.
+
+4) Go to Gradescope and upload your `.pdf` lab report, being sure to assign questions to the pages.
+
 
 ## Looking forward
 
 :::::: columns
-::: {.column .incremental width="60%"}
--   This Friday 8/29 I'll be holding OH in class to help you with Lab-1.
--   Read the lecture notes for *Taxonomy of Data*.
--   If you have any questions, you may leave a comment/question on the *Taxonomy of Data* thread on Ed.
--   **Reading Questions** for *Taxonomy of Data* are due on Gradescope by 11:59 pm on Tuesday.
--   **Lab-1 and WSP-1** will also be due on Gradescope **next Tuesday** at 8am!
+::: {.column .incremental width="70%"}
+-   Read the lecture notes for Taxonomy of Data (Notes for TuWed classes are released on Friday evenings and those for ThFr classes are released on Tuesday evenings).
+-   If you have any questions, please leave a comment/question on the Taxonomy of Data thread on Ed.
+-   Answer the Reading Questions for _Taxonomy of Data_ on Gradescope by 11:59 pm the night before your class.
+-   Lab 1 due Tuesday at 8 am on Gradescope.
+-   Worksheet Packet 1 (just 2 google surveys) due
 :::
 
-::: {.column width="20%"}
-:::
-
-::: {.column .fragment width="20%"}
+::: {.column .fragment width="30%"}
 :::
 ::::::
 

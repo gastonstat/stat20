@@ -46,6 +46,10 @@ normal_auc <- function(x0, x1, mu = 0, sigma = 1, n = 50) {
 
 # A Loaded Coin?
 
+##
+
+
+
 ## Weird looking Coin
 
 Say we find a _weird looking_ coin on the street.
