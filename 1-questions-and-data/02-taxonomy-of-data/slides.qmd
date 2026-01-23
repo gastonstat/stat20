@@ -13,19 +13,42 @@ chalkboard: true
 -   Concept Questions: Coding
 -   More Practice
 
-## Assignments
+## Assignments 
 
-You should have submitted Lab-1 **UN Votes** and Worksheet Packet WSP-1
-
-These were originally due yesterday (Tue) on Gradescope by 8:00am, but got extended till 11:59pm.
+RQ: Taxonomy of Data (due yesterday Thu 1/22 11:59pm)
 
 . . .
 
 \
 
-You should have answered Reading Questions of **Taxonomy of Data**
+Quiz-1 (Monday 1/26)
 
-These were due yesterday (Tue) on Gradescope by 11:59pm
+. . .
+
+\
+
+Lab-1 **Getting Started** (due Tuesday 1/27 @7am)
+
+. . .
+
+\
+
+Problem Sets (due Tuesday 1/27 @7am)
+
+- PS0: 2 google forms
+- PS1: _Understanding the World with Data_ + _Taxonomy of Data_
+
+
+## Lab 1: Getting Started
+
+- Complete `qmd` file
+
+- Render `qmd` to obtain PDF document
+
+- Download (_export_) `pdf` to your computer (or tablet)
+
+- Submission: upload PDF to gradescope
+
 
 # Notes Recap
 
@@ -87,7 +110,7 @@ The classification (*aka* taxonomy) adopted in STAT 20 involves 2 major classes,
     -   3 continuous numerical variables
     -   3 discrete numerical variables
     -   3 ordinal categorical variables
-    -   3 nominal categorical variables. Don't choose:
+    -   3 nominal categorical variables.
 
 2.  ❌ Do Not choose:
 
@@ -101,7 +124,7 @@ countdown::countdown(15, top = 0)
 
 # Worksheet 1: *Taxonomy of Data*
 
-<https://stat20.berkeley.edu/fall-2025/assignments.html>
+<https://stat20.berkeley.edu/spring-2026/1-questions-and-data/02-taxonomy-of-data/ws.pdf>
 
 ```{r}
 countdown::countdown(20, bottom = 0)
@@ -116,7 +139,7 @@ countdown::countdown(5, top = 0)
 
 # Practice Problems
 
-Additional handout prepared for Prof. Sanchez's sections (1 & 8)
+[www.gastonsanchez.com/stat20/1-questions-and-data/02-taxonomy-of-data/practice.html](https://www.gastonsanchez.com/stat20/1-questions-and-data/02-taxonomy-of-data/practice.html)
 
 These are NOT worksheets (no need to submit to Gradescope)
 
@@ -124,42 +147,3 @@ These are NOT worksheets (no need to submit to Gradescope)
 countdown::countdown(25, top = 0)
 ```
 
-# Your Turn
-
-::: poll
-1.  Create a vector named `vec` with the even integers between 1 and 10 as well as the number 99 (six elements total).
-
-2.  Find the sum of that vector.
-
-3.  Find the max of that vector.
-
-4.  Take the mean of that vector and round it to the nearest integer.
-:::
-
-These should all be solved with R code. If you don't know the name of a function to use, you could hazard a guess by looking for a help file (e.g. ?sum) or google it.
-
-```{r}
-countdown::countdown(5, top = 0)
-```
-
-# Your Turn
-
-::: poll
-1.  Create a new .qmd file, name it, and save it.
-
-2.  Insert a new code cell.
-
-3.  Create three vectors, `name`, `hometown`, and `sibs_and_pets` that contain observations on those variables from 6 people in this class.
-
-Combine them into a data frame called `my_classmates.`
-:::
-
-```{r}
-countdown::countdown(6, top = 0)
-```
-
-# Reminder
-
-Answer Reading Questions of **Summarizing Categorical Data**
-
-Due on Gradescope by 11:59pm Thursday

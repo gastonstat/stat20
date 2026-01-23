@@ -2125,7 +2125,7 @@
     "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#assignments",
     "title": "Taxonomy of Data",
     "section": "Assignments",
-    "text": "Assignments\nYou should have submitted Lab-1 UN Votes and Worksheet Packet WSP-1\nThese were originally due yesterday (Tue) on Gradescope by 8:00am, but got extended till 11:59pm.\n\n\n\nYou should have answered Reading Questions of Taxonomy of Data\nThese were due yesterday (Tue) on Gradescope by 11:59pm"
+    "text": "Assignments\nRQ: Taxonomy of Data (due yesterday Thu 1/22 11:59pm)\n\n\n\nQuiz-1 (Monday 1/26)\n\n\n\n\nLab-1 Getting Started (due Tuesday 1/27 @7am)\n\n\n\n\nProblem Sets (due Tuesday 1/27 @7am)\n\nPS0: 2 google forms\nPS1: Understanding the World with Data + Taxonomy of Data"
   },
   {
     "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#concept-of-data",
@@ -2153,7 +2153,7 @@
     "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#section",
     "title": "Taxonomy of Data",
     "section": "",
-    "text": "As a group, choose a set of individuals, and list at least:\n\n3 continuous numerical variables\n3 discrete numerical variables\n3 ordinal categorical variables\n3 nominal categorical variables. Don’t choose:\n\n❌ Do Not choose:\n\nstudents\nelectronic devices\n\n\n\n\n\n−+\n15:00"
+    "text": "As a group, choose a set of individuals, and list at least:\n\n3 continuous numerical variables\n3 discrete numerical variables\n3 ordinal categorical variables\n3 nominal categorical variables.\n\n❌ Do Not choose:\n\nstudents\nelectronic devices\n\n\n\n\n\n−+\n15:00"
   },
   {
     "objectID": "about.html",
@@ -3580,5 +3580,12 @@
     "title": "Understanding the World with Data",
     "section": "General Lab Workflow",
     "text": "General Lab Workflow\n\nLab Questions will be posted to the course website.\nYou’ll author your Lab Reports as Quarto Documents that blend text and code. They should contain only answers.\nRender your .qmd file to a .pdf file then download that file from RStudio to your computer.\nGo to Gradescope and upload your .pdf lab report, being sure to assign questions to the pages."
+  },
+  {
+    "objectID": "1-questions-and-data/02-taxonomy-of-data/slides.html#lab-1-getting-started",
+    "href": "1-questions-and-data/02-taxonomy-of-data/slides.html#lab-1-getting-started",
+    "title": "Taxonomy of Data",
+    "section": "Lab 1: Getting Started",
+    "text": "Lab 1: Getting Started\n\nComplete qmd file\nRender qmd to obtain PDF document\nDownload (export) pdf to your computer (or tablet)\nSubmission: upload PDF to gradescope"
   }
 ]
